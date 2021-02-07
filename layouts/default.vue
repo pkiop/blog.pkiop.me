@@ -1,6 +1,6 @@
 <template>
   <v-main>
-    <header>HEADER</header>
+    <HeaderBar />
     <v-container>
       <nuxt />
     </v-container>
@@ -9,7 +9,11 @@
 </template>
 
 <script lang="ts">
+import HeaderBar from '../components/organisms/HeaderBar.vue'
 export default {
+  components: {
+    HeaderBar,
+  },
   data() {
     return {
       clipped: false,
