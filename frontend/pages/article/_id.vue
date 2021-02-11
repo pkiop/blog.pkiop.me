@@ -16,7 +16,7 @@ export default {
   },
   async fetch() {
     await axios
-      .get(`http://localhost:4000/api/posts/12`)
+      .get(`http://localhost:4000/api/posts/${this.$route.params.id}`)
       .then((response) => (this.info = response.data))
   },
 }
