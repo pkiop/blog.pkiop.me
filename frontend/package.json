@@ -12,6 +12,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@nuxt/http": "^0.6.2",
     "@nuxtjs/axios": "^5.12.5",
     "core-js": "^3.8.3",
     "nuxt": "^2.14.12"
