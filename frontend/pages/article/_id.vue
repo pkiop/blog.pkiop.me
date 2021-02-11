@@ -6,8 +6,6 @@
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   data() {
     return {
@@ -15,9 +13,16 @@ export default {
     }
   },
   async fetch() {
-    await axios
-      .get(`http://localhost:4000/api/posts/${this.$route.params.id}`)
-      .then((response) => (this.info = response.data))
+    this.info = await this.$http.$get(
+      `http://localhost:4000/api/posts/${this.$route.params.id}`
+    )
   },
+  fetchOnServer: true,
+
+  // async fetch() {
+  //   await axios
+  //     .get()
+  //     .then((response) => (this.info = response.data))
+  // },
 }
 </script>
