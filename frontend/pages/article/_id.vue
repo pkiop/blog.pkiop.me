@@ -18,11 +18,5 @@ export default {
     )
   },
   fetchOnServer: true,
-
-  // async fetch() {
-  //   await axios
-  //     .get()
-  //     .then((response) => (this.info = response.data))
-  // },
 }
 </script>
