@@ -1,20 +1,18 @@
 <template>
-  <header>
-    <div>Header</div>
-    <NuxtLink to="/">Home page</NuxtLink>
-    <NuxtLink to="/article">article</NuxtLink>
-  </header>
+  <footer>
+    <div>Footer</div>
+  </footer>
 </template>
 
 <script>
 export default {
-  name: 'Header',
+  name: 'Footer',
   components: {},
 }
 </script>
 
 <style lang="scss" scoped>
-header {
+footer {
   display: flex;
   justify-content: space-between;
   background-color: gray;
