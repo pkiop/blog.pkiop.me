@@ -1,18 +1,20 @@
 <template>
   <div>
-    <div>article main</div>
     <ul id="example-1">
       <li v-for="list in info" :key="list.id">
-        <NuxtLink :to="`/article/${list.id}`">
-          ID : {{ list.id }} Data : {{ list.name }}
-        </NuxtLink>
+        <PostBlock :post-title="list.name" :post-id="String(list.id)" />
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+import PostBlock from '@/components/PostBlock'
+
 export default {
+  components: {
+    PostBlock,
+  },
   data() {
     return {
       info: null,
