@@ -68,4 +68,8 @@ router.get('/:id', (req, res) => {
   res.send(resultData);
 });
 
+router.post('/', (req, res) => {
+  res.send('hello');
+});
+
 export default router;
