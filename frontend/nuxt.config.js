@@ -1,5 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
-
+import awsmobile from './src/aws-exports'
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'server',
@@ -41,11 +41,24 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxt/http',
+    '@nuxtjs/apollo',
   ],
   serverMiddleware: ['~/server-middleware/logger'],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: `${awsmobile.aws_appsync_graphqlEndpoint}`,
+        httpLinkOptions: {
+          headers: {
+            'x-api-key': awsmobile.aws_appsync_apiKey,
+          },
+        },
+      },
+    },
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
