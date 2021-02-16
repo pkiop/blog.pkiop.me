@@ -13,7 +13,7 @@ export default {
   props: {
     postTitle: {
       type: String,
-      default: 'hello',
+      required: true,
     },
     postId: {
       type: String,
