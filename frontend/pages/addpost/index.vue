@@ -1,37 +1,29 @@
 <template>
   <div class="wrap">
     <div>add post</div>
-    <textarea ref="mdText"></textarea>
+    <textarea v-model="mdText"></textarea>
     <button @click="submit">작성</button>
   </div>
 </template>
 
 <script>
-// import { createPkiopblog } from '@/src/graphql/queries'
 import gql from 'graphql-tag'
-// import { API, graphqlOperation } from 'aws-amplify'
 
 export default {
   components: {},
   data() {
-    return {
-      info: null,
-      links: 1,
-    }
+    return { mdText: ['Hello World!'] }
   },
 
   methods: {
     async submit() {
-      const mdText = this.$refs.mdText
       const inputValue = {
         title: 'hello',
-        mdContents: mdText && 'test',
+        mdContents: this.mdText,
         createAt: new Date(),
         updateAt: new Date(),
       }
-      console.log('do')
       try {
-        console.log('abc')
         const gqlres = gql`
           mutation CreatePkiopblog($input: CreatePkiopblogInput!) {
             createPkiopblog(input: $input) {
@@ -43,27 +35,17 @@ export default {
             }
           }
         `
-        console.log(gqlres)
-        console.log('abc')
 
-        const response = await this.$apollo.mutate({
+        await this.$apollo.mutate({
           mutation: gqlres,
           variables: { input: inputValue },
         })
-        // const response = await API.graphql(
-        //   graphqlOperation(createPkiopblog, { input: inputValue })
-        // )
-        console.log('Item created!')
-        console.log('res : ', response)
       } catch (error) {
         console.log('Error creating post...', error)
       }
     },
   },
-  // async fetch() {
-  //   this.info = await this.$http.$get(`http://localhost:4000/api/posts`)
-  // },
-  // fetchOnServer: true,
+,
 }
 </script>
 
