@@ -1,11 +1,14 @@
 <template>
   <div id="idCover">
+    <div id="title"></div>
     <div id="textArea"></div>
   </div>
 </template>
 
 <script>
 import marked from 'marked'
+import gql from 'graphql-tag'
+
 export default {
   data() {
     return {
@@ -13,11 +16,25 @@ export default {
     }
   },
   async fetch() {
-    this.info = await this.$http.$get(
-      `http://localhost:4000/api/posts/${this.$route.params.id}`
-    )
+    this.info = await this.$apollo.query({
+      query: gql`
+        query GetPkiopblog($id: ID!) {
+          getPkiopblog(id: $id) {
+            id
+            title
+            mdContents
+            createAt
+            updateAt
+          }
+        }
+      `,
+      variables: { id: this.$route.params.id },
+    })
+    document.getElementById(
+      'title'
+    ).innerHTML = this.info.data.getPkiopblog.title
     document.getElementById('textArea').innerHTML = await marked(
-      this.info.texts,
+      this.info.data.getPkiopblog.mdContents,
       {
         sanitize: true,
       }

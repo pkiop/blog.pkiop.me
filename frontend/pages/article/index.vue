@@ -1,8 +1,8 @@
 <template>
   <div>
     <ul id="example-1">
-      <li v-for="list in info" :key="list.id">
-        <PostBlock :post-title="list.name" :post-id="String(list.id)" />
+      <li v-for="list in info.data.listPkiopblogs.items" :key="list.id">
+        <PostBlock :post-title="list.title" :post-id="String(list.id)" />
       </li>
     </ul>
   </div>
@@ -10,6 +10,7 @@
 
 <script>
 import PostBlock from '@/components/PostBlock'
+import gql from 'graphql-tag'
 
 export default {
   components: {
@@ -22,7 +23,26 @@ export default {
     }
   },
   async fetch() {
-    this.info = await this.$http.$get(`http://localhost:4000/api/posts`)
+    const queryData = gql`
+      query ListPkiopblogs(
+        $filter: TablePkiopblogFilterInput
+        $limit: Int
+        $nextToken: String
+      ) {
+        listPkiopblogs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+          items {
+            id
+            title
+            mdContents
+            createAt
+            updateAt
+          }
+          nextToken
+        }
+      }
+    `
+    this.info = await this.$apollo.query({ query: queryData })
+    console.log('thisinfo is ', this.info)
   },
   fetchOnServer: true,
 }
