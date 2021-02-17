@@ -16,7 +16,7 @@ export default {
   components: {
     PostBlock,
   },
-  async asyncData({ params, $apollo }) {
+  async asyncData(context) {
     const queryData = gql`
       query ListPkiopblogs(
         $filter: TablePkiopblogFilterInput
@@ -35,7 +35,9 @@ export default {
         }
       }
     `
-    const info = await $apollo.query({ query: queryData })
+    const client = context.app.apolloProvider.defaultClient
+    const info = await client.query({ query: queryData })
+    console.log(info)
     return { info }
   },
   data() {
