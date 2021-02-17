@@ -16,13 +16,7 @@ export default {
   components: {
     PostBlock,
   },
-  data() {
-    return {
-      info: null,
-      links: 1,
-    }
-  },
-  async fetch() {
+  async asyncData({ params, $apollo }) {
     const queryData = gql`
       query ListPkiopblogs(
         $filter: TablePkiopblogFilterInput
@@ -41,9 +35,14 @@ export default {
         }
       }
     `
-    this.info = await this.$apollo.query({ query: queryData })
-    console.log('thisinfo is ', this.info)
+    const info = await $apollo.query({ query: queryData })
+    return { info }
   },
-  fetchOnServer: true,
+  data() {
+    return {
+      info: null,
+      links: 1,
+    }
+  },
 }
 </script>
