@@ -1,16 +1,14 @@
 <template>
   <div class="wrap">
     <div>edit post</div>
-    <client-only placeholder="loading...">
-      <textarea v-model="mdText"></textarea>
-    </client-only>
+    <textarea v-model="mdText"></textarea>
     <button @click="submit">수정</button>
   </div>
 </template>
 
 <script>
 import gql from 'graphql-tag';
-import { UpdatePkiopblog } from '@/src/graphql/mutations';
+import { updatePkiopblog } from '@/src/graphql/mutations';
 
 export default {
   components: {},
@@ -43,14 +41,15 @@ export default {
   methods: {
     async submit() {
       const inputValue = {
-        title: 'hello',
+        id: this.$route.params.id,
+        title: 'hello' + this.$route.params.id,
         mdContents: this.mdText,
         createAt: new Date(),
         updateAt: new Date(),
       };
       try {
         const gqlres = gql`
-          ${UpdatePkiopblog}
+          ${updatePkiopblog}
         `;
 
         await this.$apollo.mutate({
