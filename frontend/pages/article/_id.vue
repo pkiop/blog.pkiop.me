@@ -1,6 +1,6 @@
 <template>
   <div id="idCover">
-    <div id="title"></div>
+    <div id="title">title : {{ title }}</div>
     <div id="textArea"></div>
     <button @click="editHandler">Edit</button>
   </div>
@@ -11,14 +11,9 @@ import marked from 'marked';
 import gql from 'graphql-tag';
 
 export default {
-  data() {
-    return {
-      info: null,
-    };
-  },
-
-  async fetch() {
-    this.info = await this.$apollo.query({
+  async asyncData(context) {
+    const client = context.app.apolloProvider.defaultClient;
+    const res = await client.query({
       query: gql`
         query GetPkiopblog($id: ID!) {
           getPkiopblog(id: $id) {
@@ -30,21 +25,25 @@ export default {
           }
         }
       `,
-      variables: { id: this.$route.params.id },
+      variables: { id: context.route.params.id },
     });
-    document.getElementById(
-      'title'
-    ).innerHTML = this.info.data.getPkiopblog.title;
-    document.getElementById('textArea').innerHTML = await marked(
-      this.info.data.getPkiopblog.mdContents,
-      {
-        sanitize: true,
-      }
-    );
+    const title = res.data.getPkiopblog.title;
+    const mdContents = await marked(res.data.getPkiopblog.mdContents, {
+      sanitize: true,
+    });
+    return { title, mdContents };
+  },
+  data() {
+    return {
+      info: null,
+    };
+  },
+  mounted() {
+    document.getElementById('textArea').innerHTML = this.mdContents;
   },
   methods: {
     editHandler() {
-      console.log('edit');
+      this.$router.push(`/editpost/${this.$route.params.id}`);
     },
   },
   fetchOnServer: true,
