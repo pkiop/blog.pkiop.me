@@ -11,6 +11,7 @@
 <script>
 import PostBlock from '@/components/PostBlock';
 import gql from 'graphql-tag';
+import { listPkiopblogs } from '@/graphql/queries';
 
 export default {
   components: {
@@ -18,22 +19,7 @@ export default {
   },
   async asyncData(context) {
     const queryData = gql`
-      query ListPkiopblogs(
-        $filter: TablePkiopblogFilterInput
-        $limit: Int
-        $nextToken: String
-      ) {
-        listPkiopblogs(filter: $filter, limit: $limit, nextToken: $nextToken) {
-          items {
-            id
-            title
-            mdContents
-            createAt
-            updateAt
-          }
-          nextToken
-        }
-      }
+      ${listPkiopblogs}
     `;
     const client = context.app.apolloProvider.defaultClient;
     const info = await client.query({ query: queryData });

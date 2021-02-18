@@ -8,6 +8,8 @@
 
 <script>
 import gql from 'graphql-tag';
+
+import { getPkiopblog } from '@/src/graphql/queries';
 import { updatePkiopblog } from '@/src/graphql/mutations';
 
 export default {
@@ -17,15 +19,7 @@ export default {
     const client = context.app.apolloProvider.defaultClient;
     const res = await client.query({
       query: gql`
-        query GetPkiopblog($id: ID!) {
-          getPkiopblog(id: $id) {
-            id
-            title
-            mdContents
-            createAt
-            updateAt
-          }
-        }
+        ${getPkiopblog}
       `,
       variables: { id: context.route.params.id },
     });
