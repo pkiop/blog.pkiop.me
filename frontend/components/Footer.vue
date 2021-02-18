@@ -8,7 +8,7 @@
 export default {
   name: 'Footer',
   components: {},
-}
+};
 </script>
 
 <style lang="scss" scoped>

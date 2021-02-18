@@ -1,5 +1,5 @@
-import colors from 'vuetify/es5/util/colors'
-import awsmobile from './src/aws-exports'
+import colors from 'vuetify/es5/util/colors';
+import awsmobile from './src/aws-exports';
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'server',
@@ -81,4 +81,4 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-}
+};

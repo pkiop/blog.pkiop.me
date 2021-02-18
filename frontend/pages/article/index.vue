@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import PostBlock from '@/components/PostBlock'
-import gql from 'graphql-tag'
+import PostBlock from '@/components/PostBlock';
+import gql from 'graphql-tag';
 
 export default {
   components: {
@@ -34,17 +34,16 @@ export default {
           nextToken
         }
       }
-    `
-    const client = context.app.apolloProvider.defaultClient
-    const info = await client.query({ query: queryData })
-    console.log(info)
-    return { info }
+    `;
+    const client = context.app.apolloProvider.defaultClient;
+    const info = await client.query({ query: queryData });
+    return { info };
   },
   data() {
     return {
       info: null,
       links: 1,
-    }
+    };
   },
-}
+};
 </script>

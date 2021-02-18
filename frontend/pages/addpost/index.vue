@@ -7,12 +7,12 @@
 </template>
 
 <script>
-import gql from 'graphql-tag'
+import gql from 'graphql-tag';
 
 export default {
   components: {},
   data() {
-    return { mdText: ['Hello World!'] }
+    return { mdText: ['Hello World!'] };
   },
 
   methods: {
@@ -22,7 +22,7 @@ export default {
         mdContents: this.mdText,
         createAt: new Date(),
         updateAt: new Date(),
-      }
+      };
       try {
         const gqlres = gql`
           mutation CreatePkiopblog($input: CreatePkiopblogInput!) {
@@ -34,18 +34,18 @@ export default {
               updateAt
             }
           }
-        `
+        `;
 
         await this.$apollo.mutate({
           mutation: gqlres,
           variables: { input: inputValue },
-        })
+        });
       } catch (error) {
-        console.log('Error creating post...', error)
+        console.log('Error creating post...', error);
       }
     },
   },
-}
+};
 </script>
 
 <style lang="scss">

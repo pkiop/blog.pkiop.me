@@ -11,7 +11,7 @@
 export default {
   name: 'Header',
   components: {},
-}
+};
 </script>
 
 <style lang="scss" scoped>
