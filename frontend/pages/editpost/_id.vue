@@ -1,6 +1,7 @@
 <template>
   <div class="wrap">
     <div>edit post</div>
+    <div class="title-input">제목 : <input v-model="title" type="text" /></div>
     <textarea v-model="mdText"></textarea>
     <button @click="submit">수정</button>
   </div>
@@ -23,11 +24,13 @@ export default {
       `,
       variables: { id: context.route.params.id },
     });
+    const title = res.data.getPkiopblog.title;
     const mdText = res.data.getPkiopblog.mdContents;
-    return { mdText };
+    return { title, mdText };
   },
   data() {
     return {
+      title: null,
       mdText: ['Hello World!'],
     };
   },
@@ -36,9 +39,8 @@ export default {
     async submit() {
       const inputValue = {
         id: this.$route.params.id,
-        title: 'hello' + this.$route.params.id,
+        title: this.title,
         mdContents: this.mdText,
-        createAt: new Date(),
         updateAt: new Date(),
       };
       try {
