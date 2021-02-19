@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <div>Footer</div>
+    <div>© 2021 pkiop. All rights reserved.</div>
   </footer>
 </template>
 
@@ -13,8 +13,16 @@ export default {
 
 <style lang="scss" scoped>
 footer {
+  position: fixed;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+
   background-color: gray;
   padding: 1rem 2rem;
 }
