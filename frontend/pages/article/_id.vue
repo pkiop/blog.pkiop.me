@@ -9,7 +9,7 @@
 <script>
 import marked from 'marked';
 import gql from 'graphql-tag';
-import { getPkiopblog } from '@/graphql/queries';
+import { getPkiopblog } from '@/src/graphql/queries';
 
 export default {
   async asyncData(context) {

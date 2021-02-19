@@ -8,7 +8,7 @@
 
 <script>
 import gql from 'graphql-tag';
-import { createPkiopblog } from '@/graphql/mutations';
+import { createPkiopblog } from '@/src/graphql/mutations';
 
 export default {
   components: {},

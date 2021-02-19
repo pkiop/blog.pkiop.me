@@ -11,7 +11,7 @@
 <script>
 import PostBlock from '@/components/PostBlock';
 import gql from 'graphql-tag';
-import { listPkiopblogs } from '@/graphql/queries';
+import { listPkiopblogs } from '@/src/graphql/queries';
 
 export default {
   components: {
