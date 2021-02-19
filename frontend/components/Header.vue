@@ -31,7 +31,7 @@ header {
   justify-content: space-between;
   align-items: center;
 
-  background-color: $yellowsa;
+  background-color: $color-yellow;
 
   padding: 0.3rem;
 }
