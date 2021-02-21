@@ -1,15 +1,15 @@
 <template>
   <div>
-    <ul id="example-1">
-      <li v-for="list in info.data.listPkiopblogs.items" :key="list.id">
-        <PostBlock
-          :post-title="list.title"
-          :post-id="String(list.id)"
-          :create-at="list.createAt"
-          :update-at="list.updateAt"
-        />
-      </li>
-    </ul>
+    <div class="post-block-list">
+      <PostBlock
+        v-for="list in info.data.listPkiopblogs.items"
+        :key="list.id"
+        :post-title="list.title"
+        :post-id="String(list.id)"
+        :create-at="list.createAt"
+        :update-at="list.updateAt"
+      />
+    </div>
   </div>
 </template>
 
@@ -38,3 +38,10 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.post-block-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+</style>

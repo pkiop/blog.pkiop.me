@@ -1,5 +1,6 @@
 <template>
   <div class="cover">
+    <img class="title-image" :src="titleImage" />
     <NuxtLink :to="`/article/${postId}`">
       {{ postTitle }}
     </NuxtLink>
@@ -12,6 +13,7 @@
 
 <script>
 import { reduceStringTime } from '@/utils/datetime/index.ts';
+import IUImage from '@/assets/IU.webp';
 export default {
   name: 'PostBlock',
   components: {},
@@ -32,6 +34,15 @@ export default {
       type: String,
       required: true,
     },
+    titleImageLink: {
+      type: String,
+      default: IUImage,
+    },
+  },
+  data() {
+    return {
+      titleImage: this.titleImageLink,
+    };
   },
   computed: {
     shortCreateAt() {
@@ -52,9 +63,17 @@ export default {
 
 <style lang="scss" scoped>
 .cover {
+  width: 16rem;
+
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   background-color: skyblue;
   padding: 1rem 2rem;
+}
+
+.title-image {
+  width: 10rem;
+  border-radius: $main-radius;
 }
 </style>
