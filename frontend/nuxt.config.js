@@ -1,8 +1,13 @@
 import colors from 'vuetify/es5/util/colors';
 import awsmobile from './src/aws-exports';
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'server',
+
+  env: {
+    AUTH_ENV: '',
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
