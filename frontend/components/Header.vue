@@ -5,7 +5,7 @@
     </a>
     <div class="linkWrapper">
       <NuxtLink to="/">Home page</NuxtLink>
-      <NuxtLink to="/editpost">editpost</NuxtLink>
+      <NuxtLink v-if="AUTH_ENV" to="/editpost">editpost</NuxtLink>
       <NuxtLink to="/article">article</NuxtLink>
     </div>
   </header>
@@ -20,6 +20,7 @@ export default {
   data() {
     return {
       logo,
+      AUTH_ENV: process.env.AUTH_ENV === 'admin',
     };
   },
 };

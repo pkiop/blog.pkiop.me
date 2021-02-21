@@ -2,7 +2,7 @@
   <div id="idCover">
     <div id="title">title : {{ title }}</div>
     <div id="textArea"></div>
-    <button @click="editHandler">Edit</button>
+    <button v-if="AUTH_ENV" @click="editHandler">Edit</button>
   </div>
 </template>
 
@@ -29,6 +29,7 @@ export default {
   data() {
     return {
       info: null,
+      AUTH_ENV: process.env.AUTH_ENV === 'admin',
     };
   },
   mounted() {

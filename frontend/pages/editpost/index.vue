@@ -1,13 +1,16 @@
 <template>
-  <div class="wrap">
-    <div>add post</div>
-    <div class="title-input">
-      <div>제목 :</div>
-      <input v-model="title" type="text" />
+  <div v-if="AUTH_ENV">
+    <div class="wrap">
+      <div>add post</div>
+      <div class="title-input">
+        <div>제목 :</div>
+        <input v-model="title" type="text" />
+      </div>
+      <textarea v-model="mdText"></textarea>
+      <button @click="submit">작성</button>
     </div>
-    <textarea v-model="mdText"></textarea>
-    <button @click="submit">작성</button>
   </div>
+  <div v-else>허가되지 않은 접근</div>
 </template>
 
 <script>
@@ -20,6 +23,7 @@ export default {
     return {
       title: 'Write your title',
       mdText: ['Write your post!'],
+      AUTH_ENV: process.env.AUTH_ENV === 'admin',
     };
   },
 

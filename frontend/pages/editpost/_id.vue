@@ -1,9 +1,15 @@
 <template>
   <div class="wrap">
-    <div>edit post</div>
-    <div class="title-input">제목 : <input v-model="title" type="text" /></div>
-    <textarea v-model="mdText"></textarea>
-    <button @click="submit">수정</button>
+    <div v-if="AUTH_ENV">
+      <div>edit post</div>
+      <div class="title-input">
+        제목 : <input v-model="title" type="text" />
+      </div>
+      <textarea v-model="mdText"></textarea>
+      <button @click="submit">수정</button>
+      <div>hi</div>
+    </div>
+    <div v-else>허가되지 않은 접근</div>
   </div>
 </template>
 
@@ -32,6 +38,7 @@ export default {
     return {
       title: null,
       mdText: ['Hello World!'],
+      AUTH_ENV: process.env.AUTH_ENV === 'admin',
     };
   },
 
