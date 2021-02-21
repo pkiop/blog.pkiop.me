@@ -4,9 +4,9 @@
       <img class="logo" :src="logo" />
     </a>
     <div class="linkWrapper">
-      <NuxtLink to="/">Home page</NuxtLink>
-      <NuxtLink v-if="AUTH_ENV" to="/editpost">editpost</NuxtLink>
-      <NuxtLink to="/article">article</NuxtLink>
+      <NuxtLink v-if="AUTH_ENV" to="/editpost">Editpost</NuxtLink>
+      <NuxtLink to="/about">About</NuxtLink>
+      <NuxtLink to="/article">Article</NuxtLink>
     </div>
   </header>
 </template>
