@@ -7,6 +7,6 @@ export const reduceStringTime = (time: string) => {
   const min = date.getMinutes();
   const sec = date.getSeconds();
 
-  const res = `${year} / ${month} / ${day} | ${hour} : ${min} : ${sec} `;
+  const res = { year, month, day, hour, min, sec };
   return res;
 };
