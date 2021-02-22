@@ -90,6 +90,27 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  color: white;
+}
+
+html {
+  background-color: black;
+}
+
+body {
+  font-family: 'NanumSquare', sans-serif;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  outline: none;
+}
+
+a:hover,
+a:active {
+  text-decoration: none;
+  color: #fff;
 }
 
 /* HTML5 display-role reset for older browsers */
