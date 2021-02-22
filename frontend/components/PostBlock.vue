@@ -4,19 +4,20 @@
     <NuxtLink :to="`/article/${postId}`">
       {{ postTitle }}
     </NuxtLink>
-    <div>
-      <div>생성일 : {{ shortCreateAt }}</div>
-      <div>수정일 : {{ shortUpdateAt }}</div>
+    <div class="time-block">
+      <Time class="time" :time="createAt" />
+      <Time class="time" :time="updateAt" />
     </div>
   </div>
 </template>
 
 <script>
-import { reduceStringTime } from '@/utils/datetime/index.ts';
 import IUImage from '@/assets/IU.webp';
+import Time from '@/components/Time';
+
 export default {
   name: 'PostBlock',
-  components: {},
+  components: [Time],
   props: {
     postTitle: {
       type: String,
@@ -44,36 +45,32 @@ export default {
       titleImage: this.titleImageLink,
     };
   },
-  computed: {
-    shortCreateAt() {
-      if (this.createAt) {
-        return reduceStringTime(this.createAt);
-      }
-      return 'loading';
-    },
-    shortUpdateAt() {
-      if (this.updateAt) {
-        return reduceStringTime(this.updateAt);
-      }
-      return 'loading';
-    },
-  },
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .cover {
+  a {
+    font-size: 1.2rem;
+    padding: 0.3rem 0;
+  }
   width: 16rem;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: skyblue;
+  background-color: $color-main1;
   padding: 1rem 2rem;
+
+  border-radius: $main-radius;
 }
 
 .title-image {
   width: 10rem;
   border-radius: $main-radius;
+}
+
+.time {
+  font-size: 0.6rem;
 }
 </style>

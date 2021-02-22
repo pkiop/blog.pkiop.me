@@ -1,9 +1,10 @@
 <template>
-  <div>
+  <div class="article">
     <div class="post-block-list">
       <PostBlock
         v-for="list in info.data.listPkiopblogs.items"
         :key="list.id"
+        class="post-block"
         :post-title="list.title"
         :post-id="String(list.id)"
         :create-at="list.createAt"
@@ -40,8 +41,16 @@ export default {
 </script>
 
 <style lang="scss">
+.article {
+  padding-bottom: 3rem;
+}
+
 .post-block-list {
   display: flex;
   flex-wrap: wrap;
+}
+
+.post-block {
+  margin: 1rem;
 }
 </style>
