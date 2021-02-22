@@ -23,7 +23,7 @@ footer {
   display: flex;
   justify-content: center;
 
-  background-color: gray;
+  background-color: $color-main2;
   padding: 1rem 2rem;
 }
 </style>

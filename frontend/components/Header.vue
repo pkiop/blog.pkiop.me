@@ -8,6 +8,11 @@
       <NuxtLink to="/about">About</NuxtLink>
       <NuxtLink to="/article">Article</NuxtLink>
     </div>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css"
+    />
   </header>
 </template>
 
@@ -32,7 +37,7 @@ header {
   justify-content: space-between;
   align-items: center;
 
-  background-color: $color-yellow;
+  background-color: $color-main3;
 
   padding: 0.3rem;
 }
