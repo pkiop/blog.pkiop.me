@@ -1,12 +1,14 @@
 <template>
   <div class="cover">
     <img class="title-image" :src="titleImage" />
-    <NuxtLink :to="`/article/${postId}`">
-      {{ postTitle }}
-    </NuxtLink>
-    <div class="time-block">
-      <Time class="time" :time="createAt" />
-      <Time class="time" :time="updateAt" />
+    <div class="text">
+      <NuxtLink :to="`/article/${postId}`">
+        {{ postTitle }}
+      </NuxtLink>
+      <div class="time-block">
+        <Time class="time" :time="createAt" />
+        <Time class="time" :time="updateAt" />
+      </div>
     </div>
   </div>
 </template>
@@ -17,7 +19,7 @@ import Time from '@/components/Time';
 
 export default {
   name: 'PostBlock',
-  components: [Time],
+  components: { Time },
   props: {
     postTitle: {
       type: String,
@@ -54,11 +56,9 @@ export default {
     font-size: 1.2rem;
     padding: 0.3rem 0;
   }
-  width: 16rem;
+  width: 100%;
 
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   background-color: $color-main1;
   padding: 1rem 2rem;
 
@@ -67,10 +67,18 @@ export default {
 
 .title-image {
   width: 10rem;
+  @media only screen and (max-width: 768px) {
+    width: 5rem;
+  }
   border-radius: $main-radius;
 }
 
 .time {
   font-size: 0.6rem;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
 }
 </style>

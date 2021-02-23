@@ -7,6 +7,7 @@
 <script>
 import { reduceStringTime } from '@/utils/datetime/index.ts';
 export default {
+  name: 'Time',
   props: {
     time: {
       type: String,
