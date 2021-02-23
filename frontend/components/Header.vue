@@ -38,6 +38,7 @@ header {
   align-items: center;
 
   background-color: $color-main3;
+  height: $header-height;
 
   padding: 0.3rem;
 }
