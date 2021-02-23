@@ -101,6 +101,7 @@ html {
 
 body {
   font-family: 'NanumSquare', sans-serif;
+  height: 100%;
 }
 
 a {
@@ -113,6 +114,16 @@ a:hover,
 a:active {
   text-decoration: none;
   color: #fff;
+}
+
+#__nuxt {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+#__layout {
+  height: 100%;
 }
 
 /* HTML5 display-role reset for older browsers */

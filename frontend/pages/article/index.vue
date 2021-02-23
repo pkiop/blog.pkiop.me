@@ -41,21 +41,17 @@ export default {
 </script>
 
 <style lang="scss">
-.article {
-  margin-left: $sidebar-width;
-  width: calc(100% - 22rem);
-  @media only screen and (max-width: 768px) {
-    margin-left: $sidebar-width-mobile;
-    width: calc(100% - 17rem);
-  }
-  position: relative;
-  margin-bottom: $footer-height;
-  /* width: 100%; */
-}
-
 .post-block-list {
+  height: 100%;
   display: flex;
   flex-direction: column;
+
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
 }
 
 .post-block {
