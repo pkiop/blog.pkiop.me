@@ -1,13 +1,13 @@
 <template>
-  <div class="cover">
+  <div class="post-block-cover">
     <img class="title-image" :src="titleImage" />
-    <div class="text">
+    <div class="post-block-text">
       <NuxtLink :to="`/article/${postId}`">
         {{ postTitle }}
       </NuxtLink>
       <div class="time-block">
-        <Time class="time" :time="createAt" />
-        <Time class="time" :time="updateAt" />
+        <Time class="post-block-time" :time="createAt" />
+        <Time class="post-block-time" :time="updateAt" />
       </div>
     </div>
   </div>
@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style lang="scss">
-.cover {
+.post-block-cover {
   a {
     font-size: 1.2rem;
     padding: 0.3rem 0;
@@ -66,18 +66,18 @@ export default {
 }
 
 .title-image {
-  width: 10rem;
+  width: 9rem;
   @media only screen and (max-width: 768px) {
-    width: 5rem;
+    width: 4rem;
   }
   border-radius: $main-radius;
 }
 
-.time {
+.post-block-time {
   font-size: 0.6rem;
 }
 
-.text {
+.post-block-text {
   display: flex;
   flex-direction: column;
 }

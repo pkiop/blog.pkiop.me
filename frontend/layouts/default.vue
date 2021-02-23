@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="default_cover">
     <Header />
     <div class="contents">
       <Sidebar />
-      <nuxt />
+      <nuxt class="nuxt" />
     </div>
     <Footer />
   </div>
@@ -24,6 +24,10 @@ export default {
 </script>
 
 <style lang="scss">
+.default_cover {
+  height: 100%;
+}
+
 .contents {
   display: flex;
   position: relative;
@@ -31,5 +35,17 @@ export default {
   width: 100%;
   height: 100%;
   display: flex;
+}
+
+.nuxt {
+  margin-left: $sidebar-width;
+  width: calc(100% - 22rem);
+  @media only screen and (max-width: 768px) {
+    margin-left: $sidebar-width-mobile;
+    width: calc(100% - 17rem);
+  }
+  position: relative;
+  margin-bottom: $footer-height;
+  /* width: 100%; */
 }
 </style>
