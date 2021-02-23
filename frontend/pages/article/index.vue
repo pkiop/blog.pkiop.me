@@ -42,12 +42,20 @@ export default {
 
 <style lang="scss">
 .article {
-  padding-bottom: 3rem;
+  margin-left: $sidebar-width;
+  width: calc(100% - 22rem);
+  @media only screen and (max-width: 768px) {
+    margin-left: $sidebar-width-mobile;
+    width: calc(100% - 17rem);
+  }
+  position: relative;
+  margin-bottom: $footer-height;
+  /* width: 100%; */
 }
 
 .post-block-list {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .post-block {
