@@ -23,6 +23,7 @@ export default {
 <style lang="scss">
 .default_cover {
   height: 100%;
+  overflow: hidden;
 }
 
 .contents {
@@ -37,6 +38,5 @@ export default {
 .nuxt {
   box-sizing: border-box;
   width: calc(100% - #{$sidebar-width});
-  margin-bottom: $footer-height;
 }
 </style>

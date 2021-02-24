@@ -6,7 +6,6 @@
         {{ postTitle }}
       </NuxtLink>
       <div class="time-block">
-        <Time class="post-block-time" :time="createAt" />
         <Time class="post-block-time" :time="updateAt" />
       </div>
     </div>
@@ -59,17 +58,16 @@ export default {
 
   display: flex;
   background-color: $color-main1;
-  padding: 1em 2em;
+  padding: 1em;
 
   border-radius: $main-radius;
 }
 
 .title-image {
-  width: 9em;
-  @media only screen and (max-width: 768px) {
-    width: 4em;
-  }
+  width: 7em;
+
   border-radius: $main-radius;
+  margin-right: 1em;
 }
 
 .post-block-time {

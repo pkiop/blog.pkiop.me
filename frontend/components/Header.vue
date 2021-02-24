@@ -50,7 +50,7 @@ header {
 }
 
 .logo {
-  width: 40px;
-  height: 40px;
+  width: 2.4em;
+  height: 2.4em;
 }
 </style>

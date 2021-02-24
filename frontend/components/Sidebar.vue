@@ -1,5 +1,9 @@
 <template>
-  <div class="sidebar">사이드바</div>
+  <div class="sidebar">
+    <div>
+      {{ mainCategory }}
+    </div>
+  </div>
 </template>
 
 <script>
@@ -7,7 +11,7 @@ export default {
   name: 'Sidebar',
   data() {
     return {
-      titleImage: '1',
+      mainCategory: 'main category',
     };
   },
 };
@@ -19,5 +23,9 @@ export default {
   width: $sidebar-width;
 
   background-color: white;
+
+  & > div {
+    color: black;
+  }
 }
 </style>
