@@ -56,19 +56,18 @@ export default {
     font-size: 1.2rem;
     padding: 0.3rem 0;
   }
-  width: 100%;
 
   display: flex;
   background-color: $color-main1;
-  padding: 1rem 2rem;
+  padding: 1em 2em;
 
   border-radius: $main-radius;
 }
 
 .title-image {
-  width: 9rem;
+  width: 9em;
   @media only screen and (max-width: 768px) {
-    width: 4rem;
+    width: 4em;
   }
   border-radius: $main-radius;
 }
