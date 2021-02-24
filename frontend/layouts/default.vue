@@ -5,20 +5,17 @@
       <Sidebar />
       <nuxt class="nuxt" />
     </div>
-    <Footer />
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
-import Footer from '@/components/Footer';
 
 export default {
   components: {
     Header,
     Sidebar,
-    Footer,
   },
 };
 </script>
@@ -38,14 +35,8 @@ export default {
 }
 
 .nuxt {
-  margin-left: $sidebar-width;
-  width: calc(100% - 22rem);
-  @media only screen and (max-width: 768px) {
-    margin-left: $sidebar-width-mobile;
-    width: calc(100% - 17rem);
-  }
-  position: relative;
+  box-sizing: border-box;
+  width: calc(100% - #{$sidebar-width});
   margin-bottom: $footer-height;
-  /* width: 100%; */
 }
 </style>
