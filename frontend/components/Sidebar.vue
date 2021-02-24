@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar">
     <div>
-      {{ mainCategory }}
+      {{ category }}
     </div>
   </div>
 </template>
@@ -9,6 +9,12 @@
 <script>
 export default {
   name: 'Sidebar',
+  props: {
+    category: {
+      type: Array,
+      required: true,
+    },
+  },
   data() {
     return {
       mainCategory: 'main category',

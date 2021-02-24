@@ -2,7 +2,7 @@
   <div class="default_cover">
     <Header />
     <div class="contents">
-      <Sidebar />
+      <Sidebar :category="categoryList" />
       <nuxt class="nuxt" />
     </div>
   </div>
@@ -11,11 +11,22 @@
 <script>
 import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
+const testData = [
+  {
+    name: '개발',
+    sub: [{ name: 'Typescript' }, { name: 'Nodejs' }, { name: 'aws' }],
+  },
+];
 
 export default {
   components: {
     Header,
     Sidebar,
+  },
+  data() {
+    return {
+      categoryList: testData,
+    };
   },
 };
 </script>
