@@ -1,24 +1,27 @@
 <template>
   <div class="sidebar">
-    <div>
-      {{ category }}
-    </div>
+    <MainCategory
+      v-for="mainCategory in category"
+      :key="mainCategory.id"
+      class="main-category"
+      :main-category="mainCategory"
+    />
   </div>
 </template>
 
 <script>
+import MainCategory from '@/components/Sidebar/MainCategory.vue';
+
 export default {
   name: 'Sidebar',
+  components: {
+    MainCategory,
+  },
   props: {
     category: {
       type: Array,
       required: true,
     },
-  },
-  data() {
-    return {
-      mainCategory: 'main category',
-    };
   },
 };
 </script>
@@ -26,6 +29,8 @@ export default {
 <style lang="scss">
 .sidebar {
   display: flex;
+  flex-direction: column;
+
   width: $sidebar-width;
 
   background-color: white;
