@@ -13,8 +13,21 @@ import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
 const testData = [
   {
+    id: 'asdkjfnwkjbakjbc',
     name: '개발',
-    sub: [{ name: 'Typescript' }, { name: 'Nodejs' }, { name: 'aws' }],
+    sub: [
+      { id: 'asjdsje', name: 'Typescript' },
+      { id: 'djkbwjzks', name: 'Nodejs' },
+      { id: 'dkjcnwlzxjd', name: 'aws' },
+    ],
+  },
+  {
+    id: 'askjbwjbxxzkjbckljw',
+    name: '책',
+    sub: [
+      { id: 'dkwnwslv', name: '경영경제' },
+      { id: 'welkjcjbz', name: '자기개발' },
+    ],
   },
 ];
 
