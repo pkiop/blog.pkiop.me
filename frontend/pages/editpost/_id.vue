@@ -78,6 +78,7 @@ export default {
   textarea {
     border: 1px solid black;
     height: 600px;
+    color: white;
   }
 }
 </style>

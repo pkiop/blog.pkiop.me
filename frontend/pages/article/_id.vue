@@ -1,8 +1,10 @@
 <template>
-  <div id="idCover">
-    <div id="title">title : {{ title }}</div>
-    <div id="textArea"></div>
-    <button v-if="AUTH_ENV" @click="editHandler">Edit</button>
+  <div class="id-cover">
+    <div class="id-contents">
+      <h1 class="title">{{ title }}</h1>
+      <div id="textArea"></div>
+      <button v-if="AUTH_ENV" @click="editHandler">Edit</button>
+    </div>
   </div>
 </template>
 
@@ -22,7 +24,8 @@ export default {
     });
     const title = res.data.getPkiopblog.title;
     const mdContents = await marked(res.data.getPkiopblog.mdContents, {
-      sanitize: true,
+      xhtml: true,
+      gfm: true,
     });
     return { title, mdContents };
   },
@@ -53,5 +56,22 @@ export default {
     margin: 1.5em 10px;
     padding: 0.5em 10px;
   }
+  & > p {
+    padding: 10px 0;
+  }
+}
+
+.id-cover {
+  background-color: $color-main1;
+}
+
+.id-contents {
+  background-color: $color-main2;
+  margin: 4rem;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
 }
 </style>
