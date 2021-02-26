@@ -1,15 +1,13 @@
 <template>
-  <div class="post-block-cover">
+  <NuxtLink class="post-block-cover" :to="`/article/${postId}`">
     <img class="title-image" :src="titleImage" />
     <div class="post-block-text">
-      <NuxtLink :to="`/article/${postId}`">
-        {{ postTitle }}
-      </NuxtLink>
+      {{ postTitle }}
       <div class="time-block">
         <Time class="post-block-time" :time="updateAt" />
       </div>
     </div>
-  </div>
+  </NuxtLink>
 </template>
 
 <script>
@@ -61,6 +59,10 @@ export default {
   padding: 1em;
 
   border-radius: $main-radius;
+
+  &:hover {
+    background-color: $color-sub1;
+  }
 }
 
 .title-image {

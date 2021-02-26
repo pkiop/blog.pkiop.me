@@ -33,10 +33,6 @@ export default {
 
   width: $sidebar-width;
 
-  background-color: white;
-
-  & > div {
-    color: black;
-  }
+  background-color: $color-main2;
 }
 </style>

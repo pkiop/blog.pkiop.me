@@ -11,6 +11,7 @@
 
 <script>
 import SubCategory from '@/components/Sidebar/SubCategory';
+
 export default {
   name: 'MainCategory',
   components: {
@@ -30,7 +31,7 @@ export default {
   margin-top: 2rem;
   margin-left: 2rem;
   div {
-    color: black;
+    color: white;
   }
 }
 </style>
