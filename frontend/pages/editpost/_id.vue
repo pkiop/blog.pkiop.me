@@ -2,11 +2,10 @@
   <div class="wrap">
     <div v-if="AUTH_ENV">
       <div>edit post</div>
-      <div class="title-input">
-        제목 : <input v-model="title" type="text" />
-      </div>
+      <input v-model="title" class="title-input" type="text" />
       <textarea v-model="mdText"></textarea>
       <button @click="submit">수정</button>
+      <button @click="deletePost">삭제</button>
       <div>hi</div>
     </div>
     <div v-else>허가되지 않은 접근</div>
@@ -17,7 +16,7 @@
 import gql from 'graphql-tag';
 
 import { getPkiopblog } from '@/src/graphql/queries';
-import { updatePkiopblog } from '@/src/graphql/mutations';
+import { updatePkiopblog, deletePkiopblog } from '@/src/graphql/mutations';
 
 export default {
   components: {},
@@ -63,6 +62,23 @@ export default {
         console.log('Error creating post...', error);
       }
     },
+    async deletePost() {
+      const inputValue = {
+        id: this.$route.params.id,
+      };
+      try {
+        const gqlres = gql`
+          ${deletePkiopblog}
+        `;
+
+        await this.$apollo.mutate({
+          mutation: gqlres,
+          variables: { input: inputValue },
+        });
+      } catch (error) {
+        console.log('Error creating post...', error);
+      }
+    },
   },
 };
 </script>
@@ -75,10 +91,17 @@ export default {
   div {
     text-align: center;
   }
+  .title-input {
+    color: white;
+    width: 90%;
+    overflow: scroll;
+    font-size: $title-font-size - 1.5rem;
+  }
   textarea {
-    border: 1px solid black;
+    width: 90%;
     height: 600px;
     color: white;
+    border: 1px solid white;
   }
 }
 </style>
