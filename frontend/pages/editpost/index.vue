@@ -61,14 +61,16 @@ export default {
     text-align: center;
   }
   textarea {
-    border: 1px solid black;
+    border: 1px solid $color-inputBorder;
     height: 600px;
+    color: white;
   }
 }
 
 .title-input {
   input {
-    border: $color-inputBorder;
+    border: 1px solid $color-inputBorder;
+    color: white;
   }
 }
 </style>

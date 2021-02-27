@@ -30,13 +30,13 @@ export const listPkiopblogs = /* GraphQL */ `
     }
   }
 `;
-export const listCategorys= /* GraphQL */ `
-  query listCategorys(
+export const listCategories= /* GraphQL */ `
+  query listCategories(
     $filter: TableCategoryFilterInput
     $limit: Int
     $nextToken: String
   ){
-    listCategorys(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listCategories(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         name

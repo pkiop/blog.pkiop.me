@@ -85,6 +85,49 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "listCategories",
+              "description": null,
+              "args": [
+                {
+                  "name": "filter",
+                  "description": null,
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "TablePkiopblogFilterInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "limit",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "nextToken",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "categoryConnection",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
