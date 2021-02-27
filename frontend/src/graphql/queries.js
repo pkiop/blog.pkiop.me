@@ -30,3 +30,22 @@ export const listPkiopblogs = /* GraphQL */ `
     }
   }
 `;
+export const listCategorys= /* GraphQL */ `
+  query listCategorys(
+    $filter: TableCategoryFilterInput
+    $limit: Int
+    $nextToken: String
+  ){
+    listCategorys(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        sub {
+          id
+          name
+        }
+      }
+      nextToken
+    }
+  }
+`;
