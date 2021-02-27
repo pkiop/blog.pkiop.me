@@ -80,6 +80,10 @@ export default {
     font-size: 1.4rem;
     margin-bottom: 0.8rem;
   }
+
+  & > p > img {
+    width: 100%;
+  }
 }
 
 .id-cover {
