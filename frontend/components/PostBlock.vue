@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import IUImage from '@/assets/IU.webp';
+import noPicture from '@/assets/noPicture.png';
 import Time from '@/components/Time';
 
 export default {
@@ -36,7 +36,7 @@ export default {
     },
     titleImageLink: {
       type: String,
-      default: IUImage,
+      default: noPicture,
     },
   },
   data() {
