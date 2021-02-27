@@ -2,6 +2,7 @@
   <div class="id-cover">
     <div class="id-contents">
       <h1 class="title">{{ title }}</h1>
+      <hr class="title-content-divider" />
       <div id="textArea"></div>
       <button v-if="AUTH_ENV" @click="editHandler">Edit</button>
     </div>
@@ -57,21 +58,45 @@ export default {
     padding: 0.5em 10px;
   }
   & > p {
-    padding: 10px 0;
+    padding: 0.8rem 0;
+  }
+
+  & > h1 {
+    font-size: 2rem;
+    margin-bottom: 1.4rem;
+  }
+
+  & > h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+  }
+
+  & > h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  & > h4 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
   }
 }
 
 .id-cover {
-  background-color: $color-main1;
+  margin: 2em;
+  background-color: $color-main2;
 }
 
 .id-contents {
-  background-color: $color-main2;
-  margin: 4rem;
+  margin: 3rem;
+}
+
+.title-content-divider {
+  margin-bottom: $title-bottom-padding;
 }
 
 .title {
-  font-size: 3rem;
-  margin-bottom: 2rem;
+  font-size: $title-font-size;
+  margin-bottom: $title-bottom-padding;
 }
 </style>
