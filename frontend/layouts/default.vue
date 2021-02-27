@@ -2,7 +2,7 @@
   <div class="default_cover">
     <Header />
     <div class="contents">
-      <Sidebar :category="categoryList" />
+      <Sidebar :category="categories" />
       <nuxt class="nuxt" />
     </div>
   </div>
@@ -11,35 +11,22 @@
 <script>
 import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
-const testData = [
-  {
-    id: 'asdkjfnwkjbakjbc',
-    name: '개발',
-    sub: [
-      { id: 'asjdsje', name: 'Typescript' },
-      { id: 'djkbwjzks', name: 'Nodejs' },
-      { id: 'dkjcnwlzxjd', name: 'aws' },
-    ],
-  },
-  {
-    id: 'askjbwjbxxzkjbckljw',
-    name: '책',
-    sub: [
-      { id: 'dkwnwslv', name: '경영경제' },
-      { id: 'welkjcjbz', name: '자기개발' },
-    ],
-  },
-];
+import gql from 'graphql-tag';
+import { listCategorys } from '@/src/graphql/queries';
 
 export default {
   components: {
     Header,
     Sidebar,
   },
-  data() {
-    return {
-      categoryList: testData,
-    };
+  async asyncData(context) {
+    const queryCategoryData = gql`
+      ${listCategorys}
+    `;
+    const client = context.app.apolloProvider.defaultClient;
+    const result = await client.query({ query: queryCategoryData });
+    const categories = result;
+    return { categories };
   },
 };
 </script>
