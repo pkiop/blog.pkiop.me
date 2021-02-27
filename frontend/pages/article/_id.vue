@@ -63,26 +63,30 @@ export default {
 
   & > h1 {
     font-size: 2rem;
-    margin-bottom: 1.4rem;
+    margin: 1.4rem 0;
   }
 
   & > h2 {
     font-size: 1.8rem;
-    margin-bottom: 1.2rem;
+    margin: 1.2rem 0;
   }
 
   & > h3 {
     font-size: 1.6rem;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
   }
 
   & > h4 {
     font-size: 1.4rem;
-    margin-bottom: 0.8rem;
+    margin: 0.8rem 0;
   }
 
   & > p > img {
     width: 100%;
+  }
+
+  & > p > a {
+    color: #b2b3b4;
   }
 }
 
