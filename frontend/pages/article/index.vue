@@ -31,12 +31,6 @@ export default {
     const info = await client.query({ query: queryData });
     return { info };
   },
-  data() {
-    return {
-      info: null,
-      links: 1,
-    };
-  },
 };
 </script>
 
