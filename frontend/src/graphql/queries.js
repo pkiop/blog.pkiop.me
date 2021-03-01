@@ -7,6 +7,8 @@ export const getPkiopblog = /* GraphQL */ `
       id
       title
       mdContents
+      mainCategory
+      subCategory
       createAt
       updateAt
     }
@@ -23,6 +25,8 @@ export const listPkiopblogs = /* GraphQL */ `
         id
         title
         mdContents
+        mainCategory
+        subCategory
         createAt
         updateAt
       }

@@ -1,14 +1,14 @@
 <template>
   <div class="post-block-category">
     <div class="post-block-main-category">{{ mainCategory }}</div>
-    /
+    <div class="post-block-category-divider">/</div>
     <div class="post-block-sub-category">{{ subCategory }}</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'PostBlockCategory',
+  name: 'PostCategory',
   props: {
     mainCategory: {
       type: String,
@@ -30,7 +30,12 @@ export default {
 .post-block-main-category {
   font-size: 1.2rem;
 }
+
 .post-block-sub-category {
   font-size: 1.1rem;
+}
+
+.post-block-category-divider {
+  margin: 0 0.3rem;
 }
 </style>

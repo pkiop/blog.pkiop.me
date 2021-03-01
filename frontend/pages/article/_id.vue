@@ -1,6 +1,11 @@
 <template>
   <div class="id-cover">
     <div class="id-contents">
+      <PostCategory
+        class="article-id-post-category"
+        :main-category="mainCategory"
+        :sub-category="subCategory"
+      />
       <h1 class="title">{{ title }}</h1>
       <hr class="title-content-divider" />
       <div id="textArea"></div>
@@ -13,8 +18,11 @@
 import marked from 'marked';
 import gql from 'graphql-tag';
 import { getPkiopblog } from '@/src/graphql/queries';
+import PostCategory from '@/components/PostBlock/Category';
 
 export default {
+  name: 'ArticleID',
+  components: { PostCategory },
   async asyncData(context) {
     const client = context.app.apolloProvider.defaultClient;
     const res = await client.query({
@@ -28,7 +36,9 @@ export default {
       xhtml: true,
       gfm: true,
     });
-    return { title, mdContents };
+    const mainCategory = res.data.getPkiopblog.mainCategory;
+    const subCategory = res.data.getPkiopblog.subCategory;
+    return { title, mdContents, mainCategory, subCategory };
   },
   data() {
     return {
@@ -90,6 +100,10 @@ export default {
   }
 }
 
+.article-id-post-category {
+  margin-bottom: 0.8rem;
+}
+
 .id-cover {
   margin: 2em;
   background-color: $color-main2;
@@ -104,6 +118,7 @@ export default {
 }
 
 .title {
+  font-weight: 600;
   font-size: $title-font-size;
   margin-bottom: $title-bottom-padding;
 }
