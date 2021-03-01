@@ -20,7 +20,7 @@ export default {
     Sidebar,
   },
   data() {
-    return { categories: { data: { listCategories: [] } } };
+    return { categories: { data: { listCategories: { items: [] } } } };
   },
   async mounted() {
     await this.getCategories();

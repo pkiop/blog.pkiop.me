@@ -2,7 +2,13 @@
   <NuxtLink class="post-block-cover" :to="`/article/${postId}`">
     <img class="title-image" :src="titleImage" />
     <div class="post-block-text">
-      {{ postTitle }}
+      <div class="post-block-text-top">
+        <div class="post-title">{{ postTitle }}</div>
+        <PostCategory
+          :main-category="mainCategory"
+          :sub-category="subCategory"
+        />
+      </div>
       <div class="time-block">
         <Time class="post-block-time" :time="updateAt" />
       </div>
@@ -13,16 +19,25 @@
 <script>
 import noPicture from '@/assets/noPicture.png';
 import Time from '@/components/Time';
+import PostCategory from '@/components/PostBlock/Category';
 
 export default {
   name: 'PostBlock',
-  components: { Time },
+  components: { Time, PostCategory },
   props: {
     postTitle: {
       type: String,
       required: true,
     },
     postId: {
+      type: String,
+      required: true,
+    },
+    mainCategory: {
+      type: String,
+      required: true,
+    },
+    subCategory: {
       type: String,
       required: true,
     },
@@ -65,6 +80,12 @@ export default {
   }
 }
 
+.post-title {
+  font-weight: 600;
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
+}
+
 .title-image {
   width: 7em;
 
@@ -73,7 +94,7 @@ export default {
 }
 
 .post-block-time {
-  font-size: 0.6rem;
+  font-size: 0.8rem;
 }
 
 .post-block-text {

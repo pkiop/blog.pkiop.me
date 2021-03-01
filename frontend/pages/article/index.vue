@@ -5,6 +5,8 @@
         v-for="list in info.data.listPkiopblogs.items"
         :key="list.id"
         class="post-block"
+        :main-category="list.mainCategory"
+        :sub-category="list.subCategory"
         :post-title="list.title"
         :post-id="String(list.id)"
         :create-at="list.createAt"

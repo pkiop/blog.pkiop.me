@@ -86,7 +86,7 @@ export default {
   }
 
   & > p > a {
-    color: #b2b3b4;
+    color: $color-link;
   }
 }
 
