@@ -26,7 +26,7 @@ export default {
     await this.getCategories();
   },
   methods: {
-    async getCategories(context) {
+    async getCategories() {
       const queryCategoryData = gql`
         ${listCategories}
       `;
