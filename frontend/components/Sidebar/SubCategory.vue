@@ -1,5 +1,5 @@
 <template>
-  <div class="sub-category">
+  <div class="sub-category" @click="selectSubCategory">
     {{ subCategory.name }}
   </div>
 </template>
@@ -11,6 +11,12 @@ export default {
     subCategory: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    selectSubCategory(event) {
+      this.$store.commit('article/setMainCategory', '');
+      this.$store.commit('article/setSubCategory', event.target.outerText);
     },
   },
 };

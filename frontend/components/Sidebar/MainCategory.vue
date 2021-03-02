@@ -1,6 +1,8 @@
 <template>
   <div class="main-category">
-    <div>{{ mainCategory.name }}</div>
+    <div @click="selectMainCategory($event)">
+      {{ mainCategory.name }}
+    </div>
     <SubCategory
       v-for="subCategory in mainCategory.sub"
       :key="subCategory.id"
@@ -21,6 +23,12 @@ export default {
     mainCategory: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    selectMainCategory(event) {
+      this.$store.commit('article/setMainCategory', event.target.outerText);
+      this.$store.commit('article/setSubCategory', '');
     },
   },
 };
