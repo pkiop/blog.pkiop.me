@@ -28,14 +28,15 @@ export default {
 }
 
 .post-block-main-category {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .post-block-sub-category {
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .post-block-category-divider {
+  font-size: 1rem;
   margin: 0 0.3rem;
 }
 </style>
