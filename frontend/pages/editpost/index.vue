@@ -20,6 +20,7 @@
 <script>
 import gql from 'graphql-tag';
 import { listCategories } from '@/src/graphql/queries';
+import { createPkiopblog } from '@/src/graphql/mutations';
 import CategorySelect from '@/components/EditPost/CategorySelect';
 
 export default {
@@ -30,14 +31,39 @@ export default {
       query: gql`
         ${listCategories}
       `,
-      variables: { id: context.route.params.id },
     });
     return { categoryList: res };
   },
   data() {
     return {
+      title: 'Write your title',
+      mdText: ['Write your post!'],
       AUTH_ENV: process.env.AUTH_ENV === 'admin',
     };
+  },
+  methods: {
+    async submit() {
+      const inputValue = {
+        title: this.title,
+        mdContents: this.mdText,
+        mainCategory: this.$store.state.editpost.mainCategory,
+        subCategory: this.$store.state.editpost.subCategory,
+        createAt: new Date(),
+        updateAt: new Date(),
+      };
+      try {
+        const gqlres = gql`
+          ${createPkiopblog}
+        `;
+
+        await this.$apollo.mutate({
+          mutation: gqlres,
+          variables: { input: inputValue },
+        });
+      } catch (error) {
+        console.log('Error creating post...', error);
+      }
+    },
   },
 };
 </script>

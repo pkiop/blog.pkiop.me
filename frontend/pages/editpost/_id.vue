@@ -3,6 +3,10 @@
     <div v-if="AUTH_ENV">
       <div>edit post</div>
       <input v-model="title" class="title-input" type="text" />
+      <CategorySelect
+        class="edit-post-category-select"
+        :category-list="categoryList.data.listCategories.items"
+      />
       <textarea v-model="mdText"></textarea>
       <button @click="submit">수정</button>
       <button @click="deletePost">삭제</button>
@@ -15,11 +19,12 @@
 <script>
 import gql from 'graphql-tag';
 
-import { getPkiopblog } from '@/src/graphql/queries';
+import { getPkiopblog, listCategories } from '@/src/graphql/queries';
 import { updatePkiopblog, deletePkiopblog } from '@/src/graphql/mutations';
+import CategorySelect from '@/components/EditPost/CategorySelect';
 
 export default {
-  components: {},
+  components: { CategorySelect },
 
   async asyncData(context) {
     const client = context.app.apolloProvider.defaultClient;
@@ -31,7 +36,13 @@ export default {
     });
     const title = res.data.getPkiopblog.title;
     const mdText = res.data.getPkiopblog.mdContents;
-    return { title, mdText };
+
+    const categoryList = await client.query({
+      query: gql`
+        ${listCategories}
+      `,
+    });
+    return { title, mdText, categoryList };
   },
   data() {
     return {
@@ -47,6 +58,8 @@ export default {
         id: this.$route.params.id,
         title: this.title,
         mdContents: this.mdText,
+        mainCategory: this.$store.state.editpost.mainCategory,
+        subCategory: this.$store.state.editpost.subCategory,
         updateAt: new Date(),
       };
       try {
