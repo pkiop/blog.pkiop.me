@@ -71,6 +71,7 @@ export default {
           mutation: gqlres,
           variables: { input: inputValue },
         });
+        await this.$router.push('/article');
       } catch (error) {
         console.log('Error creating post...', error);
       }
@@ -88,6 +89,7 @@ export default {
           mutation: gqlres,
           variables: { input: inputValue },
         });
+        this.$router.push('/article');
       } catch (error) {
         console.log('Error creating post...', error);
       }
