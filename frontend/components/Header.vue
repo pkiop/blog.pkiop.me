@@ -5,7 +5,7 @@
     </a>
     <div class="linkWrapper">
       <NuxtLink v-if="AUTH_ENV" to="/editpost">Editpost</NuxtLink>
-      <NuxtLink to="/about">About</NuxtLink>
+      <a href="https://pkiop.me">About</a>
       <NuxtLink to="/article">Article</NuxtLink>
     </div>
     <link
@@ -47,6 +47,8 @@ header {
   a:not(:last-child) {
     padding-right: 0.6rem;
   }
+
+  margin-right: 1rem;
 }
 
 .logo {
