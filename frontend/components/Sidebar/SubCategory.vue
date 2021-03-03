@@ -1,13 +1,20 @@
 <template>
-  <div class="sub-category" @click="selectSubCategory">
+  <NuxtLink
+    class="sub-category"
+    :to="'/article/' + mainCategoryName + '/' + subCategory.name"
+  >
     {{ subCategory.name }}
-  </div>
+  </NuxtLink>
 </template>
 
 <script>
 export default {
   name: 'MainCategory',
   props: {
+    mainCategoryName: {
+      type: String,
+      required: true,
+    },
     subCategory: {
       type: Object,
       required: true,

@@ -13,8 +13,6 @@
         :update-at="list.updateAt"
       />
     </div>
-    <div>{{ getMainCategory }}</div>
-    <div>{{ getSubCategory }}</div>
   </div>
 </template>
 
@@ -22,50 +20,35 @@
 import PostBlock from '@/components/PostBlock/index';
 import gql from 'graphql-tag';
 import { listPkiopblogs } from '@/src/graphql/queries';
-import { mapGetters } from 'vuex';
 
-// List는 굳이 SEO할 필요 없을 듯 asyncData
 export default {
   name: 'Article',
   components: {
     PostBlock,
   },
-  data() {
-    return {
-      info: [],
-    };
-  },
-  computed: {
-    ...mapGetters({ getMainCategory: 'article/getMainCategory' }),
-    ...mapGetters({ getSubCategory: 'article/getSubCategory' }),
-  },
-  async mounted() {
-    await this.getArticleList();
-  },
-  async updated() {
-    await this.getArticleList();
-  },
-  methods: {
-    async getArticleList() {
-      const queryData = gql`
+  async asyncData(context) {
+    const client = context.app.apolloProvider.defaultClient;
+
+    const res = await client.query({
+      query: gql`
         ${listPkiopblogs}
-      `;
-      const res = await this.$apollo.query({
-        query: queryData,
-        variables: {
-          filter: {
-            mainCategory: {
-              contains: this.getMainCategory || '',
-            },
-            // 값 비어있으면 filter에서 빠짐 (핵꿀)
-            subCategory: {
-              contains: this.getSubCategory || '',
-            },
+      `,
+      variables: {
+        filter: {
+          mainCategory: {
+            contains: context.route.params.maincategory || '',
+          },
+          // 값 비어있으면 filter에서 빠짐 (핵꿀)
+          subCategory: {
+            contains:
+              context.route.params.subcategory === 'all'
+                ? ''
+                : context.route.params.subcategory,
           },
         },
-      });
-      this.info = res.data.listPkiopblogs.items;
-    },
+      },
+    });
+    return { info: res.data.listPkiopblogs.items };
   },
 };
 </script>

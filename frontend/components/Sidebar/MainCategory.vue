@@ -1,11 +1,12 @@
 <template>
   <div class="main-category">
-    <div @click="selectMainCategory($event)">
+    <NuxtLink :to="'/article/' + mainCategory.name + '/all'">
       {{ mainCategory.name }}
-    </div>
+    </NuxtLink>
     <SubCategory
       v-for="subCategory in mainCategory.sub"
       :key="subCategory.id"
+      :main-category-name="mainCategory.name"
       :sub-category="subCategory"
     />
   </div>
@@ -38,6 +39,9 @@ export default {
 .main-category {
   margin-top: 2rem;
   margin-left: 2rem;
+  a {
+    display: block;
+  }
   div {
     color: white;
   }
