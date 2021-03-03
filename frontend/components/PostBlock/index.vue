@@ -10,7 +10,7 @@
         />
       </div>
       <div class="time-block">
-        <Time class="post-block-time" :time="updateAt" />
+        <Time class="post-block-time" :time="createAt" />
       </div>
     </div>
   </NuxtLink>
