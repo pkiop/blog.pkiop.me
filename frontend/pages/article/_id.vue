@@ -91,10 +91,6 @@ export default {
     margin: 0.8rem 0;
   }
 
-  & > p > img {
-    width: 100%;
-  }
-
   & > p > a {
     color: $color-link;
   }
