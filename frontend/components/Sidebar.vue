@@ -1,5 +1,5 @@
 <template>
-  <fragment>
+  <div class="sidebar-wrapper">
     <input id="sidebar" type="checkbox" />
     <div class="sidebar">
       <label class="on-off" for="sidebar">X</label>
@@ -10,18 +10,16 @@
         :main-category="mainCategory"
       />
     </div>
-  </fragment>
+  </div>
 </template>
 
 <script>
 import MainCategory from '@/components/Sidebar/MainCategory.vue';
-import { Fragment } from 'vue-fragment';
 
 export default {
   name: 'Sidebar',
   components: {
     MainCategory,
-    Fragment,
   },
   props: {
     category: {
@@ -50,6 +48,10 @@ export default {
     top: 1%;
     right: 5%;
   }
+}
+
+.sidebar-wrapper {
+  margin-top: 1rem;
 }
 
 #sidebar {
