@@ -2,7 +2,7 @@
   <div class="sidebar-wrapper">
     <input id="sidebar" type="checkbox" />
     <div class="sidebar">
-      <label class="on-off" for="sidebar">X</label>
+      <label class="on-off" for="sidebar"></label>
       <MainCategory
         v-for="mainCategory in category"
         :key="mainCategory.id"
@@ -43,28 +43,43 @@ export default {
   background-color: $color-main2;
   left: 0;
   transition: 1s all;
-  .on-off {
-    position: absolute;
-    top: 1%;
-    right: 5%;
+}
+
+.on-off {
+  position: absolute;
+  top: 1%;
+  right: 5%;
+  color: white;
+  &:before {
+    content: '<';
   }
 }
 
 .sidebar-wrapper {
-  margin-top: 1rem;
-}
+  #sidebar {
+    width: 0px;
+    height: 0px;
+    padding: 0px;
+    margin: 0px;
+  }
 
-#sidebar {
-  width: 0px;
-  height: 0px;
-  padding: 0px;
-  margin: 0px;
-}
+  #sidebar:checked ~ .sidebar {
+    background-color: black;
+    left: calc(50px - #{$sidebar-width});
+    color: black;
+    transition: 1s all;
 
-#sidebar:checked ~ .sidebar {
-  background-color: black;
-  left: calc(50px - #{$sidebar-width});
-  color: black;
-  transition: 1s all;
+    .on-off {
+      &:before {
+        content: '>';
+      }
+      left: 10rem;
+      color: white;
+    }
+
+    & {
+      width: 0;
+    }
+  }
 }
 </style>
