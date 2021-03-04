@@ -21,6 +21,7 @@
     "dotenv": "^8.2.0",
     "gql": "^1.1.2",
     "graphql": "^15.5.0",
+    "highlight.js": "^10.6.0",
     "marked": "^2.0.0",
     "nuxt": "^2.14.12",
     "vue-apollo": "^3.0.7",
