@@ -53,7 +53,7 @@ export default {
 
 .nuxt {
   box-sizing: border-box;
-  width: calc(100% - #{$sidebar-width});
+  width: 100%;
   height: calc(100% - #{$header-height});
   overflow-x: hidden;
   overflow-y: scroll;
