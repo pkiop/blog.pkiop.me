@@ -11,6 +11,11 @@
       <div id="textArea"></div>
       <button v-if="AUTH_ENV" @click="editHandler">Edit</button>
     </div>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/darcula.min.css"
+    />
+    <!-- You can find theme in https://highlightjs.org/static/demo/ -->
   </div>
 </template>
 
@@ -19,6 +24,7 @@ import marked from 'marked';
 import gql from 'graphql-tag';
 import { getPkiopblog } from '@/src/graphql/queries';
 import PostCategory from '@/components/PostBlock/Category';
+import hljs from 'highlight.js';
 
 export default {
   name: 'ArticleID',
@@ -31,11 +37,18 @@ export default {
       `,
       variables: { id: context.route.params.id },
     });
+
     const title = res.data.getPkiopblog.title;
-    const mdContents = await marked(res.data.getPkiopblog.mdContents, {
+    marked.setOptions({
       xhtml: true,
       gfm: true,
+      highlight(code, lang) {
+        console.log(hljs.highlight(lang, code).value);
+        return hljs.highlight(lang, code).value;
+      },
     });
+    const mdContents = await marked(res.data.getPkiopblog.mdContents);
+    hljs.highlightAll();
     const mainCategory = res.data.getPkiopblog.mainCategory;
     const subCategory = res.data.getPkiopblog.subCategory;
     return { title, mdContents, mainCategory, subCategory };
@@ -60,7 +73,6 @@ export default {
 
 <style lang="scss">
 #textArea {
-  list-style: disc inside;
   & > blockquote {
     background: #aaaaaa;
     border-left: 10px solid #ccc;
@@ -93,6 +105,20 @@ export default {
 
   & > p > a {
     color: $color-link;
+  }
+
+  & > ol {
+    padding-left: 1rem;
+    list-style-type: decimal;
+  }
+
+  & > pre {
+    margin: 1em 0;
+    padding: 1em;
+    background-color: $color-codebackground;
+    & > code {
+      padding: 1em;
+    }
   }
 }
 
