@@ -72,49 +72,99 @@ export default {
 </script>
 
 <style lang="scss">
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic);
 #textArea {
+  line-height: 1.2rem;
+
+  // > 했을 때 강조 
   & > blockquote {
-    background: #aaaaaa;
-    border-left: 10px solid #ccc;
-    margin: 1.5em 10px;
-    padding: 0.5em 10px;
+    font-size: 1.4em;
+    width:60%;
+    margin:50px auto;
+    font-family:Open Sans;
+    font-style:italic;
+    color: $color-font;
+    padding:1.2em 30px 1.2em 75px;
+    border-left:8px solid #3e5244 ;
+    line-height:1.6;
+    position: relative;
+    background:$color-codebackground;
+
+    &::before{
+      font-family:Arial;
+      content: "\201C";
+      color:#78C0A8;
+      font-size:4em;
+      position: absolute;
+      left: 10px;
+      top:-10px;
+    };
+
+    & span{
+      display:block;
+      color:white;
+      font-style: normal;
+      font-weight: bold;
+      margin-top:1em;
+    }
   }
+
   & > p {
     padding: 0.8rem 0;
   }
 
+  p {
+    color: $color-font;
+  }
+
   & > h1 {
     font-size: 2rem;
-    margin: 1.4rem 0;
+    font-weight: 1000;
+    padding: 1.4rem 0;
+    color: $color-font;
   }
 
   & > h2 {
     font-size: 1.8rem;
-    margin: 1.2rem 0;
+    font-weight: 800;
+    padding: 1.2rem 0;
+    color: $color-font;
   }
 
   & > h3 {
     font-size: 1.6rem;
-    margin: 1rem 0;
+    font-weight: 600;
+    padding: 1rem 0;
+    color: $color-font;
   }
 
   & > h4 {
     font-size: 1.4rem;
-    margin: 0.8rem 0;
+    font-weight: 600;
+    padding: 0.8rem 0;
+    color: $color-font;
   }
 
   & > p > a {
-    color: $color-link;
+    color: $color-font;
   }
 
   & > ol {
     padding-left: 1rem;
     list-style-type: decimal;
+    color: $color-font;
+  }
+
+  li {
+    color: $color-font;
   }
 
   & > pre {
     margin: 1em 0;
     padding: 1em;
+    // border: 2px solid #1e4e42;
+    border: 2px solid #3e5244;
     background-color: $color-codebackground;
     & > code {
       padding: 1em;
@@ -127,7 +177,7 @@ export default {
 }
 
 .id-cover {
-  margin: 2em;
+  margin: 1em;
   background-color: $color-main2;
 }
 
