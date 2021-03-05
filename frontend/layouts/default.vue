@@ -57,6 +57,7 @@ export default {
   height: calc(100% - #{$header-height});
   overflow-x: hidden;
   overflow-y: scroll;
+  border: $hacker-border;
 
   &::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera*/
