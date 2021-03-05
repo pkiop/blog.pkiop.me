@@ -40,6 +40,8 @@ export default {
 
   width: $sidebar-width;
 
+  border: $hacker-border;
+
   background-color: $color-main2;
   left: 0;
   transition: 1s all;
