@@ -5,7 +5,11 @@
       class="edit-post-category-select"
       @change="changeOption($event)"
     >
-      <option v-for="item in categoryList" :key="item.id" :value="item.name">
+      <option 
+        v-for="item in categoryList" 
+        :key="item.id" 
+        :value="item.name" 
+        :selected="item.name === originMainCategory">
         {{ item.name }}
       </option>
     </select>
@@ -18,6 +22,7 @@
         v-for="item in selectedSubCategoryList"
         :key="item.id"
         :value="item.name"
+        :selected="item.name === originSubCategory">
       >
         {{ item.name }}
       </option>
@@ -36,6 +41,14 @@ export default {
       type: Array,
       required: true,
     },
+    originMainCategory: {
+      type: String,
+      default: null,
+    },
+    originSubCategory: {
+      type: String,
+      default: null,
+    }
   },
   data() {
     return {
@@ -44,6 +57,17 @@ export default {
       selectedSubCategoryList: [],
     };
   },
+  mounted() {
+    if(this.originMainCategory) {
+      this.$store.commit('editpost/setMainCategory', this.originMainCategory);
+      this.selectedItem = this.originMainCategory;
+    }
+    if(this.originSubCategory) {
+      this.$store.commit('editpost/setSubCategory', this.originSubCategory);
+      this.selectedItem = this.originSubCategory;
+    }
+  },
+
   methods: {
     changeOption(event) {
       this.selectedSubCategoryList = this.categoryList.find((el) => {
