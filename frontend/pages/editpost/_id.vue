@@ -6,6 +6,8 @@
       <CategorySelect
         class="edit-post-category-select"
         :category-list="categoryList.data.listCategories.items"
+        :originMainCategory="originMainCategory"
+        :originSubCategory="originSubCategory"
       />
       <textarea v-model="mdText"></textarea>
       <button @click="submit">수정</button>
@@ -42,7 +44,10 @@ export default {
         ${listCategories}
       `,
     });
-    return { title, mdText, categoryList };
+
+    const originMainCategory = res.data.getPkiopblog.mainCategory;
+    const originSubCategory = res.data.getPkiopblog.subCategory;
+    return { title, mdText, categoryList, originMainCategory, originSubCategory };
   },
   data() {
     return {
