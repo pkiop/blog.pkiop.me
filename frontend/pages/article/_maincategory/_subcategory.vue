@@ -53,7 +53,14 @@ export default {
 };
 </script>
 
+
+
 <style lang="scss">
+
+.article {
+  margin: 1em;
+}
+
 .post-block-list {
   height: 100%;
   display: flex;
