@@ -35,6 +35,10 @@ export default {
   height: 100%;
   position: relative;
 
+  margin-left: 1em;
+
+  color: white;
+
   display: flex;
   flex-direction: column;
 
@@ -67,20 +71,29 @@ export default {
 
   #sidebar:checked ~ .sidebar {
     background-color: black;
-    left: calc(50px - #{$sidebar-width});
+    left: calc(2rem - #{$sidebar-width});
     color: black;
     transition: 1s all;
+    
+    width: 0;
+
+    & > div > a {
+      transition: 1s all;
+      color: black;
+    }
 
     .on-off {
       &:before {
         content: '>';
       }
-      left: 10rem;
+      right: -10.5rem;
+
+      transition: 1s all;
       color: white;
     }
 
     & {
-      width: 0;
+      width: 1rem;
     }
   }
 }
