@@ -163,11 +163,18 @@ export default {
   & > pre {
     margin: 1em 0;
     padding: 1em;
-    // border: 2px solid #1e4e42;
     border: 2px solid #3e5244;
+
+    overflow: scroll;
     background-color: $color-codebackground;
-    & > code {
+    code {
+      position: relative;
       padding: 1em;
+
+      overflow: hidden;
+      span {
+        display: inline;
+      }
     }
   }
 }
