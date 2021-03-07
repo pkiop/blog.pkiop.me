@@ -155,9 +155,17 @@ export default {
     list-style-type: decimal;
     color: $color-font;
   }
+   & > ul {
+     padding-left: 1rem;
+     list-style-type: circle;
+   }
 
-  li {
-    color: $color-font;
+
+  ol, ul {
+    li {
+      color: $color-font;
+      padding-bottom: 0.4rem;
+    }
   }
 
   & > pre {
