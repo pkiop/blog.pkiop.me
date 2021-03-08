@@ -43,7 +43,6 @@ export default {
       xhtml: true,
       gfm: true,
       highlight(code, lang) {
-        console.log(hljs.highlight(lang, code).value);
         return hljs.highlight(lang, code).value;
       },
     });
@@ -72,41 +71,40 @@ export default {
 </script>
 
 <style lang="scss">
-
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic);
 #textArea {
   line-height: 1.2rem;
 
-  // > 했을 때 강조 
+  // > 했을 때 강조
   & > blockquote {
     font-size: 1.4em;
-    width:60%;
-    margin:50px auto;
-    font-family:Open Sans;
-    font-style:italic;
+    width: 60%;
+    margin: 50px auto;
+    font-family: Open Sans;
+    font-style: italic;
     color: $color-font;
-    padding:1.2em 30px 1.2em 75px;
-    border-left:8px solid #3e5244 ;
-    line-height:1.6;
+    padding: 1.2em 30px 1.2em 75px;
+    border-left: 8px solid #3e5244;
+    line-height: 1.6;
     position: relative;
-    background:$color-codebackground;
+    background: $color-codebackground;
 
-    &::before{
-      font-family:Arial;
-      content: "\201C";
-      color:#78C0A8;
-      font-size:4em;
+    &::before {
+      font-family: Arial;
+      content: '\201C';
+      color: #78c0a8;
+      font-size: 4em;
       position: absolute;
       left: 10px;
-      top:-10px;
-    };
+      top: -10px;
+    }
 
-    & span{
-      display:block;
-      color:white;
+    & span {
+      display: block;
+      color: white;
       font-style: normal;
       font-weight: bold;
-      margin-top:1em;
+      margin-top: 1em;
     }
   }
 
@@ -155,13 +153,14 @@ export default {
     list-style-type: decimal;
     color: $color-font;
   }
-   & > ul {
-     padding-left: 1rem;
-     list-style-type: circle;
-   }
 
+  & > ul {
+    padding-left: 1rem;
+    list-style-type: circle;
+  }
 
-  ol, ul {
+  ol,
+  ul {
     li {
       color: $color-font;
       padding-bottom: 0.4rem;
