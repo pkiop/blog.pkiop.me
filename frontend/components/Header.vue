@@ -3,11 +3,12 @@
     <a href="/">
       <img class="logo" :src="logo" />
     </a>
-    <div class="linkWrapper">
+    <div v-if="isMobile === false" class="linkWrapper">
       <NuxtLink v-if="AUTH_ENV" to="/editpost">Editpost</NuxtLink>
       <a href="https://pkiop.me">About</a>
       <NuxtLink to="/article">Article</NuxtLink>
     </div>
+    <Hambug v-if="isMobile === true" :link-list="linkList" />
     <link
       rel="stylesheet"
       type="text/css"
@@ -26,7 +27,34 @@ export default {
     return {
       logo,
       AUTH_ENV: process.env.AUTH_ENV === 'admin',
+      windowWidth: undefined,
+      linkList: [
+        {
+          id: 'dwknklznds',
+          text: 'About',
+          url: 'https://pkiop.me',
+          type: 'a',
+        },
+        {
+          id: 'askljdwjn',
+          text: 'Article',
+          url: '/article',
+          type: 'nuxtlink',
+        },
+      ],
     };
+  },
+  computed: {
+    isMobile() {
+      console.log('do is mobile');
+      console.log('this.windowWidth : ', this.windowWidth);
+      return this.windowWidth <= 768;
+    },
+  },
+  mounted() {
+    window.addEventListener('resize', () => {
+      this.windowWidth = window.innerWidth;
+    });
   },
 };
 </script>
