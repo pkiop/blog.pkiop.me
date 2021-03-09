@@ -46,15 +46,19 @@ export default {
   },
   computed: {
     isMobile() {
-      console.log('do is mobile');
-      console.log('this.windowWidth : ', this.windowWidth);
       return this.windowWidth <= 768;
     },
   },
   mounted() {
-    window.addEventListener('resize', () => {
-      this.windowWidth = window.innerWidth;
+    this.windowWidth = window.innerWidth;
+    this.$nextTick(() => {
+      window.addEventListener('resize', this.onResize);
     });
+  },
+  methods: {
+    onResize() {
+      this.windowWidth = window.innerWidth;
+    },
   },
 };
 </script>
