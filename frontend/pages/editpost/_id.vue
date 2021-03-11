@@ -3,11 +3,12 @@
     <div v-if="AUTH_ENV">
       <div>edit post</div>
       <input v-model="title" class="title-input" type="text" />
+      <input v-model="mainImageLink" class="image-input" type="text" />
       <CategorySelect
         class="edit-post-category-select"
         :category-list="categoryList.data.listCategories.items"
-        :originMainCategory="originMainCategory"
-        :originSubCategory="originSubCategory"
+        :origin-main-category="originMainCategory"
+        :origin-sub-category="originSubCategory"
       />
       <textarea v-model="mdText"></textarea>
       <button @click="submit">수정</button>
@@ -45,14 +46,24 @@ export default {
       `,
     });
 
+    const mainImageLink = res.data.getPkiopblog.mainImageLink;
     const originMainCategory = res.data.getPkiopblog.mainCategory;
     const originSubCategory = res.data.getPkiopblog.subCategory;
-    return { title, mdText, categoryList, originMainCategory, originSubCategory };
+
+    return {
+      title,
+      mdText,
+      categoryList,
+      mainImageLink,
+      originMainCategory,
+      originSubCategory,
+    };
   },
   data() {
     return {
       title: null,
       mdText: ['Hello World!'],
+      mainImageLink: null,
       AUTH_ENV: process.env.AUTH_ENV === 'admin',
     };
   },
@@ -63,6 +74,7 @@ export default {
         id: this.$route.params.id,
         title: this.title,
         mdContents: this.mdText,
+        mainImageLink: this.mainImageLink,
         mainCategory: this.$store.state.editpost.mainCategory,
         subCategory: this.$store.state.editpost.subCategory,
         updateAt: new Date(),
@@ -122,6 +134,12 @@ export default {
     height: 600px;
     color: white;
     border: 1px solid white;
+  }
+  .image-input {
+    color: white;
+    width: 90%;
+    overflow: scroll;
+    font-size: $title-font-size - 1.5rem;
   }
 }
 </style>

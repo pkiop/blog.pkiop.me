@@ -5,6 +5,12 @@
       <div class="title-input">
         <div>제목 :</div>
         <input v-model="title" type="text" />
+        <input
+          v-model="mainImageLink"
+          placeholder="imageLink"
+          class="image-input"
+          type="text"
+        />
         <CategorySelect
           class="edit-post-category-select"
           :category-list="categoryList.data.listCategories.items"
@@ -38,6 +44,7 @@ export default {
     return {
       title: 'Write your title',
       mdText: ['Write your post!'],
+      mainImageLink: null,
       AUTH_ENV: process.env.AUTH_ENV === 'admin',
     };
   },
@@ -46,6 +53,7 @@ export default {
       const inputValue = {
         title: this.title,
         mdContents: this.mdText,
+        mainImageLink: this.mainImageLink,
         mainCategory: this.$store.state.editpost.mainCategory,
         subCategory: this.$store.state.editpost.subCategory,
         createAt: new Date(),
