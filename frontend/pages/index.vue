@@ -5,6 +5,7 @@
         v-for="list in info"
         :key="list.id"
         class="post-block"
+        :title-image-link="list.mainImageLink"
         :main-category="list.mainCategory"
         :sub-category="list.subCategory"
         :post-title="list.title"
@@ -71,7 +72,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .article {
   margin: 1em;
 }

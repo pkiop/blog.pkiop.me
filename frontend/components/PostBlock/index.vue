@@ -56,7 +56,7 @@ export default {
   },
   data() {
     return {
-      titleImage: this.titleImageLink,
+      titleImage: this.titleImageLink ?? noPicture,
     };
   },
 };
@@ -88,6 +88,8 @@ export default {
 
 .title-image {
   width: 7em;
+  height: 7em;
+  object-fit: cover;
 
   border-radius: $main-radius;
   margin-right: 1em;
