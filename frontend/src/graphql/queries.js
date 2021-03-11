@@ -6,6 +6,7 @@ export const getPkiopblog = /* GraphQL */ `
     getPkiopblog(id: $id) {
       id
       title
+      mainImageLink
       mdContents
       mainCategory
       subCategory
@@ -24,6 +25,7 @@ export const listPkiopblogs = /* GraphQL */ `
       items {
         id
         title
+        mainImageLink
         mdContents
         mainCategory
         subCategory

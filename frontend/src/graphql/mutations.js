@@ -6,6 +6,7 @@ export const createPkiopblog = /* GraphQL */ `
     createPkiopblog(input: $input) {
       id
       title
+      mainImageLink
       mdContents
       mainCategory
       subCategory
@@ -19,6 +20,7 @@ export const updatePkiopblog = /* GraphQL */ `
     updatePkiopblog(input: $input) {
       id
       title
+      mainImageLink
       mdContents
       mainCategory
       subCategory
@@ -32,6 +34,7 @@ export const deletePkiopblog = /* GraphQL */ `
     deletePkiopblog(input: $input) {
       id
       title
+      mainImageLink
       mdContents
       mainCategory
       subCategory
