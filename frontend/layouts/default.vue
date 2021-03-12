@@ -59,6 +59,16 @@ export default {
   overflow-y: scroll;
   border: $hacker-border;
 
+  @media screen and (min-width: 1000px) {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  @media screen and (min-width: 1500px) {
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+
   &::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera*/
   }
