@@ -71,8 +71,10 @@ header {
   justify-content: space-between;
   align-items: center;
 
-  background-color: $color-main3;
+  background-color: $color-main2;
   height: $header-height;
+
+  border-bottom: $hacker-border;
 
   padding: 0.3rem;
 }
