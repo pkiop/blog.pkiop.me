@@ -1,36 +1,34 @@
 <template>
-  <div v-if="AUTH_ENV">
-    <div class="wrap">
+  <div class="wrap">
+    <fragment v-if="AUTH_ENV">
       <div>add post</div>
       <div class="title-input">
-        <div>제목 :</div>
+        <span>제목 : </span>
         <input v-model="title" type="text" />
-        <input
-          v-model="mainImageLink"
-          placeholder="imageLink"
-          class="image-input"
-          type="text"
-        />
-        <CategorySelect
-          class="edit-post-category-select"
-          :category-list="categoryList.data.listCategories.items"
-        />
       </div>
+      <input
+        v-model="mainImageLink"
+        placeholder="imageLink"
+        class="image-input"
+        type="text"
+      />
+      <CategorySelect :category-list="categoryList.data.listCategories.items" />
       <textarea v-model="mdText"></textarea>
       <button @click="submit">작성</button>
-    </div>
+    </fragment>
+    <fragment v-else>허가되지 않은 접근</fragment>
   </div>
-  <div v-else>허가되지 않은 접근</div>
 </template>
 
 <script>
 import gql from 'graphql-tag';
 import { listCategories } from '@/src/graphql/queries';
 import { createPkiopblog } from '@/src/graphql/mutations';
+import { Fragment } from 'vue-fragment';
 import CategorySelect from '@/components/EditPost/CategorySelect';
 
 export default {
-  components: { CategorySelect },
+  components: { CategorySelect, Fragment },
   async asyncData(context) {
     const client = context.app.apolloProvider.defaultClient;
     const res = await client.query({
@@ -82,25 +80,28 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: $color-main2;
+  margin: 1rem;
   div {
     text-align: center;
+  }
+  .title-input {
+    input {
+      border: 1px solid $color-inputBorder;
+      color: white;
+    }
   }
   textarea {
     border: 1px solid $color-inputBorder;
     height: 600px;
     color: white;
   }
-}
-
-.title-input {
-  input {
-    border: 1px solid $color-inputBorder;
+  .image-input {
     color: white;
+    width: 90%;
+    overflow: scroll;
+    font-size: $title-font-size - 1.5rem;
+    border: 1px solid white;
   }
-}
-
-.edit-post-category-select {
-  color: white;
-  margin: 1rem 0;
 }
 </style>
