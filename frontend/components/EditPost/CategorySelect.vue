@@ -1,5 +1,5 @@
 <template>
-  <fragment>
+  <dlv class="category-select-wrapper">
     <select
       v-model="selectedItem"
       class="edit-post-category-select"
@@ -28,15 +28,12 @@
         {{ item.name }}
       </option>
     </select>
-  </fragment>
+  </dlv>
 </template>
 
 <script>
-import { Fragment } from 'vue-fragment';
-
 export default {
   name: 'CategorySelect',
-  components: { Fragment },
   props: {
     categoryList: {
       type: Array,
@@ -88,16 +85,25 @@ export default {
 
 <style lang="scss">
 .edit-post-category-select {
-  width: 3rem;
+  margin: 1rem;
+  width: 6rem;
+  height: 2rem;
+  font-size: 2rem;
   color: white;
   border: 1px solid white;
   text-align-last: center; // partial solution only chrome
 }
 
 .edit-post-sub-category-select {
-  width: 3rem;
+  margin: 1rem;
+  height: 2rem;
+  font-size: 2rem;
   color: white;
   border: 1px solid white;
   text-align-last: center; // partial solution only chrome
+}
+
+.category-select-wrapper {
+  display: flex;
 }
 </style>
