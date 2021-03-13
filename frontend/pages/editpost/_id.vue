@@ -1,11 +1,10 @@
 <template>
   <div class="wrap">
-    <div v-if="AUTH_ENV">
+    <fragment v-if="AUTH_ENV">
       <div>edit post</div>
       <input v-model="title" class="title-input" type="text" />
       <input v-model="mainImageLink" class="image-input" type="text" />
       <CategorySelect
-        class="edit-post-category-select"
         :category-list="categoryList.data.listCategories.items"
         :origin-main-category="originMainCategory"
         :origin-sub-category="originSubCategory"
@@ -13,8 +12,7 @@
       <textarea v-model="mdText"></textarea>
       <button @click="submit">수정</button>
       <button @click="deletePost">삭제</button>
-      <div>hi</div>
-    </div>
+    </fragment>
     <div v-else>허가되지 않은 접근</div>
   </div>
 </template>
@@ -25,9 +23,9 @@ import gql from 'graphql-tag';
 import { getPkiopblog, listCategories } from '@/src/graphql/queries';
 import { updatePkiopblog, deletePkiopblog } from '@/src/graphql/mutations';
 import CategorySelect from '@/components/EditPost/CategorySelect';
-
+import { Fragment } from 'vue-fragment';
 export default {
-  components: { CategorySelect },
+  components: { CategorySelect, Fragment },
 
   async asyncData(context) {
     const client = context.app.apolloProvider.defaultClient;
@@ -120,6 +118,8 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: $color-main2;
+  margin: 1rem;
   div {
     text-align: center;
   }
