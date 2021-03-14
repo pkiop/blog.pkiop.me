@@ -3,23 +3,28 @@
     <input id="sidebar" type="checkbox" />
     <div class="sidebar">
       <label class="on-off" for="sidebar"></label>
-      <MainCategory
-        v-for="mainCategory in category"
-        :key="mainCategory.id"
-        class="main-category"
-        :main-category="mainCategory"
-      />
+      <div class="main-category-wrapper">
+        <MainCategory
+          v-for="mainCategory in category"
+          :key="mainCategory.id"
+          class="main-category"
+          :main-category="mainCategory"
+        />
+      </div>
+      <VisitCnt :today-visit-cnt="0" :total-visit-cnt="0" />
     </div>
   </div>
 </template>
 
 <script>
 import MainCategory from '@/components/Sidebar/MainCategory.vue';
+import VisitCnt from '@/components/Sidebar/VisitCnt.vue';
 
 export default {
   name: 'Sidebar',
   components: {
     MainCategory,
+    VisitCnt,
   },
   props: {
     category: {
@@ -74,7 +79,7 @@ export default {
     left: calc(2rem - #{$sidebar-width});
     color: black;
     transition: 1s all;
-    
+
     width: 0;
 
     & > div > a {
@@ -95,6 +100,10 @@ export default {
     & {
       width: 1rem;
     }
+  }
+
+  .main-category-wrapper {
+    margin-bottom: 2rem;
   }
 }
 </style>
