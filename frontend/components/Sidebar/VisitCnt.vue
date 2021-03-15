@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import { getNextDay } from '@/utils/datetime';
 export default {
   name: 'VisitCnt',
   props: {
@@ -19,6 +20,25 @@ export default {
       required: true,
     },
   },
+  mounted() {
+    const timeInput = new Date(getNextDay());
+
+    const splitCookie = (cookieString) => {
+      return cookieString.split('; ').map((el) => {
+        const [key, value] = el.split('=');
+        return {
+          [key]: value,
+        };
+      });
+    };
+
+    const cookieObject = splitCookie(document.cookie);
+    console.log(cookieObject);
+    if(cookieObject.pkiopBlogVisit === undefined) {
+      document.cookie = `pkiopBlogVisited=true; expires=${timeInput}; path=/`;
+      // TODO: 방문자 올리는 api 호출
+    } 
+  }
 };
 </script>
 
