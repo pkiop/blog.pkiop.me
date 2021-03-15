@@ -10,3 +10,11 @@ export const reduceStringTime = (time: string) => {
   const res = { year, month, day, hour, min, sec };
   return res;
 };
+
+export const getNextDay = () => {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = today.getMonth() + 1;
+  const date = today.getDate() + 1;
+  return new Date(`${year}-${month}-${date}`);
+};
