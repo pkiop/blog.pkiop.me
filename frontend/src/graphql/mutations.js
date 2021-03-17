@@ -43,3 +43,11 @@ export const deletePkiopblog = /* GraphQL */ `
     }
   }
 `;
+
+// 함수만 실행시키면 1 올라가도록 하고 싶은데..
+export const increaseVisitCnt = /* GraphQL */ `
+  mutation IncreaseVisitCnt() {
+    increaseVisitCnt() {
+    }
+  }
+`;
