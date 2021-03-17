@@ -88,7 +88,7 @@ export default {
         });
         await this.$router.push('/article');
       } catch (error) {
-        console.log('Error creating post...', error);
+        console.error('Error creating post...', error);
       }
     },
     async deletePost() {
@@ -106,7 +106,7 @@ export default {
         });
         this.$router.push('/article');
       } catch (error) {
-        console.log('Error creating post...', error);
+        console.error('Error creating post...', error);
       }
     },
   },
