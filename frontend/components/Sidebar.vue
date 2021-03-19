@@ -76,11 +76,12 @@ export default {
 
   #sidebar:checked ~ .sidebar {
     background-color: black;
-    left: calc(2rem - #{$sidebar-width});
+    left: calc(-#{$sidebar-width});
     color: black;
     transition: 1s all;
-
-    width: 0;
+    width: 0px;
+    font-size: 0;
+    border: 0px;
 
     & > div > a {
       transition: 1s all;
@@ -91,14 +92,11 @@ export default {
       &:before {
         content: '>';
       }
-      right: -10.5rem;
+      right: -14.5rem;
+      font-size: 1rem;
 
       transition: 1s all;
       color: white;
-    }
-
-    & {
-      width: 1rem;
     }
   }
 
