@@ -60,14 +60,16 @@ export default {
   }
 
   .header-hambug-block {
-    font-size: 2rem;
-    padding: 0.6rem;
+    padding: 0rem;
     a {
       font-size: 0;
     }
   }
 
   #hambug:checked ~ .header-dropdown {
+    & > .hambug-click-dropdown > .header-hambug-block {
+      padding: 0.6rem;
+    }
     a {
       font-size: 2rem;
     }
@@ -76,7 +78,7 @@ export default {
   .hambug-click-dropdown {
     position: absolute;
 
-    top: 3rem;
+    top: 2.8rem;
     right: 0.2rem;
     background-color: black;
   }
