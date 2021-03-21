@@ -78,14 +78,23 @@ export default {
     background-color: black;
     left: calc(-#{$sidebar-width});
     color: black;
-    transition: 1s all;
+    transition: 0.4s all;
     width: 0px;
-    font-size: 0;
+    font-size: 0px;
     border: 0px;
+    padding: 0rem;
+    margin: 0rem;
 
     & > div > a {
-      transition: 1s all;
+      transition: 0.4s all;
       color: black;
+    }
+
+    & > * > * {
+      & > * {
+        margin: 0rem;
+      }
+      margin: 0rem;
     }
 
     .on-off {
@@ -95,7 +104,7 @@ export default {
       right: -14.5rem;
       font-size: 1rem;
 
-      transition: 1s all;
+      transition: 0.4s all;
       color: white;
     }
   }
