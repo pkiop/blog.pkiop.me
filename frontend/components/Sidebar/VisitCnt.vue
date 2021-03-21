@@ -1,7 +1,7 @@
 <template>
   <div class="visit-cnt-wrapper">
     <div class="today-cnt">{{ todayVisitCnt }}</div>
-    /
+    <span>/</span>
     <div class="total-cnt">{{ totalVisitCnt }}</div>
   </div>
 </template>
@@ -33,12 +33,11 @@ export default {
     };
 
     const cookieObject = splitCookie(document.cookie);
-    console.log(cookieObject);
-    if(cookieObject.pkiopBlogVisit === undefined) {
+    if (cookieObject.pkiopBlogVisit === undefined) {
       document.cookie = `pkiopBlogVisited=true; expires=${timeInput}; path=/`;
       // TODO: 방문자 올리는 api 호출
-    } 
-  }
+    }
+  },
 };
 </script>
 
