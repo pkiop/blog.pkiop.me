@@ -4,9 +4,11 @@ import awsmobile from './src/aws-exports';
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'server',
-
+  server: {
+    host: "0.0.0.0",
+  },
   env: {
-    AUTH_ENV: '',
+    AUTH_ENV: 'admin',
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -49,6 +51,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxt/http',
     '@nuxtjs/apollo',
+    '@nuxtjs/google-analytics'
   ],
   serverMiddleware: ['~/server-middleware/logger'],
 
@@ -87,5 +90,13 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  googleAnalytics: {
+    id: process.env.GOOGLE_ANALYTICS_ID,
+  },
+  publicRuntimeConfig: {
+    googleAnalytics: {
+      id: process.env.GOOGLE_ANALYTICS_ID,
+    }
+  }
+
 };
