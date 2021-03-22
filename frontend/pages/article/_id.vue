@@ -50,6 +50,8 @@ export default {
     hljs.highlightAll();
     const mainCategory = res.data.getPkiopblog.mainCategory;
     const subCategory = res.data.getPkiopblog.subCategory;
+    const track = (title) => context.$gtag.pageview(`/${title}`);
+    track(title);
     return { title, mdContents, mainCategory, subCategory };
   },
   data() {
