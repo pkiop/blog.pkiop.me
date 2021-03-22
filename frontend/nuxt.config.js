@@ -2,7 +2,6 @@ import colors from 'vuetify/es5/util/colors';
 import dotenv from 'dotenv';
 import awsmobile from './src/aws-exports';
 dotenv.config();
-console.log("nuxt process . env : ", process.env);
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -46,8 +45,7 @@ export default {
     '@nuxtjs/vuetify',
 
     '@nuxt/typescript-build',
-    '@nuxtjs/dotenv',
-    '@nuxtjs/google-analytics',
+
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -56,6 +54,8 @@ export default {
     '@nuxtjs/axios',
     '@nuxt/http',
     '@nuxtjs/apollo',
+    '@nuxtjs/dotenv',
+    '@nuxtjs/google-analytics',
   ],
   serverMiddleware: ['~/server-middleware/logger'],
 

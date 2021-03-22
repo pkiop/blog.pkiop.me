@@ -32,10 +32,6 @@ export default {
       required: true,
     },
   },
-  mounted() {
-    console.log('row env : ', process.env.HELLOWORLD);
-    console.log('process env : ', process.env.GOOGLE_ANALYTICS_ID);
-  },
 };
 </script>
 
