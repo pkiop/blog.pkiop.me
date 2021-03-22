@@ -11,20 +11,20 @@
           :main-category="mainCategory"
         />
       </div>
-      <VisitCnt :today-visit-cnt="0" :total-visit-cnt="0" />
+      <!-- <VisitCnt :today-visit-cnt="0" :total-visit-cnt="0" /> -->
     </div>
   </div>
 </template>
 
 <script>
 import MainCategory from '@/components/Sidebar/MainCategory.vue';
-import VisitCnt from '@/components/Sidebar/VisitCnt.vue';
+// import VisitCnt from '@/components/Sidebar/VisitCnt.vue';
 
 export default {
   name: 'Sidebar',
   components: {
     MainCategory,
-    VisitCnt,
+    // VisitCnt,
   },
   props: {
     category: {

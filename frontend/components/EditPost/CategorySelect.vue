@@ -1,5 +1,5 @@
 <template>
-  <dlv class="category-select-wrapper">
+  <div class="category-select-wrapper">
     <select
       v-model="selectedItem"
       class="edit-post-category-select"
@@ -28,7 +28,7 @@
         {{ item.name }}
       </option>
     </select>
-  </dlv>
+  </div>
 </template>
 
 <script>
