@@ -61,6 +61,23 @@ export default {
       AUTH_ENV: process.env.AUTH_ENV === 'admin',
     };
   },
+  head() {
+    return {
+      title: this.title,
+      meta: [
+        {
+          hid: this.title,
+          name: this.title,
+          content: this.mdContents,
+        },
+      ],
+    };
+  },
+  computed: {
+    titleComputed() {
+      return this.title && 'b.p.m';
+    },
+  },
   mounted() {
     document.getElementById('textArea').innerHTML = this.mdContents;
   },

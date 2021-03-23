@@ -18,6 +18,8 @@
 
 <script>
 import MainCategory from '@/components/Sidebar/MainCategory.vue';
+
+// TODO: google analytics에 찍힌 조회수 가져다 쓸 수 있는지 해보기
 // import VisitCnt from '@/components/Sidebar/VisitCnt.vue';
 
 export default {
@@ -53,7 +55,7 @@ export default {
 
   background-color: $color-main2;
   left: 0;
-  transition: 1s all;
+  transition: 0.4s all;
 }
 
 .on-off {
