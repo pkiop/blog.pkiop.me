@@ -40,5 +40,13 @@ module.exports = {
       },
       __key: 'pages',
     },
+    {
+      resolve: `gatsby-alias-imports`,
+      options: {
+        aliases: {
+          components: 'src/components',
+        },
+      },
+    },
   ],
 };
