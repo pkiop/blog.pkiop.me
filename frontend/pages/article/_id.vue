@@ -31,29 +31,38 @@ export default {
   components: { PostCategory },
   async asyncData(context) {
     const client = context.app.apolloProvider.defaultClient;
-    const res = await client.query({
-      query: gql`
-        ${getPkiopblog}
-      `,
-      variables: { id: context.route.params.id },
-    });
+    try {
+      const res = await client.query({
+        query: gql`
+          ${getPkiopblog}
+        `,
+        variables: { id: context.route.params.id },
+      });
 
-    const title = res.data.getPkiopblog.title;
-    marked.setOptions({
-      xhtml: true,
-      gfm: true,
-      highlight(code, lang) {
-        return hljs.highlight(lang, code).value;
-      },
-    });
-    const mdContents = await marked(res.data.getPkiopblog.mdContents);
-    hljs.highlightAll();
-    const mainCategory = res.data.getPkiopblog.mainCategory;
-    const subCategory = res.data.getPkiopblog.subCategory;
-    // TODO: add tracker
-    // const track = (title) => context.$gtag.pageview(`/${title}`);
-    // track(title);
-    return { title, mdContents, mainCategory, subCategory };
+      const title = res.data.getPkiopblog.title;
+      marked.setOptions({
+        xhtml: true,
+        gfm: true,
+        highlight(code, lang) {
+          return hljs.highlight(lang, code).value;
+        },
+      });
+      const mdContents = await marked(res.data.getPkiopblog.mdContents);
+      hljs.highlightAll();
+      const mainCategory = res.data.getPkiopblog.mainCategory;
+      const subCategory = res.data.getPkiopblog.subCategory;
+      // TODO: add tracker
+      // const track = (title) => context.$gtag.pageview(`/${title}`);
+      // track(title);
+      return { title, mdContents, mainCategory, subCategory };
+    } catch (e) {
+      return {
+        title: 'error',
+        mdContents: 'error',
+        mainCategory: 'error',
+        subCategory: 'error',
+      };
+    }
   },
   data() {
     return {
