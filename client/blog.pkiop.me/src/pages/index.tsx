@@ -1,20 +1,32 @@
 import * as React from 'react';
-import Headerbar from 'components/organisms/Headerbar';
-
+import Headerbar from 'components/UI/Headerbar';
+import GlobalThemeProvider from 'styles/GlobalThemeProvider';
+import { Helmet } from 'react-helmet';
+import SidebarContainer from 'components/container/SidebarContainer';
+import ContentsContainer from 'components/container/ContentsContainer';
+import styled from 'styled-components';
 // styles
-const pageStyles = {
-  color: '#232129',
-  padding: 96,
-  fontFamily: '-apple-system, Roboto, sans-serif, serif',
-};
+
+const ContentsWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  & > :last-child {
+    width: 20rem;
+  }
+`;
 
 // markup
 const IndexPage = () => {
   return (
-    <main style={pageStyles}>
+    <GlobalThemeProvider>
+      <Helmet title="blog.pkiop.me" />
       <Headerbar />
-      Vue2 + Nuxt -> Gatsby 로 블로그 migration중입니다..
-    </main>
+      <ContentsWrapper>
+        <ContentsContainer />
+        <SidebarContainer />
+      </ContentsWrapper>
+    </GlobalThemeProvider>
   );
 };
 
