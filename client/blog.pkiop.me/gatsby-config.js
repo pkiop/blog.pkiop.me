@@ -1,10 +1,10 @@
 module.exports = {
   siteMetadata: {
     title: 'blog.pkiop.me',
+    description: 'pkiop 블로그',
   },
   plugins: [
     'gatsby-plugin-typescript',
-    'gatsby-plugin-emotion',
     'gatsby-plugin-gatsby-cloud',
     'gatsby-plugin-image',
     {
@@ -46,6 +46,12 @@ module.exports = {
         aliases: {
           components: 'src/components',
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // Add any options here
       },
     },
   ],
