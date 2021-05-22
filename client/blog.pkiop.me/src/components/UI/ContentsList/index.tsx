@@ -1,9 +1,11 @@
 import React from 'react';
+import Content from './Content';
 import * as S from './style';
 
 export interface IContent {
   title: string;
-  article: string;
+  date: string;
+  slug: string;
 }
 
 export interface IContentsListComponent {
@@ -13,11 +15,7 @@ export interface IContentsListComponent {
 
 function ContentsList({ className, contentsList }: IContentsListComponent) {
   const ContentsListComponents = contentsList.map((content: IContent) => {
-    return (
-      <div>
-        {content.title} {content.article}
-      </div>
-    );
+    return <Content key={content.title} content={content} />;
   });
   return (
     <S.ContentsList className={className}>
