@@ -8,5 +8,9 @@ export const Nav = styled.div`
     font-weight: 500;
     color: ${colors.mainTextColor};
     margin-left: 1.6rem;
+
+    &:hover {
+      color: white;
+    }
   }
 `;

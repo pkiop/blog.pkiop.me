@@ -8,7 +8,7 @@ function Headerbar() {
   return (
     <S.HeaderBar>
       <a href="/">
-        <S.Logo src={logo} alt="logo" />
+        PKIOP BLOG
       </a>
       <Nav />
     </S.HeaderBar>
