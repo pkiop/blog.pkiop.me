@@ -12,6 +12,9 @@ function ContentsContainer() {
               title
               date
               slug
+              mainCategory
+              subCategory
+              tag
             }
           }
         }

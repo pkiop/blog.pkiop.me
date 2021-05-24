@@ -1,6 +1,7 @@
 // styles
 import styled from 'styled-components';
 import CategoryComponent from './Category';
+import TagListComponent from './TagList';
 
 export const Sidebar = styled.div`
   display: flex;
@@ -8,3 +9,5 @@ export const Sidebar = styled.div`
 `;
 
 export const Category = styled(CategoryComponent)``;
+
+export const TagList = styled(TagListComponent)``;

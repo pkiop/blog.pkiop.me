@@ -1,19 +1,16 @@
 import { ISubCategory } from 'components/UI/Sidebar/Category/SubCategory';
 import { ICategory } from 'components/UI/Sidebar/Category';
 
-export const subCategoryList: ISubCategory = [
-  '테스트 서브 1',
-  '테스트 서브 2',
-  '테스트 서브 3',
-];
+export const subCategoryList1: ISubCategory = ['blog.pkiop.me', 'lifemanager'];
+export const subCategoryList2: ISubCategory = ['javascript', '기타'];
 
 export const testCategoryList: ICategory[] = [
   {
-    mainCategory: '테스트메인1',
-    subCategory: subCategoryList,
+    mainCategory: '개발',
+    subCategory: subCategoryList1,
   },
   {
-    mainCategory: '테스트메인2',
-    subCategory: subCategoryList,
+    mainCategory: '책',
+    subCategory: subCategoryList2,
   },
 ];
