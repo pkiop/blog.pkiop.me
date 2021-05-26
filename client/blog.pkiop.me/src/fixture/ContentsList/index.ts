@@ -1,29 +1,39 @@
 import { IContent } from 'components/UI/ContentsList';
+const testObj = {
+  mainCategory: 'main',
+  subCategory: 'sub',
+  tag: ['tag1', 'tag2', 'tag3'],
+};
 export const testContentList: IContent[] = [
   {
     title: '글 1',
     date: '첫번째 글에대한 내용입니다.',
     slug: '/1',
+    ...testObj,
   },
   {
     title: '글 2',
     date: '두번째 글에대한 내용입니다.',
     slug: '/1',
+    ...testObj,
   },
   {
     title: '글 3',
     date: '세번째 글에대한 내용입니다.',
     slug: '/1',
+    ...testObj,
   },
   {
     title: '글 4',
     date: '네번째 글에대한 내용입니다.',
     slug: '/1',
+    ...testObj,
   },
   {
     title: '글 5',
     date: '다섯번째 글에대한 내용입니다.',
     slug: '/1',
+    ...testObj,
   },
 ];
 
