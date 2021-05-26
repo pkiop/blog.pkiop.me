@@ -22,7 +22,7 @@ export const clearFilter = () => ({
   type: CLEAR_FILTER,
 });
 
-const initialState = {
+export const initialState = {
   mainCategory: '',
   subCategory: '',
   tag: [] as string[],
