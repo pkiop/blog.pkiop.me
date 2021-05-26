@@ -1,6 +1,6 @@
 import React from 'react';
 import SubCategory from './index';
-import { subCategoryList } from 'fixture/Category';
+import { subCategoryList1 } from 'fixture/Category';
 
 export default {
   title: 'Sidebar / Category / SubCategory',
@@ -8,5 +8,5 @@ export default {
 };
 
 export const MainSubCategory = () => {
-  return <SubCategory subCategory={subCategoryList} />;
+  return <SubCategory subCategory={subCategoryList1} />;
 };

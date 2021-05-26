@@ -1,12 +1,12 @@
 import React from 'react';
-import SubCategory from './index';
-import { subCategoryList } from 'fixture/Category';
+import TagList from './index';
+import { testTagList } from 'fixture/Tag';
 
 export default {
-  title: 'Sidebar / Category / SubCategory',
-  component: SubCategory,
+  title: 'Sidebar / TagList',
+  component: TagList,
 };
 
-export const MainSubCategory = () => {
-  return <SubCategory subCategory={subCategoryList} />;
+export const MainTagList = () => {
+  return <TagList tagList={testTagList} />;
 };
