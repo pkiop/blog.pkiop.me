@@ -21,12 +21,8 @@ function Sidebar({ className, categoryList }: ISidebarComponent) {
   });
   return (
     <S.Sidebar className={className}>
-      <div>현재 선택된 것들</div>
-      <div>MC : {mainCategory}</div>
-      <div>SC : {subCategory}</div>
-      <div>TAG: {JSON.stringify(tag)}</div>
       {CategoryList}
-      <S.TagList tagList={['a', 'b']}/>
+      <S.TagList tagList={['테스트1', '테스트2']}/>
       <button onClick={() => dispatch(clearFilter())}>필터 초기화</button>
   </S.Sidebar>
   )
