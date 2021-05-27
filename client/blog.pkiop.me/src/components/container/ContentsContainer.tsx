@@ -27,7 +27,6 @@ function ContentsContainer() {
 
   return (
     <div>
-      <div>콘텐츠가 들어갈 자리</div>
       <ContentsList contentsList={contentsList} />
     </div>
   );
