@@ -13,7 +13,11 @@ export const theme: DefaultTheme = {
 
 export const colors = {
   mainBgColor: '#2e333a',
+  subBgColor: '#23272D',
   mainTextColor: '#cdd9e5',
+  subText: '#B0BAC6',
+  hr: '#393E46',
+  link: '#539bf5',
 };
 
 export const LeftSideInput = css`

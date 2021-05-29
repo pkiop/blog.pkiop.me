@@ -1,11 +1,18 @@
 // styles
 import styled from 'styled-components';
+import { colors } from 'styles/theme';
 
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.1);
-  margin-bottom: 0.4rem;
+  margin: 1rem;
+  border: 0.1rem solid ${colors.hr};
+  border-radius: 0.8rem;
+  color: ${colors.subText};
+
+  &:hover {
+    cursor: pointer;
+  }
 
   > div {
     margin: 1em 1em;

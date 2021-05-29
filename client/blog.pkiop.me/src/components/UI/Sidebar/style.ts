@@ -4,6 +4,7 @@ import CategoryComponent from './Category';
 import TagListComponent from './TagList';
 
 export const Sidebar = styled.div`
+  margin: 2rem 2rem;
   display: flex;
   flex-direction: column;
 `;

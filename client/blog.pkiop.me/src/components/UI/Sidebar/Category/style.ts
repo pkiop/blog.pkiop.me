@@ -12,6 +12,7 @@ export const CategoryTitle = styled.div`
   font-size: 2rem;
   margin-bottom: 0.6rem;
   cursor: pointer;
+  color: ${colors.subText};
 `;
 
 export const SubCategory = styled(SubCategoryComponent)`

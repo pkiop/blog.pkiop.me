@@ -1,25 +1,49 @@
 // styles
 import styled from 'styled-components';
+import { colors } from 'styles/theme';
 
 export const Posts = styled.div`
+  width: 100%;
+  @media (min-width: 900px) {
+    width: 900px;
+  }
+  background-color: ${colors.subBgColor};
+
   .blog-post-content {
+    padding: 0 3em 3em;
+    color: ${colors.subText};
+    line-height: 2.4rem;
+
+    > p,
+    > p > *,
+    > ol > * {
+      font-size: 1.4rem;
+    }
+
     > h2 {
-      font-size: 1.6rem;
+      font-size: 2rem;
       margin-top: 1em;
       margin-bottom: 1em;
     }
 
     > h3 {
-      font-size: 1.2rem;
+      font-size: 1.8rem;
+      margin-top: 0.8em;
+      margin-bottom: 0.8em;
+    }
+
+    > h4 {
+      font-size: 1.6rem;
       margin-top: 0.8em;
       margin-bottom: 0.8em;
     }
 
     a {
-      color: blue;
+      color: ${colors.link};
     }
 
     img {
+      width: 100%;
       margin-top: 1em;
       margin-bottom: 1em;
     }
