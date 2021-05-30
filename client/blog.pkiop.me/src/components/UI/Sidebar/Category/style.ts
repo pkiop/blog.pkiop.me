@@ -16,5 +16,5 @@ export const CategoryTitle = styled.div`
 `;
 
 export const SubCategory = styled(SubCategoryComponent)`
-  margin-left: 3rem;
+  margin-left: 4rem;
 `;
