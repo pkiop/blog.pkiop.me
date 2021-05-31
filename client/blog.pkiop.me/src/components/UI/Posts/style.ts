@@ -13,11 +13,12 @@ export const Posts = styled.div`
     padding: 0 3em 3em;
     color: ${colors.subText};
     line-height: 2.4rem;
+    font-size: 1.6rem;
 
     > p,
     > p > *,
     > ol > * {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
     }
 
     > h2 {
@@ -46,6 +47,14 @@ export const Posts = styled.div`
       width: 100%;
       margin-top: 1em;
       margin-bottom: 1em;
+    }
+    ul {
+      list-style: disc;
+      margin-left: 1.4em;
+      > * {
+        font-size: 1.6rem;
+        margin: 0.4rem 0;
+      }
     }
   }
 `;
