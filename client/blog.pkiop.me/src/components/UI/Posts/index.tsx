@@ -6,7 +6,6 @@ function Posts({
   frontmatter,
   html, // this prop will be injected by the GraphQL query below.
 }: any) {
-  console.log(html);
   return (
     <S.Posts>
       <div className="blog-post">

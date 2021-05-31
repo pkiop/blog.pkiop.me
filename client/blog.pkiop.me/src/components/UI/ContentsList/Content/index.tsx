@@ -1,5 +1,4 @@
 import React from 'react';
-import { navigate } from '@reach/router';
 import * as S from './style';
 
 export interface IContent {

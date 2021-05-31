@@ -11,9 +11,6 @@ export interface ISidebarComponent {
 }
 
 function Sidebar({ className, categoryList }: ISidebarComponent) {
-  const mainCategory: string = useSelector((state: any) => state.mainCategory);
-  const subCategory: string = useSelector((state: any) => state.subCategory);
-  const tag: string[] = useSelector((state: any) => state.tag);
   const dispatch = useDispatch();
 
   const CategoryList = categoryList.map((category: ICategory) => {
