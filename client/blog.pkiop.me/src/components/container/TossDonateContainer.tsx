@@ -46,8 +46,6 @@ function TossDonateContainer() {
   // {"resultType":"SUCCESS","success":{"scheme":"supertoss://send?bank=하나&accountNo=81087458745805&origin=linkgen&amount=1000&msg=%ED%86%A0%EC%8A%A4%EB%A1%9C+%EA%B8%B0%EB%B6%80%ED%95%98%EA%B8%B0","link":"https://toss.im/_m/bUQc5J4b"}}
   return (
     <div>
-      <div>{payload.success.link}</div>
-      <TossDonate link={payload.success.link} />
       <TossDonate link={payload.success.scheme} />
     </div>
   );

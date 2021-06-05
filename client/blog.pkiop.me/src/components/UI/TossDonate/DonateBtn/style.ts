@@ -14,3 +14,7 @@ export const DonateBtn = styled.div`
     }
   }
 `;
+
+export const Img = styled.img`
+  width: 20rem;
+`;

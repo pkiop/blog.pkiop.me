@@ -1,6 +1,7 @@
 import React from 'react';
 
 import * as S from './style';
+import TossLogo from 'images/tosslogo.png';
 
 export interface IDonateBtn {
   className?: string;
@@ -8,9 +9,12 @@ export interface IDonateBtn {
 }
 
 function DonateBtn({ className, link }: IDonateBtn) {
+  const onClick = () => {
+    window.location.href = link;
+  };
   return (
     <S.DonateBtn className={className}>
-      <a href={link}>기부하기</a>
+      <S.Img src={TossLogo} onClick={onClick} />
     </S.DonateBtn>
   );
 }

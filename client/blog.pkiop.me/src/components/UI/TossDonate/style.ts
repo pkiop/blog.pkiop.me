@@ -8,6 +8,4 @@ export const TossDonate = styled.div`
   flex-direction: column;
 `;
 
-export const DonateBtn = styled(DonateBtnComponent)`
-  background-color: blue;
-`;
+export const DonateBtn = styled(DonateBtnComponent)``;
