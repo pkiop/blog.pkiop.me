@@ -48,6 +48,7 @@ function TossDonateContainer() {
     <div>
       <div>{payload.success.link}</div>
       <TossDonate link={payload.success.link} />
+      <TossDonate link={payload.success.scheme} />
     </div>
   );
 }
