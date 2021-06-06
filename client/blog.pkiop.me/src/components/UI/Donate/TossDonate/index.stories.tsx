@@ -8,6 +8,8 @@ export default {
 
 const testData = {
   link: '#',
+  amount: 1000,
+  setAmount: () => {},
 };
 
 export const MainTossDonate = () => {

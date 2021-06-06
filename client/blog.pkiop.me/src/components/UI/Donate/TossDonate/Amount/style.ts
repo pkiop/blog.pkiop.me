@@ -2,4 +2,7 @@
 import { colors } from 'styles/theme';
 import styled from 'styled-components';
 
-export const SlideBanner = styled.div``;
+export const Amount = styled.div`
+  font-size: 2rem;
+  color: ${colors.subText};
+`;

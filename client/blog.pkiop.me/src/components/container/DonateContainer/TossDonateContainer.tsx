@@ -16,10 +16,12 @@ function TossDonateContainer() {
   const [error, setError] = useState<any>(null);
   const [payload, setPayload] = useState<any>(null);
 
+  const [amount, setAmount] = useState<number>(1000);
+  console.log('amount change : ', amount);
   const getDonateBtnInfo = async () => {
     setLoading(true);
     try {
-      const res = await axios.post(tossDonateBtnApiLink, config);
+      const res = await axios.post(tossDonateBtnApiLink, { ...config, amount });
       setPayload(res.data);
     } catch (e) {
       setError(e);
@@ -30,14 +32,15 @@ function TossDonateContainer() {
 
   useEffect(() => {
     getDonateBtnInfo();
-  }, []);
+    console.log('new amount : ', amount);
+  }, [amount]);
 
   if (loading) {
     return <div>로딩중</div>;
   }
 
   if (error) {
-    return <div>에러 : {JSON.stringify(error)}</div>;
+    return <div>에러</div>;
   }
 
   if (!payload) {
@@ -46,7 +49,11 @@ function TossDonateContainer() {
   // {"resultType":"SUCCESS","success":{"scheme":"supertoss://send?bank=하나&accountNo=81087458745805&origin=linkgen&amount=1000&msg=%ED%86%A0%EC%8A%A4%EB%A1%9C+%EA%B8%B0%EB%B6%80%ED%95%98%EA%B8%B0","link":"https://toss.im/_m/bUQc5J4b"}}
   return (
     <div>
-      <TossDonate link={payload.success.scheme} />
+      <TossDonate
+        amount={amount}
+        setAmount={setAmount}
+        link={payload.success.scheme}
+      />
     </div>
   );
 }

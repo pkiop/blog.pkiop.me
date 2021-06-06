@@ -19,4 +19,4 @@ function DonateBtn({ className, link }: IDonateBtn) {
   );
 }
 
-export default DonateBtn;
+export default React.memo(DonateBtn);

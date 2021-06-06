@@ -5,7 +5,7 @@ const fairPhrase = '파트너스 활동을 통해 일정액의 수수료를 제�
 function CoupangDonate() {
   return (
     <S.CoupangDonate>
-      <S.SlideBanner />
+      <S.CoupangBtn />
       <S.Phrase text={fairPhrase} />
     </S.CoupangDonate>
   );

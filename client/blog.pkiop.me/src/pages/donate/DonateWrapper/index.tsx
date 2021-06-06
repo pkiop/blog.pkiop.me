@@ -1,7 +1,8 @@
 import * as React from 'react';
 import TossDonateContainer from 'components/container/DonateContainer/TossDonateContainer';
-import styled from 'styled-components';
 import CoupangPartnersDonateContainer from 'components/container/DonateContainer/CoupangPartnersDonateContainer';
+import ExplainDonate from 'components/UI/Donate/ExplainDonate';
+import styled from 'styled-components';
 // styles
 
 const ContentsWrapper = styled.div`
@@ -15,8 +16,9 @@ const ContentsWrapper = styled.div`
 const IndexPage = () => {
   return (
     <ContentsWrapper>
-      <TossDonateContainer />
+      <ExplainDonate />
       <CoupangPartnersDonateContainer />
+      <TossDonateContainer />
     </ContentsWrapper>
   );
 };
