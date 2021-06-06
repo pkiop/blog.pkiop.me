@@ -7,6 +7,7 @@ export const Sidebar = styled.div`
   margin: 2rem 2rem;
   display: flex;
   flex-direction: column;
+  width: 20rem;
 `;
 
 export const Category = styled(CategoryComponent)``;

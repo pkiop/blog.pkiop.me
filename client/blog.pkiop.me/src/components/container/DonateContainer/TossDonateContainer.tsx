@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import TossDonate from 'components/UI/TossDonate';
+import TossDonate from 'components/UI/Donate/TossDonate';
 import axios from 'axios';
 
 const tossDonateBtnApiLink = 'https://toss.im/transfer-web/linkgen-api/link';

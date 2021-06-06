@@ -3,17 +3,13 @@ import Headerbar from 'components/UI/Headerbar';
 import GlobalThemeProvider from 'styles/GlobalThemeProvider';
 import { Helmet } from 'react-helmet';
 import SidebarContainer from 'components/container/SidebarContainer';
-import TossDonateContainer from 'components/container/TossDonateContainer';
 import styled from 'styled-components';
+import DonateWrapper from './DonateWrapper';
 // styles
 
 const ContentsWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
-
-  & > :last-child {
-    width: 20rem;
-  }
+  /* justify-content: space-between; */
 `;
 
 // markup
@@ -24,7 +20,7 @@ const IndexPage = () => {
       <Helmet title="blog.pkiop.me" />
       <Headerbar />
       <ContentsWrapper>
-        <TossDonateContainer />
+        <DonateWrapper />
         <SidebarContainer />
       </ContentsWrapper>
     </GlobalThemeProvider>
