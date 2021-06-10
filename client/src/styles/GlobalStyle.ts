@@ -29,6 +29,9 @@ const GlobalStyle = createGlobalStyle`
     font-size: 10px;
     vertical-align: baseline;
     box-sizing: border-box;
+		&::-webkit-scrollbar {
+    	display: none; /* Chrome, Safari, Opera*/
+		}
   }
   html, body, #root, .Section__container___3YYTG {
     height: 100%;
