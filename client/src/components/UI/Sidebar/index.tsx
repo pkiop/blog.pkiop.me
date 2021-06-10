@@ -20,7 +20,12 @@ function Sidebar({ className, categoryList }: ISidebarComponent) {
     <S.Sidebar className={className}>
       {CategoryList}
       <S.TagList tagList={testTagList} />
-      <button onClick={() => dispatch(clearFilter())}>필터 초기화</button>
+      <div className="button-wrapper">
+        <S.FilterClearBtn onClick={() => dispatch(clearFilter())}>
+          필터 초기화
+        </S.FilterClearBtn>
+      </div>
+      <S.DonateLink />
     </S.Sidebar>
   );
 }
