@@ -14,6 +14,7 @@ export interface ITagComponent {
 }
 
 function Tag({ className, onClick, tag }: ITagComponent) {
+  console.log('mytag : ', tag.textColor);
   return (
     <S.Tag
       className={className}

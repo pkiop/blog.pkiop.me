@@ -16,6 +16,7 @@ export const colors = {
   subBgColor: '#22272D',
   mainTextColor: '#cdd9e5',
   subText: '#B0BAC6',
+  darkText: '#010101',
   hr: '#393E46',
   link: '#539bf5',
 };
