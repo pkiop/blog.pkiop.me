@@ -17,7 +17,6 @@ function TossDonateContainer() {
   const [payload, setPayload] = useState<any>(null);
 
   const [amount, setAmount] = useState<number>(1000);
-  console.log('amount change : ', amount);
   const getDonateBtnInfo = async () => {
     setLoading(true);
     try {
