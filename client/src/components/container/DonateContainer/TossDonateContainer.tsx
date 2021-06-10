@@ -32,7 +32,6 @@ function TossDonateContainer() {
 
   useEffect(() => {
     getDonateBtnInfo();
-    console.log('new amount : ', amount);
   }, [amount]);
 
   if (loading) {
