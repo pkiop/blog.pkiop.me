@@ -2,6 +2,7 @@ import React from 'react';
 import * as S from './style';
 import { useDispatch } from 'react-redux';
 import { setMainCategory } from 'state/createStore';
+import { navigate } from 'gatsby';
 
 export interface ICategory {
   mainCategory: string;
@@ -22,7 +23,12 @@ function Category({ className, category }: ICategoryComponent) {
   };
 
   return (
-    <S.Category className={className}>
+    <S.Category
+      className={className}
+      onClick={() => {
+        navigate('/');
+      }}
+    >
       <S.CategoryTitle onClick={setCategory}>
         {category.emoji} {category.mainCategory}
       </S.CategoryTitle>
