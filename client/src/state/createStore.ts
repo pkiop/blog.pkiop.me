@@ -34,6 +34,7 @@ function reducer(state = initialState, action: any) {
       return {
         ...state,
         mainCategory: action.payload,
+        subCategory: '',
       };
     case SET_SUB_CATEGORY:
       return {
