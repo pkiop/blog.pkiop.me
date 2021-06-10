@@ -7,12 +7,12 @@ export const Titlebox = styled.div`
   color: ${colors.subText};
 
   > h1 {
-    font-size: 2.2rem;
+    font-size: 4rem;
     margin-bottom: 1rem;
   }
 
   > h2 {
-    font-size: 1.6rem;
+    font-size: 2.2rem;
     padding-bottom: 2rem;
     border-bottom: 1px solid ${colors.hr};
     margin-bottom: 2rem;

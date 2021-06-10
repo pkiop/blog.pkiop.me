@@ -1,12 +1,7 @@
 import React from 'react';
 import * as S from './style';
-
-export interface IContent {
-  title: string;
-  date: string;
-  slug: string;
-}
-
+import { IContent } from 'components/UI/ContentsList';
+import TagList from './TagList';
 export interface IContentsComponent {
   className?: string;
   content: IContent;
@@ -19,7 +14,15 @@ function Content({ className, content }: IContentsComponent) {
       className={className}
     >
       <div>{content.title}</div>
-      <div>{content.date}</div>
+      <S.SubInfo>
+        <div className="category-date">
+          <div className="category">
+            {content.mainCategory} / {content.subCategory}
+          </div>
+          <div className="date">{content.date}</div>
+        </div>
+        <TagList tagList={content.tag} />
+      </S.SubInfo>
     </S.Content>
   );
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import Content from './Content';
 import * as S from './style';
 import { useSelector } from 'react-redux';
+import { ITag } from 'components/UI/ContentsList/Content/TagList/Tag';
 
 export interface IContent {
   title: string;
@@ -9,7 +10,7 @@ export interface IContent {
   slug: string;
   mainCategory: string;
   subCategory: string;
-  tag: string[];
+  tag: ITag[];
 }
 
 export interface IContentsListComponent {
@@ -22,28 +23,37 @@ function ContentsList({ className, contentsList }: IContentsListComponent) {
   const subCategory: string = useSelector((state: any) => state.subCategory);
   const tag: string[] = useSelector((state: any) => state.tag);
 
-  const ContentsListComponents = contentsList.filter((content: IContent) => {
-    if (mainCategory === '' && subCategory === '' && tag.length === 0) {
-      return true;
-    }
-    const isMainCategoryEqual = content.mainCategory === mainCategory;
-    const isSubCategoryEqual = content.subCategory === subCategory;
-    const isContainsTag = content.tag.some((contentTag: string) => tag.includes(contentTag));
-
-    if (subCategory === '') {
-      if (tag.length !== 0) {
-        return isMainCategoryEqual && isContainsTag;
+  const ContentsListComponents = contentsList
+    .sort((a: any, b: any) => {
+      const aDate = new Date(a.date);
+      const bDate = new Date(b.date);
+      return bDate.getTime() - aDate.getTime();
+    })
+    .filter((content: IContent) => {
+      if (mainCategory === '' && subCategory === '' && tag.length === 0) {
+        return true;
       }
-      return isMainCategoryEqual;
-    }
+      const isMainCategoryEqual = content.mainCategory === mainCategory;
+      const isSubCategoryEqual = content.subCategory === subCategory;
+      const isContainsTag = content.tag.some((contentTag: ITag) =>
+        tag.includes(contentTag.title),
+      );
 
-    if (tag.length !== 0) {
-      return isSubCategoryEqual && isContainsTag;
-    }
-    return isSubCategoryEqual;
-  }).map((content: IContent) => {
-    return <Content key={content.title} content={content} />;
-  });
+      if (subCategory === '') {
+        if (tag.length !== 0) {
+          return isMainCategoryEqual && isContainsTag;
+        }
+        return isMainCategoryEqual;
+      }
+
+      if (tag.length !== 0) {
+        return isSubCategoryEqual && isContainsTag;
+      }
+      return isSubCategoryEqual;
+    })
+    .map((content: IContent) => {
+      return <Content key={content.title} content={content} />;
+    });
   return (
     <S.ContentsList className={className}>
       {ContentsListComponents}

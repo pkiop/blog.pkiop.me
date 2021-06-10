@@ -14,18 +14,30 @@ const ContentsWrapper = styled.div`
   & > :last-child {
     width: 20rem;
   }
+
+	@media (min-width: 760px) {
+    width: 760px;
+  }
 `;
+
+const IndexPageWrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+  align-items: center;
+`
 
 // markup
 const IndexPage = () => {
   return (
     <GlobalThemeProvider>
-      <Helmet title="blog.pkiop.me" />
-      <Headerbar />
-      <ContentsWrapper>
-        <ContentsContainer />
-        <SidebarContainer />
-      </ContentsWrapper>
+			<Helmet title="blog.pkiop.me" />
+			<Headerbar />
+			<IndexPageWrapper>
+				<ContentsWrapper>
+					<ContentsContainer />
+					<SidebarContainer />
+				</ContentsWrapper>
+			</IndexPageWrapper>
     </GlobalThemeProvider>
   );
 };
