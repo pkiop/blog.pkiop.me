@@ -3,12 +3,7 @@ import { ICategory } from 'components/UI/Sidebar/Category';
 
 export const subCategoryList1: ISubCategory = ['blog.pkiop.me', 'lifemanager'];
 export const subCategoryList2: ISubCategory = ['개발', '돈', '자기계발'];
-export const thinkCategoryList: ISubCategory = [
-  '개발',
-  '인생',
-  '인간관계',
-  '돈',
-];
+export const thinkCategoryList: ISubCategory = ['개발', '인생', '돈'];
 
 export const testCategoryList: ICategory[] = [
   {
