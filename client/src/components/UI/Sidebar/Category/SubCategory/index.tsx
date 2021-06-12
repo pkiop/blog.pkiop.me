@@ -3,21 +3,27 @@ import { useDispatch } from 'react-redux';
 import { setSubCategory } from 'state/createStore';
 import * as S from './style';
 
-export type ISubCategory = string[];
+export interface ISubCategory {
+  title: string;
+  count: number;
+}
 export interface ISubCategoryComponent {
   className?: string;
-  subCategory: ISubCategory;
+  subCategory: ISubCategory[];
 }
 
 function SubCategory({ className, subCategory }: ISubCategoryComponent) {
   const dispatch = useDispatch();
-
-
-  const subCategoryComponents = subCategory.map((categoryName: string) => {
+  const subCategoryComponents = subCategory.map((category: ISubCategory) => {
     const setCategory = () => {
-      dispatch(setSubCategory(categoryName));
-    }
-    return <div onClick={setCategory} key={categoryName}>{categoryName}</div>;
+      dispatch(setSubCategory(category.title));
+    };
+    return (
+      <div onClick={setCategory} key={category.title}>
+        {category.title}
+        {category.count ? `(${category.count})` : ''}
+      </div>
+    );
   });
   return (
     <S.SubCategory className={className}>{subCategoryComponents}</S.SubCategory>

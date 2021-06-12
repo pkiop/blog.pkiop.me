@@ -3,11 +3,16 @@ import * as S from './style';
 import { useDispatch } from 'react-redux';
 import { setMainCategory } from 'state/createStore';
 import { navigate } from 'gatsby';
+import { ISubCategory } from './SubCategory';
 
+export interface IMainCategory {
+  title: string;
+  count: number;
+}
 export interface ICategory {
-  mainCategory: string;
+  mainCategory: IMainCategory;
   emoji: string;
-  subCategory: string[];
+  subCategory: ISubCategory[];
 }
 
 export interface ICategoryComponent {
@@ -19,7 +24,7 @@ function Category({ className, category }: ICategoryComponent) {
   const dispatch = useDispatch();
 
   const setCategory = () => {
-    dispatch(setMainCategory(category.mainCategory));
+    dispatch(setMainCategory(category.mainCategory.title));
   };
 
   return (
@@ -30,7 +35,8 @@ function Category({ className, category }: ICategoryComponent) {
       }}
     >
       <S.CategoryTitle onClick={setCategory}>
-        {category.emoji} {category.mainCategory}
+        {category.emoji} {category.mainCategory.title}
+        {category.mainCategory.count ? `(${category.mainCategory.count})` : ''}
       </S.CategoryTitle>
       <S.SubCategory subCategory={category.subCategory} />
     </S.Category>

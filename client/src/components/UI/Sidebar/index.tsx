@@ -14,7 +14,7 @@ function Sidebar({ className, categoryList }: ISidebarComponent) {
   const dispatch = useDispatch();
 
   const CategoryList = categoryList.map((category: ICategory) => {
-    return <S.Category key={category.mainCategory} category={category} />;
+    return <S.Category key={category.mainCategory.title} category={category} />;
   });
   return (
     <S.Sidebar className={className}>
