@@ -2,6 +2,8 @@ import React from 'react';
 import * as S from './style';
 import { IContent } from 'components/UI/ContentsList';
 import TagList from './TagList';
+import { navigate } from 'gatsby';
+
 export interface IContentsComponent {
   className?: string;
   content: IContent;
@@ -9,10 +11,7 @@ export interface IContentsComponent {
 
 function Content({ className, content }: IContentsComponent) {
   return (
-    <S.Content
-      onClick={() => (window.location.href = content.slug)}
-      className={className}
-    >
+    <S.Content onClick={() => navigate(content.slug)} className={className}>
       <div>{content.title}</div>
       <S.SubInfo>
         <div className="category-date">
