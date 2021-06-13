@@ -2,7 +2,7 @@ import React from 'react';
 import * as S from './style';
 import { IContent } from 'components/UI/ContentsList';
 import TagList from './TagList';
-import { navigate } from 'gatsby';
+import { navigate } from 'gatsby-link';
 
 export interface IContentsComponent {
   className?: string;

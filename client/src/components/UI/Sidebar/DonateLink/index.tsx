@@ -1,8 +1,7 @@
 import React from 'react';
 import * as S from './style';
 import donateImage from 'images/donate.png';
-import { navigate } from 'gatsby';
-
+import { navigate } from 'gatsby-link';
 export interface IDonateLinkComponent {
   className?: string;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import * as S from './style';
 import { useDispatch } from 'react-redux';
 import { setMainCategory } from 'state/createStore';
-import { navigate } from 'gatsby';
+import { navigate } from 'gatsby-link';
 import { ISubCategory } from './SubCategory';
 
 export interface IMainCategory {
