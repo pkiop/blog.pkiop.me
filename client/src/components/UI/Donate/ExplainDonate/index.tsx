@@ -1,5 +1,4 @@
 import React from 'react';
-import CoupangLogo from 'images/coupanglogo.png';
 
 import * as S from './style';
 
