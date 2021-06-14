@@ -22,7 +22,7 @@ function Sidebar({ className, categoryList }: ISidebarComponent) {
       <S.TagList tagList={testTagList} />
       <div className="button-wrapper">
         <S.FilterClearBtn onClick={() => dispatch(clearFilter())}>
-          필터 초기화
+          Clear Filter
         </S.FilterClearBtn>
       </div>
       <S.DonateLink />
