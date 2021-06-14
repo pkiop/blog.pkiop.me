@@ -37,4 +37,8 @@ export const testPosts = `<h2>개요</h2>
 export const testFrontmatter = {
   title: 'AWS EC2로 이주 (for https)',
   date: 'May 05, 2021',
+  mainCategory: '개발',
+  subCategory: 'blog.pkiop.me',
+  tag: ['AWS'],
+  slug: '/migrate-to-aws-ec2',
 };
