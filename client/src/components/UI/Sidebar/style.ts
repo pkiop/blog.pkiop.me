@@ -33,6 +33,8 @@ export const FilterClearBtn = styled.button`
 
   width: 80%;
   margin-bottom: 2rem;
+
+  cursor: pointer;
 `;
 
 export const DonateLink = styled(DonateLinkComponent)`
