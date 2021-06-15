@@ -13,6 +13,10 @@ export const CategoryTitle = styled.div`
   margin-bottom: 0.6rem;
   cursor: pointer;
   color: ${colors.subText};
+  text-shadow: ${({ isSelected }) =>
+    isSelected
+      ? ' -0.1px 0 yellow, 0 0.1px yellow, 0.1px 0 yellow, 0 -0.1px yellow'
+      : 'none'};
 `;
 
 export const SubCategory = styled(SubCategoryComponent)`

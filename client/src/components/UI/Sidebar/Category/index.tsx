@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './style';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setMainCategory } from 'state/createStore';
 import { navigate } from 'gatsby-link';
 import { ISubCategory } from './SubCategory';
@@ -22,6 +22,7 @@ export interface ICategoryComponent {
 
 function Category({ className, category }: ICategoryComponent) {
   const dispatch = useDispatch();
+  const mainCategory: string = useSelector((state: any) => state.mainCategory);
 
   const setCategory = () => {
     dispatch(setMainCategory(category.mainCategory.title));
@@ -34,7 +35,10 @@ function Category({ className, category }: ICategoryComponent) {
         navigate('/');
       }}
     >
-      <S.CategoryTitle onClick={setCategory}>
+      <S.CategoryTitle
+        onClick={setCategory}
+        isSelected={mainCategory === category.mainCategory.title}
+      >
         {category.emoji} {category.mainCategory.title}
         {category.mainCategory.count ? `(${category.mainCategory.count})` : ''}
       </S.CategoryTitle>
