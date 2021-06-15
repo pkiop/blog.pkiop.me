@@ -12,6 +12,11 @@ const ContentsWrapper = styled.div`
   /* justify-content: space-between; */
 `;
 
+const IndexPageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 // markup
 const IndexPage = () => {
   React.useEffect(() => {}, []);
@@ -19,10 +24,12 @@ const IndexPage = () => {
     <GlobalThemeProvider>
       <Helmet title="blog.pkiop.me" />
       <Headerbar />
-      <ContentsWrapper>
-        <DonateWrapper />
-        <SidebarContainer />
-      </ContentsWrapper>
+      <IndexPageWrapper>
+        <ContentsWrapper>
+          <DonateWrapper />
+          <SidebarContainer />
+        </ContentsWrapper>
+      </IndexPageWrapper>
     </GlobalThemeProvider>
   );
 };
