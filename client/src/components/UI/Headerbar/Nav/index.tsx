@@ -7,7 +7,7 @@ function Nav() {
   return (
     <S.Nav>
       <Link to="/">Article</Link>
-      <Link to="https://pkiop.me">About</Link>
+      <a href="https://pkiop.me">About</a>
     </S.Nav>
   );
 }
