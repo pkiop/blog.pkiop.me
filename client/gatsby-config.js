@@ -1,18 +1,18 @@
 module.exports = {
   siteMetadata: {
-    title: "blog.pkiop.me",
-    description: "pkiop 블로그",
+    title: 'blog.pkiop.me',
+    description: 'pkiop 블로그',
   },
   plugins: [
-    "gatsby-plugin-typescript",
-    "gatsby-plugin-gatsby-cloud",
-    "gatsby-plugin-image",
+    'gatsby-plugin-typescript',
+    'gatsby-plugin-gatsby-cloud',
+    'gatsby-plugin-image',
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
-          "G-491T131HMG", // Google Analytics / GA
+          'G-491T131HMG', // Google Analytics / GA
         ],
 
         // This object is used for configuration specific to this plugin
@@ -22,46 +22,46 @@ module.exports = {
         },
       },
     },
-    "gatsby-plugin-react-helmet",
+    'gatsby-plugin-react-helmet',
     // 'gatsby-plugin-sitemap',
     {
-      resolve: "gatsby-plugin-manifest",
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        icon: "src/images/icon.png",
+        icon: 'src/images/icon.png',
       },
     },
-    "gatsby-plugin-mdx",
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
+    'gatsby-plugin-mdx',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: "images",
-        path: "./src/images/",
+        name: 'images',
+        path: './src/images/',
       },
-      __key: "images",
+      __key: 'images',
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: "pages",
-        path: "./src/pages/",
+        name: 'pages',
+        path: './src/pages/',
       },
-      __key: "pages",
+      __key: 'pages',
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: "markdown-pages",
+        name: 'markdown-pages',
         path: `${__dirname}/src/markdown-pages`,
       },
     },
-    "gatsby-transformer-remark",
+    'gatsby-transformer-remark',
     {
       resolve: `gatsby-alias-imports`,
       options: {
         aliases: {
-          components: "src/components",
+          components: 'src/components',
         },
       },
     },
@@ -71,12 +71,12 @@ module.exports = {
         // Add any options here
       },
     },
-    "gatsby-plugin-sass",
+    'gatsby-plugin-sass',
     {
       resolve: `gatsby-plugin-react-redux`,
       options: {
         // [required] - path to your createStore module
-        pathToCreateStoreModule: "./src/state/createStore",
+        pathToCreateStoreModule: './src/state/createStore',
         // [optional] - options passed to `serialize-javascript`
         // info: https://github.com/yahoo/serialize-javascript#options
         // will be merged with these defaults:
@@ -91,7 +91,7 @@ module.exports = {
         // [optional] - if true will clean up after itself on the client, default:
         cleanupOnClient: true,
         // [optional] - name of key on `window` where serialized state will be stored, default:
-        windowKey: "__PRELOADED_STATE__",
+        windowKey: '__PRELOADED_STATE__',
       },
     },
   ],

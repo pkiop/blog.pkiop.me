@@ -18,6 +18,4 @@ export const HeaderBar = styled.div`
       color: white;
     }
   }
-
 `;
-
