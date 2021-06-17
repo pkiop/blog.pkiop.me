@@ -62,5 +62,14 @@ export const Posts = styled.div`
         margin: 0.4rem 0;
       }
     }
+
+    p > a {
+      display: flex;
+      justify-content: center;
+      > img {
+        margin-top: 5rem;
+        width: auto;
+      }
+    }
   }
 `;
