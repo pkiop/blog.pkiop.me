@@ -1,10 +1,9 @@
 import * as React from 'react';
-import Headerbar from 'components/UI/Headerbar';
-import GlobalThemeProvider from 'styles/GlobalThemeProvider';
 import { Helmet } from 'react-helmet';
 import SidebarContainer from 'components/container/SidebarContainer';
 import ContentsContainer from 'components/container/ContentsContainer';
 import styled from 'styled-components';
+import MainTemplate from 'templates/Main';
 // styles
 
 const ContentsWrapper = styled.div`
@@ -28,18 +27,18 @@ const IndexPageWrapper = styled.div`
 
 // markup
 const IndexPage = () => {
-  return (
-    <GlobalThemeProvider>
+  const MainContent = (
+    <>
       <Helmet title="blog.pkiop.me" />
-      <Headerbar />
       <IndexPageWrapper>
         <ContentsWrapper>
           <ContentsContainer />
           <SidebarContainer />
         </ContentsWrapper>
       </IndexPageWrapper>
-    </GlobalThemeProvider>
+    </>
   );
+  return <MainTemplate contents={MainContent} />;
 };
 
 export default IndexPage;

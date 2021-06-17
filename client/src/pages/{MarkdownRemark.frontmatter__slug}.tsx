@@ -1,9 +1,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import GlobalThemeProvider from 'styles/GlobalThemeProvider';
 import Utterances from 'components/UI/Utterances';
 import Posts from 'components/UI/Posts';
 import styled from 'styled-components';
+import MainTemplate from 'templates/Main';
 
 const Wrapper = styled.div`
   display: flex;
@@ -21,16 +21,15 @@ export default function Template({
 }: any) {
   const { markdownRemark } = data; // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark;
-  return (
-    <GlobalThemeProvider>
-      <Wrapper>
-        <PostWrapper>
-          <Posts frontmatter={frontmatter} html={html} />
-        </PostWrapper>
-        <Utterances />
-      </Wrapper>
-    </GlobalThemeProvider>
+  const Contents = (
+    <Wrapper>
+      <PostWrapper>
+        <Posts frontmatter={frontmatter} html={html} />
+      </PostWrapper>
+      <Utterances />
+    </Wrapper>
   );
+  return <MainTemplate contents={Contents} />;
 }
 
 export const pageQuery = graphql`
