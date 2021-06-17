@@ -33,6 +33,11 @@ function ContentsList({ className, contentsList }: IContentsListComponent) {
       if (mainCategory === '' && subCategory === '' && tag.length === 0) {
         return true;
       }
+      if (mainCategory === '' && subCategory === '') {
+        return content.tag.some((contentTag: ITag) => {
+          return tag.includes(contentTag.title);
+        });
+      }
       const isMainCategoryEqual = content.mainCategory === mainCategory;
       const isSubCategoryEqual = content.subCategory === subCategory;
       const isContainsTag = content.tag.some((contentTag: ITag) =>
