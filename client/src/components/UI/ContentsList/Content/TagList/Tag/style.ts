@@ -1,6 +1,5 @@
 // styles
 import styled from 'styled-components';
-import { colors } from 'styles/theme';
 
 export const Tag = styled.div`
   padding: 0.2em 0.4em;
