@@ -38,4 +38,7 @@ tag: []
 
 만약 탈출로 결정했다면 각본 탈출의 목표는 통제 가능한 무한한 레버리지(나의 비즈니스)를 만들어 투자하는 것이다. 각본 탈출의 방법에 대해 궁금하면 자세하게 설명되어 있는 이 책을 읽어보자.
 
-<a href="https://coupa.ng/b1Vl5x" target="_blank" referrerpolicy="unsafe-url"><img src="https://static.coupangcdn.com/image/affiliate/banner/f27386994053ec748d335cef6cfaab3f@2x.jpg" alt="언스크립티드:부의 추월차선 완결판, 토트" width="120" height="240"></a>
+<a href="https://coupa.ng/b1Vl5x" target="_blank" referrerpolicy="unsafe-url"><img src="https://static.coupangcdn.com/image/affiliate/banner/f27386994053ec748d335cef6cfaab3f@2x.jpg" alt="언스크립티드:부의 추월차선 완결판, 토트" width="120" height="240">
+<span>이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
+</span>
+</a>

@@ -65,10 +65,15 @@ export const Posts = styled.div`
 
     p > a {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+
       > img {
         margin-top: 5rem;
         width: auto;
+      }
+      > span {
+        font-size: 1.3rem;
       }
     }
   }
