@@ -4,7 +4,7 @@ date: '2021-06-17'
 title: 'Unscripted'
 mainCategory: '책'
 subCategory: '자기계발'
-tag: ['']
+tag: []
 ---
 
 ## 각본을 탈출하자
