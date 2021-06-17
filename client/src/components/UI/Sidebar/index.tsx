@@ -25,6 +25,7 @@ function Sidebar({ className, categoryList }: ISidebarComponent) {
           Clear Filter
         </S.FilterClearBtn>
       </div>
+      <S.AboutMe />
       <S.DonateLink />
     </S.Sidebar>
   );

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import CategoryComponent from './Category';
 import TagListComponent from './TagList';
 import DonateLinkComponent from './DonateLink';
+import AboutMeComponent from './AboutMe';
 import { colors } from 'styles/theme';
 
 export const Sidebar = styled.div`
@@ -40,3 +41,5 @@ export const FilterClearBtn = styled.button`
 export const DonateLink = styled(DonateLinkComponent)`
   width: 100%;
 `;
+
+export const AboutMe = styled(AboutMeComponent)``;
