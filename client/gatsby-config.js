@@ -94,5 +94,13 @@ module.exports = {
         windowKey: '__PRELOADED_STATE__',
       },
     },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://blog.pkiop.me',
+        sitemap: 'https://blog.pkiop.me/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
   ],
 };

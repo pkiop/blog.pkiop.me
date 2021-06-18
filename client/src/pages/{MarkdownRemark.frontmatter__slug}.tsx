@@ -22,11 +22,14 @@ export default function Template({
 }: any) {
   const { markdownRemark } = data; // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark;
+
   const Contents = (
     <Wrapper>
       <Helmet>
         <title>{frontmatter.title}</title>
         <meta name="description" content={frontmatter.summary} />
+        <meta name="keywords" content={frontmatter.tag.join(', ')} />
+        <html lang="ko" />
       </Helmet>
       <PostWrapper>
         <Posts frontmatter={frontmatter} html={html} />
@@ -46,6 +49,7 @@ export const pageQuery = graphql`
         slug
         title
         summary
+        tag
       }
     }
   }

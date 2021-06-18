@@ -63,7 +63,7 @@ export const Posts = styled.div`
       }
     }
 
-    p > a {
+    p > .coupang {
       display: flex;
       flex-direction: column;
       align-items: center;
