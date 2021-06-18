@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
 import Utterances from 'components/UI/Utterances';
 import Posts from 'components/UI/Posts';
@@ -23,6 +24,10 @@ export default function Template({
   const { frontmatter, html } = markdownRemark;
   const Contents = (
     <Wrapper>
+      <Helmet>
+        <title>{frontmatter.title}</title>
+        <meta name="description" content={frontmatter.summary} />
+      </Helmet>
       <PostWrapper>
         <Posts frontmatter={frontmatter} html={html} />
       </PostWrapper>
@@ -40,6 +45,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         slug
         title
+        summary
       }
     }
   }

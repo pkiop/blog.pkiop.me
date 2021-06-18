@@ -2,6 +2,7 @@
 slug: '/unscripted'
 date: '2021-06-17'
 title: 'Unscripted'
+summary: 'Unscripted책을 읽고 느낀점을 간단하게 요약한 글'
 mainCategory: '책'
 subCategory: '자기계발'
 tag: []
