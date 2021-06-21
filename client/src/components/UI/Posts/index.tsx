@@ -9,7 +9,11 @@ function Posts({
   return (
     <S.Posts>
       <div className="blog-post">
-        <Titlebox title={frontmatter.title} date={frontmatter.date} />
+        <Titlebox
+          title={frontmatter.title}
+          date={frontmatter.date}
+          readTime={frontmatter.readTime}
+        />
         <div
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: html }}
