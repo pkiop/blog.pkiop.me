@@ -102,5 +102,21 @@ module.exports = {
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-highlight-code`,
+            options: {
+              terminal: 'carbon',
+              theme: 'one-dark',
+              editable: true,
+              lineNumbers: true,
+            },
+          },
+        ],
+      },
+    },
   ],
 };

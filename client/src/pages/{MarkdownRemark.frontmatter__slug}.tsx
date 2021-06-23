@@ -5,6 +5,8 @@ import Utterances from 'components/UI/Utterances';
 import Posts from 'components/UI/Posts';
 import styled from 'styled-components';
 import MainTemplate from 'templates/Main';
+import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
+deckDeckGoHighlightElement();
 
 const Wrapper = styled.div`
   display: flex;
