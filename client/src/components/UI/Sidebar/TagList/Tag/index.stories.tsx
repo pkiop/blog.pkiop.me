@@ -10,6 +10,7 @@ export default {
 export const MainTagList = () => {
   return (
     <Tag
+      isSelected={false}
       onClick={() => {
         alert('tagclick');
       }}

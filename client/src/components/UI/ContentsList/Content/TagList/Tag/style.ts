@@ -7,7 +7,7 @@ export const Tag = styled.div`
   margin-bottom: 0.6em;
   border-radius: 1rem;
   background-color: ${(props) => props.color};
-  color: ${(props) => props.textColor};
+  color: ${(props: any) => props.textColor};
   font-size: 1.6rem;
 
   :hover {

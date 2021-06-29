@@ -12,5 +12,10 @@ const testData = [
 ];
 
 export const MainSubCategory = () => {
-  return <SubCategory subCategory={testData} />;
+  return (
+    <SubCategory
+      mainCategory={{ title: '개발', count: 0 }}
+      subCategory={testData}
+    />
+  );
 };

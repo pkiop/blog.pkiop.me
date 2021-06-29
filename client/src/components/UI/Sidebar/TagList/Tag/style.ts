@@ -9,9 +9,9 @@ export const Tag = styled.div`
   margin-bottom: 0.6em;
   border-radius: 1rem;
   background-color: ${(props) => props.color};
-  color: ${(props) => props.textColor};
+  color: ${(props: any) => props.textColor};
   border: 1px solid
-    ${({ isSelected }) => (isSelected ? ' yellow' : 'transparent')};
+    ${({ isSelected }: any) => (isSelected ? ' yellow' : 'transparent')};
   font-size: 1.4rem;
   text-align: center;
 

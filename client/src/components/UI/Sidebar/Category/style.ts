@@ -13,7 +13,7 @@ export const CategoryTitle = styled.div`
   margin-bottom: 0.6rem;
   cursor: pointer;
   color: ${colors.subText};
-  text-shadow: ${({ isSelected }) =>
+  text-shadow: ${({ isSelected }: any) =>
     isSelected
       ? ' -0.1px 0 yellow, 0 0.1px yellow, 0.1px 0 yellow, 0 -0.1px yellow'
       : 'none'};

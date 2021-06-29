@@ -14,7 +14,11 @@ export interface ISubCategoryComponent {
   mainCategory: IMainCategory;
 }
 
-function SubCategory({ className, subCategory, mainCategory }: ISubCategoryComponent) {
+function SubCategory({
+  className,
+  subCategory,
+  mainCategory,
+}: ISubCategoryComponent) {
   const dispatch = useDispatch();
   const selectedSubCategory: string[] = useSelector(
     (state: any) => state.subCategory,
@@ -27,9 +31,11 @@ function SubCategory({ className, subCategory, mainCategory }: ISubCategoryCompo
       dispatch(setMainCategory(mainCategory.title));
       dispatch(setSubCategory(category.title));
     };
-    const isSelected = selectedMainCategory.includes(mainCategory.title) && selectedSubCategory.includes(category.title);
+    const isSelected =
+      selectedMainCategory.includes(mainCategory.title) &&
+      selectedSubCategory.includes(category.title);
     return (
-      <S.SubCategoryComponent
+      <S.SubCategoryComponent<any>
         onClick={setCategory}
         key={category.title}
         isSelected={isSelected}

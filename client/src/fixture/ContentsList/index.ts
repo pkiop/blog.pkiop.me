@@ -2,7 +2,7 @@ import { IContent } from 'components/UI/ContentsList';
 const testObj = {
   mainCategory: 'main',
   subCategory: 'sub',
-  tag: ['tag1', 'tag2', 'tag3'],
+  tag: [{ title: 'tag1', color: 'black', textColor: 'white' }],
 };
 export const testContentList: IContent[] = [
   {

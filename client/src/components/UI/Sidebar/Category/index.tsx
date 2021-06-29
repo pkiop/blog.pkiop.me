@@ -35,14 +35,17 @@ function Category({ className, category }: ICategoryComponent) {
         navigate('/');
       }}
     >
-      <S.CategoryTitle
+      <S.CategoryTitle<any>
         onClick={setCategory}
         isSelected={mainCategory === category.mainCategory.title}
       >
         {category.emoji} {category.mainCategory.title}
         {category.mainCategory.count ? `(${category.mainCategory.count})` : ''}
       </S.CategoryTitle>
-      <S.SubCategory mainCategory={category.mainCategory} subCategory={category.subCategory} />
+      <S.SubCategory
+        mainCategory={category.mainCategory}
+        subCategory={category.subCategory}
+      />
     </S.Category>
   );
 }

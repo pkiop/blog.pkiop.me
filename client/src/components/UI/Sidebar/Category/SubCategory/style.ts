@@ -17,7 +17,7 @@ export const SubCategory = styled.div`
 `;
 
 export const SubCategoryComponent = styled.div`
-  text-shadow: ${({ isSelected }) =>
+  text-shadow: ${({ isSelected }: any) =>
     isSelected
       ? ' -0.1px 0 yellow, 0 0.1px yellow, 0.1px 0 yellow, 0 -0.1px yellow'
       : 'none'};

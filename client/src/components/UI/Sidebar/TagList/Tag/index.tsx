@@ -16,7 +16,7 @@ export interface ITagComponent {
 
 function Tag({ className, onClick, tag, isSelected }: ITagComponent) {
   return (
-    <S.Tag
+    <S.Tag<any>
       className={className}
       onClick={onClick}
       color={tag.color}
