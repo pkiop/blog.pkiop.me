@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'blog.pkiop.me',
     description: 'pkiop 블로그',
+    siteUrl: 'https://blog.pkiop.me',
   },
   plugins: [
     'gatsby-plugin-typescript',
