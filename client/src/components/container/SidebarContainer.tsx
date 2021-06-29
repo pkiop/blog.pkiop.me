@@ -59,13 +59,13 @@ function SidebarContainer() {
     return {
       ...testCategory,
       mainCategory: {
-        title: testCategory.mainCategory,
-        count: mainCategoryDatas[testCategory.mainCategory],
+        title: testCategory.mainCategory.title,
+        count: mainCategoryDatas[testCategory.mainCategory.title],
       },
       subCategory: testCategory.subCategory.map((subCategoryText: any) => {
         return {
-          title: subCategoryText,
-          count: subCategoryDatas[subCategoryText],
+          title: subCategoryText.title,
+          count: subCategoryDatas[subCategoryText.title],
         };
       }),
     };
