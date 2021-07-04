@@ -9,43 +9,39 @@ tag: ['']
 readTime: 1
 ---
 
-## 개요
+## 평생 다시 살 수 없는 지금에 투자해라
 
-블로그의 조회수를 기록하고 싶었는데 직접 구현하려니 사용자를 특정하는게 쉽지 않고 구현을 백엔드쪽에서 하는게 효율적인 것 같은데 백엔드 쪽을 짜고싶진 않았다.
+맛있는 것 먹고, 좋은 사람 만나서 놀고, 돈으로 시간을 아낄 수 있으면 시간을 아끼고.
 
-백엔드 쪽이 효율적이라고 생각했던 건 조회수를 프론트에서 구현하려면 해당 페이지를 방문했을 때 방문자를 기록하는 API를 호출해야 하고, 사용자 특정을 위해 IP등을 수집해 보내줘야 하는데 내키지 않았다.
+## 놀람과 감동, 즐거움, 쾌락이 그 무엇보다 중요한 시대
 
-검색해보니 Google Analytics를 달기만 하면 조회수뿐만 아니라 수 많은 tracking기능을 제공해서 이걸 사용해봐야겠다고 결정했다.
+자원이 없을 땐 아끼는게 맞다. 하지만 현대사회는 자원이 넘쳐난다. 자원이 넘쳐나서 의식주에 대한 고민이 줄고 어떻게 즐겁게 살지가 더 큰 고민이다.
 
-## 과정
+그러므로 잘 놀고 즐기는 사람이 인정받는다. 자원이 넘쳐나질 수록 근면성실보다 잘 놀고 즐기는게 더 가치있어진다.
 
-Google Analytics를 회원가입하고, Property를 만들고, Data Stream을 추가하면 MEASUREMENT ID를 얻을 수 있다.
+즐거운 경험으로 잘 놀고 즐기면 그게 자산이 된다. 즐거운 것에 기회가 있다.
 
-본래 Google Analytics에서 제공하는 Script를 HTML에 삽입하는게 안내하는 내용인데 nuxt는 서버사이드렌더링을 하기 때문에 단순 스크립트 삽입만으로는 페이지마다 삽입해야하고 등등 문제가 있을 수 있다.
+## 저축 신앙
 
-관련 해결방법을 [how-to-use-gtag-js-with-nuxt-js](https://stackoverflow.com/questions/56322820/how-to-use-gtag-js-with-nuxt-js)글에서 찾을 수 있었다. 겸사겸사 plugins의 개념도 알 수 있었다.
+인생에서 자꾸 미래의 안정만을 추구한다. 우리나라는 며칠전에 공식적으로 선진국으로 인정받았다.
 
-또 [@nuxtjs/google-analytics](https://google-analytics.nuxtjs.org/setup)를 설치해서 자동으로 tracking가능한 것들(pageview등) 은 자동으로 track하도록 했다.
+선진국에 살면 아무 능력 없어도, 아무것도 할 줄 아는게 없어도, 아무것도 하기 싫어도 생존할 수 있는 돈을 받는다. 이보다 더 안정적인 기회가 있을까.
 
-다음과 같이 설정하면 이제 태그가 제대로 달렸는지 확인하고 싶다. [google-tag-assistant](https://chrome.google.com/webstore/detail/tag-assistant-legacy-by-g/kejbdjndbnbjgmefkgdddjlbokphdefk?hl=en) 플러그인을 설치하고
+그런데도 더 안정적인 걸 바란다. 돈을 잔뜩 모아두고 혹시 모를 위험에 대비한다. 하고싶은게 있어도 참고 사고싶은게 있어도 참는다. 더욱 안정적이어야 하기 때문이다.
 
-<img src="https://i.imgur.com/75lu8t5.png" width="100%"></img>
+그냥 한국에 태어난 것 만으로도 세계 상위 10%미만의 안정적인 삶이 보장되는데. 자꾸 더 안정적인 걸 추구하는게 정상인지 모르겠다.
 
-Enable 버튼을 누르고 태그가 달린 사이트에서 새로고침하면
+## 잘 놀고 즐기면 그걸로 더 돈을 번다
 
-<img src="https://i.imgur.com/SiZtjsh.png" width="100%"></img>
+잘 놀고 즐기는게 더 큰 가치를 갖기 때문에 하고 싶은게 있으면 생각하지말고 돈 써서 잘 놀고 즐기는게 맞다.
 
-태그가 달린 걸 확인할 수 있다.
+먹고싶은게 있으면 먹고, 하고싶은게 있으면 (헬스 PT, 클라이밍, 자전거, 등등) 그냥 돈 써서 한다. 좋은 스마트폰이 있으면 그냥 제일 비싼걸 산다. 스마트폰으로 뉴스, 유튜브, ebook 등 소중한 정보를 습득할 때 더 쾌적하게 할 수 있으면 이득이다.
 
-몇번 페이지 이동후 Analytics 홈으로 들어가면
+## 내가 가진 가치를 돈으로 바꾸는 방법을 찾아라
 
-<img src="https://i.imgur.com/4Koqppf.png" width="100%"></img>
+그렇게 얻은 경험과 시간을 돈으로 바꿀 방법을 찾아라.
 
-방문기록이 찍혀있는 걸 확인할 수 있다.
-
-## 더 해볼만한 것
-
-<img src="https://i.imgur.com/lLiXf7E.png" width="100%"></img>
-
-태그를 다는 것 만으로도 자동으로 많은 걸
-event, scroll, 머문시간 등 여러가지 지표를 tracking할 수 있는 것 같다. 필요한 것 더 추가해서 사용해봐야겠다.
+<a href="https://coupa.ng/b2XpYM" target="_blank" referrerpolicy="unsafe-url"><img src="https://static.coupangcdn.com/image/affiliate/banner/4da80167603555e75ec0f767a3793af4@2x.jpg" alt="쌤앤파커스 가진 돈은 몽땅 써라 +미니수첩제공, 호리에다카후미" width="120" height="240">
+<span>이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
+</span>
+</a>
