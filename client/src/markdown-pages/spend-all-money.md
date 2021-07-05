@@ -5,7 +5,7 @@ title: '가진돈은 몽땅써라'
 summary: '가진돈은 몽땅써라 책 정리와 읽고 든 생각'
 mainCategory: '책'
 subCategory: '자기계발'
-tag: ['']
+tag: []
 readTime: 1
 ---
 
