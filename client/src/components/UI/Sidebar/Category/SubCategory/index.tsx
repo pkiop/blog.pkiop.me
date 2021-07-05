@@ -41,7 +41,7 @@ function SubCategory({
         isSelected={isSelected}
       >
         {category.title}
-        {category.count ? `(${category.count})` : ''}
+        <S.Count>{category.count ? `(${category.count})` : ''}</S.Count>
       </S.SubCategoryComponent>
     );
   });

@@ -40,7 +40,11 @@ function Category({ className, category }: ICategoryComponent) {
         isSelected={mainCategory === category.mainCategory.title}
       >
         {category.emoji} {category.mainCategory.title}
-        {category.mainCategory.count ? `(${category.mainCategory.count})` : ''}
+        <S.Count>
+          {category.mainCategory.count
+            ? `(${category.mainCategory.count})`
+            : ''}
+        </S.Count>
       </S.CategoryTitle>
       <S.SubCategory
         mainCategory={category.mainCategory}
