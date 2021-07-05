@@ -2,23 +2,46 @@
 import { colors } from 'styles/theme';
 import styled from 'styled-components';
 
-export const SubCategory = styled.div`
+const fontSize = '1.6rem';
+export const SubCategory = styled.div<any>`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   color: ${colors.subText};
 
   > div {
-    font-size: 1.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #383e46;
+    padding: 0.5rem 1.2rem;
+    border: 1px solid #474e56;
+    border-radius: 0.6rem;
+
+    font-size: ${fontSize};
     margin-bottom: 0.6rem;
-    :hover {
+    transition: 0.2s background-color;
+    &:hover {
+      background-color: #464c55;
+      border: 1px solid #79838f;
       cursor: pointer;
     }
   }
 `;
 
 export const SubCategoryComponent = styled.div`
-  text-shadow: ${({ isSelected }: any) =>
-    isSelected
-      ? ' -0.1px 0 yellow, 0 0.1px yellow, 0.1px 0 yellow, 0 -0.1px yellow'
-      : 'none'};
+  ${({ isSelected }: any) => {
+    return (
+      isSelected &&
+      `
+    background-color: #464c55 !important;
+    border: 1px solid #79838f !important;
+    `
+    );
+  }}
+`;
+
+export const Count = styled.div`
+  font-size: ${fontSize};
 `;
