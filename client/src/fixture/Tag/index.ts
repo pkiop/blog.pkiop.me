@@ -5,5 +5,6 @@ export const testTagList: ITag[] = [
   { title: 'AWS', color: '#D6702D', textColor: colors.darkText },
   { title: 'CSS', color: '#2E4AD5', textColor: colors.subText },
   { title: 'Google Analytics', color: '#EEAF42', textColor: colors.darkText },
+  { title: '마케팅', color: '#5283EA', textColor: colors.darkText },
 ];
 export const testTag = testTagList[0];
