@@ -41,7 +41,7 @@ readTime: 1
 
 그렇게 얻은 경험과 시간을 돈으로 바꿀 방법을 찾아라.
 
-<a href="https://coupa.ng/b2XpYM" target="_blank" referrerpolicy="unsafe-url"><img src="https://static.coupangcdn.com/image/affiliate/banner/4da80167603555e75ec0f767a3793af4@2x.jpg" alt="쌤앤파커스 가진 돈은 몽땅 써라 +미니수첩제공, 호리에다카후미" width="120" height="240">
+<a class="coupang" href="https://coupa.ng/b2XpYM" target="_blank" referrerpolicy="unsafe-url"><img src="https://static.coupangcdn.com/image/affiliate/banner/4da80167603555e75ec0f767a3793af4@2x.jpg" alt="쌤앤파커스 가진 돈은 몽땅 써라 +미니수첩제공, 호리에다카후미" width="120" height="240">
 <span>이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
 </span>
 </a>
