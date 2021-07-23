@@ -21,6 +21,10 @@ export const colors = {
   link: '#539bf5',
 };
 
+export const layout = {
+  mobileWidth: '600px',
+};
+
 export const LeftSideInput = css`
   width: 100%;
   height: 4rem;

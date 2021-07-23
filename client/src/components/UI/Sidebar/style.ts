@@ -5,8 +5,12 @@ import TagListComponent from './TagList';
 import DonateLinkComponent from './DonateLink';
 import AboutMeComponent from './AboutMe';
 import { colors } from 'styles/theme';
+import { layout } from 'styles/theme';
 
 export const Sidebar = styled.div`
+  @media (max-width: ${layout.mobileWidth}) {
+    display: none;
+  }
   margin: 2rem 2rem;
   display: flex;
   flex-direction: column;
