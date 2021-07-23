@@ -10,7 +10,7 @@ export const Tag = styled.div`
   color: ${(props: any) => props.textColor};
   font-size: 1.6rem;
 
-  :hover {
+  &:hover {
     cursor: pointer;
   }
 `;

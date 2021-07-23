@@ -9,10 +9,7 @@ import MainTemplate from 'templates/Main';
 const ContentsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-
-  & > :last-child {
-    width: 20rem;
-  }
+  width: 94%;
 
   @media (min-width: 980px) {
     width: 980px;

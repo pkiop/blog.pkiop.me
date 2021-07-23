@@ -1,9 +1,9 @@
 // styles
 import styled from 'styled-components';
-import { colors } from 'styles/theme';
+import { colors, transition } from 'styles/theme';
 
 export const Content = styled.div`
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   margin: 1rem;
@@ -13,7 +13,10 @@ export const Content = styled.div`
 
   &:hover {
     cursor: pointer;
+    transition: ${transition.hoverTransitionTime} filter;
+    filter: brightness(140%);
   }
+  transition: ${transition.hoverTransitionTime} filter;
 
   > div {
     margin: 1em 1.8em;

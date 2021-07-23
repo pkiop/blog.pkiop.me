@@ -25,6 +25,10 @@ export const layout = {
   mobileWidth: '600px',
 };
 
+export const transition = {
+  hoverTransitionTime: '0.3s',
+};
+
 export const LeftSideInput = css`
   width: 100%;
   height: 4rem;
