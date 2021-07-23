@@ -14,8 +14,8 @@ const ContentsWrapper = styled.div`
     width: 20rem;
   }
 
-  @media (min-width: 760px) {
-    width: 760px;
+  @media (min-width: 980px) {
+    width: 980px;
   }
 `;
 

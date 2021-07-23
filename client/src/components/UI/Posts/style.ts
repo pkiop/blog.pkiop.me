@@ -4,33 +4,34 @@ import { colors } from 'styles/theme';
 
 export const Posts = styled.div`
   width: 100%;
-  @media (min-width: 760px) {
-    width: 760px;
+  @media (min-width: 980px) {
+    width: 98rem;
   }
   background-color: ${colors.subBgColor};
 
   .blog-post-content {
     padding: 0 3em 3em;
     color: ${colors.subText};
-    line-height: 3.2rem;
+    line-height: 3.6rem;
     font-size: 1.6rem;
 
     > p,
     > p > *,
     > ol > * {
       font-size: 2.1rem;
+      margin-bottom: 1rem;
     }
 
     > h1 {
       font-size: 4rem;
-      margin-top: 1em;
-      margin-bottom: 1em;
+      margin-top: 1.2em;
+      margin-bottom: 1.2em;
     }
 
     > h2 {
       font-size: 3.6rem;
-      margin-top: 0.8em;
-      margin-bottom: 0.6em;
+      margin-top: 1em;
+      margin-bottom: 0.8em;
     }
 
     > h3 {
