@@ -2,12 +2,13 @@ import React from 'react';
 import Nav from './Nav';
 
 import * as S from './style';
+import { IHeaderbar } from 'types/headerbar';
 
-function Headerbar() {
+function Headerbar({ nav }: IHeaderbar) {
   return (
     <S.HeaderBar>
       <a href="/">PKIOP BLOG</a>
-      <Nav />
+      <Nav NavButtonList={nav.NavButtonList} />
     </S.HeaderBar>
   );
 }
