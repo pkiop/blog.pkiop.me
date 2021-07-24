@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from './index';
+import { headerbarNavigation } from 'fixture/Headerbar';
 
 export default {
   title: 'Headerbar / Nav',
@@ -7,5 +8,5 @@ export default {
 };
 
 export const MainNav = () => {
-  return <Nav />;
+  return <Nav NavButtonList={headerbarNavigation.nav.NavButtonList} />;
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import Headerbar from './index';
+import { headerbarNavigation } from 'fixture/Headerbar';
 
 export default {
   title: 'Headerbar',
@@ -7,5 +8,5 @@ export default {
 };
 
 export const MainHeaderbar = () => {
-  return <Headerbar />;
+  return <Headerbar nav={headerbarNavigation.nav} />;
 };
