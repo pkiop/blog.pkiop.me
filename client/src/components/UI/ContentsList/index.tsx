@@ -31,6 +31,7 @@ function ContentsList({ className, contentsList }: IContentsListComponent) {
     })
     .filter((content: IContent) => {
       if (mainCategory === '' && subCategory === '' && tag.length === 0) {
+        if (content.subCategory === 'algorithm') return false;
         return true;
       }
       if (mainCategory === '' && subCategory === '') {
