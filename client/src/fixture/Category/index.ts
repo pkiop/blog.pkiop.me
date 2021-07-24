@@ -10,6 +10,10 @@ export const subCategoryList1: ISubCategory[] = [
     title: 'lifemanager',
     count: 0,
   },
+  {
+    title: 'algorithm',
+    count: 0,
+  },
 ];
 export const subCategoryList2: ISubCategory[] = [
   { title: '개발', count: 0 },
