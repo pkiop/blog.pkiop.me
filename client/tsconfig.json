@@ -8,8 +8,9 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "allowJs": true,
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "paths": {}
   },
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "setup-test-env.js"],
   "exclude": ["node_modules", "public", ".cache"]
 }
