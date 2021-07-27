@@ -4,6 +4,7 @@ import { ICategory } from './Category';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearFilter } from 'state/createStore';
 import { testTagList } from 'fixture/Tag';
+import { ISidebarStoreState } from 'types/store';
 
 export interface ISidebarComponent {
   className?: string;
@@ -12,12 +13,14 @@ export interface ISidebarComponent {
 
 function Sidebar({ className, categoryList }: ISidebarComponent) {
   const dispatch = useDispatch();
-
+  const isSidebarOpen = useSelector(
+    (state: ISidebarStoreState) => state.isSidebarOpen,
+  );
   const CategoryList = categoryList.map((category: ICategory) => {
     return <S.Category key={category.mainCategory.title} category={category} />;
   });
   return (
-    <S.Sidebar className={className}>
+    <S.Sidebar className={className} isOpen={isSidebarOpen}>
       {CategoryList}
       <S.TagList tagList={testTagList} />
       <div className="button-wrapper">
