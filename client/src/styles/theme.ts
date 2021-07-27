@@ -17,6 +17,7 @@ export const colors = {
   mainTextColor: '#cdd9e5',
   subText: '#B0BAC6',
   darkText: '#010101',
+  mobileSidebarBgColor: '#23272D',
   hr: '#393E46',
   link: '#539bf5',
 };

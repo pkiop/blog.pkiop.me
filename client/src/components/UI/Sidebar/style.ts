@@ -14,7 +14,10 @@ export const Sidebar = styled.div<ISidebarOpen>`
     position: absolute;
     right: ${({ isOpen }) => (isOpen ? 0 : -40)}rem;
     transition: 0.3s right;
-    background-color: gray;
+    background-color: ${colors.mobileSidebarBgColor};
+    border-radius: 1rem;
+    padding: 3rem 3rem 1rem 3rem;
+    width: 29rem;
   }
   margin: 2rem 2rem;
   display: flex;
