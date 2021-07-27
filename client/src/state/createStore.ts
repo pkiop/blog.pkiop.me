@@ -6,6 +6,7 @@ const ADD_TAG = 'ADD_TAG';
 const REMOVE_TAG = 'REMOVE_TAG';
 const TOGGLE_TAG = 'TOGGLE_TAG';
 const CLEAR_FILTER = 'CLEAR_FILTER';
+const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR';
 
 export const setMainCategory = (mainCategory: string) => ({
   type: SET_MAIN_CATEGORY,
@@ -21,11 +22,15 @@ export const toggleTag = (tag: string) => ({ type: TOGGLE_TAG, payload: tag });
 export const clearFilter = () => ({
   type: CLEAR_FILTER,
 });
+export const toggleSidebar = () => ({
+  type: TOGGLE_SIDEBAR,
+});
 
 export const initialState = {
   mainCategory: '',
   subCategory: '',
   tag: [] as string[],
+  isSidebarOpen: false,
 };
 
 function reducer(state = initialState, action: any) {
@@ -60,6 +65,11 @@ function reducer(state = initialState, action: any) {
       };
     case CLEAR_FILTER:
       return { ...initialState };
+    case TOGGLE_SIDEBAR:
+      return {
+        ...state,
+        isSidebarOpen: !state.isSidebarOpen,
+      };
     default:
       return state;
   }
