@@ -11,3 +11,7 @@ export interface INav {
 export interface IHeaderbar {
   nav: INav;
 }
+
+export interface ISidebarOpen {
+  isOpen: boolean;
+}
