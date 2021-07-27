@@ -6,10 +6,15 @@ import DonateLinkComponent from './DonateLink';
 import AboutMeComponent from './AboutMe';
 import { colors } from 'styles/theme';
 import { layout } from 'styles/theme';
+import { ISidebarOpen } from 'types/headerbar';
 
-export const Sidebar = styled.div`
+export const Sidebar = styled.div<ISidebarOpen>`
   @media (max-width: ${layout.mobileWidth}) {
-    display: none;
+    display: flex;
+    position: absolute;
+    right: ${({ isOpen }) => (isOpen ? 0 : -40)}rem;
+    transition: 0.3s right;
+    background-color: gray;
   }
   margin: 2rem 2rem;
   display: flex;
