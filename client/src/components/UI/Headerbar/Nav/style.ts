@@ -47,6 +47,7 @@ export const HamburgerImg = styled.img`
 
 export const FullScreenDimmed = styled.div<ISidebarOpen>`
   position: fixed;
+  display: none;
   left: 0;
   top: 0;
   width: 100%;
