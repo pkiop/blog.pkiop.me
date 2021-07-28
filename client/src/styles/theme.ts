@@ -14,7 +14,7 @@ export const theme: DefaultTheme = {
 export const colors = {
   mainBgColor: '#2d333a',
   subBgColor: '#22272D',
-  mainTextColor: '#cdd9e5',
+  mainTextColor: '#CDD9E5',
   subText: '#B0BAC6',
   darkText: '#010101',
   mobileSidebarBgColor: '#23272D',
@@ -24,6 +24,8 @@ export const colors = {
 
 export const layout = {
   mobileWidth: '600px',
+  sidebarWidth: '30rem',
+  sidebarBorderRadius: '2rem',
 };
 
 export const transition = {
