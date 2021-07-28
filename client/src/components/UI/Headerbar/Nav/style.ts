@@ -5,6 +5,7 @@ import { ISidebarOpen } from 'types/headerbar';
 
 export const Nav = styled.div``;
 
+const bdr = layout.sidebarBorderRadius;
 export const NavList = styled.div<ISidebarOpen>`
   .header-nav-wrapper > a {
     font-size: 2rem;
@@ -24,10 +25,15 @@ export const NavList = styled.div<ISidebarOpen>`
     .header-nav-wrapper {
       background-color: ${colors.mobileSidebarBgColor};
       display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
-      top: 0;
-      right: 0;
-      position: absolute;
       flex-direction: column;
+      position: absolute;
+      top: 0;
+      right: -1rem;
+      border-radius: ${bdr} ${bdr} 0 0;
+      padding-top: 1rem;
+      padding-right: 2rem;
+
+      width: ${layout.sidebarWidth};
       > a {
         margin: 1rem;
         text-align: right;

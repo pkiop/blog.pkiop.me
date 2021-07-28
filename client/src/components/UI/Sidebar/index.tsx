@@ -21,13 +21,14 @@ function Sidebar({ className, categoryList }: ISidebarComponent) {
   });
   return (
     <S.Sidebar className={className} isOpen={isSidebarOpen}>
-      {CategoryList}
-      <S.TagList tagList={testTagList} />
       <div className="button-wrapper">
         <S.FilterClearBtn onClick={() => dispatch(clearFilter())}>
-          Clear Filter
+          🔄
         </S.FilterClearBtn>
       </div>
+      <S.CategoryWrapper>{CategoryList}</S.CategoryWrapper>
+      <S.TagList tagList={testTagList} />
+
       <S.AboutMe />
       {/* <S.DonateLink /> */}
     </S.Sidebar>
