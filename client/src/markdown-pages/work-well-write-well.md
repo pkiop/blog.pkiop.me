@@ -1,7 +1,7 @@
 ---
 slug: '/work-well-write-well'
 date: '2021-07-30'
-title: '일 잘하는 사람은 글을 잘 씁니다.'
+title: '일 잘하는 사람은 글을 잘 씁니다'
 summary: '글을 쓰면 전문가가 된다. 일 잘하는 사람은 글을 잘 씁니다를 읽고 든 생각'
 mainCategory: '책'
 subCategory: '자기계발'
