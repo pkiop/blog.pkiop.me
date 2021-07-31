@@ -21,4 +21,5 @@ module.exports = {
   setupFiles: [`<rootDir>/loadershim.js`],
   testEnvironment: `jsdom`,
   setupFilesAfterEnv: ['./setup-test-env.ts'],
+  moduleDirectories: ['node_modules', 'src'],
 };
