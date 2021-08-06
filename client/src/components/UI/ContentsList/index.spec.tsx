@@ -7,6 +7,6 @@ import Content from '.';
 test('Displays the correct title', () => {
   const { container } = render(<Content contentsList={testContentList} />);
   // Assertion
-  expect(container.firstChild).toHaveTextContent('글 1');
+  expect(container.firstChild?.firstChild).toHaveTextContent('글 1');
   // --> Test will pass
 });
