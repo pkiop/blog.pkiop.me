@@ -31,6 +31,18 @@ function Sidebar({ className, categoryList }: ISidebarComponent) {
 
       <S.AboutMe />
       {/* <S.DonateLink /> */}
+      <iframe
+        src="https://ads-partners.coupang.com/widgets.html?id=488028&template=carousel&trackingCode=AF1679783&subId=&width=680&height=140"
+        width="210"
+        height="150"
+        frameBorder="0"
+        scrolling="no"
+        referrerPolicy="unsafe-url"
+      ></iframe>
+      <a style={{ marginTop: '1.4rem' }} href="https://coupa.ng/b5eXs7">
+        이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를
+        제공받습니다.
+      </a>
     </S.Sidebar>
   );
 }
