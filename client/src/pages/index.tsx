@@ -33,6 +33,12 @@ const IndexPage = () => {
           <SidebarContainer />
         </ContentsWrapper>
       </IndexPageWrapper>
+      <div
+        dangerouslySetInnerHTML={{
+          __html:
+            '<script data-ad-client="ca-pub-8000924543923636" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>',
+        }}
+      ></div>
     </>
   );
   return <MainTemplate contents={MainContent} />;
