@@ -34,8 +34,3 @@ readTime: 1
 ## 결론
 
 이 책 전반에서 강조한 사람이 배우는 방식을 한번 더 정리하면 가설 → 실험 → 피드백 → 지식의 확장이다. 적용할 수 있는 포인트는 무언가 배울 때 그냥 책을 읽더라도 수동적으로 읽는게 아니라 작가의 생각을 생각해보고 이 책 뒷 부분에 어떤 내용이 있을지 가설을 세워보고 등등 바로 적용해 볼 수 있는 점이 많았다. 이렇게 하는게 머리가 빨리 아파오는 느낌이 있어 불편하지만 그 느낌이 뇌가 제대로 일 하고 있다는 피드백으로 생각하고 습관적으로 가설을 세울 수 있도록 해야겠다.
-
-<a class="coupang" href="https://coupa.ng/b3KUJi" target="_blank" referrerpolicy="unsafe-url"><img src="https://static.coupangcdn.com/image/affiliate/banner/2b3a69fcdb87659cbc5f8821dd8ee7ab@2x.jpg" alt="우리의 뇌는 어떻게 배우는가:배움의 모든 것을 해부하다, 로크미디어, 스타니슬라스 드앤" width="120" height="240">
-<span>이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
-</span>
-</a>

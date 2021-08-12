@@ -24,8 +24,3 @@ readTime: 1
 ## 결론
 
 많은 사람에게 도움을 줄 수 있는 것을 고민해서 좋은 글을 작성하려는 목표를 세웠다. 일단 React 관련 주제로 글을 써야겠다. Hook API를 그냥 쓸 줄만 알지 깊이있는 동작은 아직 설명할 정도로 알지 못하는데 이 부분을 공부하고 생각하고 예제를 만들어서 퀄리티 있는 글을 작성해야겠다. 이걸 시작으로 꾸준히 개발관련 글을 작성해서 얻어지는 예상치 못한 기회가 찾아올 것도 기대가 된다. 이 뿐만 아니라 글을 작성하면서 깊이있는 지식들을 얻게 되는것도 매우 즐거울 것 같다.
-
-<a class="coupang" href="https://coupa.ng/b4snyy" target="_blank" referrerpolicy="unsafe-url"><img src="https://static.coupangcdn.com/image/affiliate/banner/e60e72df4c3e9a012c7c008070015c36@2x.jpg" alt="일 잘하는 사람은 글을 잘 씁니다:글쓰기가 직장인을 전문가로 만든다, 북스톤" width="120" height="240">
-<span>이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
-</span>
-</a>
