@@ -17,6 +17,10 @@ const Wrapper = styled.div`
 const PostWrapper = styled.div`
   display: flex;
   justify-content: center;
+
+  & code span {
+    font-size: 1.6rem;
+  }
 `;
 
 export default function Template({
