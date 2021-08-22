@@ -108,12 +108,9 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-highlight-code`,
+            resolve: `gatsby-remark-vscode`,
             options: {
-              terminal: 'carbon',
-              theme: 'one-dark',
-              editable: true,
-              lineNumbers: true,
+              theme: 'Dark+ (default dark)',
             },
           },
         ],
