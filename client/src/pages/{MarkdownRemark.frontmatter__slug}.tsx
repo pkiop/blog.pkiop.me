@@ -36,6 +36,14 @@ export default function Template({
         <meta name="description" content={frontmatter.summary} />
         <meta name="keywords" content={frontmatter.tag.join(', ')} />
         <html lang="ko" />
+        <script type="application/ld+json">
+          {`{
+            "@context": "https://schema.org",
+            "@type": ${frontmatter.mainCategory},
+            "headline": ${frontmatter.title},
+            "datePublished": ${new Date(frontmatter.date)},
+          }`}
+        </script>
       </Helmet>
       <PostWrapper>
         <Posts frontmatter={frontmatter} html={html} />
