@@ -8,5 +8,6 @@ export const testTagList: ITag[] = [
   { title: '마케팅', color: '#5283EA', textColor: colors.darkText },
   { title: '세바시', color: '#387725', textColor: colors.darkText },
   { title: '뇌과학', color: '#FCD8D4', textColor: colors.darkText },
+  { title: 'Backend', color: '#1560BD', textColor: colors.subText },
 ];
 export const testTag = testTagList[0];
