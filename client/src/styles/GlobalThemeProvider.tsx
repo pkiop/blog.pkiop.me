@@ -6,6 +6,7 @@ import GlobalStyle from './GlobalStyle';
 interface Prop {
   children?: React.ReactElement | React.ReactElement[] | string | any;
 }
+
 const GlobalThemeProvider = ({ children }: Prop) => (
   <ThemeProvider theme={theme}>
     <GlobalStyle />
