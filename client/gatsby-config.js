@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'blog.pkiop.me',
+    title: 'PKIOP BLOG',
     description: 'pkiop 블로그',
     siteUrl: 'https://blog.pkiop.me',
   },

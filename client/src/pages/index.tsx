@@ -26,7 +26,7 @@ const IndexPageWrapper = styled.div`
 const IndexPage = () => {
   const MainContent = (
     <>
-      <Helmet title="blog.pkiop.me" />
+      <Helmet title="PKIOP BLOG" />
       <IndexPageWrapper>
         <ContentsWrapper>
           <ContentsContainer />

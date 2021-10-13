@@ -20,7 +20,7 @@ const IndexPage = () => {
   React.useEffect(() => {}, []);
   const MainContent = (
     <>
-      <Helmet title="blog.pkiop.me" />
+      <Helmet title="PKIOP BLOG" />
       <IndexPageWrapper>
         <ContentsWrapper>
           <DonateWrapper />
