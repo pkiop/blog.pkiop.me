@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
-import styled from 'styled-components';
 import LaboratoryTemplate from 'templates/Laboratory';
+import Research from 'components/Laboratory/Research';
 // styles
 
 // markup
 const IndexPage = () => {
   const MainContent = (
     <>
-      <Helmet title="Laboratory" />
-      준비중 입니다.
+      <Helmet title="PKIOP LAB" />
+      <Research />
     </>
   );
   return <LaboratoryTemplate contents={MainContent} />;
