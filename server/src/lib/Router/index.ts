@@ -1,6 +1,9 @@
 export type HttpContentType = 'text/html' | 'application/json';
 export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
-
+export interface Headers {
+  'content-type': HttpContentType;
+  [index: string]: string;
+}
 abstract class Router {
   protected req: Deno.RequestEvent | null;
   protected route: string[];
@@ -12,17 +15,17 @@ abstract class Router {
     this.route = expectedRoute.split('/');
   }
 
-  abstract GET(responseData: BodyInit, type: HttpContentType): void;
-  abstract POST(responseData: BodyInit, type: HttpContentType): void;
-  abstract PUT(): void;
-  abstract DELETE(): void;
+  protected abstract GET(req: Deno.RequestEvent): void;
+  protected abstract POST(req: Deno.RequestEvent): void;
+  protected abstract PUT(): void;
+  protected abstract DELETE(): void;
 
   setRequest(req: Deno.RequestEvent) {
     this.req = req;
     this.method = req.request.method as HttpMethod;
   }
 
-  clearRequest() {
+  private clearRequest() {
     this.req = null;
     this.method = null;
   }
@@ -37,23 +40,26 @@ abstract class Router {
   }
 
   run() {
+    if (!this.req) throw new Error('NO REQUEST');
     switch (this.method) {
       case 'GET':
-        this.GET('get hello', 'text/html');
+        this.GET(this.req);
         break;
       case 'POST':
-        this.POST('post hello', 'application/json');
+        this.POST(this.req);
         break;
       case 'PUT':
+        this.PUT();
         break;
       case 'DELETE':
+        this.DELETE();
         break;
       default:
         throw new Error(
           `Unsupported http method. Method name is : ${this.method}`
         );
     }
-    // this.req.
+    this.clearRequest();
   }
 }
 
