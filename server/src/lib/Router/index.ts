@@ -17,8 +17,6 @@ abstract class Router {
   abstract PUT(): void;
   abstract DELETE(): void;
 
-  abstract compareRoute(route: string[]): boolean;
-
   setRequest(req: Deno.RequestEvent) {
     this.req = req;
     this.method = req.request.method as HttpMethod;
@@ -27,6 +25,15 @@ abstract class Router {
   clearRequest() {
     this.req = null;
     this.method = null;
+  }
+
+  compareRoute(route: string[]): boolean {
+    if (this.route.length !== route.length) return false;
+    for (let i = 0; i < route.length; ++i) {
+      if (this.route[i][0] === ':') continue;
+      if (this.route[i] !== route[i]) return false;
+    }
+    return true;
   }
 
   run() {
