@@ -1,0 +1,12 @@
+version: '3'
+services:
+  web:
+    image: 046727694434.dkr.ecr.ap-northeast-2.amazonaws.com/pkiop-app:latest
+    ports:
+      - '8080:8080'
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: pkiop-app-cluster
+        awslogs-region: ap-northeast-2
+        awslogs-stream-prefix: web
