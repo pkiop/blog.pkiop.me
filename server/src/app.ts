@@ -13,10 +13,13 @@ function handleConnection(
   if (router) {
     router.setRequest(requestEvent);
     router.run();
-    router.clearRequest();
     return;
   }
-  throw new Error('NOT MATCH ROUTER');
+  requestEvent.respondWith(
+    new Response('NO MATCH ROUTER', {
+      status: 404,
+    })
+  );
 }
 
 const registeredRouterList = [] as Router[];
