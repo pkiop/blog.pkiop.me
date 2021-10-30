@@ -1,0 +1,119 @@
+{
+  "tags": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "ipcMode": null,
+  "executionRoleArn": null,
+  "containerDefinitions": [
+    {
+      "dnsSearchDomains": [],
+      "environmentFiles": null,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "secretOptions": null,
+        "options": {
+          "awslogs-group": "pkiop-app-cluster",
+          "awslogs-region": "ap-northeast-2",
+          "awslogs-stream-prefix": "web"
+        }
+      },
+      "entryPoint": [],
+      "portMappings": [
+        {
+          "hostPort": 8080,
+          "protocol": "tcp",
+          "containerPort": 8080
+        }
+      ],
+      "command": [],
+      "linuxParameters": {
+        "capabilities": {
+          "add": null,
+          "drop": null
+        },
+        "sharedMemorySize": null,
+        "tmpfs": null,
+        "devices": [],
+        "maxSwap": null,
+        "swappiness": null,
+        "initProcessEnabled": null
+      },
+      "cpu": 800,
+      "environment": [],
+      "resourceRequirements": null,
+      "ulimits": null,
+      "dnsServers": [],
+      "mountPoints": [],
+      "workingDirectory": null,
+      "secrets": null,
+      "dockerSecurityOptions": [],
+      "memory": 400,
+      "memoryReservation": null,
+      "volumesFrom": [],
+      "stopTimeout": null,
+      "image": "046727694434.dkr.ecr.ap-northeast-2.amazonaws.com/pkiop-app:latest",
+      "startTimeout": null,
+      "firelensConfiguration": null,
+      "dependsOn": null,
+      "disableNetworking": null,
+      "interactive": null,
+      "healthCheck": null,
+      "essential": true,
+      "links": [],
+      "hostname": null,
+      "extraHosts": [],
+      "pseudoTerminal": false,
+      "user": null,
+      "readonlyRootFilesystem": false,
+      "dockerLabels": null,
+      "systemControls": null,
+      "privileged": false,
+      "name": "web"
+    }
+  ],
+  "placementConstraints": [],
+  "memory": null,
+  "taskRoleArn": null,
+  "compatibilities": ["EXTERNAL", "EC2"],
+  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:046727694434:task-definition/server:3",
+  "family": "server",
+  "requiresAttributes": [
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.ecr-auth"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.17"
+    }
+  ],
+  "pidMode": null,
+  "requiresCompatibilities": ["EC2"],
+  "networkMode": null,
+  "runtimePlatform": null,
+  "cpu": null,
+  "revision": 3,
+  "status": "ACTIVE",
+  "inferenceAccelerators": null,
+  "proxyConfiguration": null,
+  "volumes": []
+}

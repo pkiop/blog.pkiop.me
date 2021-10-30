@@ -11,4 +11,4 @@ ENV PORT=8080
 # transfer file host to docker
 ADD . . 
 EXPOSE 8080
-CMD ["run", "--allow-net", "--allow-env", "./src/app.ts"]
+CMD ["run", "--allow-net", "--allow-env", "./server/src/app.ts"]
