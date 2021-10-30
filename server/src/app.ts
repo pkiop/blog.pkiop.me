@@ -1,5 +1,5 @@
 // Deno.listen return value is async iterable connections
-import ArticleRouter from './router/Category.ts';
+import ArticleRouter from './router/Article.ts';
 import CategoryRouter from './router/Category.ts';
 import Router from './lib/Router/index.ts';
 

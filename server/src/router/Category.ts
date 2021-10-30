@@ -1,7 +1,7 @@
 import Router from '../lib/Router/index.ts';
 import type { Headers } from '../lib/Router/index.ts';
 
-class ArticleRouter extends Router {
+class CategoryRouter extends Router {
   constructor(expectedRoute: string) {
     super(expectedRoute);
   }
@@ -32,4 +32,4 @@ class ArticleRouter extends Router {
   DELETE() {}
 }
 
-export default ArticleRouter;
+export default CategoryRouter;
