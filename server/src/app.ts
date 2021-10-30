@@ -1,5 +1,6 @@
 // Deno.listen return value is async iterable connections
-import ArticleRouter from './router/ArticleRouter.ts';
+import ArticleRouter from './router/Category.ts';
+import CategoryRouter from './router/Category.ts';
 import Router from './lib/Router/index.ts';
 
 function handleConnection(
@@ -33,6 +34,7 @@ async function handle(conn: Deno.Conn) {
 
 function registerRouter() {
   registeredRouterList.push(new ArticleRouter('/api/article'));
+  registeredRouterList.push(new CategoryRouter('/api/category'));
 }
 
 async function main() {
