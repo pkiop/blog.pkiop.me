@@ -4,7 +4,7 @@ class Debug {
     this.env = env || 'development';
   }
 
-  log(...message: unknown[]) {
+  log(...message: unknown[]): void {
     if (this.env !== 'prod') {
       console.log(...(message || ''));
     }
