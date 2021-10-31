@@ -21,9 +21,9 @@ jobs:
         uses: denolib/setup-deno@v2
         with:
           deno-version: ${{ matrix.deno-version }}
-      - name: Lint Deno Module
-        run: deno fmt --check
-      - name: Build Deno Module
-        run: deno run --reload mod.ts
+      # - name: Lint Deno Module
+      #   run: deno fmt ./server --check
+      # - name: Build Deno Module
+      #   run: deno run ./server --reload mod.ts
       - name: Test Deno Module
-        run: deno test --allow-env --allow-none
+        run: deno test ./server --allow-env --allow-none
