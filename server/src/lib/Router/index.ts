@@ -32,7 +32,6 @@ abstract class Router {
   }
 
   compareRoute(route: string[]): boolean {
-    debug.log('route : ', route, 'this.route : ', this.route);
     if (this.route.length !== route.length) return false;
     for (let i = 0; i < route.length; ++i) {
       if (this.route[i][0] === ':') continue;
