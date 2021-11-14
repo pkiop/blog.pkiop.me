@@ -1,5 +1,6 @@
 import Router from '../lib/Router/index.ts';
 import type { Headers } from '../lib/Router/index.ts';
+import BodyParser from '../lib/BodyParser/index.ts';
 
 class ArticleRouter extends Router {
   constructor(expectedRoute: string) {
@@ -17,10 +18,13 @@ class ArticleRouter extends Router {
       })
     );
   }
-  POST(req: Deno.RequestEvent) {
+  async POST(req: Deno.RequestEvent) {
     const headers: Headers = {
       'content-type': 'application/json',
     };
+    const data = req.request.body;
+    if (!data) throw new Error('no body');
+    const parsedBody = await BodyParser.parse(data);
     req.respondWith(
       new Response('post test', {
         status: 200,
