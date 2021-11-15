@@ -2,12 +2,42 @@
 import ArticleRouter from './router/Article.ts';
 import CategoryRouter from './router/Category.ts';
 import Router from './lib/Router/index.ts';
+import { GraphQLHTTP } from 'https://deno.land/x/gql@1.1.0/mod.ts';
+import { makeExecutableSchema } from 'https://deno.land/x/graphql_tools@0.0.2/mod.ts';
+import { gql } from 'https://deno.land/x/graphql_tag@0.0.1/mod.ts';
 
-function handleConnection(
+const typeDefs = gql`
+  type Query {
+    hello: String
+  }
+`;
+
+const resolvers = {
+  Query: {
+    hello: () => 'Hello world!',
+  },
+};
+
+async function handleConnection(
   registeredRouterList: Router[],
   requestEvent: Deno.RequestEvent
 ) {
   const url = new URL(requestEvent.request.url).pathname.split('/');
+  if (url[1] === 'graphql') {
+    try {
+      const res = await GraphQLHTTP<Request>({
+        schema: makeExecutableSchema({ resolvers, typeDefs }),
+        graphiql: true,
+      })(requestEvent.request);
+      requestEvent.respondWith(res);
+    } catch (err) {
+      requestEvent.respondWith(
+        new Response(`GraphQL ERROR : ${err}`, { status: 500 })
+      );
+      console.error(err);
+    }
+    return;
+  }
   const router = registeredRouterList.find((router) =>
     router.compareRoute(url)
   );
@@ -38,7 +68,7 @@ function registerRouter() {
 }
 
 async function main() {
-  const PORT = 8080;
+  const PORT = 8070;
   registerRouter();
   console.log(`server run at http://localhost:${PORT}`);
   const server = Deno.listen({ port: PORT });
