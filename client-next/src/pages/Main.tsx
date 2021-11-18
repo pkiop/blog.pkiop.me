@@ -1,4 +1,3 @@
-import { Helmet } from 'react-helmet';
 import SidebarContainer from '@components/container/SidebarContainer';
 import ContentsContainer from '@components/container/ContentsContainer';
 import styled from 'styled-components';
@@ -24,21 +23,12 @@ const IndexPageWrapper = styled.div`
 // markup
 const IndexPage = () => {
   const MainContent = (
-    <>
-      <Helmet title="PKIOP BLOG" />
-      <IndexPageWrapper>
-        <ContentsWrapper>
-          <ContentsContainer />
-          <SidebarContainer />
-        </ContentsWrapper>
-      </IndexPageWrapper>
-      <div
-        dangerouslySetInnerHTML={{
-          __html:
-            '<script data-ad-client="ca-pub-8000924543923636" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>',
-        }}
-      />
-    </>
+    <IndexPageWrapper>
+      <ContentsWrapper>
+        <ContentsContainer />
+        <SidebarContainer />
+      </ContentsWrapper>
+    </IndexPageWrapper>
   );
   return <MainTemplate contents={MainContent} />;
 };
