@@ -71,11 +71,10 @@ function reducer(action: any, state = initialState) {
         isSidebarOpen: !state.isSidebarOpen,
       };
     default:
-      return state;
+      return initialState;
   }
 }
 
-// preloadedState will be passed in by the plugin
 export default (preloadedState: any) => {
   if (!preloadedState) console.warn('no preloadedState');
   return createStore(reducer as any, preloadedState);
