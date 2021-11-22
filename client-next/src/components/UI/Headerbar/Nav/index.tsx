@@ -2,14 +2,14 @@ import Hamburger from '@images/hamburger.svg';
 import { INav, INavButton } from 'types/headerbar';
 import { toggleSidebar } from '@state/createStore';
 import { useSelector, useDispatch } from 'react-redux';
-import { ISidebarStoreState } from 'types/store';
+import { SidebarStoreState } from 'types/store';
 
 import * as S from './style';
 
 const Nav = ({ NavButtonList }: INav) => {
   const dispatch = useDispatch();
   const isSidebarOpen = useSelector(
-    (state: ISidebarStoreState) => state.isSidebarOpen,
+    (state: SidebarStoreState) => state.isSidebarOpen,
   );
 
   const ButtonList = NavButtonList.map((NavButton: INavButton) => {

@@ -1,12 +1,25 @@
 // eslint-disable-next-line no-use-before-define
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import type { SidebarStoreState } from 'types/store';
+import createStore from './state/createStore';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const sidebarPreState: SidebarStoreState = {
+  mainCategory: '',
+  subCategory: '',
+  tag: [],
+  isSidebarOpen: false,
+};
+
+const store = createStore(sidebarPreState);
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root'),
 );

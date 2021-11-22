@@ -1,19 +1,19 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setMainCategory, setSubCategory } from 'state/createStore';
+import { setMainCategory, setSubCategory } from '@state/createStore';
 import type { IMainCategory, ISubCategory } from '..';
 import * as S from './style';
 
-export interface ISubCategoryComponent {
+export interface SubCategoryComponent {
   className?: string;
   subCategory: ISubCategory[];
   mainCategory: IMainCategory;
 }
 
-function SubCategory({
+const SubCategory = ({
   className,
   subCategory,
   mainCategory,
-}: ISubCategoryComponent) {
+}: SubCategoryComponent) => {
   const dispatch = useDispatch();
   const selectedSubCategory: string[] = useSelector(
     (state: any) => state.subCategory,
@@ -43,6 +43,6 @@ function SubCategory({
   return (
     <S.SubCategory className={className}>{subCategoryComponents}</S.SubCategory>
   );
-}
+};
 
 export default SubCategory;
