@@ -6,15 +6,37 @@ import { GraphQLHTTP } from 'https://deno.land/x/gql@1.1.0/mod.ts';
 import { makeExecutableSchema } from 'https://deno.land/x/graphql_tools@0.0.2/mod.ts';
 import { gql } from 'https://deno.land/x/graphql_tag@0.0.1/mod.ts';
 
+type Article = {
+  title: String;
+  description: String;
+};
+
+const testArticle: Article[] = [];
+
 const typeDefs = gql`
+  type Article {
+    title: String!
+    description: String
+  }
+
   type Query {
-    hello: String
+    article: [Article!]
+  }
+
+  type Mutation {
+    postArticle(title: String!, description: String): Boolean!
   }
 `;
 
 const resolvers = {
   Query: {
-    hello: () => 'Hello world!',
+    article: () => testArticle,
+  },
+  Mutation: {
+    postArticle(parent: any, args: any) {
+      testArticle.push(args);
+      return true;
+    },
   },
 };
 
