@@ -11,13 +11,12 @@ export const typeDefs = gql`
   type Article {
     title: String!
     slug: String!
-    createAt: String!
-    updateAt: String!
     summary: String!
     mainCategory: Category!
     subCategory: Category!
-    tag: [String]
+    tags: [String]
     readTime: Float!
+    contents: String!
   }
 
   type Query {
@@ -33,13 +32,12 @@ export const typeDefs = gql`
     postArticle(
       title: String!
       slug: String!
-      createAt: String!
-      updateAt: String!
       summary: String!
       mainCategoryId: Int!
       subCategoryId: Int!
-      tagIds: [String]
+      tags: [String]
       readTime: Float!
+      contents: String!
     ): Boolean!
   }
 `;
