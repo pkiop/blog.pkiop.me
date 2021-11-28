@@ -1,0 +1,16 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --init-file /init.sql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=pkiopme
+      - MYSQL_USER=pkiop
+      - MYSQL_PASSWORD=pkiopme
+      - LANG=C.UTF-8
+    volumes:
+      - ./docker/mysql/data:/var/lib/mysql
+      - ./docker/mysql/init.sql:/init.sql
+    ports:
+      - '3306:3306'
