@@ -3,30 +3,42 @@ import Query from './resolvers/Query.ts';
 import Mutation from './resolvers/Mutation.ts';
 
 export const typeDefs = gql`
+  type Category {
+    title: String!
+    classification: String!
+  }
+
   type Article {
     title: String!
     slug: String!
-    date: String!
+    createAt: String!
+    updateAt: String!
     summary: String!
-    mainCategory: String!
-    subCategory: String!
+    mainCategory: Category!
+    subCategory: Category!
     tag: [String]
     readTime: Float!
   }
 
   type Query {
-    article: [Article!]
+    article: [Article]
   }
+
+  # input CategoryInput {
+  #   title: String!
+  #   classification: String!
+  # }
 
   type Mutation {
     postArticle(
       title: String!
       slug: String!
-      date: String!
+      createAt: String!
+      updateAt: String!
       summary: String!
-      mainCategory: String!
-      subCategory: String!
-      tag: [String]
+      mainCategoryId: Int!
+      subCategoryId: Int!
+      tagIds: [String]
       readTime: Float!
     ): Boolean!
   }
