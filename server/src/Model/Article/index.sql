@@ -10,7 +10,3 @@ CREATE TABLE article (
   readTime FLOAT(4) NOT NULL,
   contents TEXT NOT NULL
 ) ENGINE=INNODB; 
-
-ALTER TABLE article
-ADD FOREIGN KEY(id) REFERENCES article_tag(articleId);
-
