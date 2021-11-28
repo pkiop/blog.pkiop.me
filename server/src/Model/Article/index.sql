@@ -1,0 +1,16 @@
+CREATE TABLE article ( 
+  id INT PRIMARY KEY AUTO_INCREMENT, 
+  title VARCHAR(64) NOT NULL, 
+  summary VARCHAR(255) NOT NULL,
+  createAt DATETIME NOT NULL,
+  updateAt DATETIME NOT NULL,
+  slub VARCHAR(64) NOT NULL, 
+  mainCaregory VARCHAR(32) NOT NULL, 
+  subCaregory VARCHAR(32) NOT NULL, 
+  readTime FLOAT(4) NOT NULL,
+  contents TEXT NOT NULL
+) ENGINE=INNODB; 
+
+ALTER TABLE article
+ADD FOREIGN KEY(id) REFERENCES article_tag(articleId);
+

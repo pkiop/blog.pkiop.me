@@ -1,0 +1,16 @@
+CREATE TABLE article_tag (
+  articleId INT NOT NULL,
+  tagId INT NOT NULL
+);
+
+ALTER TABLE article_tag
+ADD FOREIGN KEY(articleId) REFERENCES article(id);
+ALTER TABLE article_tag 
+ADD FOREIGN KEY(tagId) REFERENCES tag(id);
+
+CREATE TABLE tag ( 
+  id INT PRIMARY KEY AUTO_INCREMENT, 
+  title VARCHAR(64) NOT NULL, 
+  fontColor VARCHAR(8) NOT NULL,
+  color VARCHAR(8) NOT NULL
+) ENGINE=INNODB; 
