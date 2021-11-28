@@ -14,3 +14,6 @@ CREATE TABLE tag (
   fontColor VARCHAR(8) NOT NULL,
   color VARCHAR(8) NOT NULL
 ) ENGINE=INNODB; 
+
+INSERT INTO tag(title, fontColor, color)
+VALUES ('develop', '#000000', '#ffffff');
