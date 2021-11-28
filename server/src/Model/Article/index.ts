@@ -20,7 +20,22 @@ class ArticleModel extends Model {
   }
 
   async getArticles() {
-    return this.query(`SELECT * FROM article`);
+    const { rows } = await this.query(`
+      SELECT *,
+      article.title as title,
+      MainCategory.id AS mainCategoryId,
+      MainCategory.title AS mainCategoryTitle,
+      MainCategory.classification AS mainCategoryClassification,
+      SubCategory.id AS subCategoryId,
+      SubCategory.title AS subCategoryTitle,
+      SubCategory.classification AS subCategoryClassification
+
+      FROM article
+
+      INNER JOIN category AS MainCategory ON article.mainCategoryId=MainCategory.id
+      INNER JOIN category AS SubCategory ON article.subCategoryId=SubCategory.id;
+  `);
+    return rows;
   }
 
   reload() {
