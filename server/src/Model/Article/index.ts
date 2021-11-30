@@ -37,7 +37,7 @@ class ArticleModel extends Model {
       MainCategory.classification AS mainCategoryClassification,
       SubCategory.id AS subCategoryId,
       SubCategory.title AS subCategoryTitle,
-      SubCategory.classification AS subCategoryClassification,
+      SubCategory.classification AS subCategoryClassification
 
       FROM article
 
