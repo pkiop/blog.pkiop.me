@@ -8,7 +8,7 @@ export type CommonArticle = {
   summary: string;
   slug: string;
   readTime: number;
-  contents: String;
+  contents: string;
 };
 
 export type ArticleInput = {
