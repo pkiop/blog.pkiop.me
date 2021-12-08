@@ -5,11 +5,7 @@ class TagModel extends Model {
     super();
   }
 
-  async postTag(
-    tagName: string,
-    fontColor: string = '#ffffff',
-    color: string = '#000000'
-  ) {
+  async postTag(tagName: string, fontColor = '#ffffff', color = '#000000') {
     try {
       const { lastInsertId } = await this.query(
         `
