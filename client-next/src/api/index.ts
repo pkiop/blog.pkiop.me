@@ -6,10 +6,17 @@ export const getArticles = async () => {
     query: `query {
         article {
           title
+          mainCategory {
+            title
+          }
+          subCategory {
+            title
+          }
+          tags
         }
       }`,
   });
-  return response.data;
+  return response.data.data.article;
 };
 
 export default {};
