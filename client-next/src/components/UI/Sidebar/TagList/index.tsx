@@ -9,7 +9,7 @@ export interface ITagListComponent {
   tagList: ITagList;
 }
 
-function TagList({ className, tagList }: ITagListComponent) {
+const TagList = ({ className, tagList }: ITagListComponent) => {
   const dispatch = useDispatch();
   const selectedTag: [string] = useSelector((state: any) => state.tag);
   const TagListComponent = tagList.map((tag: ITag) => {
@@ -26,6 +26,6 @@ function TagList({ className, tagList }: ITagListComponent) {
     );
   });
   return <S.TagList className={className}>{TagListComponent}</S.TagList>;
-}
+};
 
 export default TagList;
