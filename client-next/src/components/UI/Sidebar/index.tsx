@@ -2,8 +2,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { clearFilter } from '@state/createStore';
 import { testTagList } from '@fixture/Tag';
 import { SidebarStoreState } from 'types/store';
+import type { ICategory } from 'types/category.interface';
 import * as S from './style';
-import type { ICategory } from './Category';
 
 export interface ISidebarComponent {
   className?: string;

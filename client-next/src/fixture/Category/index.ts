@@ -1,4 +1,4 @@
-import { ICategory, ISubCategory } from '@components/UI/Sidebar/Category';
+import { ICategory, ISubCategory } from 'types/category.interface';
 
 export const subCategoryList1: ISubCategory[] = [
   {

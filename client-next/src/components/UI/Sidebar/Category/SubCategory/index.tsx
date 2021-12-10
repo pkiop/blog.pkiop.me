@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { setMainCategory, setSubCategory } from '@state/createStore';
-import type { IMainCategory, ISubCategory } from '..';
+import type { IMainCategory, ISubCategory } from 'types/category.interface';
 import * as S from './style';
 
 export interface SubCategoryComponent {

@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { ITag } from 'components/UI/ContentsList/Content/TagList/Tag';
+import type { IMainCategory, ISubCategory } from 'types/category.interface';
 import Content from './Content';
 import * as S from './style';
 
@@ -7,8 +8,8 @@ export interface IContent {
   title: string;
   date: string;
   slug: string;
-  mainCategory: string;
-  subCategory: string;
+  mainCategory: IMainCategory;
+  subCategory: ISubCategory;
   tag: ITag[];
 }
 
