@@ -1,4 +1,4 @@
-import type { IContent } from '@components/UI/ContentsList';
+import type { IContent } from 'types/content.interface';
 import * as S from './style';
 import TagList from './TagList';
 
@@ -13,11 +13,11 @@ const Content = ({ className, content }: IContentsComponent) => (
     <S.SubInfo>
       <div className="category-date">
         <div className="category">
-          {content.mainCategory}/{content.subCategory}
+          {content.mainCategory.title}/{content.subCategory.title}
         </div>
         <div className="date">{content.date}</div>
       </div>
-      <TagList tagList={content.tag} />
+      <TagList tagList={content.tags} />
     </S.SubInfo>
   </S.Content>
 );
