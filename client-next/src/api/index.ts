@@ -12,6 +12,7 @@ export const getArticles = async () => {
           subCategory {
             title
           }
+          slug
           tags
         }
       }`,
