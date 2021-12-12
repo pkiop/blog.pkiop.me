@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 import { colors } from 'styles/theme';
 
-export const Posts = styled.div`
+export const Post = styled.div`
   width: 100%;
   @media (min-width: 980px) {
     width: 98rem;
@@ -79,3 +79,5 @@ export const Posts = styled.div`
     }
   }
 `;
+
+export default Post;

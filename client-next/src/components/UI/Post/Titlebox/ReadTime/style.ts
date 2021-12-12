@@ -6,3 +6,5 @@ export const ReadTime = styled.div`
   color: ${colors.subText};
   font-size: 2rem;
 `;
+
+export default ReadTime;

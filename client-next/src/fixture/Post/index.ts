@@ -41,4 +41,5 @@ export const testFrontmatter = {
   subCategory: 'blog.pkiop.me',
   tag: ['AWS'],
   slug: '/migrate-to-aws-ec2',
+  readTime: 2,
 };
