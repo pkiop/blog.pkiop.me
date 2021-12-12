@@ -3,6 +3,7 @@ import SidebarContainer from '@components/container/SidebarContainer';
 import ContentsContainer from '@components/container/ContentsContainer';
 import styled from 'styled-components';
 import MainTemplate from '@templates/Main';
+import { Routes, Route } from 'react-router-dom';
 // styles
 
 const ContentsWrapper = styled.div`
@@ -40,7 +41,12 @@ const IndexPage = () => {
       />
     </>
   );
-  return <MainTemplate contents={MainContent} />;
+
+  return (
+    <Routes>
+      <Route path="/" element={<MainTemplate contents={MainContent} />} />
+    </Routes>
+  );
 };
 
 export default IndexPage;
