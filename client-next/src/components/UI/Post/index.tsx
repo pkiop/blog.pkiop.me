@@ -1,16 +1,11 @@
 import type { Post } from 'types/post.interface';
 import * as S from './style';
-import Titlebox from './Titlebox';
+import TitleBoxComponent from './Titlebox';
 
-const PostApp = ({
-  title,
-  date,
-  readTime,
-  html, // this prop will be injected by the GraphQL query below.
-}: Post) => (
+const PostApp = ({ title, date, readTime, html }: Post) => (
   <S.Post>
     <div className="blog-post">
-      <Titlebox title={title} date={date} readTime={readTime} />
+      <TitleBoxComponent title={title} date={date} readTime={readTime} />
       <div
         className="blog-post-content"
         dangerouslySetInnerHTML={{ __html: html }}
