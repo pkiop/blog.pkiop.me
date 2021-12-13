@@ -1,12 +1,15 @@
-import React from 'react';
 import { testFrontmatter } from 'fixture/Post';
-import Titlebox from './index';
+import TitleBoxApp from './index';
 
 export default {
   title: 'Posts / Titlebox',
-  component: Titlebox,
+  component: TitleBoxApp,
 };
 
 export const MainTitlebox = () => (
-  <Titlebox title={testFrontmatter.title} date={testFrontmatter.date} />
+  <TitleBoxApp
+    title={testFrontmatter.title}
+    date={testFrontmatter.date}
+    readTime={testFrontmatter.readTime}
+  />
 );
