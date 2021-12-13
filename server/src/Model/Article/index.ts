@@ -27,6 +27,29 @@ class ArticleModel extends Model {
   constructor() {
     super();
   }
+  async getArticle(filter: any) {
+    const { rows } = await this.query(
+      `
+    SELECT *,
+    article.title as title,
+    MainCategory.id AS mainCategoryId,
+    MainCategory.title AS mainCategoryTitle,
+    MainCategory.classification AS mainCategoryClassification,
+    SubCategory.id AS subCategoryId,
+    SubCategory.title AS subCategoryTitle,
+    SubCategory.classification AS subCategoryClassification
+
+    FROM article
+
+    INNER JOIN category AS MainCategory ON article.mainCategoryId=MainCategory.id
+    INNER JOIN category AS SubCategory ON article.subCategoryId=SubCategory.id
+
+    WHERE slug=?
+  `,
+      ['/' + filter.slug]
+    );
+    return rows[0];
+  }
 
   async getArticles() {
     const { rows } = await this.query(`
@@ -47,7 +70,6 @@ class ArticleModel extends Model {
     // TODO: taglist 가져오기
     // query한번에 가능한건가..? 배열로 받아와야해서
     // 2번이라면 articleNum * article 태그리스트 만큼 쿼리 날려야하는데 더 좋은 방법 메모 후 연구
-    console.log('rows : ', rows);
     return rows;
   }
 

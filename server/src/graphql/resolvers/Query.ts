@@ -26,4 +26,20 @@ export default {
       }));
     return res;
   },
+  getArticle: async (parent: any, args: any) => {
+    const data = await articleInstance.getArticle({ slug: args.filter });
+    return {
+      ...data,
+      mainCategory: {
+        id: data.mainCategoryId,
+        title: data.mainCategoryTitle,
+        classification: data.mainCategoryClassification,
+      },
+      subCategory: {
+        id: data.subCategoryId,
+        title: data.subCategoryTitle,
+        classification: data.subCategoryClassification,
+      },
+    };
+  },
 };

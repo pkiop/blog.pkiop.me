@@ -17,10 +17,12 @@ export const typeDefs = gql`
     tags: [String]
     readTime: Float!
     contents: String!
+    updateAt: String!
   }
 
   type Query {
     article: [Article]
+    getArticle(filter: String): Article
   }
 
   # input CategoryInput {
