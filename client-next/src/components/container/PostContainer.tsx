@@ -1,16 +1,22 @@
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Post from '@components/UI/Post';
+import { getArticleBySlug } from '@api/index';
 
 const PostContainer = () => {
-  const response = {
-    data: {
-      title: '안녕',
-      date: new Date(),
-      readTime: 3,
-      html: `<h1>안녕하세요 ${'!!'}</h1>`,
-    },
+  const [content, setContent] = useState<any>(null);
+  const { slug } = useParams();
+  const fetchData = async () => {
+    const response = await getArticleBySlug(slug ?? '');
+    setContent(response);
   };
-  const { title, date, readTime, html } = response.data;
-  return <Post title={title} date={date} readTime={readTime} html={html} />;
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  if (!content) return <>loading</>;
+  const { title, updateAt: date, readTime, contents } = content;
+  return <Post title={title} date={date} readTime={readTime} html={contents} />;
 };
 
 export default PostContainer;

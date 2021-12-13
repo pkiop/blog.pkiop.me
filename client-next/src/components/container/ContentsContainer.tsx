@@ -18,6 +18,7 @@ const ContentsContainer = () => {
 
   const contentsList: IContent[] = articles.map((article: any) => ({
     ...article,
+    html: article.contents,
     tags: article.tags.map((tag: string) => ({
       ...(testTagList.find((testTag: ITag) => testTag.title === tag) || {
         color: 'gray',
