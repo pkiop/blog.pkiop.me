@@ -14,7 +14,7 @@ const PostContainer = () => {
     fetchData();
   }, []);
 
-  if (!content) return <>loading</>;
+  if (!content) return <> </>;
   const { title, updateAt: date, readTime, contents } = content;
   return <Post title={title} date={date} readTime={readTime} html={contents} />;
 };

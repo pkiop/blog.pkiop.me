@@ -1,4 +1,3 @@
-import React from 'react';
 import { testPosts, testFrontmatter } from 'fixture/Post';
 import Post from '.';
 

@@ -16,6 +16,7 @@ export const getArticles = async () => {
           tags
           contents
           updateAt
+          readTime
         }
       }`,
   });
@@ -37,10 +38,14 @@ export const getArticleBySlug = async (slug: string) => {
           tags
           contents
           updateAt 
+          readTime
         }
       }`,
   });
-  return response.data.data.getArticle;
+  return {
+    ...response.data.data.getArticle,
+    updateAt: new Date(response.data.data.getArticle.updateAt),
+  };
 };
 
 export default {};

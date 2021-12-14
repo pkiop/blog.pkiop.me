@@ -7,6 +7,10 @@ export const Nav = styled.div``;
 
 const bdr = layout.sidebarBorderRadius;
 export const NavList = styled.div<ISidebarOpen>`
+  .header-nav-wrapper {
+    display: flex;
+  }
+  .header-nav-wrapper > div,
   .header-nav-wrapper > a {
     font-size: 2rem;
     font-weight: 500;
@@ -19,8 +23,6 @@ export const NavList = styled.div<ISidebarOpen>`
   }
   @media (max-width: ${layout.mobileWidth}) {
     position: relative;
-    .header-nav-wrapper > a {
-    }
 
     .header-nav-wrapper {
       background-color: ${colors.mobileSidebarBgColor};
