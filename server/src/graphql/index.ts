@@ -8,6 +8,8 @@ export const typeDefs = gql`
     classification: String!
   }
 
+  scalar Date
+
   type Article {
     title: String!
     slug: String!
@@ -17,7 +19,7 @@ export const typeDefs = gql`
     tags: [String]
     readTime: Float!
     contents: String!
-    updateAt: String!
+    updateAt: Date!
   }
 
   type Query {

@@ -8,19 +8,16 @@ export interface ITagComponent {
   className?: string;
 }
 
-const Tag = ({ className, onClick, tag, isSelected }: ITagComponent) => {
-  console.log('tag : ', tag);
-  return (
-    <S.Tag<any>
-      className={className}
-      onClick={onClick}
-      color={tag.color}
-      textColor={tag.textColor}
-      isSelected={isSelected}
-    >
-      {tag.title}
-    </S.Tag>
-  );
-};
+const Tag = ({ className, onClick, tag, isSelected }: ITagComponent) => (
+  <S.Tag<any>
+    className={className}
+    onClick={onClick}
+    color={tag.color}
+    textColor={tag.textColor}
+    isSelected={isSelected}
+  >
+    {tag.title}
+  </S.Tag>
+);
 
 export default Tag;

@@ -1,8 +1,9 @@
+import { getYMD } from '@lib/date';
 import * as S from './style';
 
 interface TitleBox {
   title: string;
-  date: string | Date;
+  date: Date;
   readTime: number;
 }
 
@@ -19,7 +20,7 @@ const TitleBoxApp = ({
   <S.Titlebox className={className}>
     <h1>{title}</h1>
     <S.Wrapper>
-      <div>Posted {date.toLocaleString()}</div>
+      <div>Posted {getYMD(date)}</div>
       <S.ReadTime readTime={readTime} />
     </S.Wrapper>
   </S.Titlebox>

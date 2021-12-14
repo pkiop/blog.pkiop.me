@@ -1,6 +1,6 @@
 export interface Post {
   title: string;
-  date: Date | string;
+  date: Date;
   readTime: number;
   html: string;
 }
