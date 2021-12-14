@@ -11,7 +11,6 @@ const Nav = ({ NavButtonList }: INav) => {
   const isSidebarOpen = useSelector(
     (state: SidebarStoreState) => state.isSidebarOpen,
   );
-
   const ButtonList = NavButtonList.map((NavButton: INavButton) => {
     if (NavButton.isClientRoute) {
       return <div key={NavButton.text}>{NavButton.text}</div>;

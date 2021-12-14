@@ -36,9 +36,11 @@ export const NavList = styled.div<ISidebarOpen>`
       padding-right: 2rem;
 
       width: ${layout.sidebarWidth};
-      > a {
+      > a,
+      > div {
         margin: 1rem;
         text-align: right;
+        cursor: pointer;
       }
       z-index: 1;
     }

@@ -11,7 +11,8 @@ export const HeaderBar = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  > a {
+  > a,
+  > div {
     font-size: 3.2rem;
     color: ${colors.mainTextColor};
 

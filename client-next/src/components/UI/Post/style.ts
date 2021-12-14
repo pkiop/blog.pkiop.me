@@ -80,4 +80,10 @@ export const Post = styled.div`
   }
 `;
 
+export const CPLink = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 export default Post;

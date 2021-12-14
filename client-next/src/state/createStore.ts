@@ -33,7 +33,7 @@ export const initialState = {
   isSidebarOpen: false,
 };
 
-function reducer(action: any, state = initialState) {
+function reducer(state: any, action: any) {
   switch (action.type) {
     case SET_MAIN_CATEGORY:
       return {
@@ -54,13 +54,13 @@ function reducer(action: any, state = initialState) {
     case REMOVE_TAG:
       return {
         ...state,
-        tag: [...state.tag.filter((el) => el !== action.payload)].sort(),
+        tag: [...state.tag.filter((el: any) => el !== action.payload)].sort(),
       };
     case TOGGLE_TAG:
       return {
         ...state,
         tag: state.tag.includes(action.payload)
-          ? [...state.tag.filter((el) => el !== action.payload)].sort()
+          ? [...state.tag.filter((el: any) => el !== action.payload)].sort()
           : [...state.tag, action.payload].sort(),
       };
     case CLEAR_FILTER:
