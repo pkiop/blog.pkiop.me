@@ -11,7 +11,8 @@
       "@state/*": ["./state/*"],
       "types/*": ["./types/*"],
       "@images/*": ["./images/*"],
-      "@api/*": ["./api/*"]
+      "@api/*": ["./api/*"],
+      "@lib/*": ["./lib/*"]
     }
   }
 }
