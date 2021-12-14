@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setMainCategory, setSubCategory } from '@state/createStore';
+import { setSubCategory } from '@state/createStore';
 import type { IMainCategory, ISubCategory } from 'types/category.interface';
 import * as S from './style';
 
@@ -23,8 +23,7 @@ const SubCategory = ({
   );
   const subCategoryComponents = subCategory.map((category: ISubCategory) => {
     const setCategory = () => {
-      dispatch(setMainCategory(mainCategory.title));
-      dispatch(setSubCategory(category.title));
+      dispatch(setSubCategory(mainCategory.title, category.title));
     };
     return (
       <S.SubCategoryComponent<any>

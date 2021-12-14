@@ -17,12 +17,7 @@ const Category = ({ className, category }: ICategoryComponent) => {
   };
 
   return (
-    <S.Category
-      className={className}
-      onClick={() => {
-        window.location.href = '/';
-      }}
-    >
+    <S.Category className={className}>
       <S.CategoryTitle<any>
         onClick={setCategory}
         isSelected={mainCategory === category.mainCategory.title}

@@ -12,9 +12,12 @@ export const setMainCategory = (mainCategory: string) => ({
   type: SET_MAIN_CATEGORY,
   payload: mainCategory,
 });
-export const setSubCategory = (subCategory: string) => ({
+export const setSubCategory = (mainCategory: string, subCategory: string) => ({
   type: SET_SUB_CATEGORY,
-  payload: subCategory,
+  payload: {
+    mainCategory,
+    subCategory,
+  },
 });
 export const addTag = (tag: string) => ({ type: ADD_TAG, payload: tag });
 export const removeTag = (tag: string) => ({ type: REMOVE_TAG, payload: tag });
@@ -44,7 +47,8 @@ function reducer(state: any, action: any) {
     case SET_SUB_CATEGORY:
       return {
         ...state,
-        subCategory: action.payload,
+        mainCategory: action.payload.mainCategory,
+        subCategory: [...state.subCategory, action.payload.subCategory],
       };
     case ADD_TAG:
       return {
