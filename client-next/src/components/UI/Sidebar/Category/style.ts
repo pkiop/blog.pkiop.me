@@ -1,7 +1,7 @@
 // styles
 import styled from 'styled-components';
 import { colors } from '@styles/theme';
-import SubCategoryComponent from './SubCategory';
+import SubCategoryComp from './SubCategory';
 
 const fontSize = '2rem';
 export const Category = styled.div`
@@ -48,7 +48,7 @@ export const CategoryTitle = styled.div`
   }}
 `;
 
-export const SubCategory = styled(SubCategoryComponent)`
+export const SubCategory = styled(SubCategoryComp)`
   margin-left: 4rem;
 `;
 

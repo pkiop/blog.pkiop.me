@@ -1,10 +1,5 @@
+import type { ITag } from 'types/tag.interface';
 import * as S from './style';
-
-export interface ITag {
-  title: string;
-  color: string;
-  textColor: string;
-}
 
 export interface ITagComponent {
   tag: ITag;

@@ -1,4 +1,4 @@
-import { ITag } from '@components/UI/Sidebar/TagList/Tag';
+import { ITag } from 'types/tag.interface';
 import { colors } from '@styles/theme';
 
 export const testTagList: ITag[] = [

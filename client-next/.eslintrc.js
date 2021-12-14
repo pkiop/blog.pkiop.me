@@ -40,6 +40,7 @@ module.exports = {
     'object-curly-newline': 0,
     'react/jsx-one-expression-per-line': 0,
     'operator-linebreak': 0,
+    'react/require-default-props': 0,
   },
   settings: {
     'import/resolver': {

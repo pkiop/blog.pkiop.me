@@ -12,9 +12,12 @@ export const setMainCategory = (mainCategory: string) => ({
   type: SET_MAIN_CATEGORY,
   payload: mainCategory,
 });
-export const setSubCategory = (subCategory: string) => ({
+export const setSubCategory = (mainCategory: string, subCategory: string) => ({
   type: SET_SUB_CATEGORY,
-  payload: subCategory,
+  payload: {
+    mainCategory,
+    subCategory,
+  },
 });
 export const addTag = (tag: string) => ({ type: ADD_TAG, payload: tag });
 export const removeTag = (tag: string) => ({ type: REMOVE_TAG, payload: tag });
@@ -33,7 +36,7 @@ export const initialState = {
   isSidebarOpen: false,
 };
 
-function reducer(action: any, state = initialState) {
+function reducer(state: any, action: any) {
   switch (action.type) {
     case SET_MAIN_CATEGORY:
       return {
@@ -44,7 +47,8 @@ function reducer(action: any, state = initialState) {
     case SET_SUB_CATEGORY:
       return {
         ...state,
-        subCategory: action.payload,
+        mainCategory: action.payload.mainCategory,
+        subCategory: [...state.subCategory, action.payload.subCategory],
       };
     case ADD_TAG:
       return {
@@ -54,13 +58,13 @@ function reducer(action: any, state = initialState) {
     case REMOVE_TAG:
       return {
         ...state,
-        tag: [...state.tag.filter((el) => el !== action.payload)].sort(),
+        tag: [...state.tag.filter((el: any) => el !== action.payload)].sort(),
       };
     case TOGGLE_TAG:
       return {
         ...state,
         tag: state.tag.includes(action.payload)
-          ? [...state.tag.filter((el) => el !== action.payload)].sort()
+          ? [...state.tag.filter((el: any) => el !== action.payload)].sort()
           : [...state.tag, action.payload].sort(),
       };
     case CLEAR_FILTER:
@@ -71,11 +75,10 @@ function reducer(action: any, state = initialState) {
         isSidebarOpen: !state.isSidebarOpen,
       };
     default:
-      return state;
+      return initialState;
   }
 }
 
-// preloadedState will be passed in by the plugin
 export default (preloadedState: any) => {
   if (!preloadedState) console.warn('no preloadedState');
   return createStore(reducer as any, preloadedState);

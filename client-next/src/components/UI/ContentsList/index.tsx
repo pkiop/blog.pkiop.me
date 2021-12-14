@@ -1,16 +1,8 @@
 import { useSelector } from 'react-redux';
 import { ITag } from 'components/UI/ContentsList/Content/TagList/Tag';
+import type { IContent } from 'types/content.interface';
 import Content from './Content';
 import * as S from './style';
-
-export interface IContent {
-  title: string;
-  date: string;
-  slug: string;
-  mainCategory: string;
-  subCategory: string;
-  tag: ITag[];
-}
 
 export interface IContentsListComponent {
   className?: string;
@@ -30,16 +22,16 @@ const ContentsList = ({ className, contentsList }: IContentsListComponent) => {
     })
     .filter((content: IContent) => {
       if (mainCategory === '' && subCategory === '' && tag.length === 0) {
-        if (content.subCategory === 'algorithm') return false;
+        if (content.subCategory.title === 'algorithm') return false;
         return true;
       }
       const someFunc = (contentTag: ITag) => tag.includes(contentTag.title);
       if (mainCategory === '' && subCategory === '') {
-        return content.tag.some(someFunc);
+        return content.tags.some(someFunc);
       }
-      const isMainCategoryEqual = content.mainCategory === mainCategory;
-      const isSubCategoryEqual = content.subCategory === subCategory;
-      const isContainsTag = content.tag.some(someFunc);
+      const isMainCategoryEqual = content.mainCategory.title === mainCategory;
+      const isSubCategoryEqual = content.subCategory.title === subCategory;
+      const isContainsTag = content.tags.some(someFunc);
 
       if (subCategory === '') {
         if (tag.length !== 0) {

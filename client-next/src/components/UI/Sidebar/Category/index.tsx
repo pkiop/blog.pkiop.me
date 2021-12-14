@@ -1,20 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { setMainCategory } from '@state/createStore';
+import { ICategory } from 'types/category.interface';
 import * as S from './style';
-
-export interface IMainCategory {
-  title: string;
-  count: number;
-}
-export interface ISubCategory {
-  title: string;
-  count: number;
-}
-export interface ICategory {
-  mainCategory: IMainCategory;
-  emoji: string;
-  subCategory: ISubCategory[];
-}
 
 export interface ICategoryComponent {
   className?: string;
@@ -30,12 +17,7 @@ const Category = ({ className, category }: ICategoryComponent) => {
   };
 
   return (
-    <S.Category
-      className={className}
-      onClick={() => {
-        window.location.href = '/';
-      }}
-    >
+    <S.Category className={className}>
       <S.CategoryTitle<any>
         onClick={setCategory}
         isSelected={mainCategory === category.mainCategory.title}

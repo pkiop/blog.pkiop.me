@@ -1,11 +1,25 @@
+import { useEffect, useState } from 'react';
 import ContentsList from '@components/UI/ContentsList';
-import { ITag } from '@components/UI/Sidebar/TagList/Tag';
+import type { IContent } from 'types/content.interface';
+import { ITag } from 'types/tag.interface';
 import { testTagList } from '@fixture/Tag';
+import { getArticles } from '@api/index';
 
 const ContentsContainer = () => {
-  const contentsList = [].map((edge: any) => ({
-    ...edge.node.frontmatter,
-    tag: edge.node.frontmatter.tag.map((tag: string) => ({
+  const [articles, setArticles] = useState<any[]>([]);
+  const fetchData = async () => {
+    const res = await getArticles();
+    setArticles(res);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const contentsList: IContent[] = articles.map((article: any) => ({
+    ...article,
+    html: article.contents,
+    tags: article.tags.map((tag: string) => ({
       ...(testTagList.find((testTag: ITag) => testTag.title === tag) || {
         color: 'gray',
         textColor: '#010101',

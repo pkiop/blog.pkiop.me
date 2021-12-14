@@ -10,7 +10,9 @@
       "@fixture/*": ["./fixture/*"],
       "@state/*": ["./state/*"],
       "types/*": ["./types/*"],
-      "@images/*": ["./images/*"]
+      "@images/*": ["./images/*"],
+      "@api/*": ["./api/*"],
+      "@lib/*": ["./lib/*"]
     }
   }
 }

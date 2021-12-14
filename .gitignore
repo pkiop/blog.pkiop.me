@@ -2,3 +2,6 @@
 .secret
 .env
 cov_profile
+settings.json
+
+docker/mysql
