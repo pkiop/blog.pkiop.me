@@ -6,16 +6,11 @@
     }
   ],
   "ipcMode": null,
-  "executionRoleArn": "arn:aws:iam::046727694434:role/bpm-role",
+  "executionRoleArn": null,
   "containerDefinitions": [
     {
       "dnsSearchDomains": [],
-      "environmentFiles": [
-        {
-          "value": "arn:aws:s3:::private-pkiop-me-data/object.env",
-          "type": "s3"
-        }
-      ],
+      "environmentFiles": null,
       "logConfiguration": {
         "logDriver": "awslogs",
         "secretOptions": null,
