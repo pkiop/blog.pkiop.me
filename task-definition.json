@@ -16,16 +16,7 @@
           "type": "s3"
         }
       ],
-      "logConfiguration": {
-        "logDriver": "awslogs",
-        "secretOptions": null,
-        "options": {
-          "awslogs-create-group": "true",
-          "awslogs-group": "pkiop-app-cluster",
-          "awslogs-region": "ap-northeast-2",
-          "awslogs-stream-prefix": "web"
-        }
-      },
+
       "entryPoint": [],
       "portMappings": [
         {
