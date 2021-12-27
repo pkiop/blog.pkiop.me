@@ -13,10 +13,9 @@ async function staticFileCatcher(
 ): Promise<void> {
   const { pathname } = new URL(requestEvent.request.url);
   const fileExtension = pathname.split('.')[1];
-
   try {
     if (pathname === '/') {
-      const indexHtml = await Deno.readFile(`${__dirname}build/index.html`);
+      const indexHtml = await Deno.readFile(`${__dirname}../build/index.html`);
       requestEvent.respondWith(
         new Response(indexHtml, {
           headers: {
@@ -26,7 +25,7 @@ async function staticFileCatcher(
       );
       return;
     }
-    const file = await Deno.readFile(`${__dirname}build${pathname}`);
+    const file = await Deno.readFile(`${__dirname}../build${pathname}`);
     requestEvent.respondWith(
       new Response(file, {
         headers: {
@@ -96,7 +95,7 @@ function registerRouter() {
 }
 
 async function main() {
-  const PORT = 8071;
+  const PORT = 8080;
   registerRouter();
   console.log(`server run at http://localhost:${PORT}`);
   const server = Deno.listen({ port: PORT });

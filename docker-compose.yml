@@ -14,3 +14,11 @@ services:
       - ./docker/mysql/init.sql:/init.sql
     ports:
       - '3306:3306'
+
+  app:
+    image: pkiop_blog
+    command: deno run --allow-net --allow-env --allow-read ./server/src/app.ts
+    links:
+      - 'mysql:database'
+    ports:
+      - '8080:8080'
