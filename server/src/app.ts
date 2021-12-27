@@ -6,6 +6,39 @@ import { GraphQLHTTP } from 'https://deno.land/x/gql@1.1.0/mod.ts';
 import { makeExecutableSchema } from 'https://deno.land/x/graphql_tools@0.0.2/mod.ts';
 import { typeDefs, resolvers } from './graphql/index.ts';
 
+const __dirname = new URL('.', import.meta.url).pathname;
+
+async function staticFileCatcher(
+  requestEvent: Deno.RequestEvent
+): Promise<void> {
+  const { pathname } = new URL(requestEvent.request.url);
+  const fileExtension = pathname.split('.')[1];
+
+  try {
+    if (pathname === '/') {
+      const indexHtml = await Deno.readFile(`${__dirname}build/index.html`);
+      requestEvent.respondWith(
+        new Response(indexHtml, {
+          headers: {
+            'content-type': `text/html`,
+          },
+        })
+      );
+      return;
+    }
+    const file = await Deno.readFile(`${__dirname}build${pathname}`);
+    requestEvent.respondWith(
+      new Response(file, {
+        headers: {
+          'content-type': `text/${fileExtension}`,
+        },
+      })
+    );
+    return;
+  } catch (err) {
+    throw 'err , ' + err;
+  }
+}
 async function handleConnection(
   registeredRouterList: Router[],
   requestEvent: Deno.RequestEvent
@@ -26,6 +59,7 @@ async function handleConnection(
     }
     return;
   }
+
   const router = registeredRouterList.find((router) =>
     router.compareRoute(url)
   );
@@ -33,6 +67,12 @@ async function handleConnection(
     router.setRequest(requestEvent);
     router.run();
     return;
+  }
+  try {
+    await staticFileCatcher(requestEvent);
+    return;
+  } catch (err) {
+    console.error('catch err : ', err);
   }
   requestEvent.respondWith(
     new Response('NO MATCH ROUTER', {
@@ -56,7 +96,7 @@ function registerRouter() {
 }
 
 async function main() {
-  const PORT = 8070;
+  const PORT = 8071;
   registerRouter();
   console.log(`server run at http://localhost:${PORT}`);
   const server = Deno.listen({ port: PORT });
