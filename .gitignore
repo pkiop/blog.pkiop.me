@@ -3,5 +3,6 @@
 .env
 cov_profile
 settings.json
-
+object.env
+server/build
 docker/mysql
