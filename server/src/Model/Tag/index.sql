@@ -3,11 +3,6 @@ CREATE TABLE article_tag (
   tagId INT NOT NULL
 );
 
-ALTER TABLE article_tag
-ADD FOREIGN KEY(articleId) REFERENCES article(id);
-ALTER TABLE article_tag 
-ADD FOREIGN KEY(tagId) REFERENCES tag(id);
-
 CREATE TABLE tag ( 
   id INT PRIMARY KEY AUTO_INCREMENT, 
   title VARCHAR(64) NOT NULL, 
@@ -17,3 +12,10 @@ CREATE TABLE tag (
 
 INSERT INTO tag(title, fontColor, color)
 VALUES ('develop', '#000000', '#ffffff');
+
+ALTER TABLE article_tag
+ADD FOREIGN KEY(articleId) REFERENCES article(id);
+ALTER TABLE article_tag 
+ADD FOREIGN KEY(tagId) REFERENCES tag(id);
+
+
