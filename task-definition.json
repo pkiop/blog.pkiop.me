@@ -10,7 +10,12 @@
   "containerDefinitions": [
     {
       "dnsSearchDomains": [],
-      "environmentFiles": null,
+      "environmentFiles": [
+        {
+          "value": "arn:aws:s3:::private-pkiop-me-data/object.env",
+          "type": "s3"
+        }
+      ],
       "logConfiguration": {
         "logDriver": "awslogs",
         "secretOptions": null,
