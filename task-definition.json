@@ -6,7 +6,7 @@
     }
   ],
   "ipcMode": null,
-  "executionRoleArn": null,
+  "executionRoleArn": "arn:aws:iam::046727694434:policy/bpm-policy",
   "containerDefinitions": [
     {
       "dnsSearchDomains": [],
