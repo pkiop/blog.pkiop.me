@@ -7,6 +7,7 @@ export const typeDefs = gql`
     id: Int
     title: String!
     classification: String!
+    emoji: String
   }
 
   scalar Date
@@ -26,6 +27,7 @@ export const typeDefs = gql`
   type Query {
     article: [Article]
     getArticle(filter: String): Article
+    getCategories: [Category]
   }
 
   # input CategoryInput {

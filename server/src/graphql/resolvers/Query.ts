@@ -1,4 +1,5 @@
 import articleInstance from '../../Model/Article/index.ts';
+import categoryInstance from '../../Model/Category/index.ts';
 
 export default {
   article: async () => {
@@ -41,5 +42,9 @@ export default {
         classification: data.subCategoryClassification,
       },
     };
+  },
+  getCategories: async (parent: any, args: any) => {
+    const data = await categoryInstance.getCategories();
+    return data;
   },
 };

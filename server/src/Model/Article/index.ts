@@ -137,6 +137,8 @@ class ArticleModel extends Model {
     return true;
   }
 
+  deleteArticle() {}
+
   reload() {
     console.log('reload');
   }
