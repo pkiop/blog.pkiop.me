@@ -8,7 +8,7 @@ name: Deploy to Amazon ECS
 on:
   push:
     branches:
-      - develop
+      - master
 
 env:
   AWS_REGION: ap-northeast-2 # set this to your preferred AWS region, e.g. us-west-1
