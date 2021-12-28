@@ -3,6 +3,7 @@ import Article from '../Article';
 import { Content } from '../../types/content.interface';
 import axios from 'axios';
 import { atom, useRecoilState } from 'recoil';
+import { useQuery } from 'react-query';
 
 const getArticles = async () => {
   const response = await axios.post('/graphql', {
@@ -45,19 +46,14 @@ const articleState = atom<Content>({
 });
 
 const ArticleList = () => {
-  const [articles, setArticles] = useState<any>(null);
+  const { isLoading, error, data } = useQuery('articles', () => getArticles());
+
+  const articles = data;
   const [article, setArticle] = useRecoilState(articleState);
 
-  const fetchData = async () => {
-    const data = await getArticles();
-    setArticles(data);
-  };
+  if (isLoading) return <>loading</>;
+  if (error) return <>error : {JSON.stringify(error)}</>;
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  if (!articles) return <>loading</>;
   const Articles = articles.map((article: Content) => {
     return (
       <Article
