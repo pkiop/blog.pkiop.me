@@ -4,6 +4,7 @@ import Mutation from './resolvers/Mutation.ts';
 
 export const typeDefs = gql`
   type Category {
+    id: Int
     title: String!
     classification: String!
   }
