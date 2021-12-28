@@ -1,8 +1,14 @@
 import type { Content } from '../../types/content.interface';
-const ArticleList = ({ article }: { article: Content }) => {
-  console.log('article : ', article);
+
+const ArticleList = ({
+  article,
+  onClick,
+}: {
+  article: Content;
+  onClick: any;
+}) => {
   return (
-    <div>
+    <div onClick={onClick}>
       <div className='text-4xl'>{article.title}</div>
       <div>{article.summary}</div>
       <div>{article.mainCategoryId}</div>
