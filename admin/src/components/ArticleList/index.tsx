@@ -67,8 +67,9 @@ const ArticleList = () => {
     <>
       <div className='border-2 border-rose-500 p-5'>{Articles}</div>
       <div>
-        <h1>selected article</h1>
-        <Article key={article.title} onClick={() => {}} article={article} />
+        {article.title !== 'none' && (
+          <Article key={article.title} onClick={() => {}} article={article} />
+        )}
       </div>
     </>
   );

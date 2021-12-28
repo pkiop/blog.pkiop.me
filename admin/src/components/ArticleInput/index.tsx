@@ -87,21 +87,28 @@ const Input = () => {
   }, []);
 
   return (
-    <div>
-      <div>
+    <div className='container p-10'>
+      <h1 className='text-4xl mb-4'>Content Input</h1>
+      <div className='flex-col'>
         <input
+          className='block'
           placeholder='title'
           ref={(el) => (articleInputRef.current.title = el)}
         />
         <input
+          className='block'
           placeholder='slug'
           ref={(el) => (articleInputRef.current.slug = el)}
         />
         <input
+          className='block'
           placeholder='summary'
           ref={(el) => (articleInputRef.current.summary = el)}
         />
-        <select ref={(el) => (articleInputRef.current.mainCategoryId = el)}>
+        <select
+          className='block'
+          ref={(el) => (articleInputRef.current.mainCategoryId = el)}
+        >
           {mainCategoryList.map((el: any) => (
             <option key={el.id} value={el.id}>
               {el.title}
@@ -109,7 +116,10 @@ const Input = () => {
           ))}
         </select>
 
-        <select ref={(el) => (articleInputRef.current.subCategoryId = el)}>
+        <select
+          className='block'
+          ref={(el) => (articleInputRef.current.subCategoryId = el)}
+        >
           {subCategoryList.map((el: any) => (
             <option key={el.id} value={el.id}>
               {el.title}
@@ -117,15 +127,19 @@ const Input = () => {
           ))}
         </select>
         <input
+          className='block'
           placeholder='readTime'
           ref={(el) => (articleInputRef.current.readTime = el)}
         />
         <input
+          className='block'
           placeholder='contents'
           ref={(el) => (articleInputRef.current.contents = el)}
         />
       </div>
-      <button onClick={onClick}>Posting</button>
+      <button className='bg-slate-600 p-3' onClick={onClick}>
+        Posting
+      </button>
     </div>
   );
 };
