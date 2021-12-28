@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const postArticle = (
   title: string,
@@ -27,8 +27,24 @@ const postArticle = (
   });
 };
 
+const getCategories = async () => {
+  const response = await axios.post('/graphql', {
+    query: `query {
+        getCategories {
+          id
+          title
+          classification
+          emoji
+        }
+      }`,
+  });
+  return response.data.data.getCategories;
+};
+
 const Input = () => {
-  const mainCategoryList = [1, 2];
+  const [mainCategoryList, setMainCategoryList] = useState<any>([]);
+  const [subCategoryList, setSubCategoryList] = useState<any>([]);
+
   const articleInputRef = useRef<any>({
     title: null,
     slug: null,
@@ -39,14 +55,12 @@ const Input = () => {
     contents: null,
   });
   const onClick = () => {
-    console.log('articleInputRef : ', articleInputRef.current);
     const isNull = Object.entries(articleInputRef.current).some(
       ([key, value]) => {
         return value === null;
       }
     );
     if (isNull) return;
-    console.log('post  !');
     postArticle(
       articleInputRef.current.title.value,
       articleInputRef.current.slug.value,
@@ -57,6 +71,20 @@ const Input = () => {
       articleInputRef.current.contents.value
     );
   };
+
+  const fetchCategories = async () => {
+    const categoriesResponse = await getCategories();
+    setMainCategoryList(
+      categoriesResponse.filter((el: any) => el.classification === 'main')
+    );
+    setSubCategoryList(
+      categoriesResponse.filter((el: any) => el.classification === 'sub')
+    );
+  };
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
 
   return (
     <div>
@@ -74,17 +102,17 @@ const Input = () => {
           ref={(el) => (articleInputRef.current.summary = el)}
         />
         <select ref={(el) => (articleInputRef.current.mainCategoryId = el)}>
-          {mainCategoryList.map((el) => (
-            <option key={el} value={el}>
-              {el}
+          {mainCategoryList.map((el: any) => (
+            <option key={el.id} value={el.id}>
+              {el.title}
             </option>
           ))}
         </select>
 
         <select ref={(el) => (articleInputRef.current.subCategoryId = el)}>
-          {mainCategoryList.map((el) => (
-            <option key={el} value={el}>
-              {el}
+          {subCategoryList.map((el: any) => (
+            <option key={el.id} value={el.id}>
+              {el.title}
             </option>
           ))}
         </select>
