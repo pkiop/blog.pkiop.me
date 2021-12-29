@@ -91,22 +91,22 @@ const Input = () => {
       <h1 className='text-4xl mb-4'>Content Input</h1>
       <div className='flex-col'>
         <input
-          className='block'
+          className='block border border-lime-400'
           placeholder='title'
           ref={(el) => (articleInputRef.current.title = el)}
         />
         <input
-          className='block'
+          className='block border border-lime-400'
           placeholder='slug'
           ref={(el) => (articleInputRef.current.slug = el)}
         />
         <input
-          className='block'
+          className='block border border-lime-400'
           placeholder='summary'
           ref={(el) => (articleInputRef.current.summary = el)}
         />
         <select
-          className='block'
+          className='block border border-lime-400'
           ref={(el) => (articleInputRef.current.mainCategoryId = el)}
         >
           {mainCategoryList.map((el: any) => (
@@ -117,7 +117,7 @@ const Input = () => {
         </select>
 
         <select
-          className='block'
+          className='block border border-lime-400'
           ref={(el) => (articleInputRef.current.subCategoryId = el)}
         >
           {subCategoryList.map((el: any) => (
@@ -127,17 +127,20 @@ const Input = () => {
           ))}
         </select>
         <input
-          className='block'
+          className='block border border-lime-400'
           placeholder='readTime'
           ref={(el) => (articleInputRef.current.readTime = el)}
         />
         <input
-          className='block'
+          className='block h-96 w-full border border-lime-400'
           placeholder='contents'
           ref={(el) => (articleInputRef.current.contents = el)}
         />
       </div>
-      <button className='bg-slate-600 p-3' onClick={onClick}>
+      <button
+        className='bg-slate-600 p-3 border border-lime-400'
+        onClick={onClick}
+      >
         Posting
       </button>
     </div>
