@@ -1,5 +1,7 @@
-import Input from './components/ArticleInput';
+import ArticleInput from './components/ArticleInput';
 import ArticleList from './components/ArticleList';
+import CategoryInput from './components/CategoryInput';
+import CategoryList from './components/CategoryList';
 import { RecoilRoot } from 'recoil';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
@@ -9,9 +11,14 @@ function App() {
   return (
     <RecoilRoot>
       <QueryClientProvider client={queryClient}>
-        <ArticleList />
-        <div className='App text-3xl underline'>start</div>
-        <Input></Input>
+        <div>
+          <ArticleList />
+          <ArticleInput />
+        </div>
+        <div>
+          <CategoryList />
+          <CategoryInput />
+        </div>
       </QueryClientProvider>
     </RecoilRoot>
   );
