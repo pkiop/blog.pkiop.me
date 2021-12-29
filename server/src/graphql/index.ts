@@ -46,6 +46,11 @@ export const typeDefs = gql`
       readTime: Float!
       contents: String!
     ): Boolean!
+    postCategory(
+      title: String!
+      classification: String!
+      emoji: String
+    ): Boolean!
   }
 `;
 

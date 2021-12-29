@@ -1,5 +1,12 @@
 import Model from '../../lib/Model/index.ts';
 
+export type CommonCategory = {
+  title: string;
+  classification: string;
+  emoji: string;
+};
+
+export type CategoryInput = {} & CommonCategory;
 class CategoryModel extends Model {
   constructor() {
     super();
@@ -11,6 +18,19 @@ class CategoryModel extends Model {
       `
     );
     return rows;
+  }
+  async postCategory(categoryInput: CategoryInput) {
+    const { title, classification, emoji } = categoryInput;
+
+    const { lastInsertId } = await this.query(
+      `
+      INSERT INTO category(title, classification, emoji)
+      VALUES(?, ?, ?)
+    `,
+      [title, classification, emoji]
+    );
+
+    return true;
   }
 
   reload() {
