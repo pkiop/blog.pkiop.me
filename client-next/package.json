@@ -72,5 +72,5 @@
     "prettier": "^2.4.1",
     "ts-jest": "^27.0.7"
   },
-  "proxy": "http://localhost:8070"
+  "proxy": "http://localhost:8080"
 }
