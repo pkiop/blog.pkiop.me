@@ -8,7 +8,8 @@ const postArticle = (
   mainCategoryId: number,
   subCategoryId: number,
   readTime: number,
-  contents: string
+  contents: string,
+  showAt: Date
 ) => {
   axios.post('/graphql', {
     mutation: `
@@ -21,6 +22,7 @@ const postArticle = (
         subCategoryId: ${subCategoryId}, 
         readTime:${readTime}, 
         contents: "${contents}"
+        showAt: "${showAt}"
       )
     }
   `,
@@ -53,6 +55,7 @@ const Input = () => {
     subCategoryId: null,
     readTime: null,
     contents: null,
+    showAt: null,
   });
   const onClick = () => {
     const isNull = Object.entries(articleInputRef.current).some(
@@ -68,7 +71,8 @@ const Input = () => {
       articleInputRef.current.mainCategoryId.value,
       articleInputRef.current.subCategoryId.value,
       articleInputRef.current.readTime.value,
-      articleInputRef.current.contents.value
+      articleInputRef.current.contents.value,
+      articleInputRef.current.showAt.value
     );
   };
 
@@ -135,6 +139,12 @@ const Input = () => {
           className='block h-96 w-full border border-lime-400'
           placeholder='contents'
           ref={(el) => (articleInputRef.current.contents = el)}
+        />
+        <input
+          className='block w-full border border-lime-400'
+          placeholder='contents'
+          type='date'
+          ref={(el) => (articleInputRef.current.showAt = el)}
         />
       </div>
       <button

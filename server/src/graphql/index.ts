@@ -22,10 +22,11 @@ export const typeDefs = gql`
     readTime: Float!
     contents: String!
     updateAt: Date!
+    showAt: Date
   }
 
   type Query {
-    article: [Article]
+    article(filter: Date): [Article]
     getArticle(filter: String): Article
     getCategories: [Category]
   }
@@ -45,6 +46,7 @@ export const typeDefs = gql`
       tags: [String]
       readTime: Float!
       contents: String!
+      showAt: Date
     ): Boolean!
     postCategory(
       title: String!

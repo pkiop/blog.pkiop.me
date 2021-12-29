@@ -8,7 +8,7 @@ import { useQuery } from 'react-query';
 const getArticles = async () => {
   const response = await axios.post('/graphql', {
     query: `query {
-        article {
+        article(filter: "${new Date()}") {
           title
           mainCategory {
             id
@@ -26,6 +26,7 @@ const getArticles = async () => {
           contents
           updateAt
           readTime
+          showAt
         }
       }`,
   });

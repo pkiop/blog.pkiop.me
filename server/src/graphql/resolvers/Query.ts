@@ -2,8 +2,12 @@ import articleInstance from '../../Model/Article/index.ts';
 import categoryInstance from '../../Model/Category/index.ts';
 
 export default {
-  article: async () => {
-    const dataList = await articleInstance.getArticles();
+  article: async (parent: any, args: any) => {
+    const showAt = new Date(args.filter)
+      .toISOString()
+      .slice(0, 19)
+      .replace('T', ' ');
+    const dataList = await articleInstance.getArticles(showAt);
     const res = dataList
       .map((data: any) => {
         if (data.tags) return data;

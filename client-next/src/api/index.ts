@@ -4,7 +4,7 @@ import axios from 'axios';
 export const getArticles = async () => {
   const response = await axios.post('/graphql', {
     query: `query {
-        article {
+        article(filter: "${new Date()}") {
           title
           mainCategory {
             title

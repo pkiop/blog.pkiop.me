@@ -8,7 +8,9 @@ CREATE TABLE article (
   mainCategoryId INT NOT NULL, 
   subCategoryId INT NOT NULL, 
   readTime FLOAT(4) NOT NULL,
-  contents TEXT NOT NULL
+  contents TEXT NOT NULL,
+  showAt DATETIME NOT NULL 
+
 ) ENGINE=INNODB; 
 
 
@@ -18,5 +20,5 @@ ADD FOREIGN KEY(mainCategoryId) REFERENCES category(id);
 ALTER TABLE article
 ADD FOREIGN KEY(subCategoryId) REFERENCES category(id);
 
-INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents)
-VALUES ('a', 'a summary', '2021-11-28', '2021-11-28', '/a', 1, 2, 1.4, 'contents');
+INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
+VALUES ('a', 'a summary', '2021-11-28', '2021-11-28', '/a', 1, 2, 1.4, 'contents', '2020-01-01');
