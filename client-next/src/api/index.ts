@@ -48,4 +48,18 @@ export const getArticleBySlug = async (slug: string) => {
   };
 };
 
+export const getCategories = async () => {
+  const response = await axios.post('/graphql', {
+    query: `query {
+        getCategories {
+          id
+          title
+          classification
+          emoji 
+        }
+      }`,
+  });
+  return response.data.data.article;
+};
+
 export default {};
