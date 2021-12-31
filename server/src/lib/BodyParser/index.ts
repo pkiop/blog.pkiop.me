@@ -10,7 +10,6 @@ class BodyParser {
     let data = '';
     while (true) {
       const readData = await reader.read();
-      console.log('readData : ', readData);
       if (readData.done) {
         const keyValues = data.split('&');
         const result = keyValues.reduce((acc: ParsedBody, keyValue: string) => {
