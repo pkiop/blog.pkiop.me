@@ -47,7 +47,7 @@ const Input = () => {
   const [mainCategoryList, setMainCategoryList] = useState<any>([]);
   const [subCategoryList, setSubCategoryList] = useState<any>([]);
 
-  const articleInputRef = useRef<any>({
+  const articleInputInitValue = {
     title: null,
     slug: null,
     summary: null,
@@ -56,7 +56,11 @@ const Input = () => {
     readTime: null,
     contents: null,
     showAt: null,
-  });
+  };
+  const articleInputRef = useRef<any>(articleInputInitValue);
+
+  const articleInputKeys = Object.keys(articleInputInitValue);
+
   const onClick = () => {
     const isNull = Object.entries(articleInputRef.current).some(
       ([key, value]) => {
@@ -94,58 +98,44 @@ const Input = () => {
     <div className='container p-10'>
       <h1 className='text-4xl mb-4'>Content Input</h1>
       <div className='flex-col'>
-        <input
-          className='block border border-lime-400'
-          placeholder='title'
-          ref={(el) => (articleInputRef.current.title = el)}
-        />
-        <input
-          className='block border border-lime-400'
-          placeholder='slug'
-          ref={(el) => (articleInputRef.current.slug = el)}
-        />
-        <input
-          className='block border border-lime-400'
-          placeholder='summary'
-          ref={(el) => (articleInputRef.current.summary = el)}
-        />
-        <select
-          className='block border border-lime-400'
-          ref={(el) => (articleInputRef.current.mainCategoryId = el)}
-        >
-          {mainCategoryList.map((el: any) => (
-            <option key={el.id} value={el.id}>
-              {el.title}
-            </option>
-          ))}
-        </select>
-
-        <select
-          className='block border border-lime-400'
-          ref={(el) => (articleInputRef.current.subCategoryId = el)}
-        >
-          {subCategoryList.map((el: any) => (
-            <option key={el.id} value={el.id}>
-              {el.title}
-            </option>
-          ))}
-        </select>
-        <input
-          className='block border border-lime-400'
-          placeholder='readTime'
-          ref={(el) => (articleInputRef.current.readTime = el)}
-        />
-        <input
-          className='block h-96 w-full border border-lime-400'
-          placeholder='contents'
-          ref={(el) => (articleInputRef.current.contents = el)}
-        />
-        <input
-          className='block w-full border border-lime-400'
-          placeholder='contents'
-          type='date'
-          ref={(el) => (articleInputRef.current.showAt = el)}
-        />
+        {articleInputKeys.map((key: string) => {
+          if (key === 'mainCategoryId') {
+            return (
+              <select
+                className='block border border-lime-400'
+                ref={(el) => (articleInputRef.current.mainCategoryId = el)}
+              >
+                {mainCategoryList.map((el: any) => (
+                  <option key={el.id} value={el.id}>
+                    {el.title}
+                  </option>
+                ))}
+              </select>
+            );
+          }
+          if (key === 'subCategoryId') {
+            return (
+              <select
+                className='block border border-lime-400'
+                ref={(el) => (articleInputRef.current.subCategoryId = el)}
+              >
+                {subCategoryList.map((el: any) => (
+                  <option key={el.id} value={el.id}>
+                    {el.title}
+                  </option>
+                ))}
+              </select>
+            );
+          }
+          return (
+            <input
+              className='block border border-lime-400'
+              placeholder={key}
+              type={key === 'showAt' ? 'date' : 'text'}
+              ref={(el) => (articleInputRef.current[key] = el)}
+            />
+          );
+        })}
       </div>
       <button
         className='bg-slate-600 p-3 border border-lime-400'
