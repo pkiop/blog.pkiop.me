@@ -59,7 +59,7 @@ export const getCategories = async () => {
         }
       }`,
   });
-  return response.data.data.article;
+  return response.data.data.getCategories;
 };
 
 export default {};
