@@ -1,8 +1,19 @@
 import { testCategoryList } from '@fixture/Category';
 import Sidebar from '@components/UI/Sidebar';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getCategories } from '@state/createStore';
 
 const SidebarContainer = () => {
+  const dispatch = useDispatch();
+
   const staticData: any[] = [];
+  const mainCategories = useSelector((state: any) => state.mainCategories);
+  const subCategories = useSelector((state: any) => state.subCategories);
+
+  useEffect(() => {
+    dispatch(getCategories());
+  }, []);
 
   const mainCategoryDatas = staticData.reduce((acc: any, edges: any) => {
     const value = edges.node.frontmatter;
