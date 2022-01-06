@@ -8,6 +8,7 @@ export const typeDefs = gql`
     title: String!
     classification: String!
     emoji: String
+    subCategories: [Category]
   }
 
   scalar Date

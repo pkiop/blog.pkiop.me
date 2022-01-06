@@ -49,6 +49,16 @@ export default {
   },
   getCategories: async (parent: any, args: any) => {
     const data = await categoryInstance.getCategories();
-    return data;
+    const response = data.reduce((acc: any[], category: any) => {
+      if (category.classification === 'main') {
+        return [...acc, { ...category, subCategories: [] }];
+      }
+      const findIdx = acc.findIndex(
+        (accCategory) => accCategory.title === category.classification
+      );
+      acc[findIdx].subCategories.push(category);
+      return [...acc];
+    }, []);
+    return response;
   },
 };
