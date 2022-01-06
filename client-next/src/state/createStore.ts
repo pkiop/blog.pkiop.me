@@ -1,5 +1,12 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import ReduxThunk from 'redux-thunk';
+import * as api from '@api/index';
 
+const SET_MAIN_CATEGORIES = 'SET_MAIN_CAREGORIES';
+const SET_SUB_CATEGORIES = 'SET_SUB_CATEGORIES';
+const GET_CATEGORIES_PENDING = 'GET_CATEGORIES_PENDING';
+const GET_CATEGORIES_SUCCESS = 'GET_CATEGORIES_SUCCESS';
+const GET_CATEGORIES_FAILURE = 'GET_CATEGORIES_FAILURE';
 const SET_MAIN_CATEGORY = 'SET_MAIN_CATEGORY';
 const SET_SUB_CATEGORY = 'SET_SUB_CATEGORY';
 const ADD_TAG = 'ADD_TAG';
@@ -8,6 +15,14 @@ const TOGGLE_TAG = 'TOGGLE_TAG';
 const CLEAR_FILTER = 'CLEAR_FILTER';
 const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR';
 
+export const setMainCategories = (mainCategory: string) => ({
+  type: SET_MAIN_CATEGORIES,
+  payload: mainCategory,
+});
+export const setSubCategories = (mainCategory: string) => ({
+  type: SET_SUB_CATEGORIES,
+  payload: mainCategory,
+});
 export const setMainCategory = (mainCategory: string) => ({
   type: SET_MAIN_CATEGORY,
   payload: mainCategory,
@@ -29,11 +44,22 @@ export const toggleSidebar = () => ({
   type: TOGGLE_SIDEBAR,
 });
 
+export const getCategories = () => async (dispatch: any, getState: any) => {
+  dispatch({ type: GET_CATEGORIES_PENDING });
+  try {
+    const response = await api.getCategories();
+    dispatch({ type: GET_CATEGORIES_SUCCESS, payload: response });
+  } catch (err) {
+    dispatch({ type: GET_CATEGORIES_FAILURE, payload: err });
+  }
+};
+
 export const initialState = {
   mainCategory: '',
   subCategory: '',
   tag: [] as string[],
   isSidebarOpen: false,
+  categories: [] as any[],
 };
 
 function reducer(state: any, action: any) {
@@ -74,6 +100,11 @@ function reducer(state: any, action: any) {
         ...state,
         isSidebarOpen: !state.isSidebarOpen,
       };
+    case GET_CATEGORIES_SUCCESS:
+      return {
+        ...state,
+        categories: action.payload,
+      };
     default:
       return initialState;
   }
@@ -81,5 +112,9 @@ function reducer(state: any, action: any) {
 
 export default (preloadedState: any) => {
   if (!preloadedState) console.warn('no preloadedState');
-  return createStore(reducer as any, preloadedState);
+  return createStore(
+    reducer as any,
+    preloadedState,
+    applyMiddleware(ReduxThunk),
+  );
 };

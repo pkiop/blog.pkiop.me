@@ -1,4 +1,3 @@
-import { testCategoryList } from '@fixture/Category';
 import Sidebar from '@components/UI/Sidebar';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
@@ -8,8 +7,7 @@ const SidebarContainer = () => {
   const dispatch = useDispatch();
 
   const staticData: any[] = [];
-  const mainCategories = useSelector((state: any) => state.mainCategories);
-  const subCategories = useSelector((state: any) => state.subCategories);
+  const categories = useSelector((state: any) => state.categories);
 
   useEffect(() => {
     dispatch(getCategories());
@@ -41,18 +39,19 @@ const SidebarContainer = () => {
       [value.subCategory]: 1,
     };
   }, {});
-  const data = testCategoryList.map((testCategory: any) => ({
-    ...testCategory,
+
+  const categoriesWithCount = categories.map((category: any) => ({
+    ...category,
     mainCategory: {
-      title: testCategory.mainCategory.title,
-      count: mainCategoryDatas[testCategory.mainCategory.title],
+      title: category.title,
+      count: mainCategoryDatas[category.title],
     },
-    subCategory: testCategory.subCategory.map((subCategoryText: any) => ({
+    subCategory: category.subCategories.map((subCategoryText: any) => ({
       title: subCategoryText.title,
       count: subCategoryDatas[subCategoryText.title],
     })),
   }));
-  return <Sidebar categoryList={data} />;
+  return <Sidebar categoryList={categoriesWithCount} />;
 };
 
 export default SidebarContainer;
