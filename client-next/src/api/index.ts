@@ -56,6 +56,12 @@ export const getCategories = async () => {
           title
           classification
           emoji 
+          subCategories {
+            id
+            title
+            classification
+            emoji
+          }
         }
       }`,
   });
