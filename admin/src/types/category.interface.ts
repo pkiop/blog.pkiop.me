@@ -3,4 +3,5 @@ export interface Category {
   title: string;
   classification: string;
   emoji: string;
+  subCategories?: Category;
 }
