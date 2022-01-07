@@ -13,7 +13,7 @@ const Tag = ({ className, onClick, tag, isSelected }: ITagComponent) => (
     className={className}
     onClick={onClick}
     color={tag.color}
-    textColor={tag.textColor}
+    fontColor={tag.fontColor}
     isSelected={isSelected}
   >
     {tag.title}

@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { toggleTag } from '@state/createStore';
-import { ITag } from './Tag';
+import type { ITag } from 'types/tag.interface';
 import * as S from './style';
 
 export type ITagList = ITag[];

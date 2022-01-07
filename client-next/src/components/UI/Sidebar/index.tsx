@@ -1,16 +1,17 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { clearFilter } from '@state/createStore';
-import { testTagList } from '@fixture/Tag';
 import { SidebarStoreState } from 'types/store';
 import type { ICategory } from 'types/category.interface';
+import type { ITag } from 'types/tag.interface';
 import * as S from './style';
 
 export interface ISidebarComponent {
   className?: string;
   categoryList: ICategory[];
+  tagList: ITag[];
 }
 
-const Sidebar = ({ className, categoryList }: ISidebarComponent) => {
+const Sidebar = ({ className, categoryList, tagList }: ISidebarComponent) => {
   const dispatch = useDispatch();
   const isSidebarOpen = useSelector(
     (state: SidebarStoreState) => state.isSidebarOpen,
@@ -26,7 +27,7 @@ const Sidebar = ({ className, categoryList }: ISidebarComponent) => {
         </S.FilterClearBtn>
       </div>
       <S.CategoryWrapper>{CategoryList}</S.CategoryWrapper>
-      <S.TagList tagList={testTagList} />
+      <S.TagList tagList={tagList} />
 
       <S.AboutMe />
       {/* <S.DonateLink /> */}

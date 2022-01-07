@@ -2,6 +2,7 @@ import Sidebar from '@components/UI/Sidebar';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getCategories } from '@state/createStore';
+import { testTagList } from '@fixture/Tag';
 
 const SidebarContainer = () => {
   const dispatch = useDispatch();
@@ -51,7 +52,7 @@ const SidebarContainer = () => {
       count: subCategoryDatas[subCategoryText.title],
     })),
   }));
-  return <Sidebar categoryList={categoriesWithCount} />;
+  return <Sidebar categoryList={categoriesWithCount} tagList={testTagList} />;
 };
 
 export default SidebarContainer;

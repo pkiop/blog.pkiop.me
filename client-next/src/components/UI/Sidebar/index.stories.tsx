@@ -1,5 +1,6 @@
 import React from 'react';
 import Sidebar from './index';
+import { testTagList } from '@fixture/Tag';
 
 export default {
   title: 'Sidebar',
@@ -25,6 +26,6 @@ const testData = [
   },
 ];
 
-export const MainSidebar = () => {
-  return <Sidebar categoryList={testData} />;
-};
+export const MainSidebar = () => (
+  <Sidebar categoryList={testData} tagList={testTagList} />
+);
