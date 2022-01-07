@@ -73,11 +73,15 @@ async function handleConnection(
   } catch (err) {
     console.error('catch err : ', err);
   }
+  const indexHtml = await Deno.readFile(`${__dirname}../build/index.html`);
   requestEvent.respondWith(
-    new Response('NO MATCH ROUTER', {
-      status: 404,
+    new Response(indexHtml, {
+      headers: {
+        'content-type': `text/html`,
+      },
     })
   );
+  return;
 }
 
 const registeredRouterList = [] as Router[];
@@ -95,7 +99,7 @@ function registerRouter() {
 }
 
 async function main() {
-  const PORT = Number(Deno.env.get('SERVER_PORT')) || 80;
+  const PORT = Number(Deno.env.get('SERVER_PORT')) || 8080;
   registerRouter();
   console.log(`server run at http://localhost:${PORT}`);
   const server = Deno.listen({ port: PORT });
