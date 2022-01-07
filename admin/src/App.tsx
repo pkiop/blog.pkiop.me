@@ -2,6 +2,7 @@ import ArticleInput from './components/ArticleInput';
 import ArticleList from './components/ArticleList';
 import CategoryInput from './components/CategoryInput';
 import CategoryList from './components/CategoryList';
+import TagList from './components/TagList';
 import { RecoilRoot } from 'recoil';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
@@ -18,6 +19,9 @@ function App() {
         <div>
           <CategoryList />
           <CategoryInput />
+        </div>
+        <div>
+          <TagList />
         </div>
       </QueryClientProvider>
     </RecoilRoot>
