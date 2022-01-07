@@ -4,6 +4,20 @@ class TagModel extends Model {
   constructor() {
     super();
   }
+  async getTags() {
+    try {
+      const { rows } = await this.query(
+        `
+           SELECT * FROM tag
+         `
+      );
+      console.log('tag rows : ', rows);
+      return rows;
+    } catch (err) {
+      console.error(err);
+      throw err;
+    }
+  }
 
   async postTag(tagName: string, fontColor = '#ffffff', color = '#000000') {
     try {

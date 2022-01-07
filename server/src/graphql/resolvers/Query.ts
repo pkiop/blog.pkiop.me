@@ -1,5 +1,6 @@
 import articleInstance from '../../Model/Article/index.ts';
 import categoryInstance from '../../Model/Category/index.ts';
+import tagInstance from '../../Model/Tag/index.ts';
 
 export default {
   article: async (parent: any, args: any) => {
@@ -60,5 +61,10 @@ export default {
       return [...acc];
     }, []);
     return response;
+  },
+  getTags: async (parent: any, args: any) => {
+    const data = await tagInstance.getTags();
+    console.log('tag data : ', data);
+    return data;
   },
 };

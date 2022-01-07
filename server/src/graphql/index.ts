@@ -11,6 +11,13 @@ export const typeDefs = gql`
     subCategories: [Category]
   }
 
+  type Tag {
+    id: Int
+    title: String!
+    fontColor: String
+    color: String
+  }
+
   scalar Date
 
   type Article {
@@ -30,6 +37,7 @@ export const typeDefs = gql`
     article(filter: Date): [Article]
     getArticle(filter: String): Article
     getCategories: [Category]
+    getTags: [Tag]
   }
 
   # input CategoryInput {
