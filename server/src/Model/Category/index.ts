@@ -17,8 +17,18 @@ class CategoryModel extends Model {
         SELECT * FROM category 
       `
     );
-    return rows;
+
+    return rows.map((category: any) => {
+      if (category.emoji) {
+        return {
+          ...category,
+          emoji: String.fromCodePoint(('0x' + category.emoji) as any),
+        };
+      }
+      return category;
+    });
   }
+
   async postCategory(categoryInput: CategoryInput) {
     const { title, classification, emoji } = categoryInput;
 
@@ -27,7 +37,11 @@ class CategoryModel extends Model {
       INSERT INTO category(title, classification, emoji)
       VALUES(?, ?, ?)
     `,
-      [title, classification, emoji]
+      [
+        title,
+        classification,
+        emoji ? (emoji as any).codePointAt(0).toString(16) : null,
+      ]
     );
 
     return true;
