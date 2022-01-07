@@ -4,7 +4,7 @@ import axios from 'axios';
 export const getArticles = async () => {
   const response = await axios.post('/graphql', {
     query: `query {
-        article {
+        article(filter: "${new Date()}") {
           title
           mainCategory {
             title
@@ -46,6 +46,40 @@ export const getArticleBySlug = async (slug: string) => {
     ...response.data.data.getArticle,
     updateAt: new Date(response.data.data.getArticle.updateAt),
   };
+};
+
+export const getCategories = async () => {
+  const response = await axios.post('/graphql', {
+    query: `query {
+        getCategories {
+          id
+          title
+          classification
+          emoji 
+          subCategories {
+            id
+            title
+            classification
+            emoji
+          }
+        }
+      }`,
+  });
+  return response.data.data.getCategories;
+};
+
+export const getTags = async () => {
+  const response = await axios.post('/graphql', {
+    query: `query {
+        getTags {
+          id
+          title
+          fontColor
+          color
+        }
+      }`,
+  });
+  return response.data.data.getTags;
 };
 
 export default {};

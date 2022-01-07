@@ -41,6 +41,7 @@ module.exports = {
     'react/jsx-one-expression-per-line': 0,
     'operator-linebreak': 0,
     'react/require-default-props': 0,
+    'no-unused-vars': 1,
   },
   settings: {
     'import/resolver': {

@@ -6,20 +6,17 @@
     }
   ],
   "ipcMode": null,
-  "executionRoleArn": null,
+  "executionRoleArn": "arn:aws:iam::046727694434:role/bpm-role",
   "containerDefinitions": [
     {
       "dnsSearchDomains": [],
-      "environmentFiles": null,
-      "logConfiguration": {
-        "logDriver": "awslogs",
-        "secretOptions": null,
-        "options": {
-          "awslogs-group": "pkiop-app-cluster",
-          "awslogs-region": "ap-northeast-2",
-          "awslogs-stream-prefix": "web"
+      "environmentFiles": [
+        {
+          "value": "arn:aws:s3:::private-pkiop-me-data/object.env",
+          "type": "s3"
         }
-      },
+      ],
+
       "entryPoint": [],
       "portMappings": [
         {
@@ -54,7 +51,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "046727694434.dkr.ecr.ap-northeast-2.amazonaws.com/pkiop-app:latest",
+      "image": "046727694434.dkr.ecr.ap-northeast-2.amazonaws.com/pkiop_blog:latest",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,

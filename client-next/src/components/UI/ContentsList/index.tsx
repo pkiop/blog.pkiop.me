@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { ITag } from 'components/UI/ContentsList/Content/TagList/Tag';
+import { ITag } from 'types/tag.interface';
 import type { IContent } from 'types/content.interface';
 import Content from './Content';
 import * as S from './style';

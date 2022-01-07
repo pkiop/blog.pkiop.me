@@ -22,7 +22,7 @@ const ContentsContainer = () => {
     tags: article.tags.map((tag: string) => ({
       ...(testTagList.find((testTag: ITag) => testTag.title === tag) || {
         color: 'gray',
-        textColor: '#010101',
+        fontColor: '#010101',
       }),
       title: tag,
     })),

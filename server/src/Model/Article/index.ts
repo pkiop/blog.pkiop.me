@@ -9,6 +9,7 @@ export type CommonArticle = {
   slug: string;
   readTime: number;
   contents: string;
+  showAt: Date;
 };
 
 export type ArticleInput = {
@@ -44,14 +45,15 @@ class ArticleModel extends Model {
     INNER JOIN category AS MainCategory ON article.mainCategoryId=MainCategory.id
     INNER JOIN category AS SubCategory ON article.subCategoryId=SubCategory.id
 
-    WHERE slug=?
+    WHERE showAt < now() AND slug=?
   `,
       ['/' + filter.slug]
     );
     return rows[0];
   }
 
-  async getArticles() {
+  async getArticles(showAt: string) {
+    console.log('filter.showAt : ', showAt);
     const { rows } = await this.query(`
       SELECT *,
       article.title as title,
@@ -66,10 +68,16 @@ class ArticleModel extends Model {
 
       INNER JOIN category AS MainCategory ON article.mainCategoryId=MainCategory.id
       INNER JOIN category AS SubCategory ON article.subCategoryId=SubCategory.id
+
+      ${showAt ? `WHERE showAt < "${showAt}"` : ''} 
     `);
+
     // TODO: taglist 가져오기
     // query한번에 가능한건가..? 배열로 받아와야해서
     // 2번이라면 articleNum * article 태그리스트 만큼 쿼리 날려야하는데 더 좋은 방법 메모 후 연구
+
+    //  WHERE showAt < now() 를 추가했었는데 graphql에서 선택해서 가져가도록 두는게 좋을 것 같아 제거
+
     return rows;
   }
 
@@ -83,12 +91,13 @@ class ArticleModel extends Model {
       tags,
       mainCategoryId,
       subCategoryId,
+      showAt,
     } = articleInput;
 
     const { lastInsertId } = await this.query(
       `
-      INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents)
-      VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)
+      INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
+      VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `,
       [
         title,
@@ -100,6 +109,7 @@ class ArticleModel extends Model {
         subCategoryId,
         readTime,
         contents,
+        showAt,
       ]
     );
 
@@ -136,6 +146,8 @@ class ArticleModel extends Model {
     }
     return true;
   }
+
+  deleteArticle() {}
 
   reload() {
     console.log('reload');

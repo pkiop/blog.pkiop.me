@@ -4,8 +4,18 @@ import Mutation from './resolvers/Mutation.ts';
 
 export const typeDefs = gql`
   type Category {
+    id: Int
     title: String!
     classification: String!
+    emoji: String
+    subCategories: [Category]
+  }
+
+  type Tag {
+    id: Int
+    title: String!
+    fontColor: String
+    color: String
   }
 
   scalar Date
@@ -20,11 +30,14 @@ export const typeDefs = gql`
     readTime: Float!
     contents: String!
     updateAt: Date!
+    showAt: Date
   }
 
   type Query {
-    article: [Article]
+    article(filter: Date): [Article]
     getArticle(filter: String): Article
+    getCategories: [Category]
+    getTags: [Tag]
   }
 
   # input CategoryInput {
@@ -42,6 +55,12 @@ export const typeDefs = gql`
       tags: [String]
       readTime: Float!
       contents: String!
+      showAt: Date
+    ): Boolean!
+    postCategory(
+      title: String!
+      classification: String!
+      emoji: String
     ): Boolean!
   }
 `;

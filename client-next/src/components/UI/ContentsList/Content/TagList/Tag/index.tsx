@@ -1,10 +1,5 @@
+import type { ITag } from 'types/tag.interface';
 import * as S from './style';
-
-export interface ITag {
-  title: string;
-  color: string;
-  textColor: string;
-}
 
 export interface ITagComponent {
   tag: ITag;
@@ -17,7 +12,7 @@ const Tag = ({ className, onClick, tag }: ITagComponent) => (
     className={className}
     onClick={onClick}
     color={tag.color}
-    textColor={tag.textColor}
+    textColor={tag.fontColor}
   >
     {tag.title}
   </S.Tag>
