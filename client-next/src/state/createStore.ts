@@ -7,6 +7,9 @@ const SET_SUB_CATEGORIES = 'SET_SUB_CATEGORIES';
 const GET_CATEGORIES_PENDING = 'GET_CATEGORIES_PENDING';
 const GET_CATEGORIES_SUCCESS = 'GET_CATEGORIES_SUCCESS';
 const GET_CATEGORIES_FAILURE = 'GET_CATEGORIES_FAILURE';
+const GET_TAGS_PENDING = 'GET_TAGS_PENDING';
+const GET_TAGS_SUCCESS = 'GET_TAGS_SUCCESS';
+const GET_TAGS_FAILURE = 'GET_TAGS_FAILURE';
 const SET_MAIN_CATEGORY = 'SET_MAIN_CATEGORY';
 const SET_SUB_CATEGORY = 'SET_SUB_CATEGORY';
 const ADD_TAG = 'ADD_TAG';
@@ -53,6 +56,15 @@ export const getCategories = () => async (dispatch: any, getState: any) => {
     dispatch({ type: GET_CATEGORIES_FAILURE, payload: err });
   }
 };
+export const getTags = () => async (dispatch: any, getState: any) => {
+  dispatch({ type: GET_TAGS_PENDING });
+  try {
+    const response = await api.getTags();
+    dispatch({ type: GET_TAGS_SUCCESS, payload: response });
+  } catch (err) {
+    dispatch({ type: GET_TAGS_FAILURE, payload: err });
+  }
+};
 
 export const initialState = {
   mainCategory: '',
@@ -60,6 +72,7 @@ export const initialState = {
   tag: [] as string[],
   isSidebarOpen: false,
   categories: [] as any[],
+  tags: [] as any[],
 };
 
 function reducer(state: any, action: any) {
@@ -104,6 +117,11 @@ function reducer(state: any, action: any) {
       return {
         ...state,
         categories: action.payload,
+      };
+    case GET_TAGS_SUCCESS:
+      return {
+        ...state,
+        tags: action.payload,
       };
     default:
       return initialState;

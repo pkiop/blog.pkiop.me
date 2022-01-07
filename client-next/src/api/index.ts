@@ -68,4 +68,18 @@ export const getCategories = async () => {
   return response.data.data.getCategories;
 };
 
+export const getTags = async () => {
+  const response = await axios.post('/graphql', {
+    query: `query {
+        getTags {
+          id
+          title
+          fontColor
+          color
+        }
+      }`,
+  });
+  return response.data.data.getTags;
+};
+
 export default {};

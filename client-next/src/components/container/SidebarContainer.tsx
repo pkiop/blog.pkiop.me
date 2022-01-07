@@ -1,17 +1,18 @@
 import Sidebar from '@components/UI/Sidebar';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { getCategories } from '@state/createStore';
-import { testTagList } from '@fixture/Tag';
+import { getCategories, getTags } from '@state/createStore';
 
 const SidebarContainer = () => {
   const dispatch = useDispatch();
 
   const staticData: any[] = [];
   const categories = useSelector((state: any) => state.categories);
+  const tags = useSelector((state: any) => state.tags);
 
   useEffect(() => {
     dispatch(getCategories());
+    dispatch(getTags());
   }, []);
 
   const mainCategoryDatas = staticData.reduce((acc: any, edges: any) => {
@@ -52,7 +53,7 @@ const SidebarContainer = () => {
       count: subCategoryDatas[subCategoryText.title],
     })),
   }));
-  return <Sidebar categoryList={categoriesWithCount} tagList={testTagList} />;
+  return <Sidebar categoryList={categoriesWithCount} tagList={tags} />;
 };
 
 export default SidebarContainer;
