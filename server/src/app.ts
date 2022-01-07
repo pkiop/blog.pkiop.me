@@ -95,7 +95,7 @@ function registerRouter() {
 }
 
 async function main() {
-  const PORT = 8080;
+  const PORT = Number(Deno.env.get('SERVER_PORT')) || 8080;
   registerRouter();
   console.log(`server run at http://localhost:${PORT}`);
   const server = Deno.listen({ port: PORT });
