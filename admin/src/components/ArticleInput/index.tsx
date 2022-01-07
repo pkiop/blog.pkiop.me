@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect, useRef } from 'react';
+import { Category } from '../../types/category.interface';
 
 const postArticle = (
   title: string,
@@ -37,6 +38,11 @@ const getCategories = async () => {
           title
           classification
           emoji
+          subCategories {
+            id
+            title
+            classification
+          }
         }
       }`,
   });
@@ -85,9 +91,15 @@ const Input = () => {
     setMainCategoryList(
       categoriesResponse.filter((el: any) => el.classification === 'main')
     );
-    setSubCategoryList(
-      categoriesResponse.filter((el: any) => el.classification === 'sub')
+    setSubCategoryList(categoriesResponse[0].subCategories);
+  };
+
+  const selectMainCategoryHandler = () => {
+    const mainCategoryId = +articleInputRef.current.mainCategoryId.value;
+    const mainCategory = mainCategoryList.find(
+      (mainCategory: Category) => mainCategory.id === mainCategoryId
     );
+    setSubCategoryList(mainCategory.subCategories);
   };
 
   useEffect(() => {
@@ -104,6 +116,7 @@ const Input = () => {
               <select
                 className='block border border-lime-400'
                 ref={(el) => (articleInputRef.current.mainCategoryId = el)}
+                onChange={selectMainCategoryHandler}
               >
                 {mainCategoryList.map((el: any) => (
                   <option key={el.id} value={el.id}>
