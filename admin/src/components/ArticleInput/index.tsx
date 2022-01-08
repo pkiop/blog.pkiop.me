@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect, useRef } from 'react';
 import { Category } from '../../types/category.interface';
+import { Tag } from '../../types/tag.interface';
 
 const postArticle = (
   title: string,
@@ -49,9 +50,49 @@ const getCategories = async () => {
   return response.data.data.getCategories;
 };
 
+const getTags = async () => {
+  const response = await axios.post('/graphql', {
+    query: `query {
+        getTags {
+          id
+          title
+          fontColor
+          color
+        }
+      }`,
+  });
+  return response.data.data.getTags;
+};
+
+const TagList = ({
+  tag,
+  selected,
+  selectToggle,
+}: {
+  tag: Tag;
+  selected: boolean;
+  selectToggle: any;
+}) => {
+  const style = {
+    color: tag.fontColor,
+    backgroundColor: tag.color,
+    border: selected ? '0.2rem solid red' : '0.2rem solid gray',
+    width: '5rem',
+    display: 'flex',
+    justifyContent: 'center',
+  };
+  return (
+    <div style={style} onClick={selectToggle}>
+      {tag.title}
+    </div>
+  );
+};
+
 const Input = () => {
   const [mainCategoryList, setMainCategoryList] = useState<any>([]);
   const [subCategoryList, setSubCategoryList] = useState<any>([]);
+  const [tagList, setTagList] = useState<any>([]);
+  const [selectedTagList, setSelectedTagList] = useState<any>([]);
 
   const articleInputInitValue = {
     title: null,
@@ -94,6 +135,11 @@ const Input = () => {
     setSubCategoryList(categoriesResponse[0].subCategories);
   };
 
+  const fetchTags = async () => {
+    const tagsResponse = await getTags();
+    setTagList(tagsResponse);
+  };
+
   const selectMainCategoryHandler = () => {
     const mainCategoryId = +articleInputRef.current.mainCategoryId.value;
     const mainCategory = mainCategoryList.find(
@@ -104,7 +150,26 @@ const Input = () => {
 
   useEffect(() => {
     fetchCategories();
+    fetchTags();
   }, []);
+
+  const isTagSelected = (selectedTag: Tag) => {
+    return selectedTagList.some((tag: Tag) => tag.id === selectedTag.id);
+  };
+
+  const toggleTag = (selectedTag: Tag) => {
+    const selectTagIdx = selectedTagList.findIndex(
+      (tag: Tag) => tag.id === selectedTag.id
+    );
+    if (selectTagIdx !== -1) {
+      setSelectedTagList((state: Tag[]) => [
+        ...state.slice(0, selectTagIdx),
+        ...state.slice(selectTagIdx + 1),
+      ]);
+      return;
+    }
+    setSelectedTagList((state: Tag[]) => state.concat(selectedTag));
+  };
 
   return (
     <div className='container p-10'>
@@ -150,6 +215,13 @@ const Input = () => {
           );
         })}
       </div>
+      {tagList.map((tag: Tag) => (
+        <TagList
+          tag={tag}
+          selected={isTagSelected(tag)}
+          selectToggle={() => toggleTag(tag)}
+        />
+      ))}
       <button
         className='bg-slate-600 p-3 border border-lime-400'
         onClick={onClick}
