@@ -28,7 +28,7 @@ const tagState = atom<Tag>({
   },
 });
 
-const ArticleList = () => {
+const TagList = () => {
   const { isLoading, error, data: tags } = useQuery('tags', () => getTags());
 
   const [tag, setTag] = useRecoilState(tagState);
@@ -51,4 +51,4 @@ const ArticleList = () => {
   );
 };
 
-export default ArticleList;
+export default TagList;
