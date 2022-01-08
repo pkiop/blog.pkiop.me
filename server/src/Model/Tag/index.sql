@@ -13,6 +13,30 @@ CREATE TABLE tag (
 INSERT INTO tag(title, fontColor, color)
 VALUES ('develop', '#000000', '#ffffff');
 
+INSERT INTO tag(title, fontColor, color)
+VALUES ('React', '#010101', '#7ED1EF');
+
+INSERT INTO tag(title, fontColor, color)
+VALUES ('AWS', '#010101', '#D6702D');
+
+INSERT INTO tag(title, fontColor, color)
+VALUES ('CSS', '#B0BAC6', '#2E4AD5');
+
+INSERT INTO tag(title, fontColor, color)
+VALUES ('Google Analytics',  '#010101', '#EEAF42');
+
+INSERT INTO tag(title, fontColor, color)
+VALUES ('마케팅',  '#010101', '#5283EA');
+
+INSERT INTO tag(title, fontColor, color)
+VALUES ('세바시',  '#010101', '#387725');
+
+INSERT INTO tag(title, fontColor, color)
+VALUES ('뇌과학',  '#010101', '#FCD8D4');
+
+INSERT INTO tag(title, fontColor, color)
+VALUES ('Backend', '#B0BAC6', '#1560BD');
+
 ALTER TABLE article_tag
 ADD FOREIGN KEY(articleId) REFERENCES article(id);
 ALTER TABLE article_tag 
