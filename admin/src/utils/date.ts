@@ -10,3 +10,7 @@ export const getLocaleStringYMD = () => {
       return d + '-' + acc;
     }, '');
 };
+
+export const getLocaleDate = () => {
+  return new Date().toLocaleString();
+};
