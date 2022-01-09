@@ -64,7 +64,7 @@ const getTags = async () => {
   return response.data.data.getTags;
 };
 
-const TagList = ({
+const TagBlock = ({
   tag,
   selected,
   selectToggle,
@@ -215,13 +215,19 @@ const Input = () => {
           );
         })}
       </div>
-      {tagList.map((tag: Tag) => (
-        <TagList
-          tag={tag}
-          selected={isTagSelected(tag)}
-          selectToggle={() => toggleTag(tag)}
-        />
-      ))}
+      <div
+        style={{
+          display: 'flex',
+        }}
+      >
+        {tagList.map((tag: Tag) => (
+          <TagBlock
+            tag={tag}
+            selected={isTagSelected(tag)}
+            selectToggle={() => toggleTag(tag)}
+          />
+        ))}
+      </div>
       <button
         className='bg-slate-600 p-3 border border-lime-400'
         onClick={onClick}
