@@ -18,7 +18,7 @@ const getCategories = async () => {
 };
 
 const categoryState = atom<Category>({
-  key: 'articleState',
+  key: 'categoryState',
   default: {
     id: 0,
     title: 'none',
