@@ -80,6 +80,8 @@ const TagBlock = ({
     width: '5rem',
     display: 'flex',
     justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: '99rem',
   };
   return (
     <div style={style} onClick={selectToggle}>
