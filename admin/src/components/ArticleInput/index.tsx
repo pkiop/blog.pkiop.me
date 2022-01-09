@@ -12,8 +12,10 @@ const postArticle = (
   subCategoryId: number,
   readTime: number,
   contents: string,
-  showAt: Date
+  showAt: Date,
+  tags?: string[]
 ) => {
+  const tagData = tags ? `["${tags.join('","')}"]` : null;
   axios.post('/graphql', {
     mutation: `
     mutation {
@@ -25,7 +27,8 @@ const postArticle = (
         subCategoryId: ${subCategoryId}, 
         readTime:${readTime}, 
         contents: "${contents}"
-        showAt: "${showAt}"
+        showAt: "${new Date(showAt + 'GMT+09:00').toISOString().split('T')[0]}"
+        tags: ${tagData}
       )
     }
   `,
@@ -126,7 +129,8 @@ const Input = () => {
       articleInputRef.current.subCategoryId.value,
       articleInputRef.current.readTime.value,
       articleInputRef.current.contents.value,
-      articleInputRef.current.showAt.value
+      articleInputRef.current.showAt.value,
+      selectedTagList.map((tag: Tag) => tag.title)
     );
   };
 

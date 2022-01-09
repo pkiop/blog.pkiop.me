@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react';
 import Article from '../Article';
 import { Content } from '../../types/content.interface';
 import axios from 'axios';
 import { atom, useRecoilState } from 'recoil';
 import { useQuery } from 'react-query';
+import { getLocaleDate } from '../../utils/date';
 
 const getArticles = async () => {
   const response = await axios.post('/graphql', {
     query: `query {
-        article(filter: "${new Date()}") {
+        article(filter: "${getLocaleDate()}") {
           title
           mainCategory {
             id
