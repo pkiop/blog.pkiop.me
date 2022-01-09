@@ -19,7 +19,7 @@ const getTags = async () => {
 };
 
 const tagState = atom<Tag>({
-  key: 'articleState',
+  key: 'tagState',
   default: {
     id: 0,
     title: 'none',
