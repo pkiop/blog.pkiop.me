@@ -64,7 +64,6 @@ export default {
   },
   getTags: async (parent: any, args: any) => {
     const data = await tagInstance.getTags();
-    console.log('tag data : ', data);
     return data;
   },
 };
