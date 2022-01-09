@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState, useEffect, useRef } from 'react';
 import { Category } from '../../types/category.interface';
 import { Tag } from '../../types/tag.interface';
+import { getLocaleStringYMD } from '../../utils/date';
 
 const postArticle = (
   title: string,
@@ -181,6 +182,7 @@ const Input = () => {
           if (key === 'mainCategoryId') {
             return (
               <select
+                key={key}
                 className='block border border-lime-400'
                 ref={(el) => (articleInputRef.current.mainCategoryId = el)}
                 onChange={selectMainCategoryHandler}
@@ -196,6 +198,7 @@ const Input = () => {
           if (key === 'subCategoryId') {
             return (
               <select
+                key={key}
                 className='block border border-lime-400'
                 ref={(el) => (articleInputRef.current.subCategoryId = el)}
               >
@@ -209,10 +212,12 @@ const Input = () => {
           }
           return (
             <input
+              key={key}
               className='block border border-lime-400'
               placeholder={key}
               type={key === 'showAt' ? 'date' : 'text'}
               ref={(el) => (articleInputRef.current[key] = el)}
+              defaultValue={key === 'showAt' ? getLocaleStringYMD() : undefined}
             />
           );
         })}
@@ -224,6 +229,7 @@ const Input = () => {
       >
         {tagList.map((tag: Tag) => (
           <TagBlock
+            key={tag.id}
             tag={tag}
             selected={isTagSelected(tag)}
             selectToggle={() => toggleTag(tag)}
