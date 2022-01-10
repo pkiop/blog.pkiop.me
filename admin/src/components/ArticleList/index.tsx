@@ -22,7 +22,12 @@ const getArticles = async () => {
           }
           summary
           slug
-          tags
+          tags {
+            id
+            title
+            color
+            fontColor
+          }
           contents
           updateAt
           readTime
