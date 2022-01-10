@@ -1,3 +1,5 @@
+import { Tag } from './tag.interface';
+
 export interface Content {
   title: string;
   slug: string;
@@ -6,4 +8,5 @@ export interface Content {
   subCategoryId: number;
   readTime: number;
   contents: string;
+  tags?: Tag[];
 }
