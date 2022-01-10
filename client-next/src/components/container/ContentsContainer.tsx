@@ -16,15 +16,15 @@ const ContentsContainer = () => {
     fetchData();
   }, []);
 
-  const contentsList: IContent[] = articles.map((article: any) => ({
+  const contentsList: IContent[] = articles.map((article: IContent) => ({
     ...article,
     html: article.contents,
-    tags: article.tags.map((tag: string) => ({
-      ...(testTagList.find((testTag: ITag) => testTag.title === tag) || {
+    tags: article.tags.map((tag: ITag) => ({
+      ...(testTagList.find((testTag: ITag) => testTag.title === tag.title) || {
         color: 'gray',
         fontColor: '#010101',
       }),
-      title: tag,
+      title: tag.title,
     })),
   }));
 
