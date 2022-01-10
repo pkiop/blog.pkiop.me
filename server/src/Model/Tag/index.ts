@@ -11,7 +11,6 @@ class TagModel extends Model {
            SELECT * FROM tag
          `
       );
-      console.log('tag rows : ', rows);
       return rows;
     } catch (err) {
       console.error(err);

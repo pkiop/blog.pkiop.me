@@ -53,9 +53,10 @@ class ArticleModel extends Model {
   }
 
   async getArticles(showAt: string) {
-    console.log('filter.showAt : ', showAt);
-    const { rows } = await this.query(`
+    try {
+      const { rows } = await this.query(`
       SELECT *,
+      article.id as articleId,
       article.title as title,
       MainCategory.id AS mainCategoryId,
       MainCategory.title AS mainCategoryTitle,
@@ -72,13 +73,29 @@ class ArticleModel extends Model {
       ${showAt ? `WHERE showAt < "${showAt}"` : ''} 
     `);
 
-    // TODO: taglist 가져오기
-    // query한번에 가능한건가..? 배열로 받아와야해서
-    // 2번이라면 articleNum * article 태그리스트 만큼 쿼리 날려야하는데 더 좋은 방법 메모 후 연구
+      const { rows: tagList } = await this.query(`
+        SELECT *
+        
+        FROM article_tag
 
-    //  WHERE showAt < now() 를 추가했었는데 graphql에서 선택해서 가져가도록 두는게 좋을 것 같아 제거
+        INNER JOIN tag ON article_tag.tagId=tag.id
+      `);
 
-    return rows;
+      // TODO: taglist 가져오기
+      // query한번에 가능한건가..? 배열로 받아와야해서
+      // 2번이라면 articleNum * article 태그리스트 만큼 쿼리 날려야하는데 더 좋은 방법 메모 후 연구
+      // 2번이 정석이라는 것 같음..
+
+      //  WHERE showAt < now() 를 추가했었는데 graphql에서 선택해서 가져가도록 두는게 좋을 것 같아 제거
+      return rows.map((articles: any) => ({
+        ...articles,
+        tags: [
+          ...tagList.filter((tag: any) => tag.articleId === articles.articleId),
+        ],
+      }));
+    } catch (err) {
+      console.error('err : ', err);
+    }
   }
 
   async postArticle(articleInput: ArticleInput) {
