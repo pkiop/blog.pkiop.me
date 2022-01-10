@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import * as api from '@api/index';
+import { ITag } from 'types/tag.interface';
 
 const SET_MAIN_CATEGORIES = 'SET_MAIN_CAREGORIES';
 const SET_SUB_CATEGORIES = 'SET_SUB_CATEGORIES';
@@ -69,10 +70,10 @@ export const getTags = () => async (dispatch: any, getState: any) => {
 export const initialState = {
   mainCategory: '',
   subCategory: '',
-  tag: [] as string[],
+  tag: [] as string[], // TODO: 변수이름 refector
   isSidebarOpen: false,
   categories: [] as any[],
-  tags: [] as any[],
+  tags: [] as ITag[],
 };
 
 function reducer(state: any, action: any) {

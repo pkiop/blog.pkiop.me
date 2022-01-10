@@ -8,4 +8,7 @@ export interface IContent {
   mainCategory: IMainCategory;
   subCategory: ISubCategory;
   tags: ITag[];
+  // 아래 임시 타입. 수정 필요
+  contents?: string;
+  html?: string;
 }

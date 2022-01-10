@@ -10,6 +10,7 @@ const PostContainer = () => {
     const response = await getArticleBySlug(slug ?? '');
     setContent(response);
   };
+
   useEffect(() => {
     fetchData();
   }, []);

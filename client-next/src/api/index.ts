@@ -13,7 +13,11 @@ export const getArticles = async () => {
             title
           }
           slug
-          tags
+          tags {
+            title
+            color
+            fontColor
+          }
           contents
           updateAt
           readTime
@@ -35,7 +39,11 @@ export const getArticleBySlug = async (slug: string) => {
             title
           }
           slug
-          tags
+          tags {
+            title
+            color
+            fontColor
+          }
           contents
           updateAt 
           readTime

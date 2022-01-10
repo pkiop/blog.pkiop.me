@@ -2,13 +2,14 @@ import Sidebar from '@components/UI/Sidebar';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getCategories, getTags } from '@state/createStore';
+import { ITag } from 'types/tag.interface';
 
 const SidebarContainer = () => {
   const dispatch = useDispatch();
 
   const staticData: any[] = [];
   const categories = useSelector((state: any) => state.categories);
-  const tags = useSelector((state: any) => state.tags);
+  const tags: ITag[] = useSelector((state: any) => state.tags);
 
   useEffect(() => {
     dispatch(getCategories());
