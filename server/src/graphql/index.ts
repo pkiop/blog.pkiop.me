@@ -26,7 +26,7 @@ export const typeDefs = gql`
     summary: String!
     mainCategory: Category!
     subCategory: Category!
-    tags: [String]
+    tags: [Tag]
     readTime: Float!
     contents: String!
     updateAt: Date!
