@@ -77,6 +77,14 @@ export const Post = styled.div`
         font-size: 1.3rem;
       }
     }
+
+    code,
+    code * {
+      font-size: 1.8rem;
+    }
+    code * {
+      line-height: 0.1rem;
+    }
   }
 `;
 
