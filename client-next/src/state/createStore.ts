@@ -88,7 +88,7 @@ function reducer(state: any, action: any) {
       return {
         ...state,
         mainCategory: action.payload.mainCategory,
-        subCategory: [...state.subCategory, action.payload.subCategory],
+        subCategory: action.payload.subCategory,
       };
     case ADD_TAG:
       return {
