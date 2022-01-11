@@ -10,8 +10,6 @@ CREATE TABLE tag (
   color VARCHAR(8) NOT NULL
 ) ENGINE=INNODB; 
 
-INSERT INTO tag(title, fontColor, color)
-VALUES ('develop', '#000000', '#ffffff');
 
 INSERT INTO tag(title, fontColor, color)
 VALUES ('React', '#010101', '#7ED1EF');
@@ -36,6 +34,9 @@ VALUES ('뇌과학',  '#010101', '#FCD8D4');
 
 INSERT INTO tag(title, fontColor, color)
 VALUES ('Backend', '#B0BAC6', '#1560BD');
+
+INSERT INTO tag(title, fontColor, color)
+VALUES ('백준', '#B0BAC6', '#1560BD');
 
 ALTER TABLE article_tag
 ADD FOREIGN KEY(articleId) REFERENCES article(id);
