@@ -57,6 +57,7 @@ export const getCategories = () => async (dispatch: any, getState: any) => {
     dispatch({ type: GET_CATEGORIES_FAILURE, payload: err });
   }
 };
+
 export const getTags = () => async (dispatch: any, getState: any) => {
   dispatch({ type: GET_TAGS_PENDING });
   try {
