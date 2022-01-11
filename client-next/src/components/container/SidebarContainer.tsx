@@ -12,8 +12,10 @@ const SidebarContainer = () => {
   const tags: ITag[] = useSelector((state: any) => state.tags);
 
   useEffect(() => {
-    dispatch(getCategories());
-    dispatch(getTags());
+    if (categories.length === 0) {
+      dispatch(getCategories());
+      dispatch(getTags());
+    }
   }, []);
 
   const mainCategoryDatas = staticData.reduce((acc: any, edges: any) => {
