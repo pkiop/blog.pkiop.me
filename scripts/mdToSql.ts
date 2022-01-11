@@ -100,7 +100,7 @@ const makeSQL = async (filePath: string) => {
 
   await Deno.writeFile(
     './write.sql',
-    textEncoder.encode(sqlString + sqlTagString),
+    textEncoder.encode(sqlString + sqlTagString.join('')),
     { append: true }
   );
 };
