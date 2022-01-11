@@ -108,7 +108,12 @@ function reducer(state: any, action: any) {
           : [...state.tag, action.payload].sort(),
       };
     case CLEAR_FILTER:
-      return { ...initialState, isSidebarOpen: state.isSidebarOpen };
+      return {
+        ...initialState,
+        isSidebarOpen: state.isSidebarOpen,
+        categories: state.categories,
+        tags: state.tags,
+      };
     case TOGGLE_SIDEBAR:
       return {
         ...state,
