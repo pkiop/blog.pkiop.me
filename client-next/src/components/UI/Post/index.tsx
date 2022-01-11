@@ -2,6 +2,7 @@
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
+import rehypeHighlight from 'rehype-highlight';
 import type { Post } from 'types/post.interface';
 import * as S from './style';
 import TitleBoxComponent from './Titlebox';
@@ -14,7 +15,7 @@ const PostApp = ({ title, date, readTime, html }: Post) => (
       <ReactMarkdown
         className="blog-post-content"
         children={html}
-        rehypePlugins={[rehypeRaw]}
+        rehypePlugins={[rehypeRaw, rehypeHighlight]}
         remarkPlugins={[remarkGfm]}
       />
     </div>
