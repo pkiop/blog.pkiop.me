@@ -129,6 +129,7 @@ function reducer(state: any, action: any) {
         isSidebarOpen: state.isSidebarOpen,
         categories: state.categories,
         tags: state.tags,
+        articleLabels: state.articleLabels,
       };
     case TOGGLE_SIDEBAR:
       return {
