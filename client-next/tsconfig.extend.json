@@ -12,7 +12,7 @@
       "types/*": ["./types/*"],
       "@images/*": ["./images/*"],
       "@api/*": ["./api/*"],
-      "@lib/*": ["./lib/*"]
+      "@utils/*": ["./utils/*"]
     }
   }
 }
