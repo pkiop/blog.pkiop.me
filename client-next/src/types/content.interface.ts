@@ -12,3 +12,10 @@ export interface IContent {
   contents?: string;
   html?: string;
 }
+
+export type ContentLabel = {
+  [TContent in keyof IContent as Exclude<
+    TContent,
+    'contents' | 'html'
+  >]: IContent[TContent];
+};

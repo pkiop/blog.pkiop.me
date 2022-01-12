@@ -2,12 +2,16 @@ import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import * as api from '@api/index';
 import { ITag } from 'types/tag.interface';
+import { ContentLabel } from 'types/content.interface';
 
 const SET_MAIN_CATEGORIES = 'SET_MAIN_CAREGORIES';
 const SET_SUB_CATEGORIES = 'SET_SUB_CATEGORIES';
 const GET_CATEGORIES_PENDING = 'GET_CATEGORIES_PENDING';
 const GET_CATEGORIES_SUCCESS = 'GET_CATEGORIES_SUCCESS';
 const GET_CATEGORIES_FAILURE = 'GET_CATEGORIES_FAILURE';
+const GET_ARTICLELABELS_PENDING = 'GET_ARTICLELABELS_PENDING';
+const GET_ARTICLELABELS_SUCCESS = 'GET_ARTICLELABELS_SUCCESS';
+const GET_ARTICLELABELS_FAILURE = 'GET_ARTICLELABELS_FAILURE';
 const GET_TAGS_PENDING = 'GET_TAGS_PENDING';
 const GET_TAGS_SUCCESS = 'GET_TAGS_SUCCESS';
 const GET_TAGS_FAILURE = 'GET_TAGS_FAILURE';
@@ -58,6 +62,16 @@ export const getCategories = () => async (dispatch: any, getState: any) => {
   }
 };
 
+export const getArticleLabels = () => async (dispatch: any, getState: any) => {
+  dispatch({ type: GET_ARTICLELABELS_PENDING });
+  try {
+    const response = await api.getArticleLabels();
+    dispatch({ type: GET_ARTICLELABELS_SUCCESS, payload: response });
+  } catch (err) {
+    dispatch({ type: GET_ARTICLELABELS_FAILURE, payload: err });
+  }
+};
+
 export const getTags = () => async (dispatch: any, getState: any) => {
   dispatch({ type: GET_TAGS_PENDING });
   try {
@@ -75,6 +89,7 @@ export const initialState = {
   isSidebarOpen: false,
   categories: [] as any[],
   tags: [] as ITag[],
+  articleLabels: [] as ContentLabel[],
 };
 
 function reducer(state: any, action: any) {
@@ -129,6 +144,12 @@ function reducer(state: any, action: any) {
       return {
         ...state,
         tags: action.payload,
+      };
+
+    case GET_ARTICLELABELS_SUCCESS:
+      return {
+        ...state,
+        articleLabels: action.payload,
       };
     default:
       return initialState;
