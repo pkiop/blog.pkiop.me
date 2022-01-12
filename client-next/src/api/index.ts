@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { ContentLabel } from 'types/content.interface';
 
 export const getArticleLabels = async () => {
   const response = await axios.post('/graphql', {
@@ -12,6 +13,7 @@ export const getArticleLabels = async () => {
             title
           }
           slug
+          updateAt
           tags {
             title
             color
@@ -20,7 +22,14 @@ export const getArticleLabels = async () => {
         }
       }`,
   });
-  return response.data.data.article;
+  return response.data.data.article.sort(
+    (articleA: ContentLabel, articleB: ContentLabel) => {
+      const diff =
+        new Date(articleB.updateAt).getTime() -
+        new Date(articleA.updateAt).getTime();
+      return diff;
+    },
+  );
 };
 // TODO: 이래도 되는데 왜 gql 쓰는거지..?
 export const getArticles = async () => {
