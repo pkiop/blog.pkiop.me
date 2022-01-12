@@ -6,7 +6,7 @@ export const Tag = styled.div`
   margin: 0.3em;
   margin-bottom: 0.6em;
   border-radius: 1rem;
-  background-color: ${(props) => props.color};
+  background-color: ${(props: any) => props.bgColor};
   color: ${(props: any) => props.fontColor};
   font-size: 1.6rem;
 
