@@ -80,15 +80,12 @@ const makeSQL = async (filePath: string) => {
     VALUES ("${metaDataMap.title}", "${metaDataMap.summary}", "${
     metaDataMap.date
   }", "${metaDataMap.date}", "${
-    metaDataMap.slug[0] !== '/'
-      ? '/' + metaDataMap.slug.replaceAll('/', '-')
-      : metaDataMap.slug
+    metaDataMap.slug[0] !== '/' ? '/' + metaDataMap.slug : metaDataMap.slug
   }" , ${metaDataMap.mainCategoryId}, ${metaDataMap.subCategoryId}, ${
     metaDataMap.readTime
   }, "${parseContents(content)}", "2020-01-01");
   `;
   const articleCnt = iter;
-  console.log('tagList : ', metaDataMap.tagList);
   const sqlTagString = metaDataMap.tagList.map((el: string) => {
     if (!el) return '';
     return `
