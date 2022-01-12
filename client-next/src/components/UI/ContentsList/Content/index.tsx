@@ -1,5 +1,6 @@
 import type { IContent } from 'types/content.interface';
 import { useNavigate } from 'react-router-dom';
+import { DateUtil } from '@utils/index';
 import * as S from './style';
 import TagList from './TagList';
 
@@ -21,7 +22,9 @@ const Content = ({ className, content }: IContentsComponent) => {
           <div className="category">
             {content.mainCategory.title}/{content.subCategory.title}
           </div>
-          <div className="date">{content.date}</div>
+          <div className="date">
+            {DateUtil.getYMD(new Date(content.updateAt))}
+          </div>
         </div>
         <TagList tagList={content.tags} />
       </S.SubInfo>

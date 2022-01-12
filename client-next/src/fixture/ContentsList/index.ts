@@ -8,31 +8,31 @@ const testObj = {
 export const testContentList: IContent[] = [
   {
     title: '글 1',
-    date: '첫번째 글에대한 내용입니다.',
+    updateAt: new Date('2020-10-20'),
     slug: '/1',
     ...testObj,
   },
   {
     title: '글 2',
-    date: '두번째 글에대한 내용입니다.',
+    updateAt: new Date('2020-10-20'),
     slug: '/1',
     ...testObj,
   },
   {
     title: '글 3',
-    date: '세번째 글에대한 내용입니다.',
+    updateAt: new Date('2020-10-20'),
     slug: '/1',
     ...testObj,
   },
   {
     title: '글 4',
-    date: '네번째 글에대한 내용입니다.',
+    updateAt: new Date('2020-10-20'),
     slug: '/1',
     ...testObj,
   },
   {
     title: '글 5',
-    date: '다섯번째 글에대한 내용입니다.',
+    updateAt: new Date('2020-10-20'),
     slug: '/1',
     ...testObj,
   },
@@ -40,5 +40,5 @@ export const testContentList: IContent[] = [
 
 export const testContent: any = {
   title: '제목입니다.',
-  date: '2020-20-20',
+  date: '2020-10-20',
 };

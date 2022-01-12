@@ -3,7 +3,7 @@ import type { ITag } from './tag.interface';
 
 export interface IContent {
   title: string;
-  date: string;
+  updateAt: Date;
   slug: string;
   mainCategory: IMainCategory;
   subCategory: ISubCategory;

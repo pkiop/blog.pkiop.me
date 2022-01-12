@@ -1,4 +1,4 @@
-import { getYMD } from '@lib/date';
+import { getYMD } from '@utils/date';
 import * as S from './style';
 
 interface TitleBox {
