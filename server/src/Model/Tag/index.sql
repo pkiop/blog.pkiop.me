@@ -38,6 +38,12 @@ VALUES ('Backend', '#B0BAC6', '#1560BD');
 INSERT INTO tag(title, fontColor, color)
 VALUES ('백준', '#B0BAC6', '#1560BD');
 
+INSERT INTO tag(title, fontColor, color)
+VALUES ('Express', '#B0BAC6', '#1560BD');
+
+INSERT INTO tag(title, fontColor, color)
+VALUES ('심리학', '#B0BAC6', '#1560BD');
+
 ALTER TABLE article_tag
 ADD FOREIGN KEY(articleId) REFERENCES article(id);
 ALTER TABLE article_tag 
