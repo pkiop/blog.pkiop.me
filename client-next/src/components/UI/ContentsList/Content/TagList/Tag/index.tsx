@@ -11,11 +11,10 @@ const Tag = ({ className, onClick, tag }: ITagComponent) => (
   <S.Tag<any>
     className={className}
     onClick={onClick}
-    color={tag.color}
-    textColor={tag.fontColor}
+    bgColor={tag.color}
+    fontColor={tag.fontColor}
   >
     {tag.title}
   </S.Tag>
 );
-
 export default Tag;
