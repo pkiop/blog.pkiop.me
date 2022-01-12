@@ -3,20 +3,20 @@ import ContentsList from '@components/UI/ContentsList';
 import type { IContent } from 'types/content.interface';
 import { ITag } from 'types/tag.interface';
 import { testTagList } from '@fixture/Tag';
-import { getArticleLabels } from '@api/index';
+import { useDispatch, useSelector } from 'react-redux';
+import { getArticleLabels } from '@state/createStore';
 
 const ContentsContainer = () => {
-  const [articles, setArticles] = useState<any[]>([]);
-  const fetchData = async () => {
-    const res = await getArticleLabels();
-    setArticles(res);
-  };
+  const dispatch = useDispatch();
+  const articleLabels = useSelector((state: any) => state.articleLabels);
 
   useEffect(() => {
-    fetchData();
+    if (articleLabels.length === 0) {
+      dispatch(getArticleLabels());
+    }
   }, []);
 
-  const contentsList: IContent[] = articles.map((article: IContent) => ({
+  const contentsList: IContent[] = articleLabels.map((article: IContent) => ({
     ...article,
     html: article.contents,
     tags: article.tags.map((tag: ITag) => ({
