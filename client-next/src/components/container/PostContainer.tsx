@@ -5,9 +5,13 @@ import { getArticleBySlug } from '@api/index';
 
 const PostContainer = () => {
   const [content, setContent] = useState<any>(null);
-  const { slug } = useParams();
+  const { slug, subSlug } = useParams();
   const fetchData = async () => {
-    const response = await getArticleBySlug(slug ?? '');
+    let requestSlug = slug ?? '';
+    if (subSlug) {
+      requestSlug += `/${subSlug}`;
+    }
+    const response = await getArticleBySlug(requestSlug);
     setContent(response);
   };
 
