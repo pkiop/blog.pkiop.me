@@ -43,6 +43,10 @@ const IndexPage = () => {
     <Routes>
       <Route path="/" element={<MainTemplate contents={MainContent} />} />
       <Route path="/:slug" element={<MainTemplate contents={PostContent} />} />
+      <Route
+        path="/:slug/:subSlug"
+        element={<MainTemplate contents={PostContent} />}
+      />
     </Routes>
   );
 };
