@@ -1,5 +1,27 @@
 import axios from 'axios';
 
+export const getArticleLabels = async () => {
+  const response = await axios.post('/graphql', {
+    query: `query {
+        article(filter: "${new Date()}") {
+          title
+          mainCategory {
+            title
+          }
+          subCategory {
+            title
+          }
+          slug
+          tags {
+            title
+            color
+            fontColor
+          }
+        }
+      }`,
+  });
+  return response.data.data.article;
+};
 // TODO: 이래도 되는데 왜 gql 쓰는거지..?
 export const getArticles = async () => {
   const response = await axios.post('/graphql', {
