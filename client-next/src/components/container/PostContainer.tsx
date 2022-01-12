@@ -1,18 +1,23 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Post from '@components/UI/Post';
 import { getArticleBySlug } from '@api/index';
 
 const PostContainer = () => {
   const [content, setContent] = useState<any>(null);
   const { slug, subSlug } = useParams();
+  const navigate = useNavigate();
   const fetchData = async () => {
     let requestSlug = slug ?? '';
     if (subSlug) {
       requestSlug += `/${subSlug}`;
     }
-    const response = await getArticleBySlug(requestSlug);
-    setContent(response);
+    try {
+      const response = await getArticleBySlug(requestSlug);
+      setContent(response);
+    } catch (err) {
+      navigate('/not-found');
+    }
   };
 
   useEffect(() => {
