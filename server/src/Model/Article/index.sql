@@ -22,7 +22,7 @@ ADD FOREIGN KEY(subCategoryId) REFERENCES category(id);
 
 
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 2438 javascript | nodejs", "백준 2438 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js-2438" , 1, 5, 1, "
+    VALUES ("백준 2438 javascript | nodejs", "백준 2438 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js/2438" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -50,7 +50,7 @@ function solution(N) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 10809 javascript | nodejs", "백준 10809 javascript | nodejs", "2021-08-21", "2021-08-21", "/boj-js-10809" , 1, 5, 1, "
+    VALUES ("백준 10809 javascript | nodejs", "백준 10809 javascript | nodejs", "2021-08-21", "2021-08-21", "/boj-js/10809" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -91,7 +91,7 @@ function solution(S) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 b11720 javascript | nodejs", "백준 b11720 javascript | nodejs", "2021-08-21", "2021-08-21", "/boj-js-11720" , 1, 5, 1, "
+    VALUES ("백준 b11720 javascript | nodejs", "백준 b11720 javascript | nodejs", "2021-08-21", "2021-08-21", "/boj-js/11720" , 1, 5, 1, "
 
 ```javascript {numberLines: 1} {numberLines}
 const fs = require('fs');
@@ -115,7 +115,7 @@ function solution(N, numbers) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 8393 javascript | nodejs", "백준 8393 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js-8393" , 1, 5, 1, "
+    VALUES ("백준 8393 javascript | nodejs", "백준 8393 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js/8393" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -140,7 +140,7 @@ function solution(n) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 b1654 javascript | nodejs", "백준 b1654 javascript | nodejs", "2021-08-21", "2021-08-21", "/boj-js-1654" , 1, 5, 1, "
+    VALUES ("백준 b1654 javascript | nodejs", "백준 b1654 javascript | nodejs", "2021-08-21", "2021-08-21", "/boj-js/1654" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -160,7 +160,7 @@ function solution(char) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 10818 javascript | nodejs", "백준 10818 javascript | nodejs", "2021-08-09", "2021-08-09", "/boj-js-10818" , 1, 5, 1, "
+    VALUES ("백준 10818 javascript | nodejs", "백준 10818 javascript | nodejs", "2021-08-09", "2021-08-09", "/boj-js/10818" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -195,7 +195,7 @@ function solution(arrayLength, items) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 b2908 javascript | nodejs", "백준 b2908 javascript | nodejs", "2021-08-21", "2021-08-21", "/boj-js-2908" , 1, 5, 1, "
+    VALUES ("백준 b2908 javascript | nodejs", "백준 b2908 javascript | nodejs", "2021-08-21", "2021-08-21", "/boj-js/2908" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -244,7 +244,7 @@ function solution2(A, B) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 10869 javascript | nodejs", "백준 10869 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js-10869" , 1, 5, 1, "
+    VALUES ("백준 10869 javascript | nodejs", "백준 10869 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js/10869" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -272,7 +272,7 @@ function solution(A, B) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 2439 javascript | nodejs", "백준 2439 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js-2439" , 1, 5, 1, "
+    VALUES ("백준 2439 javascript | nodejs", "백준 2439 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js/2439" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -305,7 +305,7 @@ function solution(N) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 2562 javascript | nodejs", "백준 2562 javascript | nodejs", "2021-08-09", "2021-08-09", "/boj-js-2562" , 1, 5, 1, "
+    VALUES ("백준 2562 javascript | nodejs", "백준 2562 javascript | nodejs", "2021-08-09", "2021-08-09", "/boj-js/2562" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -338,7 +338,7 @@ function solution(items) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 2884 javascript | nodejs", "백준 2884 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js-2884" , 1, 5, 1, "
+    VALUES ("백준 2884 javascript | nodejs", "백준 2884 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js/2884" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -370,7 +370,7 @@ function solution(H, M) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 11021 javascript | nodejs", "백준 11021 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js-11021" , 1, 5, 1, "
+    VALUES ("백준 11021 javascript | nodejs", "백준 11021 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js/11021" , 1, 5, 1, "
 
 ```javascript {numberLines: 1} {numberLines}
 const fs = require('fs');
@@ -399,7 +399,7 @@ function solution(T, testcaseArray) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 b3197 c++", "백준 b3197 c++", "2021-11-21", "2021-11-21", "/boj-js-cpp-3197" , 1, 5, 1, "
+    VALUES ("백준 b3197 c++", "백준 b3197 c++", "2021-11-21", "2021-11-21", "/boj-js/cpp/3197" , 1, 5, 1, "
 
 ## CODE
 
@@ -575,7 +575,7 @@ https://www.acmicpc.net/problem/3197
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 b2675 javascript | nodejs", "백준 b2675 javascript | nodejs", "2021-08-21", "2021-08-21", "/boj-js-2675" , 1, 5, 1, "
+    VALUES ("백준 b2675 javascript | nodejs", "백준 b2675 javascript | nodejs", "2021-08-21", "2021-08-21", "/boj-js/2675" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -615,7 +615,7 @@ function solution(N, rsArray) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 9498 javascript | nodejs", "백준 9498 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js-9498" , 1, 5, 1, "
+    VALUES ("백준 9498 javascript | nodejs", "백준 9498 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js/9498" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -646,7 +646,7 @@ function solution(num) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 1065 javascript | nodejs", "백준 1065 javascript | nodejs", "2021-08-09", "2021-08-09", "/boj-js-1065" , 1, 5, 1, "
+    VALUES ("백준 1065 javascript | nodejs", "백준 1065 javascript | nodejs", "2021-08-09", "2021-08-09", "/boj-js/1065" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -688,7 +688,7 @@ function solution(N) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 1000 javascript | nodejs", "백준 1000 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js-1000" , 1, 5, 1, "
+    VALUES ("백준 1000 javascript | nodejs", "백준 1000 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js/1000" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -712,7 +712,7 @@ function solution(A, B) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 b1316 javascript | nodejs", "백준 b1316 javascript | nodejs", "2021-08-21", "2021-08-21", "/boj-js-1316" , 1, 5, 1, "
+    VALUES ("백준 b1316 javascript | nodejs", "백준 b1316 javascript | nodejs", "2021-08-21", "2021-08-21", "/boj-js/1316" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -756,7 +756,7 @@ function solution(N, arr) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 1001 javascript | nodejs ", "백준 1001 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js-1001" , 1, 5, 1, "
+    VALUES ("백준 1001 javascript | nodejs ", "백준 1001 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js/1001" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -780,7 +780,7 @@ function solution(A, B) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 1110 javascript | nodejs", "백준 1110 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js-1110" , 1, 5, 1, "
+    VALUES ("백준 1110 javascript | nodejs", "백준 1110 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js/1110" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -825,7 +825,7 @@ function solution(N) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 2577 javascript | nodejs", "백준 2577 javascript | nodejs", "2021-08-09", "2021-08-09", "/boj-js-2577" , 1, 5, 1, "
+    VALUES ("백준 2577 javascript | nodejs", "백준 2577 javascript | nodejs", "2021-08-09", "2021-08-09", "/boj-js/2577" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -856,7 +856,7 @@ function solution(items) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 10952 javascript | nodejs", "백준 10952 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js-10952" , 1, 5, 1, "
+    VALUES ("백준 10952 javascript | nodejs", "백준 10952 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js/10952" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -893,7 +893,7 @@ function solution(testcaseArray) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 2741 javascript | nodejs", "백준 2741 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js-2741" , 1, 5, 1, "
+    VALUES ("백준 2741 javascript | nodejs", "백준 2741 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js/2741" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -916,7 +916,7 @@ function solution(N) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 b1152 javascript | nodejs", "백준 b1152 javascript | nodejs", "2021-08-21", "2021-08-21", "/boj-js-1152" , 1, 5, 1, "
+    VALUES ("백준 b1152 javascript | nodejs", "백준 b1152 javascript | nodejs", "2021-08-21", "2021-08-21", "/boj-js/1152" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -944,7 +944,7 @@ function solution(str) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 10951 javascript | nodejs", "백준 10951 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js-10951" , 1, 5, 1, "
+    VALUES ("백준 10951 javascript | nodejs", "백준 10951 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js/10951" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -981,7 +981,7 @@ function solution(testcaseArray) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 2742 javascript | nodejs", "백준 2742 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js-2742" , 1, 5, 1, "
+    VALUES ("백준 2742 javascript | nodejs", "백준 2742 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js/2742" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -1004,7 +1004,7 @@ function solution(N) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 11022 javascript | nodejs", "백준 11022 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js-11022" , 1, 5, 1, "
+    VALUES ("백준 11022 javascript | nodejs", "백준 11022 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js/11022" , 1, 5, 1, "
 
 ```javascript {numberLines: 1} {numberLines}
 const fs = require('fs');
@@ -1033,7 +1033,7 @@ function solution(T, testcaseArray) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 b1157 javascript | nodejs", "백준 b1157 javascript | nodejs", "2021-08-21", "2021-08-21", "/boj-js-1157" , 1, 5, 1, "
+    VALUES ("백준 b1157 javascript | nodejs", "백준 b1157 javascript | nodejs", "2021-08-21", "2021-08-21", "/boj-js/1157" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -1078,7 +1078,7 @@ function solution(str) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 3052 javascript | nodejs", "백준 3052 javascript | nodejs", "2021-08-09", "2021-08-09", "/boj-js-3052" , 1, 5, 1, "
+    VALUES ("백준 3052 javascript | nodejs", "백준 3052 javascript | nodejs", "2021-08-09", "2021-08-09", "/boj-js/3052" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -1111,7 +1111,7 @@ function solution(items) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 4673 javascript | nodejs", "백준 4673 javascript | nodejs", "2021-08-09", "2021-08-09", "/boj-js-4673" , 1, 5, 1, "
+    VALUES ("백준 4673 javascript | nodejs", "백준 4673 javascript | nodejs", "2021-08-09", "2021-08-09", "/boj-js/4673" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 solution();
@@ -1147,7 +1147,7 @@ function solution() {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 14681 javascript | nodejs", "백준 14681 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js-14681" , 1, 5, 1, "
+    VALUES ("백준 14681 javascript | nodejs", "백준 14681 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js/14681" , 1, 5, 1, "
 
 ```javascript {numberLines}
 const readline = require('readline');
@@ -1191,7 +1191,7 @@ function solution(x, y) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 b2941 javascript | nodejs", "백준 b2941 javascript | nodejs", "2021-08-21", "2021-08-21", "/boj-js-2941" , 1, 5, 1, "
+    VALUES ("백준 b2941 javascript | nodejs", "백준 b2941 javascript | nodejs", "2021-08-21", "2021-08-21", "/boj-js/2941" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -1255,7 +1255,7 @@ function solution(str) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 2753 javascript | nodejs", "백준 2753 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js-2753" , 1, 5, 1, "
+    VALUES ("백준 2753 javascript | nodejs", "백준 2753 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js/2753" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -1279,7 +1279,7 @@ function solution(num) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 10871 javascript | nodejs", "백준 10871 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js-10871" , 1, 5, 1, "
+    VALUES ("백준 10871 javascript | nodejs", "백준 10871 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js/10871" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -1309,7 +1309,7 @@ function solution(N, X, A) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 1330 javascript | nodejs", "백준 1330 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js-1330" , 1, 5, 1, "
+    VALUES ("백준 1330 javascript | nodejs", "백준 1330 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js/1330" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -1341,7 +1341,7 @@ function solution(A, B) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 10950 javascript | nodejs", "백준 10950 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js-10950" , 1, 5, 1, "
+    VALUES ("백준 10950 javascript | nodejs", "백준 10950 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js/10950" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -1370,7 +1370,7 @@ function solution(T, testcaseArray) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 2739 javascript | nodejs", "백준 2739 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js-2739" , 1, 5, 1, "
+    VALUES ("백준 2739 javascript | nodejs", "백준 2739 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js/2739" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -1393,7 +1393,7 @@ function solution(N) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 1008 javascript | nodejs", "백준 1008 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js-1008" , 1, 5, 1, "
+    VALUES ("백준 1008 javascript | nodejs", "백준 1008 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js/1008" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -1417,7 +1417,7 @@ function solution(A, B) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 10998 javascript | nodejs", "백준 10998 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js-10998" , 1, 5, 1, "
+    VALUES ("백준 10998 javascript | nodejs", "백준 10998 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js/10998" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -1441,7 +1441,7 @@ function solution(A, B) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 8958 javascript | nodejs", "백준 8958 javascript | nodejs", "2021-08-09", "2021-08-09", "/boj-js-8958" , 1, 5, 1, "
+    VALUES ("백준 8958 javascript | nodejs", "백준 8958 javascript | nodejs", "2021-08-09", "2021-08-09", "/boj-js/8958" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -1479,7 +1479,7 @@ function solution(arrayLength, items) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 4344 javascript", "상위 컴포넌트에 width를 지정하지 않으면 하위 컴포넌트의 width에 따라 지정하는게 일반적인데 하위 컴포넌트 모두 width가 0인데도 상위 컴포넌트 width가 아닐 때 참고하면 좋은 글", "2021-07-24", "2021-07-24", "/boj-js-4344" , 1, 5, 1, "
+    VALUES ("백준 4344 javascript", "상위 컴포넌트에 width를 지정하지 않으면 하위 컴포넌트의 width에 따라 지정하는게 일반적인데 하위 컴포넌트 모두 width가 0인데도 상위 컴포넌트 width가 아닐 때 참고하면 좋은 글", "2021-07-24", "2021-07-24", "/boj-js/4344" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -1537,7 +1537,7 @@ function solution(C, testCase) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 2588 javascript | nodejs", "백준 2588 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js-2588" , 1, 5, 1, "
+    VALUES ("백준 2588 javascript | nodejs", "백준 2588 javascript | nodejs", "2021-07-24", "2021-07-24", "/boj-js/2588" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -1567,7 +1567,7 @@ function solution(A, B) {
   
     
     INSERT INTO article(title, summary, createAt, updateAt, slug, mainCategoryId, subCategoryId, readTime, contents, showAt)
-    VALUES ("백준 b5622 javascript | nodejs", "백준 b5622 javascript | nodejs", "2021-08-21", "2021-08-21", "/boj-js-5622" , 1, 5, 1, "
+    VALUES ("백준 b5622 javascript | nodejs", "백준 b5622 javascript | nodejs", "2021-08-21", "2021-08-21", "/boj-js/5622" , 1, 5, 1, "
 
 ```javascript {numberLines: 1}
 const fs = require('fs');
@@ -2455,6 +2455,7 @@ https://velopert.com/406
       INSERT INTO article_tag(articleId, tagId)
       VALUES (60, 10);
   
+    
       INSERT INTO article_tag(articleId, tagId)
       VALUES (60, 8);
   
@@ -2540,3 +2541,4 @@ https://velopert.com/406
       INSERT INTO article_tag(articleId, tagId)
       VALUES (62, 6);
   
+    
