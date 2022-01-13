@@ -5,6 +5,7 @@ import Router from './lib/Router/index.ts';
 import { GraphQLHTTP } from 'https://deno.land/x/gql@1.1.0/mod.ts';
 import { makeExecutableSchema } from 'https://deno.land/x/graphql_tools@0.0.2/mod.ts';
 import { typeDefs, resolvers } from './graphql/index.ts';
+import { getFileExtension, getContentType } from './utils/headers.ts';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 
@@ -12,7 +13,6 @@ async function staticFileCatcher(
   requestEvent: Deno.RequestEvent
 ): Promise<void> {
   const { pathname } = new URL(requestEvent.request.url);
-  const fileExtension = pathname.split('.')[1];
   try {
     if (pathname === '/') {
       const indexHtml = await Deno.readFile(`${__dirname}../build/index.html`);
@@ -26,10 +26,11 @@ async function staticFileCatcher(
       return;
     }
     const file = await Deno.readFile(`${__dirname}../build${pathname}`);
+    const fileExtension = getFileExtension(pathname);
     requestEvent.respondWith(
       new Response(file, {
         headers: {
-          'content-type': `text/${fileExtension}`,
+          'content-type': getContentType(fileExtension),
         },
       })
     );
@@ -38,6 +39,7 @@ async function staticFileCatcher(
     throw 'err , ' + err;
   }
 }
+
 async function handleConnection(
   registeredRouterList: Router[],
   requestEvent: Deno.RequestEvent
