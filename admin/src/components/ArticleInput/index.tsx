@@ -20,14 +20,14 @@ const postArticle = (
     mutation: `
     mutation {
       postArticle(
-        title: "${title}", 
+        title: """${title}""", 
         slug: "${slug}", 
-        summary: "${summary}", 
+        summary: """${summary}""", 
         mainCategoryId: ${mainCategoryId}, 
         subCategoryId: ${subCategoryId}, 
         readTime:${readTime}, 
-        contents: "${contents}"
-        showAt: "${new Date(showAt + 'GMT+09:00').toISOString().split('T')[0]}"
+        contents: """${contents}""",
+        showAt: "${new Date(showAt + 'GMT+09:00').toISOString().split('T')[0]}",
         tags: ${tagData}
       )
     }
@@ -212,6 +212,17 @@ const Input = () => {
                   </option>
                 ))}
               </select>
+            );
+          }
+          if (key === 'contents') {
+            return (
+              <textarea
+                key={key}
+                className='block border border-lime-400'
+                placeholder={key}
+                style={{ width: '100%', height: '15rem' }}
+                ref={(el) => (articleInputRef.current[key] = el)}
+              />
             );
           }
           return (
