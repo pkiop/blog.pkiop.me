@@ -1,80 +1,29 @@
 // Deno.listen return value is async iterable connections
+
 import ArticleRouter from './router/Article.ts';
 import CategoryRouter from './router/Category.ts';
 import Router from './lib/Router/index.ts';
-import { GraphQLHTTP } from 'https://deno.land/x/gql@1.1.0/mod.ts';
-import { makeExecutableSchema } from 'https://deno.land/x/graphql_tools@0.0.2/mod.ts';
-import { typeDefs, resolvers } from './graphql/index.ts';
-import { getFileExtension, getContentType } from './utils/headers.ts';
+import {
+  staticFileSender,
+  graphQLSender,
+  routerSender,
+  clientSender,
+} from './utils/Sender/index.ts';
 
 const __dirname = new URL('.', import.meta.url).pathname;
-
-async function staticFileCatcher(
-  requestEvent: Deno.RequestEvent
-): Promise<void> {
-  const { pathname } = new URL(requestEvent.request.url);
-  try {
-    if (pathname === '/') {
-      const indexHtml = await Deno.readFile(`${__dirname}../build/index.html`);
-      requestEvent.respondWith(
-        new Response(indexHtml, {
-          headers: {
-            'content-type': `text/html`,
-          },
-        })
-      );
-      return;
-    }
-    const file = await Deno.readFile(`${__dirname}../build${pathname}`);
-    const fileExtension = getFileExtension(pathname);
-    requestEvent.respondWith(
-      new Response(file, {
-        headers: {
-          'content-type': getContentType(fileExtension),
-        },
-      })
-    );
-    return;
-  } catch (err) {
-    throw 'err , ' + err;
-  }
-}
 
 async function handleConnection(
   registeredRouterList: Router[],
   requestEvent: Deno.RequestEvent
 ) {
   const url = new URL(requestEvent.request.url).pathname.split('/');
-  if (url[1] === 'graphql') {
-    try {
-      const res = await GraphQLHTTP<Request>({
-        schema: makeExecutableSchema({ resolvers, typeDefs }),
-        graphiql: true,
-      })(requestEvent.request);
-      requestEvent.respondWith(res);
-    } catch (err) {
-      requestEvent.respondWith(
-        new Response(`GraphQL ERROR : ${err}`, { status: 500 })
-      );
-      console.error(err);
-    }
-    return;
-  }
 
-  const router = registeredRouterList.find((router) =>
-    router.compareRoute(url)
-  );
-  if (router) {
-    router.setRequest(requestEvent);
-    router.run();
-    return;
-  }
-  try {
-    await staticFileCatcher(requestEvent);
-    return;
-  } catch (err) {
-    console.error('catch err : ', err);
-  }
+  if (await graphQLSender(requestEvent, url)) return;
+  if (routerSender(requestEvent, registeredRouterList, url)) return;
+  if (await staticFileSender(requestEvent)) return;
+  if (clientSender(requestEvent)) return;
+
+  // TODO:  여기서 url을 파싱한다음 글에 해당하는 url이면 SSR을 하면 될듯.
   const indexHtml = await Deno.readFile(`${__dirname}../build/index.html`);
   requestEvent.respondWith(
     new Response(indexHtml, {
