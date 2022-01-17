@@ -13,5 +13,5 @@ export function routerSender(
     router.run();
     return true;
   }
-  false;
+  return false;
 }

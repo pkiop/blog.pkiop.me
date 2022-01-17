@@ -11,13 +11,12 @@ export async function graphQLSender(
       schema: makeExecutableSchema({ resolvers, typeDefs }),
       graphiql: true,
     })(requestEvent.request);
-    requestEvent.respondWith(res);
+    await requestEvent.respondWith(res);
   } catch (err) {
-    requestEvent.respondWith(
+    await requestEvent.respondWith(
       new Response(`GraphQL ERROR : ${err}`, { status: 500 })
     );
     console.error(err);
-    return false;
   }
   return true;
 }

@@ -25,7 +25,7 @@ async function handleConnection(
 
   // TODO:  여기서 url을 파싱한다음 글에 해당하는 url이면 SSR을 하면 될듯.
   const indexHtml = await Deno.readFile(`${__dirname}../build/index.html`);
-  requestEvent.respondWith(
+  await requestEvent.respondWith(
     new Response(indexHtml, {
       headers: {
         'content-type': `text/html`,
@@ -55,6 +55,7 @@ async function main() {
   console.log(`server run at http://localhost:${PORT}`);
   const server = Deno.listen({ port: PORT });
   for await (const conn of server) {
+    console.log('Conn : ', conn);
     handle(conn);
   }
 }
