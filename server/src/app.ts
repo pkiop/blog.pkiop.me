@@ -18,16 +18,16 @@ async function handleConnection(
 ) {
   const url = new URL(requestEvent.request.url).pathname.split('/');
 
-  if (await staticFileSender(requestEvent)) return;
   if (await graphQLSender(requestEvent, url)) return;
   if (routerSender(requestEvent, registeredRouterList, url)) return;
   if (clientSender(requestEvent)) return;
+  if (await staticFileSender(requestEvent)) return;
 
-  // TODO:  여기서 url을 파싱한다음 글에 해당하는 url이면 SSR을 하면 될듯.
+  const file = await Deno.readFile(`${__dirname}../build/index.html`);
   await requestEvent.respondWith(
-    new Response('404', {
+    new Response(file, {
       headers: {
-        'content-type': `text/html`,
+        'content-type': 'text/html',
       },
     })
   );
