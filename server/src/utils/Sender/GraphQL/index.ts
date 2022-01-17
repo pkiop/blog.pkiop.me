@@ -13,10 +13,7 @@ export async function graphQLSender(
     })(requestEvent.request);
     await requestEvent.respondWith(res);
   } catch (err) {
-    await requestEvent.respondWith(
-      new Response(`GraphQL ERROR : ${err}`, { status: 500 })
-    );
-    console.error(err);
+    console.error('request fail : ', err);
   }
   return true;
 }

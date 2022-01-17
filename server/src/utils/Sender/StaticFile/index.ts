@@ -7,6 +7,19 @@ export async function staticFileSender(
 ): Promise<void | boolean> {
   const { pathname } = new URL(requestEvent.request.url);
   try {
+    if (pathname === '/') {
+      const file = await Deno.readFile(
+        `${__dirname}../../../../build/index.html`
+      );
+      await requestEvent.respondWith(
+        new Response(file, {
+          headers: {
+            'content-type': getContentType('html'),
+          },
+        })
+      );
+      return true;
+    }
     const file = await Deno.readFile(
       `${__dirname}../../../../build${pathname}`
     );
