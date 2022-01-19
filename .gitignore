@@ -1,7 +1,8 @@
 .vscode/settings.json
 .secret
 .env
-.env_prod
+.env.local
+.env.prod
 cov_profile
 settings.json
 object.env
