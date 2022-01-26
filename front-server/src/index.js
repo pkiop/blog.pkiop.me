@@ -1,17 +1,24 @@
-import path from 'path';
-import fs from 'fs';
-
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import express from 'express';
 
-import App from './js/App.jsx';
+import fs from 'fs';
+
+import path from 'path';
 
 const PORT = process.env.PORT || 3006;
 const app = express();
 
+const TestApp = () => {
+  return (
+    <>
+      <div>test</div>
+    </>
+  );
+};
+
 app.get('/', (req, res) => {
-  const app = ReactDOMServer.renderToPipeableStream(<App />);
+  const app = ReactDOMServer.renderToPipeableStream(<TestApp />);
   const indexFile = path.resolve('./build/index.html');
 
   fs.readFile(indexFile, 'utf8', (err, data) => {
