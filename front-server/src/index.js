@@ -1,10 +1,8 @@
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
-import express from 'express';
-
-import fs from 'fs';
-
-import path from 'path';
+const fs = require('fs');
+const path = require('path');
+const React = require('React');
+const ReactDOMServer = require('ReactDOMServer');
+const express = require('express');
 
 const PORT = process.env.PORT || 3006;
 const app = express();
