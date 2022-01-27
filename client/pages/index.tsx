@@ -1,10 +1,7 @@
 import SidebarContainer from '@components/container/SidebarContainer';
 import ContentsContainer from '@components/container/ContentsContainer';
-import PostContainer from '@components/container/PostContainer';
-import NotFound from '@components/UI/NotFound';
 import styled from 'styled-components';
 import MainTemplate from '@templates/Main';
-import { Route, Routes } from 'react-router-dom';
 // styles
 
 const ContentsWrapper = styled.div`
@@ -33,29 +30,8 @@ const IndexPage = () => {
       </ContentsWrapper>
     </IndexPageWrapper>
   );
-  const PostContent = (
-    <IndexPageWrapper>
-      <ContentsWrapper>
-        <PostContainer />
-      </ContentsWrapper>
-    </IndexPageWrapper>
-  );
 
-  return (
-    <Routes>
-      <Route path='/' element={<MainTemplate contents={MainContent} />} />
-      <Route
-        path='/not-found'
-        element={<MainTemplate contents={<NotFound />} />}
-      />
-      <Route path='/:slug' element={<MainTemplate contents={PostContent} />} />
-      <Route
-        path='/:slug/:subSlug'
-        element={<MainTemplate contents={PostContent} />}
-      />
-      <Route path='*' element={<MainTemplate contents={<NotFound />} />} />
-    </Routes>
-  );
+  return <MainTemplate contents={MainContent} />;
 };
 
 export default IndexPage;

@@ -1,8 +1,10 @@
 import { createStore, applyMiddleware } from 'redux';
+import type { Store } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import * as api from '@api/index';
 import { ITag } from 'types/tag.interface';
 import { ContentLabel } from 'types/content.interface';
+import { Context, createWrapper, HYDRATE } from 'next-redux-wrapper';
 
 const SET_MAIN_CATEGORIES = 'SET_MAIN_CAREGORIES';
 const SET_SUB_CATEGORIES = 'SET_SUB_CATEGORIES';
@@ -157,11 +159,8 @@ function reducer(state: any, action: any) {
   }
 }
 
-export default (preloadedState: any) => {
-  if (!preloadedState) console.warn('no preloadedState');
-  return createStore(
-    reducer as any,
-    preloadedState,
-    applyMiddleware(ReduxThunk)
-  );
-};
+const makeStore = (context: Context) => createStore(reducer);
+export interface State {
+  tick: string;
+}
+export const wrapper = createWrapper<Store<State>>(makeStore, { debug: true });
