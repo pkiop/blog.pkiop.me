@@ -1,0 +1,47 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { setSubCategory } from '@state/createStore';
+import type { IMainCategory, ISubCategory } from 'types/category.interface';
+import * as S from './style';
+
+export interface SubCategoryComponent {
+  className?: string;
+  subCategory: ISubCategory[];
+  mainCategory: IMainCategory;
+}
+
+const SubCategory = ({
+  className,
+  subCategory,
+  mainCategory,
+}: SubCategoryComponent) => {
+  const dispatch = useDispatch();
+  const selectedSubCategory: string[] = useSelector(
+    (state: any) => state.subCategory,
+  );
+  const selectedMainCategory: string = useSelector(
+    (state: any) => state.mainCategory,
+  );
+  const subCategoryComponents = subCategory.map((category: ISubCategory) => {
+    const setCategory = () => {
+      dispatch(setSubCategory(mainCategory.title, category.title));
+    };
+    return (
+      <S.SubCategoryComponent<any>
+        onClick={setCategory}
+        key={category.title}
+        isSelected={
+          selectedMainCategory.includes(mainCategory.title) &&
+          selectedSubCategory.includes(category.title)
+        }
+      >
+        {category.title}
+        <S.Count>{category.count ? `(${category.count})` : ''}</S.Count>
+      </S.SubCategoryComponent>
+    );
+  });
+  return (
+    <S.SubCategory className={className}>{subCategoryComponents}</S.SubCategory>
+  );
+};
+
+export default SubCategory;
