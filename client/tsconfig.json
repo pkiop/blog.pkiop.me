@@ -1,21 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
+    "target": "esnext",
+    "module": "commonjs",
     "jsx": "preserve",
-    "incremental": true
+    "lib": ["dom", "esnext"],
+    "strict": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "baseUrl": "./src",
+    "paths": {}
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"],
-  "extends": "./tsconfig.extend.json"
+  "include": ["./src/**/*", "setup-test-env.js"],
+  "exclude": ["node_modules", "public", ".cache"]
 }
