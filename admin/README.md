@@ -5,4 +5,5 @@
 ## 빌드 방법
 
 cd ../server npm start // 서버 실행
+
 npm run start
