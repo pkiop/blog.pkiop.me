@@ -26,10 +26,17 @@ export const toggleSidebar = () => ({
   type: TOGGLE_SIDEBAR,
 });
 
-export const initialState = {
+type ReduxState = {
+  mainCategory: string;
+  subCategory: string;
+  tag: string[];
+  isSidebarOpen: boolean;
+};
+
+export const initialState: ReduxState = {
   mainCategory: '',
   subCategory: '',
-  tag: [] as string[],
+  tag: [],
   isSidebarOpen: false,
 };
 

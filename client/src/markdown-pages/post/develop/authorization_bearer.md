@@ -4,8 +4,8 @@ date: '2022-02-25'
 title: '토큰 기반 인증할 때 access-token 앞에 붙는 bearer의 뜻'
 summary: '토큰 기반 인증할 때 access-token 앞에 붙는 bearer의 뜻에 대한 글 입니다.'
 mainCategory: '개발'
-subCategory: ''
-tag: []
+subCategory: 'backend'
+tag: ['Auth']
 readTime: 1
 ---
 

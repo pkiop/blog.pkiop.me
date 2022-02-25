@@ -4,8 +4,8 @@ date: '2021-11-15'
 title: 'Github No anonymous write access. 해결'
 summary: 'EGithub No anonymous write access. 해결'
 mainCategory: '개발'
-subCategory: ''
-tag: []
+subCategory: 'etc'
+tag: ['Github']
 readTime: 1
 ---
 
