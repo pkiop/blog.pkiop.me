@@ -36,12 +36,16 @@ export default function Template({
         <meta name="description" content={frontmatter.summary} />
         <meta name="keywords" content={frontmatter.tag.join(', ')} />
         <html lang="ko" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0"
+        ></meta>
         <script type="application/ld+json">
           {`{
             "@context": "https://schema.org",
-            "@type": ${frontmatter.mainCategory},
-            "headline": ${frontmatter.title},
-            "datePublished": ${new Date(frontmatter.date)},
+            "@type": "${frontmatter.mainCategory}",
+            "headline": "${frontmatter.title}",
+            "datePublished": "${new Date(frontmatter.date)}",
           }`}
         </script>
       </Helmet>
@@ -79,7 +83,7 @@ export default function Template({
 }
 
 export const pageQuery = graphql`
-  query($id: String!) {
+  query ($id: String!) {
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
@@ -89,6 +93,8 @@ export const pageQuery = graphql`
         summary
         tag
         readTime
+        mainCategory
+        subCategory
       }
     }
   }
