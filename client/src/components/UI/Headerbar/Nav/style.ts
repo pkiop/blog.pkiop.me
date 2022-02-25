@@ -19,21 +19,22 @@ export const NavList = styled.div<ISidebarOpen>`
   }
   @media (max-width: ${layout.mobileWidth}) {
     position: relative;
-    .header-nav-wrapper > a {
-    }
 
     .header-nav-wrapper {
-      background-color: ${colors.mobileSidebarBgColor};
-      display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
-      flex-direction: column;
       position: absolute;
       top: 0;
       right: -1rem;
+      background-color: ${colors.mobileSidebarBgColor};
+      display: flex;
+      right: ${({ isOpen }) => (isOpen ? '-1rem' : '-40rem')};
+      flex-direction: column;
+
       border-radius: ${bdr} ${bdr} 0 0;
       padding-top: 1rem;
       padding-right: 2rem;
 
       width: ${layout.sidebarWidth};
+      transition: 0.3s right;
       > a {
         margin: 1rem;
         text-align: right;
