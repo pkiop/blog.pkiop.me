@@ -4,8 +4,8 @@ date: '2020-09-15'
 title: 'Express-session 동작 및 활용'
 summary: 'Express-session 을 통한 로그인 인증 기능에 대한 글 입니다.'
 mainCategory: '개발'
-subCategory: 'express.js'
-tag: ['Express', 'Backend']
+subCategory: 'backend'
+tag: ['Express']
 readTime: 4
 ---
 
@@ -23,11 +23,11 @@ user 로그인 상태를 관리하기 위해 안전한 방법으로 Server에서
 const session = require('express-session');
 
 app.use(
-    session({
-        secret: 'mySecretKey!@#$',
-        resave: false,
-        saveUninitialized: true,
-    }),
+  session({
+    secret: 'mySecretKey!@#$',
+    resave: false,
+    saveUninitialized: true,
+  })
 );
 ```
 
@@ -44,26 +44,26 @@ express-session을 미들웨어로 등록한다. sessionID를 발급할 때 user
 
 ```ts
 router.post('/login_process', (req, res) => {
-    const userData = fs.readFileSync(`${__dirname}/../data/user.json`, (e) => {
-        if (e) console.log(e);
-    });
-    let loginSuccess = false;
-    let userID;
-    JSON.parse(userData.toString()).users.some((x) => {
-        if (x.id == req.body.id && x.password && req.body.password) {
-            loginSuccess = true;
-            userID = x.id;
-            return true;
-        }
-    });
-
-    if (loginSuccess) {
-        console.log('로그인 성공!');
-        req.session.sessionID = userID;
-    } else {
-        console.log('로그인 실패');
+  const userData = fs.readFileSync(`${__dirname}/../data/user.json`, (e) => {
+    if (e) console.log(e);
+  });
+  let loginSuccess = false;
+  let userID;
+  JSON.parse(userData.toString()).users.some((x) => {
+    if (x.id == req.body.id && x.password && req.body.password) {
+      loginSuccess = true;
+      userID = x.id;
+      return true;
     }
-    res.redirect('/');
+  });
+
+  if (loginSuccess) {
+    console.log('로그인 성공!');
+    req.session.sessionID = userID;
+  } else {
+    console.log('로그인 실패');
+  }
+  res.redirect('/');
 });
 ```
 
@@ -75,12 +75,12 @@ client에게 고유한 sessionID가 발급되었기 때문에 이 sessionID값�
 
 ```ts
 router.get('/rightLoginCheck', (req, res) => {
-    if (req.session.sessionID) {
-        console.log(req.session.sessionID, '가 접속했습니다');
-    } else {
-        console.log('잘못된 유저');
-    }
-    res.redirect('/');
+  if (req.session.sessionID) {
+    console.log(req.session.sessionID, '가 접속했습니다');
+  } else {
+    console.log('잘못된 유저');
+  }
+  res.redirect('/');
 });
 ```
 
@@ -90,16 +90,16 @@ router.get('/rightLoginCheck', (req, res) => {
 
 ```ts
 router.get('/logout_process', (req, res) => {
-    if (req.session.sessionID) {
-        console.log(`${req.session.sessionID}가 로그아웃했습니다.`);
-        req.session.destroy((err) => {
-            if (err) {
-                console.log(err);
-            }
-        });
-    }
+  if (req.session.sessionID) {
+    console.log(`${req.session.sessionID}가 로그아웃했습니다.`);
+    req.session.destroy((err) => {
+      if (err) {
+        console.log(err);
+      }
+    });
+  }
 
-    res.redirect('/');
+  res.redirect('/');
 });
 ```
 
