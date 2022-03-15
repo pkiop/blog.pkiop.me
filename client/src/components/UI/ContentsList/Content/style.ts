@@ -2,6 +2,8 @@
 import styled from 'styled-components';
 import { colors, transition } from 'styles/theme';
 
+const { contents: contentsColor } = colors;
+
 export const Content = styled.div`
   width: 100%;
   display: flex;
@@ -9,7 +11,7 @@ export const Content = styled.div`
   margin: 1rem;
   border: 0.1rem solid ${colors.hr};
   border-radius: 0.8rem;
-  color: ${colors.subText};
+  color: ${contentsColor.color};
 
   &:hover {
     cursor: pointer;

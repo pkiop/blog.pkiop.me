@@ -23,9 +23,14 @@ const teal100 = '#b5edf4';
 const teal50 = '#e1f8fb';
 
 export const header = {
-  bgColor: gray300,
+  bgColor: gray200,
   color: gray900,
   color_hover: gray700,
+};
+
+export const contents = {
+  bgColor: gray200,
+  color: gray900,
 };
 
 export const theme: DefaultTheme = {
@@ -41,6 +46,7 @@ export const theme: DefaultTheme = {
 
 export const colors = {
   header,
+  contents,
   mainBgColor: '#2d333a',
   subBgColor: '#22272D',
   mainTextColor: '#CDD9E5',
