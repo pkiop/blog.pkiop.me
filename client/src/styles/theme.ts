@@ -28,9 +28,23 @@ export const header = {
   color_hover: gray700,
 };
 
-export const contents = {
+export const main = {
   bgColor: gray200,
+};
+
+export const contents = {
+  bgColor: gray300,
+  bgColor_hover: gray200,
   color: gray900,
+};
+
+export const sidebar = {
+  category: {
+    bgColor: gray300,
+    bgColor_hover: gray200,
+    color: gray900,
+    border: gray800,
+  },
 };
 
 export const theme: DefaultTheme = {
@@ -47,6 +61,8 @@ export const theme: DefaultTheme = {
 export const colors = {
   header,
   contents,
+  sidebar,
+  main,
   mainBgColor: '#2d333a',
   subBgColor: '#22272D',
   mainTextColor: '#CDD9E5',

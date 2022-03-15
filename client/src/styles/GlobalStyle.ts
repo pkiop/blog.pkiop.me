@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { colors } from 'styles/theme';
 
-const { contents: contentsColor } = colors;
+const { main: mainColor } = colors;
 /* http://meyerweb.com/eric/tools/css/reset/
   v2.0 | 20110126
   License: none (public domain)
@@ -36,7 +36,7 @@ const GlobalStyle = createGlobalStyle`
   }
   html, body, #root, .Section__container___3YYTG {
     height: 100%;
-    background-color: ${contentsColor.bgColor};
+    background-color: ${mainColor.bgColor};
   }
   /* HTML5 display-role reset for older browsers */
   article, aside, details, figcaption, figure, 

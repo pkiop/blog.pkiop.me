@@ -12,11 +12,12 @@ export const Content = styled.div`
   border: 0.1rem solid ${colors.hr};
   border-radius: 0.8rem;
   color: ${contentsColor.color};
+  background-color: ${contentsColor.bgColor};
 
   &:hover {
     cursor: pointer;
     transition: ${transition.hoverTransitionTime} filter;
-    filter: brightness(140%);
+    filter: brightness(105%);
   }
   transition: ${transition.hoverTransitionTime} filter;
 
