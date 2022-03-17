@@ -12,7 +12,7 @@ export const HeaderBar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  border-bottom: 1px solid ${headerColor.color};
   > a {
     font-size: 3.2rem;
     color: ${headerColor.color};
