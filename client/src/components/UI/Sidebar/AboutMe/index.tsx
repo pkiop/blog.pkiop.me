@@ -16,6 +16,8 @@ function TagList({ className }: IAboutMeComponent) {
         imgFile={GithubLogo}
         link="https://github.com/pkiop"
         alt="github link"
+        bgColor="black"
+        borderRadius={999}
       />
       <S.Logo
         imgFile={YoutubeLogo}

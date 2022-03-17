@@ -7,14 +7,20 @@ import AboutMeComponent from './AboutMe';
 import { colors, layout, transition } from 'styles/theme';
 import { ISidebarOpen } from 'types/headerbar';
 
+const { contents: contentsColor } = colors;
+const { sidebar: sidebarColor } = colors;
+
 const bdr = layout.sidebarBorderRadius;
+
 export const Sidebar = styled.div<ISidebarOpen>`
   @media (max-width: ${layout.mobileWidth}) {
     display: flex;
     position: absolute;
+    top: 8rem;
+    z-index: 10;
     right: ${({ isOpen }) => (isOpen ? 0 : -40)}rem;
     transition: 0.3s right;
-    background-color: ${colors.mobileSidebarBgColor};
+    background-color: ${contentsColor.bgColor};
     border-radius: 0 0 ${bdr} ${bdr};
     padding: 3rem 3rem 1rem 3rem;
     width: ${layout.sidebarWidth};
@@ -42,20 +48,18 @@ export const TagList = styled(TagListComponent)``;
 export const FilterClearBtn = styled.button`
   padding: 1rem;
   font-size: 2rem;
-  background-color: ${colors.mainBgColor};
-  color: ${colors.mainTextColor};
+  background-color: ${contentsColor.bgColor};
+  color: ${contentsColor.color};
   border-radius: 1rem;
+  border: 1px solid ${sidebarColor.category.border};
 
   width: 80%;
   margin-bottom: 2rem;
 
   cursor: pointer;
   :hover {
-    cursor: pointer;
-    filter: brightness(120%);
-    transition: ${transition.hoverTransitionTime} filter;
+    background-color: ${contentsColor.bgColor_hover};
   }
-  transition: ${transition.hoverTransitionTime} filter;
 `;
 
 export const DonateLink = styled(DonateLinkComponent)`

@@ -3,20 +3,23 @@ import { colors, layout } from 'styles/theme';
 import styled from 'styled-components';
 import { ISidebarOpen } from 'types/headerbar';
 
+const { header: headerColor, sidebar: sidebarColor } = colors;
 export const Nav = styled.div``;
 
 const bdr = layout.sidebarBorderRadius;
+
 export const NavList = styled.div<ISidebarOpen>`
   .header-nav-wrapper > a {
     font-size: 2rem;
     font-weight: 500;
-    color: ${colors.mainTextColor};
+    color: ${headerColor.color};
     margin-left: 1.6rem;
 
     &:hover {
-      color: white;
+      color: ${headerColor.color_hover};
     }
   }
+
   @media (max-width: ${layout.mobileWidth}) {
     position: relative;
 
@@ -24,9 +27,9 @@ export const NavList = styled.div<ISidebarOpen>`
       position: absolute;
       top: 0;
       right: -1rem;
-      background-color: ${colors.mobileSidebarBgColor};
-      display: flex;
       right: ${({ isOpen }) => (isOpen ? '-1rem' : '-40rem')};
+      background-color: ${sidebarColor.bgColor};
+      display: flex;
       flex-direction: column;
 
       border-radius: ${bdr} ${bdr} 0 0;
@@ -35,21 +38,26 @@ export const NavList = styled.div<ISidebarOpen>`
 
       width: ${layout.sidebarWidth};
       transition: 0.3s right;
+
+      z-index: 10;
+
       > a {
         margin: 1rem;
         text-align: right;
       }
-      z-index: 1;
     }
   }
 `;
 
 export const HamburgerImg = styled.img`
+  width: 4rem;
+  height: 4rem;
+
+  cursor: pointer;
+
   @media (min-width: ${layout.mobileWidth}) {
     display: none;
   }
-  width: 4rem;
-  height: 4rem;
 `;
 
 export const FullScreenDimmed = styled.div<ISidebarOpen>`
@@ -59,6 +67,7 @@ export const FullScreenDimmed = styled.div<ISidebarOpen>`
   top: 0;
   width: 100%;
   height: 100%;
+  z-index: 9;
   background-color: rgba(0, 0, 0, 0.2);
   @media (max-width: ${layout.mobileWidth}) {
     display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};

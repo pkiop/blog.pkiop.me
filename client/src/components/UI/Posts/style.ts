@@ -2,18 +2,17 @@
 import styled from 'styled-components';
 import { colors } from 'styles/theme';
 
+const { post: postColor } = colors;
+
 export const Posts = styled.div`
   width: 100%;
-  @media (min-width: 980px) {
-    width: 98rem;
-  }
-  background-color: ${colors.subBgColor};
 
   .blog-post-content {
-    padding: 0 3em 3em;
-    color: ${colors.subText};
+    padding: 0 1.4em 1.4em;
+    color: ${postColor.color};
     line-height: 3.6rem;
     font-size: 1.6rem;
+    word-break: keep-all;
 
     > p,
     > p > *,
@@ -47,7 +46,7 @@ export const Posts = styled.div`
     }
 
     a {
-      color: ${colors.link};
+      color: ${postColor.color_link};
     }
 
     img {
@@ -76,6 +75,17 @@ export const Posts = styled.div`
       > span {
         font-size: 1.3rem;
       }
+    }
+
+    // code
+    pre.grvsc-container {
+      margin-bottom: 2rem;
+    }
+  }
+  @media (min-width: 980px) {
+    width: 98rem;
+    .blog-post-content {
+      padding: 0 3em 3em;
     }
   }
 `;
