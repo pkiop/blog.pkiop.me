@@ -47,6 +47,11 @@ export const sidebar = {
   },
 };
 
+export const post = {
+  color: gray900,
+  color_link: teal700,
+};
+
 export const theme: DefaultTheme = {
   breakPoint: '769px',
   colors: {
@@ -63,6 +68,7 @@ export const colors = {
   contents,
   sidebar,
   main,
+  post,
   mainBgColor: '#2d333a',
   subBgColor: '#22272D',
   mainTextColor: '#CDD9E5',
