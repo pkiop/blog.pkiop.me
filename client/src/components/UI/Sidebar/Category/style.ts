@@ -6,6 +6,7 @@ import SubCategoryComponent from './SubCategory';
 const { sidebar: sidebarColor } = colors;
 
 const fontSize = '2rem';
+
 export const Category = styled.div`
   display: flex;
   flex-direction: column;

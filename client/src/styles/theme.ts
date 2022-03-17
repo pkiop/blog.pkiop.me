@@ -39,11 +39,13 @@ export const contents = {
 };
 
 export const sidebar = {
+  bgColor: gray300,
   category: {
     bgColor: gray300,
     bgColor_hover: gray200,
     color: gray900,
     border: gray800,
+    color_link: teal700,
   },
 };
 
@@ -79,8 +81,9 @@ export const colors = {
   link: '#539bf5',
 };
 
+export const MOBILE_WIDTH = 600;
 export const layout = {
-  mobileWidth: '600px',
+  mobileWidth: `${MOBILE_WIDTH}px`,
   sidebarWidth: '30rem',
   sidebarBorderRadius: '2rem',
 };

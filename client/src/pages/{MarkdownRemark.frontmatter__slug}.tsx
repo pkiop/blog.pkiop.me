@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useLayoutEffect, useEffect, useState, useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
 import Utterances from 'components/UI/Utterances';
+import SidebarContainer from 'components/container/SidebarContainer';
 import Posts from 'components/UI/Posts';
 import styled from 'styled-components';
 import MainTemplate from 'templates/Main';
 import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
+import { MOBILE_WIDTH } from 'styles/theme';
 deckDeckGoHighlightElement();
 
 const Wrapper = styled.div`
@@ -17,6 +19,7 @@ const Wrapper = styled.div`
 const PostWrapper = styled.div`
   display: flex;
   justify-content: center;
+  position: relative;
 
   & code span {
     font-size: 1.6rem;
@@ -28,6 +31,17 @@ export default function Template({
 }: any) {
   const { markdownRemark } = data; // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark;
+  const [isMobile, setIsMobile] = useState(window.innerWidth < MOBILE_WIDTH);
+  useEffect(() => {
+    // TODO: event 종료
+    window.addEventListener('resize', () => {
+      if (window.innerWidth < MOBILE_WIDTH) {
+        setIsMobile(true);
+        return;
+      }
+      setIsMobile(false);
+    });
+  }, []);
 
   const Contents = (
     <Wrapper>
@@ -49,6 +63,7 @@ export default function Template({
           }`}
         </script>
       </Helmet>
+      {isMobile && <SidebarContainer />}
       <PostWrapper>
         <Posts frontmatter={frontmatter} html={html} />
       </PostWrapper>
@@ -68,11 +83,16 @@ export default function Template({
           referrerPolicy="unsafe-url"
         ></iframe>
         <a
-          style={{ color: '#539bf5', fontSize: '1.3rem', margin: '1.8rem' }}
+          style={{
+            color: '#539bf5',
+            fontSize: '1.3rem',
+            margin: '1.8rem',
+            textAlign: 'center',
+          }}
           href="https://coupa.ng/b5eXs7"
         >
-          이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를
-          제공받습니다.
+          이 포스팅은 쿠팡 파트너스 활동의 일환으로, <br />
+          이에 따른 일정액의 수수료를 제공받습니다.
         </a>
       </div>
 

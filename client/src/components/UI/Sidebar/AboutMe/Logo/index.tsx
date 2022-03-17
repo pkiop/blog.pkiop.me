@@ -7,6 +7,8 @@ export interface IAboutMeComponent {
   alt: string;
   objectFit?: boolean;
   link: string;
+  bgColor?: string;
+  borderRadius?: number;
 }
 
 function TagList({
@@ -15,10 +17,18 @@ function TagList({
   objectFit,
   alt,
   imgFile,
+  bgColor,
+  borderRadius,
 }: IAboutMeComponent) {
   return (
     <a className={className} href={link}>
-      <S.Logo src={imgFile} objectFit={objectFit} alt={alt} />
+      <S.Logo
+        src={imgFile}
+        objectFit={objectFit}
+        alt={alt}
+        bgColor={bgColor}
+        borderRadius={borderRadius}
+      />
     </a>
   );
 }
