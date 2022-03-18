@@ -5,18 +5,18 @@ import TagListComponent from './TagList';
 import DonateLinkComponent from './DonateLink';
 import AboutMeComponent from './AboutMe';
 import { colors, layout, transition } from 'styles/theme';
-import { ISidebarOpen } from 'types/headerbar';
+import { SidebarStyle } from 'types/headerbar';
 
 const { contents: contentsColor } = colors;
 const { sidebar: sidebarColor } = colors;
 
 const bdr = layout.sidebarBorderRadius;
 
-export const Sidebar = styled.div<ISidebarOpen>`
+export const Sidebar = styled.div<SidebarStyle>`
   @media (max-width: ${layout.mobileWidth}) {
     display: flex;
     position: absolute;
-    top: 8rem;
+    top: 11.6rem;
     z-index: 10;
     right: ${({ isOpen }) => (isOpen ? 0 : -40)}rem;
     transition: 0.3s right;
