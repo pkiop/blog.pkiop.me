@@ -4,3 +4,7 @@ export interface ISidebarStoreState {
   tag: string[];
   isSidebarOpen: boolean;
 }
+
+export interface GlobalStoreState {
+  isDarkMode: boolean;
+}
