@@ -22,10 +22,17 @@ const teal200 = '#86e2ee';
 const teal100 = '#b5edf4';
 const teal50 = '#e1f8fb';
 
+const mainBgColor = '#2d333a';
+
 export const header = {
   bgColor: gray200,
   color: gray900,
   color_hover: gray700,
+  darkModeBtnBorder: teal100,
+  dark: {
+    bgColor: mainBgColor,
+    darkModeBtnBorder: teal100,
+  },
 };
 
 export const main = {

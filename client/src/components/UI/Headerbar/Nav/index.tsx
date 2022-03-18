@@ -2,9 +2,9 @@ import React from 'react';
 import Link from 'gatsby-link';
 import Hamburger from 'images/hamburger.svg';
 import { INav, INavButton } from 'types/headerbar';
-import { toggleSidebar } from 'state/createStore';
+import { toggleSidebar, toggleDarkMode } from 'state/createStore';
 import { useSelector, useDispatch } from 'react-redux';
-import { ISidebarStoreState } from 'types/store';
+import { ISidebarStoreState, GlobalStoreState } from 'types/store';
 
 import * as S from './style';
 
@@ -13,6 +13,7 @@ function Nav({ NavButtonList }: INav) {
   const isSidebarOpen = useSelector(
     (state: ISidebarStoreState) => state.isSidebarOpen,
   );
+  const isDarkMode = useSelector((state: GlobalStoreState) => state.isDarkMode);
 
   const ButtonList = NavButtonList.map((NavButton: INavButton) => {
     if (NavButton.isClientRoute) {
@@ -30,8 +31,14 @@ function Nav({ NavButtonList }: INav) {
   });
   return (
     <S.Nav>
-      <S.NavList isOpen={isSidebarOpen}>
-        <div className="header-nav-wrapper">{ButtonList}</div>
+      <S.NavList isOpen={isSidebarOpen} isDarkMode={isDarkMode}>
+        <div className="header-nav-wrapper">
+          {ButtonList}{' '}
+          <div
+            className="dark-mode"
+            onClick={() => dispatch(toggleDarkMode())}
+          ></div>
+        </div>
       </S.NavList>
       <S.HamburgerImg
         onClick={() => dispatch(toggleSidebar())}
@@ -39,6 +46,7 @@ function Nav({ NavButtonList }: INav) {
       />
       <S.FullScreenDimmed
         isOpen={isSidebarOpen}
+        isDarkMode={isDarkMode}
         onClick={() => dispatch(toggleSidebar())}
       ></S.FullScreenDimmed>
     </S.Nav>
