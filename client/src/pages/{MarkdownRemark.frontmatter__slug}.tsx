@@ -31,15 +31,19 @@ export default function Template({
 }: any) {
   const { markdownRemark } = data; // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark;
-  const [isMobile, setIsMobile] = useState(window.innerWidth < MOBILE_WIDTH);
+  const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     // TODO: event 종료
-    window.addEventListener('resize', () => {
+    const setMobileState = () => {
       if (window.innerWidth < MOBILE_WIDTH) {
         setIsMobile(true);
         return;
       }
       setIsMobile(false);
+    };
+
+    window.addEventListener('resize', () => {
+      setMobileState();
     });
   }, []);
 
