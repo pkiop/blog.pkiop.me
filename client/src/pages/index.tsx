@@ -40,8 +40,13 @@ const IndexPage = () => {
       </IndexPageWrapper>
       <div
         dangerouslySetInnerHTML={{
+          __html: `<script data-ad-client="ca-pub-8000924543923636" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>`,
+        }}
+      ></div>
+      <div
+        dangerouslySetInnerHTML={{
           __html: `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8000924543923636"
-            crossorigin="anonymous"></script><script data-ad-client="ca-pub-8000924543923636" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>`,
+          crossorigin="anonymous"></script>`,
         }}
       ></div>
     </>
