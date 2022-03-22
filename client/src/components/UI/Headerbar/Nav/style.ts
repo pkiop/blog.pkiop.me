@@ -15,11 +15,13 @@ export const NavList = styled.div<SidebarStyle>`
     > a {
       font-size: 2rem;
       font-weight: 500;
-      color: ${headerColor.color};
+      color: ${({ isDarkMode }) =>
+        isDarkMode ? headerColor.dark.color : headerColor.color};
       margin-left: 1.6rem;
 
       &:hover {
-        color: ${headerColor.color_hover};
+        color: ${({ isDarkMode }) =>
+          isDarkMode ? headerColor.dark.color_hover : headerColor.color_hover};
       }
     }
 
