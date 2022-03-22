@@ -55,7 +55,8 @@ export const NavList = styled.div<SidebarStyle>`
       top: 0;
       right: -1rem;
       right: ${({ isOpen }) => (isOpen ? '-1rem' : '-40rem')};
-      background-color: ${sidebarColor.bgColor};
+      background-color: ${({ isDarkMode }) =>
+        isDarkMode ? headerColor.dark.bgColor : sidebarColor.bgColor};
       display: flex;
       flex-direction: column;
 

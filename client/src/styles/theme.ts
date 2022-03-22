@@ -67,11 +67,23 @@ export const sidebar = {
     border: gray800,
     color_link: teal700,
   },
+  dark: {
+    bgColor: mainBgColor,
+    color: mainTextColor,
+    category: {
+      color: mainTextColor,
+      bgColor: subBgColor,
+      bgColor_hover: mainBgColor,
+    },
+  },
 };
 
 export const post = {
   color: gray900,
   color_link: teal700,
+  dark: {
+    color: mainTextColor,
+  },
 };
 
 export const theme: DefaultTheme = {

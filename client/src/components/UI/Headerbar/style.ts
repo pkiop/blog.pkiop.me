@@ -1,5 +1,5 @@
 // styles
-import { colors } from 'styles/theme';
+import { colors, transition } from 'styles/theme';
 import styled from 'styled-components';
 
 const { header: headerColor } = colors;
@@ -19,6 +19,7 @@ export const HeaderBar = styled.div<HeaderBarStyle>`
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid ${headerColor.color};
+  transition: ${transition.hoverTransitionTime} background-color;
 
   > a {
     font-size: 3.2rem;

@@ -1,15 +1,11 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import SidebarContainer from 'components/container/SidebarContainer';
 import ContentsContainer from 'components/container/ContentsContainer';
 import styled, { css } from 'styled-components';
 import MainTemplate from 'templates/Main';
-import { colors } from 'styles/theme';
-import { useSelector } from 'react-redux';
-import { GlobalStoreState } from 'types/store';
-
-const { main: mainColor } = colors;
-// styles
+import { useDispatch } from 'react-redux';
+import { setDarkMode } from 'state/createStore';
 
 const ContentsWrapper = styled.div`
   display: flex;
@@ -21,9 +17,7 @@ const ContentsWrapper = styled.div`
   }
 `;
 
-const IndexPageWrapper = styled.div<{ isDarkMode: boolean }>`
-  background-color: ${({ isDarkMode }) =>
-    isDarkMode ? mainColor.dark.bgColor : mainColor.bgColor};
+const IndexPageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,11 +25,14 @@ const IndexPageWrapper = styled.div<{ isDarkMode: boolean }>`
 
 // markup
 const IndexPage = () => {
-  const isDarkMode = useSelector((state: GlobalStoreState) => state.isDarkMode);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setDarkMode());
+  }, []);
   const MainContent = (
     <>
       <Helmet title="PKIOP BLOG" />
-      <IndexPageWrapper isDarkMode={isDarkMode}>
+      <IndexPageWrapper>
         <ContentsWrapper>
           <ContentsContainer />
           <SidebarContainer />

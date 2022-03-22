@@ -18,10 +18,12 @@ export const Content = styled.div<{ isDarkMode: boolean }>`
 
   &:hover {
     cursor: pointer;
-    transition: ${transition.hoverTransitionTime} filter;
+    transition: filter ${transition.hoverTransitionTime},
+      background-color ${transition.hoverTransitionTime};
     filter: brightness(105%);
   }
-  transition: ${transition.hoverTransitionTime} filter;
+  transition: filter ${transition.hoverTransitionTime},
+    background-color ${transition.hoverTransitionTime};
 
   > div {
     margin: 1em 1.8em;

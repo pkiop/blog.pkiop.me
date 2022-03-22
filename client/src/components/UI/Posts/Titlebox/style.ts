@@ -5,9 +5,10 @@ import ReadTimeComponent from './ReadTime';
 
 const { post: postColor } = colors;
 
-export const Titlebox = styled.div`
+export const Titlebox = styled.div<{ isDarkMode: boolean }>`
   padding: 3em;
-  color: ${postColor.color};
+  color: ${({ isDarkMode }) =>
+    isDarkMode ? postColor.dark.color : postColor.color};
   line-height: 5rem;
   word-break: keep-all;
 

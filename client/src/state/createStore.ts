@@ -8,6 +8,7 @@ const TOGGLE_TAG = 'TOGGLE_TAG';
 const CLEAR_FILTER = 'CLEAR_FILTER';
 const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR';
 const TOGGLE_DARKMODE = 'TOGGLE_DARKMODE';
+const SET_DARKMODE = 'SET_DARKMODE';
 
 export const setMainCategory = (mainCategory: string) => ({
   type: SET_MAIN_CATEGORY,
@@ -29,6 +30,9 @@ export const toggleSidebar = () => ({
 export const toggleDarkMode = () => ({
   type: TOGGLE_DARKMODE,
 });
+export const setDarkMode = () => ({
+  type: SET_DARKMODE,
+});
 
 type ReduxState = {
   mainCategory: string;
@@ -43,7 +47,7 @@ export const initialState: ReduxState = {
   subCategory: '',
   tag: [],
   isSidebarOpen: false,
-  isDarkMode: localStorage.getItem('isDarkMode') === 'true',
+  isDarkMode: false,
 };
 
 function reducer(state = initialState, action: any) {
@@ -77,7 +81,11 @@ function reducer(state = initialState, action: any) {
           : [...state.tag, action.payload].sort(),
       };
     case CLEAR_FILTER:
-      return { ...initialState, isSidebarOpen: state.isSidebarOpen };
+      return {
+        ...initialState,
+        isSidebarOpen: state.isSidebarOpen,
+        isDarkMode: state.isDarkMode,
+      };
     case TOGGLE_SIDEBAR:
       return {
         ...state,
@@ -88,6 +96,11 @@ function reducer(state = initialState, action: any) {
       return {
         ...state,
         isDarkMode: !state.isDarkMode,
+      };
+    case SET_DARKMODE:
+      return {
+        ...state,
+        isDarkMode: localStorage.getItem('isDarkMode') === 'true',
       };
     default:
       return state;
