@@ -1,10 +1,11 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import SidebarContainer from 'components/container/SidebarContainer';
 import ContentsContainer from 'components/container/ContentsContainer';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import MainTemplate from 'templates/Main';
-// styles
+import { useDispatch } from 'react-redux';
+import { setDarkMode } from 'state/createStore';
 
 const ContentsWrapper = styled.div`
   display: flex;
@@ -24,6 +25,10 @@ const IndexPageWrapper = styled.div`
 
 // markup
 const IndexPage = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setDarkMode());
+  }, []);
   const MainContent = (
     <>
       <Helmet title="PKIOP BLOG" />

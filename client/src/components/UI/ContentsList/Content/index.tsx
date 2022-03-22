@@ -3,6 +3,8 @@ import * as S from './style';
 import { IContent } from 'components/UI/ContentsList';
 import TagList from './TagList';
 import { navigate } from 'gatsby-link';
+import { useSelector } from 'react-redux';
+import { GlobalStoreState } from 'types/store';
 
 export interface IContentsComponent {
   className?: string;
@@ -10,8 +12,13 @@ export interface IContentsComponent {
 }
 
 function Content({ className, content }: IContentsComponent) {
+  const isDarkMode = useSelector((state: GlobalStoreState) => state.isDarkMode);
   return (
-    <S.Content onClick={() => navigate(content.slug)} className={className}>
+    <S.Content
+      onClick={() => navigate(content.slug)}
+      className={className}
+      isDarkMode={isDarkMode}
+    >
       <div>{content.title}</div>
       <S.SubInfo>
         <div className="category-date">

@@ -12,6 +12,7 @@ export interface IHeaderbar {
   nav: INav;
 }
 
-export interface ISidebarOpen {
+export interface SidebarStyle {
   isOpen: boolean;
+  isDarkMode: boolean;
 }

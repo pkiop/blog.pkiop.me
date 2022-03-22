@@ -8,7 +8,8 @@ import styled from 'styled-components';
 import MainTemplate from 'templates/Main';
 import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
 import { MOBILE_WIDTH } from 'styles/theme';
-
+import { useDispatch } from 'react-redux';
+import { setDarkMode } from 'state/createStore';
 deckDeckGoHighlightElement();
 
 const Wrapper = styled.div`
@@ -33,6 +34,10 @@ export default function Template({
   const { markdownRemark } = data; // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark;
   const [isMobile, setIsMobile] = useState(false);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setDarkMode());
+  }, []);
   useEffect(() => {
     // TODO: event 종료
     const setMobileState = () => {

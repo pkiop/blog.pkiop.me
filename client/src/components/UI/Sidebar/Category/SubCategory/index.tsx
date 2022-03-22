@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setMainCategory, setSubCategory } from 'state/createStore';
+import { GlobalStoreState } from 'types/store';
 import { IMainCategory } from '..';
 import * as S from './style';
 
@@ -20,6 +21,7 @@ function SubCategory({
   mainCategory,
 }: ISubCategoryComponent) {
   const dispatch = useDispatch();
+  const isDarkMode = useSelector((state: GlobalStoreState) => state.isDarkMode);
   const selectedSubCategory: string[] = useSelector(
     (state: any) => state.subCategory,
   );
@@ -39,6 +41,7 @@ function SubCategory({
         onClick={setCategory}
         key={category.title}
         isSelected={isSelected}
+        isDarkMode={isDarkMode}
       >
         {category.title}
         <S.Count>{category.count ? `(${category.count})` : ''}</S.Count>
@@ -46,7 +49,9 @@ function SubCategory({
     );
   });
   return (
-    <S.SubCategory className={className}>{subCategoryComponents}</S.SubCategory>
+    <S.SubCategory className={className} isDarkMode={isDarkMode}>
+      {subCategoryComponents}
+    </S.SubCategory>
   );
 }
 

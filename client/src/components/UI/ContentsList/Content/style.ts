@@ -4,22 +4,26 @@ import { colors, transition } from 'styles/theme';
 
 const { contents: contentsColor } = colors;
 
-export const Content = styled.div`
+export const Content = styled.div<{ isDarkMode: boolean }>`
   width: 100%;
   display: flex;
   flex-direction: column;
   margin: 1rem;
   border: 0.1rem solid ${colors.hr};
   border-radius: 0.8rem;
-  color: ${contentsColor.color};
-  background-color: ${contentsColor.bgColor};
+  color: ${({ isDarkMode }) =>
+    isDarkMode ? contentsColor.dark.color : contentsColor.color};
+  background-color: ${({ isDarkMode }) =>
+    isDarkMode ? contentsColor.dark.bgColor : contentsColor.bgColor};
 
   &:hover {
     cursor: pointer;
-    transition: ${transition.hoverTransitionTime} filter;
+    transition: filter ${transition.hoverTransitionTime},
+      background-color ${transition.hoverTransitionTime};
     filter: brightness(105%);
   }
-  transition: ${transition.hoverTransitionTime} filter;
+  transition: filter ${transition.hoverTransitionTime},
+    background-color ${transition.hoverTransitionTime};
 
   > div {
     margin: 1em 1.8em;

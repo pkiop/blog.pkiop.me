@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setMainCategory } from 'state/createStore';
 import { navigate } from 'gatsby-link';
 import { ISubCategory } from './SubCategory';
+import { GlobalStoreState } from 'types/store';
 
 export interface IMainCategory {
   title: string;
@@ -22,6 +23,7 @@ export interface ICategoryComponent {
 
 function Category({ className, category }: ICategoryComponent) {
   const dispatch = useDispatch();
+  const isDarkMode = useSelector((state: GlobalStoreState) => state.isDarkMode);
   const mainCategory: string = useSelector((state: any) => state.mainCategory);
 
   const setCategory = () => {
@@ -38,6 +40,7 @@ function Category({ className, category }: ICategoryComponent) {
       <S.CategoryTitle<any>
         onClick={setCategory}
         isSelected={mainCategory === category.mainCategory.title}
+        isDarkMode={isDarkMode}
       >
         {category.emoji} {category.mainCategory.title}
         <S.Count>

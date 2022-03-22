@@ -1,12 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
-import { colors } from 'styles/theme';
+import { colors, transition } from 'styles/theme';
 
 const { main: mainColor } = colors;
 /* http://meyerweb.com/eric/tools/css/reset/
   v2.0 | 20110126
   License: none (public domain)
 */
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle<{ isDarkMode: boolean }>`
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     padding: 0 !important;
@@ -36,7 +36,9 @@ const GlobalStyle = createGlobalStyle`
   }
   html, body, #root, .Section__container___3YYTG {
     height: 100%;
-    background-color: ${mainColor.bgColor};
+    background-color: ${({ isDarkMode }) =>
+      isDarkMode ? mainColor.dark.bgColor : mainColor.bgColor};
+    transition: ${transition.hoverTransitionTime} background-color; 
   }
   /* HTML5 display-role reset for older browsers */
   article, aside, details, figcaption, figure, 

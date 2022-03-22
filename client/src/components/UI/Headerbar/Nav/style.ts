@@ -1,22 +1,49 @@
 // styles
 import { colors, layout } from 'styles/theme';
 import styled from 'styled-components';
-import { ISidebarOpen } from 'types/headerbar';
+import { SidebarStyle } from 'types/headerbar';
 
 const { header: headerColor, sidebar: sidebarColor } = colors;
 export const Nav = styled.div``;
 
 const bdr = layout.sidebarBorderRadius;
 
-export const NavList = styled.div<ISidebarOpen>`
-  .header-nav-wrapper > a {
-    font-size: 2rem;
-    font-weight: 500;
-    color: ${headerColor.color};
-    margin-left: 1.6rem;
+export const NavList = styled.div<SidebarStyle>`
+  .header-nav-wrapper {
+    display: flex;
+    align-items: center;
+    > a {
+      font-size: 2rem;
+      font-weight: 500;
+      color: ${({ isDarkMode }) =>
+        isDarkMode ? headerColor.dark.color : headerColor.color};
+      margin-left: 1.6rem;
 
-    &:hover {
-      color: ${headerColor.color_hover};
+      &:hover {
+        color: ${({ isDarkMode }) =>
+          isDarkMode ? headerColor.dark.color_hover : headerColor.color_hover};
+      }
+    }
+
+    .dark-mode {
+      width: 3rem;
+      height: 3rem;
+      z-index: 99;
+      margin-left: 1.6rem;
+      border-radius: 999rem;
+      background-color: ${({ isDarkMode }) =>
+        isDarkMode ? headerColor.bgColor : headerColor.dark.bgColor};
+      cursor: pointer;
+
+      &:hover {
+        border: 3px solid
+          ${({ isDarkMode }) =>
+            isDarkMode
+              ? headerColor.darkModeBtnBorder
+              : headerColor.dark.darkModeBtnBorder};
+        background-color: ${({ isDarkMode }) =>
+          isDarkMode ? headerColor.bgColor : headerColor.dark.bgColor};
+      }
     }
   }
 
@@ -28,7 +55,8 @@ export const NavList = styled.div<ISidebarOpen>`
       top: 0;
       right: -1rem;
       right: ${({ isOpen }) => (isOpen ? '-1rem' : '-40rem')};
-      background-color: ${sidebarColor.bgColor};
+      background-color: ${({ isDarkMode }) =>
+        isDarkMode ? headerColor.dark.bgColor : sidebarColor.bgColor};
       display: flex;
       flex-direction: column;
 
@@ -60,7 +88,7 @@ export const HamburgerImg = styled.img`
   }
 `;
 
-export const FullScreenDimmed = styled.div<ISidebarOpen>`
+export const FullScreenDimmed = styled.div<SidebarStyle>`
   position: fixed;
   display: none;
   left: 0;

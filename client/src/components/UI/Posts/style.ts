@@ -4,12 +4,13 @@ import { colors } from 'styles/theme';
 
 const { post: postColor } = colors;
 
-export const Posts = styled.div`
+export const Posts = styled.div<{ isDarkMode: boolean }>`
   width: 100%;
 
   .blog-post-content {
     padding: 0 1.4em 1.4em;
-    color: ${postColor.color};
+    color: ${({ isDarkMode }) =>
+      isDarkMode ? postColor.dark.color : postColor.color};
     line-height: 3.6rem;
     font-size: 1.6rem;
     word-break: keep-all;

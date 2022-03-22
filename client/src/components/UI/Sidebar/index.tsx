@@ -6,6 +6,7 @@ import { clearFilter } from 'state/createStore';
 import { testTagList } from 'fixture/Tag';
 import { ISidebarStoreState } from 'types/store';
 import { colors } from 'styles/theme';
+import { GlobalStoreState } from 'types/store';
 
 const { sidebar: sidebarColor } = colors;
 
@@ -16,6 +17,7 @@ export interface ISidebarComponent {
 
 function Sidebar({ className, categoryList }: ISidebarComponent) {
   const dispatch = useDispatch();
+  const isDarkMode = useSelector((state: GlobalStoreState) => state.isDarkMode);
   const isSidebarOpen = useSelector(
     (state: ISidebarStoreState) => state.isSidebarOpen,
   );
@@ -23,9 +25,16 @@ function Sidebar({ className, categoryList }: ISidebarComponent) {
     return <S.Category key={category.mainCategory.title} category={category} />;
   });
   return (
-    <S.Sidebar className={className} isOpen={isSidebarOpen}>
+    <S.Sidebar
+      className={className}
+      isOpen={isSidebarOpen}
+      isDarkMode={isDarkMode}
+    >
       <div className="button-wrapper">
-        <S.FilterClearBtn onClick={() => dispatch(clearFilter())}>
+        <S.FilterClearBtn
+          onClick={() => dispatch(clearFilter())}
+          isDarkMode={isDarkMode}
+        >
           🔄
         </S.FilterClearBtn>
       </div>

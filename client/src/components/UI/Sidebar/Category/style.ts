@@ -12,7 +12,7 @@ export const Category = styled.div`
   flex-direction: column;
 `;
 
-export const CategoryTitle = styled.div`
+export const CategoryTitle = styled.div<{ isDarkMode: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,10 +20,16 @@ export const CategoryTitle = styled.div`
   font-size: ${fontSize};
   margin-bottom: 0.6rem;
   cursor: pointer;
-  color: ${sidebarColor.category.color};
+  color: ${({ isDarkMode }) =>
+    isDarkMode
+      ? sidebarColor.dark.category.color
+      : sidebarColor.category.color};
 
   padding: 0.6rem 1.4rem;
-  background-color: ${sidebarColor.category.bgColor};
+  background-color: ${({ isDarkMode }) =>
+    isDarkMode
+      ? sidebarColor.dark.category.bgColor
+      : sidebarColor.category.bgColor};
 
   border: 1px solid ${sidebarColor.category.border};
   border-radius: 0.6rem;
@@ -31,16 +37,23 @@ export const CategoryTitle = styled.div`
   margin-bottom: 0.6rem;
   transition: 0.2s background-color;
   :hover {
-    background-color: ${sidebarColor.category.bgColor_hover};
+    background-color: ${({ isDarkMode }) =>
+      isDarkMode
+        ? sidebarColor.dark.category.bgColor_hover
+        : sidebarColor.category.bgColor_hover};
     border: 1px solid ${sidebarColor.category.border};
     cursor: pointer;
   }
 
-  ${({ isSelected }: any) => {
+  ${({ isSelected, isDarkMode }: any) => {
     return (
       isSelected &&
       `
-    background-color: ${sidebarColor.category.bgColor_hover};
+    background-color: ${
+      isDarkMode
+        ? sidebarColor.dark.category.bgColor_hover
+        : sidebarColor.category.bgColor_hover
+    };
     border: 1px solid ${sidebarColor.category.border};
     cursor: pointer;
     `
