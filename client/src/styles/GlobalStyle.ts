@@ -36,7 +36,6 @@ const GlobalStyle = createGlobalStyle`
   }
   html, body, #root, .Section__container___3YYTG {
     height: 100%;
-    background-color: ${mainColor.bgColor};
   }
   /* HTML5 display-role reset for older browsers */
   article, aside, details, figcaption, figure, 

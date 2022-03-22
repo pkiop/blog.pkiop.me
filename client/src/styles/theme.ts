@@ -22,7 +22,11 @@ const teal200 = '#86e2ee';
 const teal100 = '#b5edf4';
 const teal50 = '#e1f8fb';
 
+// darkmode
 const mainBgColor = '#2d333a';
+const subBgColor = '#22272D';
+const mainTextColor = '#CDD9E5';
+const subTextColor = '#B0BAC6';
 
 export const header = {
   bgColor: gray200,
@@ -30,19 +34,28 @@ export const header = {
   color_hover: gray700,
   darkModeBtnBorder: teal100,
   dark: {
+    color: mainTextColor,
     bgColor: mainBgColor,
+    color_hover: subTextColor,
     darkModeBtnBorder: teal100,
   },
 };
 
 export const main = {
   bgColor: gray200,
+  dark: {
+    bgColor: subBgColor,
+  },
 };
 
 export const contents = {
   bgColor: gray300,
   bgColor_hover: gray200,
   color: gray900,
+  dark: {
+    color: mainTextColor,
+    bgColor: mainBgColor,
+  },
 };
 
 export const sidebar = {

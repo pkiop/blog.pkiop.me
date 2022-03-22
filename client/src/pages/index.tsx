@@ -2,8 +2,13 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import SidebarContainer from 'components/container/SidebarContainer';
 import ContentsContainer from 'components/container/ContentsContainer';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import MainTemplate from 'templates/Main';
+import { colors } from 'styles/theme';
+import { useSelector } from 'react-redux';
+import { GlobalStoreState } from 'types/store';
+
+const { main: mainColor } = colors;
 // styles
 
 const ContentsWrapper = styled.div`
@@ -16,7 +21,9 @@ const ContentsWrapper = styled.div`
   }
 `;
 
-const IndexPageWrapper = styled.div`
+const IndexPageWrapper = styled.div<{ isDarkMode: boolean }>`
+  background-color: ${({ isDarkMode }) =>
+    isDarkMode ? mainColor.dark.bgColor : mainColor.bgColor};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,10 +31,11 @@ const IndexPageWrapper = styled.div`
 
 // markup
 const IndexPage = () => {
+  const isDarkMode = useSelector((state: GlobalStoreState) => state.isDarkMode);
   const MainContent = (
     <>
       <Helmet title="PKIOP BLOG" />
-      <IndexPageWrapper>
+      <IndexPageWrapper isDarkMode={isDarkMode}>
         <ContentsWrapper>
           <ContentsContainer />
           <SidebarContainer />
