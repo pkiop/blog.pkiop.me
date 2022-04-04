@@ -74,6 +74,11 @@ export default function Template({
             "datePublished": "${new Date(frontmatter.date)}",
           }`}
         </script>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8000924543923636"
+          crossOrigin="anonymous"
+        ></script>
       </Helmet>
       {isMobile && <SidebarContainer />}
       <PostWrapper>
@@ -107,12 +112,6 @@ export default function Template({
           이에 따른 일정액의 수수료를 제공받습니다.
         </a>
       </div>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8000924543923636"
-          crossorigin="anonymous"></script>`,
-        }}
-      ></div>
 
       <Utterances />
     </Wrapper>

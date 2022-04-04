@@ -31,7 +31,13 @@ const IndexPage = () => {
   }, []);
   const MainContent = (
     <>
-      <Helmet title="PKIOP BLOG" />
+      <Helmet title="PKIOP BLOG">
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8000924543923636"
+          crossOrigin="anonymous"
+        ></script>
+      </Helmet>
       <IndexPageWrapper>
         <ContentsWrapper>
           <ContentsContainer />
@@ -41,12 +47,6 @@ const IndexPage = () => {
       <div
         dangerouslySetInnerHTML={{
           __html: `<script data-ad-client="ca-pub-8000924543923636" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>`,
-        }}
-      ></div>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8000924543923636"
-          crossorigin="anonymous"></script>`,
         }}
       ></div>
     </>
